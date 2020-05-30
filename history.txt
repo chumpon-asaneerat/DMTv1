@@ -6,8 +6,9 @@ Update 2020-05-31 #1
 -
 
 --------------------------------------------------------------------------------------------
+[commited]
 Update 2020-05-30 #6
--
+- Add 03.Windows.Service solution folder (preparing).
 
 [commited]
 Update 2020-05-30 #5

@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.DMT.Controls", "02.Contr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.DMT.Pages", "02.Controls\02.DMT.Pages\02.DMT.Pages.csproj", "{42DCC6BA-69B6-4DE0-8988-85EC884A2228}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03.Windows.Service", "03.Windows.Service", "{37600ED1-987F-4C0D-B7A3-C2BCA6DBD0FE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -12,8 +12,10 @@ Update 2020-05-30 #6
 Update 2020-05-30 #5
 -
 
+[commited]
 Update 2020-05-30 #4
--
+- Add DMT.Models project.
+- Add DMT.Services project.
 
 [commited]
 Update 2020-05-30 #3

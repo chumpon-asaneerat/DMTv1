@@ -9,8 +9,10 @@ Update 2020-05-31 #1
 Update 2020-05-30 #6
 -
 
+[commited]
 Update 2020-05-30 #5
--
+- Add DMT.Controls project.
+- Add DMT.Pages project.
 
 [commited]
 Update 2020-05-30 #4

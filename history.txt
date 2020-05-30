@@ -15,8 +15,9 @@ Update 2020-05-30 #5
 Update 2020-05-30 #4
 -
 
+[commited]
 Update 2020-05-30 #3
--
+- Add DMT.Core project.
 
 [commited]
 Update 2020-05-30 #2

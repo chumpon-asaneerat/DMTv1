@@ -5,8 +5,11 @@ Update 2020-06-05 #7
 Update 2020-06-05 #6
 -
 
+[commited]
 Update 2020-06-05 #5
--
+- Add SQLLite sample project.
+- Add LiteDB sample project.
+- Change ouput folder (all projects).
 
 [commited]
 Update 2020-06-05 #4

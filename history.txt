@@ -5,12 +5,13 @@ Update 2020-06-05 #4
 Update 2020-06-05 #3
 -
 
+[commited]
 Update 2020-06-05 #2
--
+- Add report viewer assemblies in references folder.
 
 [commited]
 Update 2020-06-05 #1
-- Add report viewer related vsix.
+- Add report viewer related f5c.
 - Update gitignore
 
 --------------------------------------------------------------------------------------------

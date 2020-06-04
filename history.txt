@@ -11,8 +11,9 @@ Update 2020-06-05 #13
 Update 2020-06-05 #12
 -
 
+[commited]
 Update 2020-06-05 #11
--
+- Change NLib project target framework to 4.6.
 
 [commited]
 Update 2020-06-05 #10

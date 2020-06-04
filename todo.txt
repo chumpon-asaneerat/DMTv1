@@ -9,8 +9,8 @@
 [X] 0009 - Prepare DMT.ACC.App project.
 [X] 0010 - Check all required assembles references (all projects).
 [X] 0011 - DMT.Core add DateTime extension methods.
-[ ] 0012 - 
-[ ] 0013 - 
+[X] 0012 - DMT.Core add NJson extension methods.
+[X] 0013 - DMT.Models add DMTModelBase abstract class.
 [ ] 0014 - 
 [ ] 0015 - 
 [ ] 0016 - 

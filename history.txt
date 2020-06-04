@@ -11,8 +11,9 @@ Update 2020-06-04 #5
 Update 2020-06-04 #4
 -
 
+[commited]
 Update 2020-06-04 #3
--
+- DMT.Models add DMTModelBase abstract class.
 
 [commited]
 Update 2020-06-04 #2

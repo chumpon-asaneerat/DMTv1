@@ -42,9 +42,6 @@
     <StartupObject>DMT.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NLib">
-      <HintPath>..\..\References\NLib.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
@@ -108,6 +105,10 @@
     <Resource Include="app.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\00.NLib\NLib\NLib.csproj">
+      <Project>{41a9d6c0-c833-403f-9bc1-eecdc246a428}</Project>
+      <Name>NLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\01.Core\01.DMT.Core\01.DMT.Core.csproj">
       <Project>{db7fb4b5-3662-479e-a7da-26b73611bfd4}</Project>
       <Name>01.DMT.Core</Name>

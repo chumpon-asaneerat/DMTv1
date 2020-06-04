@@ -1,9 +1,19 @@
 --------------------------------------------------------------------------------------------
+Update 2020-06-05 #7
+-
+
+Update 2020-06-05 #6
+-
+
+Update 2020-06-05 #5
+-
+
 Update 2020-06-05 #4
 -
 
+[commited]
 Update 2020-06-05 #3
--
+- Add RestSharp assembly in references folder.
 
 [commited]
 Update 2020-06-05 #2

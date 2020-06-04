@@ -1,16 +1,19 @@
 --------------------------------------------------------------------------------------------
-Update 2020-06-04 #7
+Update 2020-06-05 #4
 -
 
-Update 2020-06-04 #6
+Update 2020-06-05 #3
 -
 
-Update 2020-06-04 #5
+Update 2020-06-05 #2
 -
 
-Update 2020-06-04 #4
--
+[commited]
+Update 2020-06-05 #1
+- Add report viewer related vsix.
+- Update gitignore
 
+--------------------------------------------------------------------------------------------
 [commited]
 Update 2020-06-04 #3
 - DMT.Models add DMTModelBase abstract class.

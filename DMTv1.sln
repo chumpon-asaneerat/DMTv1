@@ -39,6 +39,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.DMT.TA.App", "09.App\02.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.DMT.ACC.App", "09.App\03.DMT.ACC.App\03.DMT.ACC.App.csproj", "{06AE8214-1B53-4FC3-B7AC-35B682EC171A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99.Tools", "99.Tools", "{BA63F3CC-5F62-4368-BDEC-729AFBE8C309}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.VSIX", "01.VSIX", "{F4D8E5EF-1B13-4484-8C56-F8292FA7E2AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReportViewer", "ReportViewer", "{07CAD8C5-E2BC-4EA0-8700-7A7380AA454B}"
+	ProjectSection(SolutionItems) = preProject
+		99.Tools\01.VSIX\ReportViewer\Microsoft.DataTools.ReportingServices.z01 = 99.Tools\01.VSIX\ReportViewer\Microsoft.DataTools.ReportingServices.z01
+		99.Tools\01.VSIX\ReportViewer\Microsoft.DataTools.ReportingServices.z02 = 99.Tools\01.VSIX\ReportViewer\Microsoft.DataTools.ReportingServices.z02
+		99.Tools\01.VSIX\ReportViewer\Microsoft.DataTools.ReportingServices.zip = 99.Tools\01.VSIX\ReportViewer\Microsoft.DataTools.ReportingServices.zip
+		99.Tools\01.VSIX\ReportViewer\Microsoft.RdlcDesigner.vsix = 99.Tools\01.VSIX\ReportViewer\Microsoft.RdlcDesigner.vsix
+		99.Tools\01.VSIX\ReportViewer\note.txt = 99.Tools\01.VSIX\ReportViewer\note.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +113,8 @@ Global
 		{835688A1-A3A7-41BE-B85F-CCFA12D60A98} = {B1B97C73-AC11-4B67-A441-8BF697EB1BDC}
 		{F23DE176-ECAA-4F92-898F-CF12091ED8C3} = {B1B97C73-AC11-4B67-A441-8BF697EB1BDC}
 		{06AE8214-1B53-4FC3-B7AC-35B682EC171A} = {B1B97C73-AC11-4B67-A441-8BF697EB1BDC}
+		{F4D8E5EF-1B13-4484-8C56-F8292FA7E2AF} = {BA63F3CC-5F62-4368-BDEC-729AFBE8C309}
+		{07CAD8C5-E2BC-4EA0-8700-7A7380AA454B} = {F4D8E5EF-1B13-4484-8C56-F8292FA7E2AF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E649CF5-EC41-479A-BECB-ADF883B25263}

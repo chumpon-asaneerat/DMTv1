@@ -2,8 +2,10 @@
 Update 2020-05-31 #2
 -
 
-Update 2020-05-31 #1
--
+[commited]
+Update 2020-06-03 #1
+- Add TOD Data Service project (windows service)
+- Add TA Data Service project (windows service)
 
 --------------------------------------------------------------------------------------------
 [commited]

@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="NLib, Version=4.0.4.3, Culture=neutral, PublicKeyToken=6b9d63d2a8a62ab5, processorArchitecture=x86">
       <SpecificVersion>False</SpecificVersion>

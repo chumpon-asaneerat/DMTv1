@@ -5,8 +5,10 @@ Update 2020-06-05 #9
 Update 2020-06-05 #8
 -
 
+[commited]
 Update 2020-06-05 #7
--
+- Add ReportViewer sample project.
+- Add ReportViewer sample project post build script. (required).
 
 [commited]
 Update 2020-06-05 #6

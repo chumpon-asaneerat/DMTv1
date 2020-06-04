@@ -1,13 +1,13 @@
-[ ] 0001 - 
-[ ] 0002 - 
-[ ] 0003 - 
-[ ] 0004 - 
-[ ] 0005 - 
-[ ] 0006 - 
-[ ] 0007 - 
-[ ] 0008 - 
-[ ] 0009 - 
-[ ] 0010 - 
+[X] 0001 - Prepare DMT.Core project.
+[X] 0002 - Prepare DMT.Models project.
+[X] 0003 - Prepare DMT.Controls project.
+[X] 0004 - Prepare DMT.Services project.
+[X] 0005 - Prepare DMT.TA.Services window service project.
+[X] 0006 - Prepare DMT.TOD.Services window service project.
+[X] 0007 - Prepare DMT.TA.App project.
+[X] 0008 - Prepare DMT.TOD.App project.
+[X] 0009 - Prepare DMT.ACC.App project.
+[X] 0010 - Check all required assembles references (all projects).
 [ ] 0011 - 
 [ ] 0012 - 
 [ ] 0013 - 

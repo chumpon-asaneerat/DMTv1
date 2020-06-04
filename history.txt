@@ -8,8 +8,9 @@ Update 2020-06-05 #6
 Update 2020-06-05 #5
 -
 
+[commited]
 Update 2020-06-05 #4
--
+- Add Self Host Microsoft WebApi and Owin assemblies in references folder.
 
 [commited]
 Update 2020-06-05 #3

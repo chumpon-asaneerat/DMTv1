@@ -8,7 +8,7 @@
 [X] 0008 - Prepare DMT.TOD.App project.
 [X] 0009 - Prepare DMT.ACC.App project.
 [X] 0010 - Check all required assembles references (all projects).
-[ ] 0011 - 
+[X] 0011 - DMT.Core add DateTime extension methods.
 [ ] 0012 - 
 [ ] 0013 - 
 [ ] 0014 - 

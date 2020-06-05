@@ -13,9 +13,9 @@
 [X] 0013 - DMT.Models add DMTModelBase abstract class.
 [X] 0014 - Port Nlib project (change target framework to v4.6).
 [X] 0015 - Port Nlib.Reports project (change target framework to v4.6).
-[ ] 0016 - 
-[ ] 0017 - 
-[ ] 0018 - 
+[X] 0016 - Add sample of SqlLite.
+[X] 0017 - Add sample of ReportViewer.
+[X] 0018 - Add sample of ReportViewer -> used Nlib.Reports.
 [ ] 0019 - 
 [ ] 0020 - 
 [ ] 0021 - 

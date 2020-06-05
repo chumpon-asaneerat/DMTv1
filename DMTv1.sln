@@ -64,6 +64,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLib", "00.NLib\NLib\NLib.c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLib.Reports", "00.NLib\NLib.Reports\NLib.Reports.csproj", "{5879D92A-F850-4A70-8D88-99D29F6A46F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.ReportViewerSample2", "10.Tests\04.ReportViewerSample2\04.ReportViewerSample2.csproj", "{29D9EDCC-5AA3-4B94-BDD0-DEA3D9FD80A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -130,6 +132,10 @@ Global
 		{5879D92A-F850-4A70-8D88-99D29F6A46F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5879D92A-F850-4A70-8D88-99D29F6A46F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5879D92A-F850-4A70-8D88-99D29F6A46F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29D9EDCC-5AA3-4B94-BDD0-DEA3D9FD80A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29D9EDCC-5AA3-4B94-BDD0-DEA3D9FD80A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29D9EDCC-5AA3-4B94-BDD0-DEA3D9FD80A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29D9EDCC-5AA3-4B94-BDD0-DEA3D9FD80A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -152,6 +158,7 @@ Global
 		{001ED238-49B0-432A-970F-9E0CDA7832C8} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 		{41A9D6C0-C833-403F-9BC1-EECDC246A428} = {CCA955D0-DA08-4D75-BEAB-686142508899}
 		{5879D92A-F850-4A70-8D88-99D29F6A46F3} = {CCA955D0-DA08-4D75-BEAB-686142508899}
+		{29D9EDCC-5AA3-4B94-BDD0-DEA3D9FD80A9} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E649CF5-EC41-479A-BECB-ADF883B25263}

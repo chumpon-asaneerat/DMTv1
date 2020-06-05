@@ -8,8 +8,10 @@ Update 2020-06-05 #14
 Update 2020-06-05 #13
 -
 
+[commited]
 Update 2020-06-05 #12
--
+- Add ReportViewer sample2 project (used NLib.Reports).
+- Add ReportViewer sample2 project post build script. (required).
 
 [commited]
 Update 2020-06-05 #11

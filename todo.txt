@@ -18,9 +18,9 @@
 [X] 0018 - Add sample of ReportViewer -> used Nlib.Reports.
 [X] 0019 - Test deploy report application to new PC for check required dlls is correct/valid (OK)
 [X] 0020 - Add sample for Owin Self host web server.
-[ ] 0021 - 
-[ ] 0022 - 
-[ ] 0023 - 
+[X] 0021 - Update sample for LiteDB general operation.
+[X] 0022 - Update sample for LiteDB test 100,000 records insert.
+[X] 0023 - Update sample for LiteDB rebuild database after delete.
 [ ] 0024 - 
 [ ] 0025 - 
 [ ] 0026 - 

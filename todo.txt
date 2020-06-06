@@ -17,7 +17,7 @@
 [X] 0017 - Add sample of ReportViewer.
 [X] 0018 - Add sample of ReportViewer -> used Nlib.Reports.
 [X] 0019 - Test deploy report application to new PC for check required dlls is correct/valid (OK)
-[ ] 0020 - 
+[X] 0020 - Add sample for Owin Self host web server.
 [ ] 0021 - 
 [ ] 0022 - 
 [ ] 0023 - 

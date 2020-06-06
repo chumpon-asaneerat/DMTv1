@@ -2,8 +2,9 @@
 Update 2020-06-07 #3
 -
 
+[commited]
 Update 2020-06-07 #2
--
+- Update .gitignore.
 
 [commited]
 Update 2020-06-07 #1

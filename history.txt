@@ -14,8 +14,9 @@ Update 2020-06-07 #7
 Update 2020-06-07 #6
 -
 
+[commited]
 Update 2020-06-07 #5
--
+- Add Generic Singelton Class sample project.
 
 [commited]
 Update 2020-06-07 #4

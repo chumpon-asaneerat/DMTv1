@@ -70,6 +70,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05.OwinSelfHostServerSample
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.GenericSingeltonSample", "10.Tests\06.GenericSingeltonSample\06.GenericSingeltonSample.csproj", "{A110ED41-26FD-40DF-BB0E-64A3D42F888F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.GenericSingeltonWPFSample", "10.Tests\07.GenericSingeltonWPFSample\07.GenericSingeltonWPFSample.csproj", "{6292F9F0-223C-4DC9-BBDC-50219DACA410}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -148,6 +150,10 @@ Global
 		{A110ED41-26FD-40DF-BB0E-64A3D42F888F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A110ED41-26FD-40DF-BB0E-64A3D42F888F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A110ED41-26FD-40DF-BB0E-64A3D42F888F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6292F9F0-223C-4DC9-BBDC-50219DACA410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6292F9F0-223C-4DC9-BBDC-50219DACA410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6292F9F0-223C-4DC9-BBDC-50219DACA410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6292F9F0-223C-4DC9-BBDC-50219DACA410}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -173,6 +179,7 @@ Global
 		{29D9EDCC-5AA3-4B94-BDD0-DEA3D9FD80A9} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 		{694B63EC-B0DB-4BD1-83C4-F3C132733C05} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 		{A110ED41-26FD-40DF-BB0E-64A3D42F888F} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
+		{6292F9F0-223C-4DC9-BBDC-50219DACA410} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E649CF5-EC41-479A-BECB-ADF883B25263}

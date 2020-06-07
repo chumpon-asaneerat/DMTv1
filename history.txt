@@ -1,19 +1,21 @@
 --------------------------------------------------------------------------------------------
-Update 2020-06-07 #10
+Update 2020-06-08 #5
 -
 
-Update 2020-06-07 #9
+Update 2020-06-08 #4
 -
 
-Update 2020-06-07 #8
+Update 2020-06-08 #3
 -
 
-Update 2020-06-07 #7
+Update 2020-06-08 #2
 -
 
-Update 2020-06-07 #6
--
+[commited]
+Update 2020-06-08 #1
+- Add Generic Singelton Class (WPF) sample project.
 
+--------------------------------------------------------------------------------------------
 [commited]
 Update 2020-06-07 #5
 - Add Generic Singelton Class sample project.

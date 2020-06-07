@@ -22,7 +22,7 @@
 [X] 0022 - Update sample for LiteDB test 100,000 records insert.
 [X] 0023 - Update sample for LiteDB rebuild database after delete.
 [X] 0024 - Add Generic Singelton Class sample project.
-[ ] 0025 - 
+[X] 0025 - Add Generic Singelton Class (WPF) sample project.
 [ ] 0026 - 
 [ ] 0027 - 
 [ ] 0028 - 

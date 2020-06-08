@@ -5,8 +5,10 @@ Update 2020-06-08 #11
 Update 2020-06-08 #10
 -
 
+[commited]
 Update 2020-06-08 #9
--
+- Add TA - CollectorFundBorrowWindow (window).
+- Add TA - CollectorFundReturnWindow (window).
 
 [commited]
 Update 2020-06-08 #8

@@ -8,8 +8,10 @@ Update 2020-06-08 #4
 Update 2020-06-08 #3
 -
 
+[commited]
 Update 2020-06-08 #2
--
+- Add PlazaHeader Control.
+- Add AccountHeader Control.
 
 [commited]
 Update 2020-06-08 #1

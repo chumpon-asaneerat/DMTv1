@@ -53,6 +53,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Header\AccountHeader.xaml.cs">
+      <DependentUpon>AccountHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Header\PlazaHeader.xaml.cs">
+      <DependentUpon>PlazaHeader.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -92,6 +98,21 @@
       <Project>{0040f19e-4885-4267-9404-61c8dc150f5f}</Project>
       <Name>03.DMT.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Controls\Header\AccountHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Header\PlazaHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controls\TA\" />
+    <Folder Include="Controls\TOD\" />
+    <Folder Include="Windows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

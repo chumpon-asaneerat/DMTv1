@@ -56,13 +56,13 @@
     <Compile Include="Controls\TA\Collector\Fund\Windows\CollectorFundBorrowWindow.xaml.cs">
       <DependentUpon>CollectorFundBorrowWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TA\Collector\Coupon\CollectorCouponBorrowEntry.xaml.cs">
+    <Compile Include="Controls\TA\Collector\Coupon\Entry\CollectorCouponBorrowEntry.xaml.cs">
       <DependentUpon>CollectorCouponBorrowEntry.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TA\Collector\Coupon\CollectorCouponReturnEntry.xaml.cs">
+    <Compile Include="Controls\TA\Collector\Coupon\Entry\CollectorCouponReturnEntry.xaml.cs">
       <DependentUpon>CollectorCouponReturnEntry.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TA\Collector\Fund\CollectorFundSummaryView.xaml.cs">
+    <Compile Include="Controls\TA\Collector\Fund\View\CollectorFundSummaryView.xaml.cs">
       <DependentUpon>CollectorFundSummaryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TA\Plaza\Entry\PlazaCouponEntry.xaml.cs">
@@ -183,15 +183,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\TA\Collector\Coupon\CollectorCouponBorrowEntry.xaml">
+    <Page Include="Controls\TA\Collector\Coupon\Entry\CollectorCouponBorrowEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\TA\Collector\Coupon\CollectorCouponReturnEntry.xaml">
+    <Page Include="Controls\TA\Collector\Coupon\Entry\CollectorCouponReturnEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\TA\Collector\Fund\CollectorFundSummaryView.xaml">
+    <Page Include="Controls\TA\Collector\Fund\View\CollectorFundSummaryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

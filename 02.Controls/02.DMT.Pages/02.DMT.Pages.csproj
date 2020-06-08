@@ -53,6 +53,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TA\Collector\Coupon\CollectorBorrowCouponPage.xaml.cs">
+      <DependentUpon>CollectorBorrowCouponPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TA\Collector\Coupon\CollectorReturnCouponPage.xaml.cs">
+      <DependentUpon>CollectorReturnCouponPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TA\Collector\Fund\CollectorFundSummaryPage.xaml.cs">
+      <DependentUpon>CollectorFundSummaryPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -96,6 +105,24 @@
       <Project>{aeed7b1c-4e56-4d44-bbd1-a936be653d4d}</Project>
       <Name>01.DMT.Controls</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="TA\Collector\Coupon\CollectorBorrowCouponPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TA\Collector\Coupon\CollectorReturnCouponPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TA\Collector\Fund\CollectorFundSummaryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\" />
+    <Folder Include="TOD\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -23,8 +23,11 @@ Update 2020-06-09 #4
 Update 2020-06-09 #3
 - 
 
+[commited]
 Update 2020-06-09 #2
-- 
+- Add TA - CollectorFundSummaryPage (page).
+- Add TA - CollectorReturnCouponPage (page).
+- Add TA - CollectorBorrowCouponPage (page).
 
 [commited]
 Update 2020-06-09 #1

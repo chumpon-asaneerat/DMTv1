@@ -56,9 +56,9 @@
 [X] 0056 - Add TA - CollectorFundSummaryPage (page).
 [x] 0057 - Add TA - CollectorReturnCouponPage (page).
 [X] 0058 - Add TA - CollectorBorrowCouponPage (page).
-[ ] 0059 - 
-[ ] 0060 - 
-[ ] 0061 - 
+[X] 0059 - Add TA - PlazaRequestExchangePage (page).
+[ ] 0060 - Add TA - PlazaCouponReceivedPage (page).
+[ ] 0061 - Add TA - PlazaFundReceivedPage (page).
 [ ] 0062 - 
 [ ] 0063 - 
 [ ] 0064 - 

@@ -20,8 +20,11 @@ Update 2020-06-09 #5
 Update 2020-06-09 #4
 - 
 
+[commited]
 Update 2020-06-09 #3
-- 
+- Add TA - PlazaRequestExchangePage (page).
+- Add TA - PlazaCouponReceivedPage (page).
+- Add TA - PlazaFundReceivedPage (page).
 
 [commited]
 Update 2020-06-09 #2

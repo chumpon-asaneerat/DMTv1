@@ -53,6 +53,18 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\TA\RequestExchange\AccountRequestExchangeView.xaml.cs">
+      <DependentUpon>AccountRequestExchangeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TA\RequestExchange\PlazaRequestExchangeView.xaml.cs">
+      <DependentUpon>PlazaRequestExchangeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TA\Plaza\PlazaCouponView.xaml.cs">
+      <DependentUpon>PlazaCouponView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TA\Plaza\PlazaFundView.xaml.cs">
+      <DependentUpon>PlazaFundView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TOD\Entry\LaneView.xaml.cs">
       <DependentUpon>LaneView.xaml</DependentUpon>
     </Compile>
@@ -124,6 +136,22 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\TA\RequestExchange\AccountRequestExchangeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TA\RequestExchange\PlazaRequestExchangeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TA\Plaza\PlazaCouponView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TA\Plaza\PlazaFundView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\TOD\Entry\LaneView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -166,7 +194,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\TA\" />
+    <Folder Include="Controls\TA\Collector\" />
+    <Folder Include="Controls\TA\Coupon\" />
+    <Folder Include="Controls\TA\Entry\" />
     <Folder Include="Windows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

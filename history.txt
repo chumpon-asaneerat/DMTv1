@@ -14,8 +14,12 @@ Update 2020-06-08 #8
 Update 2020-06-08 #7
 -
 
+[commited]
 Update 2020-06-08 #6
--
+- Add TA - PlazaFundView control.
+- Add TA - PlazaCouponView control.
+- Add TA - PlazaRequestExchangeView control.
+- Add TA - AccountRequestExchangeView control.
 
 [commited]
 Update 2020-06-08 #5

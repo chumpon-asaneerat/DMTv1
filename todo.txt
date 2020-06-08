@@ -34,10 +34,10 @@
 [X] 0034 - Add TOD - CouponReveunuEntry control.
 [X] 0035 - Add TOD - OtherEntry control.
 [X] 0036 - Add TOD - LaneView control.
-[ ] 0037 - 
-[ ] 0038 - 
-[ ] 0039 - 
-[ ] 0040 - 
+[X] 0037 - Add TA - PlazaFundView control.
+[X] 0038 - Add TA - PlazaCouponView control.
+[X] 0039 - Add TA - PlazaRequestExchangeView control.
+[X] 0040 - Add TA - AccountRequestExchangeView control.
 [ ] 0041 - 
 [ ] 0042 - 
 [ ] 0043 - 

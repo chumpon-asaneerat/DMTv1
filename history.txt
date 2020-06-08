@@ -11,8 +11,9 @@ Update 2020-06-09 #8
 Update 2020-06-09 #7
 - 
 
+[commited]
 Update 2020-06-09 #6
-- 
+- All application projects add app.manifest file for supports windows form dpi aware.
 
 [commited]
 Update 2020-06-09 #5

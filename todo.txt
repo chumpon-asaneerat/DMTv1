@@ -63,7 +63,7 @@
 [X] 0063 - Add TA MainMenu (page).
 [X] 0064 - Add TOD MainMenu (page).
 [X] 0065 - Add DMT.Plaza.Config app project.
-[ ] 0066 - 
+[X] 0066 - All application projects add app.manifest file for supports windows form dpi aware.
 [ ] 0067 - 
 [ ] 0068 - 
 [ ] 0069 - 

@@ -46,8 +46,8 @@
 [X] 0046 - Add TA - CollectorCouponReturnEntry control.
 [X] 0047 - Add TA - CollectorFundBorrowWindow (window).
 [X] 0048 - Add TA - CollectorFundReturnWindow (window).
-[ ] 0049 - 
-[ ] 0050 - 
+[X] 0049 - Add TA - PlazaFundRequestExchangeWindow (window).
+[X] 0050 - Add TA - PlazaFundUpdateExchangeWindow (window).
 [ ] 0051 - 
 [ ] 0052 - 
 [ ] 0053 - 

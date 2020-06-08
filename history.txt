@@ -2,8 +2,10 @@
 Update 2020-06-08 #11
 -
 
+[commited]
 Update 2020-06-08 #10
--
+- Add TA - PlazaFundRequestExchangeWindow (window).
+- Add TA - PlazaFundUpdateExchangeWindow (window).
 
 [commited]
 Update 2020-06-08 #9

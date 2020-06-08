@@ -77,6 +77,7 @@
     <Compile Include="Controls\TA\Exchange\PlazaRequestExchangeView.xaml.cs">
       <DependentUpon>PlazaRequestExchangeView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TA\Exchange\Windows\ExchangeWindowMode.cs" />
     <Compile Include="Controls\TA\Plaza\PlazaCouponView.xaml.cs">
       <DependentUpon>PlazaCouponView.xaml</DependentUpon>
     </Compile>
@@ -128,6 +129,12 @@
     </Compile>
     <Compile Include="Controls\TA\Collector\Fund\Windows\CollectorFundReturnWindow.xaml.cs">
       <DependentUpon>CollectorFundReturnWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TA\Exchange\Windows\PlazaFundRequestExchangeWindow.xaml.cs">
+      <DependentUpon>PlazaFundRequestExchangeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TA\Exchange\Windows\PlazaFundUpdateExchangeWindow.xaml.cs">
+      <DependentUpon>PlazaFundUpdateExchangeWindow.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -241,9 +248,16 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\TA\Exchange\Windows\PlazaFundRequestExchangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TA\Exchange\Windows\PlazaFundUpdateExchangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\TA\Exchange\Windows\" />
     <Folder Include="Windows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

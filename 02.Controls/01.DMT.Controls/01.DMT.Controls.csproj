@@ -148,6 +148,9 @@
     <Compile Include="Controls\TA\Plaza\Windows\PlazaReceivedFundWindow.xaml.cs">
       <DependentUpon>PlazaReceivedFundWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SignIn\Windows\SignInWindow.xaml.cs">
+      <DependentUpon>SignInWindow.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -281,6 +284,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TA\Plaza\Windows\PlazaReceivedFundWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\SignIn\Windows\SignInWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

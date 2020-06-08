@@ -62,7 +62,7 @@
 [X] 0062 - Add SignInPage (page).
 [X] 0063 - Add TA MainMenu (page).
 [X] 0064 - Add TOD MainMenu (page).
-[ ] 0065 - 
+[X] 0065 - Add DMT.Plaza.Config app project.
 [ ] 0066 - 
 [ ] 0067 - 
 [ ] 0068 - 

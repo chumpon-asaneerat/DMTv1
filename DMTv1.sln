@@ -72,6 +72,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06.GenericSingeltonSample",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07.GenericSingeltonWPFSample", "10.Tests\07.GenericSingeltonWPFSample\07.GenericSingeltonWPFSample.csproj", "{6292F9F0-223C-4DC9-BBDC-50219DACA410}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.DMT.Plaza.Config", "09.App\04.DMT.Plaza.Config\04.DMT.Plaza.Config.csproj", "{5BB93B6E-6478-43CE-9067-53502E606002}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -154,6 +156,10 @@ Global
 		{6292F9F0-223C-4DC9-BBDC-50219DACA410}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6292F9F0-223C-4DC9-BBDC-50219DACA410}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6292F9F0-223C-4DC9-BBDC-50219DACA410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BB93B6E-6478-43CE-9067-53502E606002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BB93B6E-6478-43CE-9067-53502E606002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BB93B6E-6478-43CE-9067-53502E606002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BB93B6E-6478-43CE-9067-53502E606002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -180,6 +186,7 @@ Global
 		{694B63EC-B0DB-4BD1-83C4-F3C132733C05} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 		{A110ED41-26FD-40DF-BB0E-64A3D42F888F} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 		{6292F9F0-223C-4DC9-BBDC-50219DACA410} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
+		{5BB93B6E-6478-43CE-9067-53502E606002} = {B1B97C73-AC11-4B67-A441-8BF697EB1BDC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E649CF5-EC41-479A-BECB-ADF883B25263}

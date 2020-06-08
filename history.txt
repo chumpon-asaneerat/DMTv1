@@ -14,8 +14,9 @@ Update 2020-06-09 #7
 Update 2020-06-09 #6
 - 
 
+[commited]
 Update 2020-06-09 #5
-- 
+- Add DMT.Plaza.Config app project.
 
 [commited]
 Update 2020-06-09 #4

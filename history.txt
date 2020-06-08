@@ -9,8 +9,9 @@ Update 2020-06-08 #15
 Update 2020-06-08 #14
 - 
 
+[commited]
 Update 2020-06-08 #13
-- 
+- Add TA - PlazaReceivedFundWindow (window).
 
 [commited]
 Update 2020-06-08 #12

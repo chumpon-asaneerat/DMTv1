@@ -51,7 +51,7 @@
 [X] 0051 - Add TOD - BOJWindow (window).
 [X] 0052 - Add TOD - EOJWindow (window).
 [X] 0053 - Add TA - PlazaStockSummaryWindow (window).
-[ ] 0054 - 
+[X] 0054 - Add TA - PlazaReceivedFundWindow (window).
 [ ] 0055 - 
 [ ] 0056 - 
 [ ] 0057 - 

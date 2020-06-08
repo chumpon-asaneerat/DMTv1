@@ -32,8 +32,8 @@
 [x] 0032 - Add TOD - QRCodeEntry control.
 [X] 0033 - Add TOD - CouponUsageEntry control.
 [X] 0034 - Add TOD - CouponReveunuEntry control.
-[ ] 0035 - 
-[ ] 0036 - 
+[X] 0035 - Add TOD - OtherEntry control.
+[X] 0036 - Add TOD - LaneView control.
 [ ] 0037 - 
 [ ] 0038 - 
 [ ] 0039 - 

@@ -8,8 +8,9 @@ Update 2020-06-09 #9
 Update 2020-06-09 #8
 - 
 
+[commited]
 Update 2020-06-09 #7
-- 
+- DMT.Plaza.Config app project. Remove ribbon controls (has bug in RibbonWindow Title).
 
 [commited]
 Update 2020-06-09 #6

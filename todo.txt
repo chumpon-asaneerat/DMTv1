@@ -57,11 +57,11 @@
 [x] 0057 - Add TA - CollectorReturnCouponPage (page).
 [X] 0058 - Add TA - CollectorBorrowCouponPage (page).
 [X] 0059 - Add TA - PlazaRequestExchangePage (page).
-[ ] 0060 - Add TA - PlazaCouponReceivedPage (page).
-[ ] 0061 - Add TA - PlazaFundReceivedPage (page).
-[ ] 0062 - 
-[ ] 0063 - 
-[ ] 0064 - 
+[X] 0060 - Add TA - PlazaCouponReceivedPage (page).
+[x] 0061 - Add TA - PlazaFundReceivedPage (page).
+[X] 0062 - Add SignInPage (page).
+[X] 0063 - Add TA MainMenu (page).
+[X] 0064 - Add TOD MainMenu (page).
 [ ] 0065 - 
 [ ] 0066 - 
 [ ] 0067 - 

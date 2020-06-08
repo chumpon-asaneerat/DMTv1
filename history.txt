@@ -17,8 +17,11 @@ Update 2020-06-09 #6
 Update 2020-06-09 #5
 - 
 
+[commited]
 Update 2020-06-09 #4
-- 
+- Add SignInPage (page).
+- Add TA MainMenu (page).
+- Add TOD MainMenu (page).
 
 [commited]
 Update 2020-06-09 #3

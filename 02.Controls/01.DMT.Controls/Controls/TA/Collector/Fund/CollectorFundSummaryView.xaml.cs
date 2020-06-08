@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 #endregion
 
-namespace DMT.Controls
+namespace DMT.TA.Controls.Collector.Fund
 {
     /// <summary>
     /// Interaction logic for CollectorFundSummaryView.xaml

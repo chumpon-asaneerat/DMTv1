@@ -7,19 +7,19 @@ using System.Windows.Controls;
 
 #endregion
 
-namespace DMT.TA.Controls.Collector.Coupon
+namespace DMT.TOD.Controls.Revenue.Entry
 {
     /// <summary>
-    /// Interaction logic for CollectorCouponBorrowEntry.xaml
+    /// Interaction logic for OtherEntry.xaml
     /// </summary>
-    public partial class CollectorCouponBorrowEntry : UserControl
+    public partial class OtherEntry : UserControl
     {
         #region Constructor
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public CollectorCouponBorrowEntry()
+        public OtherEntry()
         {
             InitializeComponent();
         }

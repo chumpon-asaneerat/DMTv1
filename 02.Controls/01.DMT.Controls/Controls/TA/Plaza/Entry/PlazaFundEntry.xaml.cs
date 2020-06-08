@@ -7,19 +7,19 @@ using System.Windows.Controls;
 
 #endregion
 
-namespace DMT.TA.Controls.Collector.Coupon
+namespace DMT.TA.Controls.Plaza.Entry
 {
     /// <summary>
-    /// Interaction logic for CollectorCouponBorrowEntry.xaml
+    /// Interaction logic for PlazaFundEntry.xaml
     /// </summary>
-    public partial class CollectorCouponBorrowEntry : UserControl
+    public partial class PlazaFundEntry : UserControl
     {
         #region Constructor
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public CollectorCouponBorrowEntry()
+        public PlazaFundEntry()
         {
             InitializeComponent();
         }

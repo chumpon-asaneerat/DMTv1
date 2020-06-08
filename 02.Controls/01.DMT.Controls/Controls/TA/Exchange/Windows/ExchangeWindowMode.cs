@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 #endregion
 
-namespace DMT.Windows
+namespace DMT.TA.Windows.Exchange
 {
     /// <summary>
     /// The Exchange Window Mode enum.

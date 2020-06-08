@@ -7,19 +7,19 @@ using System.Windows.Controls;
 
 #endregion
 
-namespace DMT.TA.Controls.Collector.Coupon
+namespace DMT.TA.Controls.Exchange.View
 {
     /// <summary>
-    /// Interaction logic for CollectorCouponBorrowEntry.xaml
+    /// Interaction logic for AccountRequestExchangeView.xaml
     /// </summary>
-    public partial class CollectorCouponBorrowEntry : UserControl
+    public partial class AccountRequestExchangeView : UserControl
     {
         #region Constructor
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public CollectorCouponBorrowEntry()
+        public AccountRequestExchangeView()
         {
             InitializeComponent();
         }

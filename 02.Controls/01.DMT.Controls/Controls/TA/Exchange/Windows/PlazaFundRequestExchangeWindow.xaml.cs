@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 #endregion
 
-namespace DMT.Windows
+namespace DMT.TA.Windows.Exchange
 {
     /// <summary>
     /// Interaction logic for PlazaFundRequestExchangeWindow.xaml

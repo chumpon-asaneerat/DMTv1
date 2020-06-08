@@ -6,7 +6,7 @@ using System.Windows;
 
 #endregion
 
-namespace DMT.Windows
+namespace DMT.TOD.Windows.Job
 {
     /// <summary>
     /// Interaction logic for BOJWindow.xaml

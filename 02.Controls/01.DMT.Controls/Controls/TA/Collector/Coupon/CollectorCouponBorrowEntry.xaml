@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DMT.Controls.CollectorCouponBorrowEntry"
+﻿<UserControl x:Class="DMT.TA.Controls.Collector.Coupon.CollectorCouponBorrowEntry"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

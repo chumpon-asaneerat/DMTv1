@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 #endregion
 
-namespace DMT.Windows
+namespace DMT.TA.Windows.Plaza
 {
     /// <summary>
     /// Interaction logic for PlazaReceivedFundWindow.xaml

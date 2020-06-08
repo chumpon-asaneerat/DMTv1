@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 #endregion
 
-namespace DMT.Controls
+namespace DMT.TA.Controls.Collector.Coupon
 {
     /// <summary>
     /// Interaction logic for CollectorCouponReturnEntry.xaml

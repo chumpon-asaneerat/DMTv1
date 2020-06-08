@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 #endregion
 
-namespace DMT.Windows
+namespace DMT.TA.Windows.Collector.Fund
 {
     /// <summary>
     /// Interaction logic for CollectorFundBorrowWindow.xaml

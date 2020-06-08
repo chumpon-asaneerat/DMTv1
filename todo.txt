@@ -52,7 +52,7 @@
 [X] 0052 - Add TOD - EOJWindow (window).
 [X] 0053 - Add TA - PlazaStockSummaryWindow (window).
 [X] 0054 - Add TA - PlazaReceivedFundWindow (window).
-[ ] 0055 - 
+[ ] 0055 - restructure namespace.
 [ ] 0056 - 
 [ ] 0057 - 
 [ ] 0058 - 

@@ -11,8 +11,11 @@ Update 2020-06-08 #9
 Update 2020-06-08 #8
 -
 
+[commited]
 Update 2020-06-08 #7
--
+- Add TA - PlazaCouponEntry control.
+- Add TA - PlazaFundEntry control.
+- Format code for all controls and remove unused code.
 
 [commited]
 Update 2020-06-08 #6

@@ -53,6 +53,12 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\TA\Entry\PlazaCouponEntry.xaml.cs">
+      <DependentUpon>PlazaCouponEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TA\Entry\PlazaFundEntry.xaml.cs">
+      <DependentUpon>PlazaFundEntry.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TA\RequestExchange\AccountRequestExchangeView.xaml.cs">
       <DependentUpon>AccountRequestExchangeView.xaml</DependentUpon>
     </Compile>
@@ -136,6 +142,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\TA\Entry\PlazaCouponEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TA\Entry\PlazaFundEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\TA\RequestExchange\AccountRequestExchangeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -196,7 +210,6 @@
   <ItemGroup>
     <Folder Include="Controls\TA\Collector\" />
     <Folder Include="Controls\TA\Coupon\" />
-    <Folder Include="Controls\TA\Entry\" />
     <Folder Include="Windows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

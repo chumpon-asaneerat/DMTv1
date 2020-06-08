@@ -38,9 +38,9 @@
 [X] 0038 - Add TA - PlazaCouponView control.
 [X] 0039 - Add TA - PlazaRequestExchangeView control.
 [X] 0040 - Add TA - AccountRequestExchangeView control.
-[ ] 0041 - 
-[ ] 0042 - 
-[ ] 0043 - 
+[X] 0041 - Add TA - PlazaCouponEntry control.
+[x] 0042 - Add TA - PlazaFundEntry control.
+[X] 0043 - Format code for all controls and remove unused code.
 [ ] 0044 - 
 [ ] 0045 - 
 [ ] 0046 - 

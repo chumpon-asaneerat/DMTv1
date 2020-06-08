@@ -10,16 +10,16 @@ using System.Windows.Controls;
 namespace DMT.Controls
 {
     /// <summary>
-    /// Interaction logic for EMVEntry.xaml
+    /// Interaction logic for PlazaCouponEntry.xaml
     /// </summary>
-    public partial class EMVEntry : UserControl
+    public partial class PlazaCouponEntry : UserControl
     {
         #region Constructor
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public EMVEntry()
+        public PlazaCouponEntry()
         {
             InitializeComponent();
         }

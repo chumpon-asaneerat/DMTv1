@@ -53,6 +53,15 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\TA\Collector\Coupon\CollectorCouponBorrowEntry.xaml.cs">
+      <DependentUpon>CollectorCouponBorrowEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TA\Collector\Coupon\CollectorCouponReturnEntry.xaml.cs">
+      <DependentUpon>CollectorCouponReturnEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TA\Collector\Fund\CollectorFundSummaryView.xaml.cs">
+      <DependentUpon>CollectorFundSummaryView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TA\Entry\PlazaCouponEntry.xaml.cs">
       <DependentUpon>PlazaCouponEntry.xaml</DependentUpon>
     </Compile>
@@ -142,6 +151,18 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\TA\Collector\Coupon\CollectorCouponBorrowEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TA\Collector\Coupon\CollectorCouponReturnEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TA\Collector\Fund\CollectorFundSummaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\TA\Entry\PlazaCouponEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -208,8 +229,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\TA\Collector\" />
-    <Folder Include="Controls\TA\Coupon\" />
     <Folder Include="Windows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

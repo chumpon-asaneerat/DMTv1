@@ -8,8 +8,11 @@ Update 2020-06-08 #10
 Update 2020-06-08 #9
 -
 
+[commited]
 Update 2020-06-08 #8
--
+- Add TA - CollectorFundSummaryView control.
+- Add TA - CollectorCouponBorrowEntry control.
+- Add TA - CollectorCouponReturnEntry control.
 
 [commited]
 Update 2020-06-08 #7

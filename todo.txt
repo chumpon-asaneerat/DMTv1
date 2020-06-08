@@ -41,9 +41,9 @@
 [X] 0041 - Add TA - PlazaCouponEntry control.
 [x] 0042 - Add TA - PlazaFundEntry control.
 [X] 0043 - Format code for all controls and remove unused code.
-[ ] 0044 - 
-[ ] 0045 - 
-[ ] 0046 - 
+[X] 0044 - Add TA - CollectorFundSummaryView control.
+[X] 0045 - Add TA - CollectorCouponBorrowEntry control.
+[X] 0046 - Add TA - CollectorCouponReturnEntry control.
 [ ] 0047 - 
 [ ] 0048 - 
 [ ] 0049 - 

@@ -12,8 +12,9 @@ Update 2020-06-08 #14
 Update 2020-06-08 #13
 - 
 
+[commited]
 Update 2020-06-08 #12
-- 
+- Add TA - PlazaStockSummaryWindow (window).
 
 [commited]
 Update 2020-06-08 #11

@@ -136,6 +136,12 @@
     <Compile Include="Controls\TA\Exchange\Windows\PlazaFundUpdateExchangeWindow.xaml.cs">
       <DependentUpon>PlazaFundUpdateExchangeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\BOJWindow.xaml.cs">
+      <DependentUpon>BOJWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EOJWindow.xaml.cs">
+      <DependentUpon>EOJWindow.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -256,9 +262,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\BOJWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EOJWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Windows\" />
+    <Folder Include="Controls\TOD\Job\Windows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

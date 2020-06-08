@@ -48,8 +48,8 @@
 [X] 0048 - Add TA - CollectorFundReturnWindow (window).
 [X] 0049 - Add TA - PlazaFundRequestExchangeWindow (window).
 [X] 0050 - Add TA - PlazaFundUpdateExchangeWindow (window).
-[ ] 0051 - 
-[ ] 0052 - 
+[X] 0051 - Add TOD - BOJWindow (window).
+[X] 0052 - Add TOD - EOJWindow (window).
 [ ] 0053 - 
 [ ] 0054 - 
 [ ] 0055 - 

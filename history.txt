@@ -1,9 +1,32 @@
 --------------------------------------------------------------------------------------------
+Update 2020-06-08 #11
+-
+
+Update 2020-06-08 #10
+-
+
+Update 2020-06-08 #9
+-
+
+Update 2020-06-08 #8
+-
+
+Update 2020-06-08 #7
+-
+
+Update 2020-06-08 #6
+-
+
 Update 2020-06-08 #5
 -
 
+[commited]
 Update 2020-06-08 #4
--
+- Add TOD - RevenueEntry control.
+- Add TOD - EMVEntry control.
+- Add TOD - QRCodeEntry control.
+- Add TOD - CouponUsageEntry control.
+- Add TOD - CouponReveunuEntry control.
 
 [commited]
 Update 2020-06-08 #3

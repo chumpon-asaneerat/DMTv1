@@ -53,11 +53,26 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\TOD\Entry\CouponRevenueEntry.xaml.cs">
+      <DependentUpon>CouponRevenueEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TOD\Entry\CouponUsageEntry.xaml.cs">
+      <DependentUpon>CouponUsageEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TOD\Entry\EMVEntry.xaml.cs">
+      <DependentUpon>EMVEntry.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Header\AccountHeader.xaml.cs">
       <DependentUpon>AccountHeader.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Header\PlazaHeader.xaml.cs">
       <DependentUpon>PlazaHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TOD\Entry\QRCodeEntry.xaml.cs">
+      <DependentUpon>QRCodeEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TOD\Entry\RevenueEntry.xaml.cs">
+      <DependentUpon>RevenueEntry.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TOD\Shift\ShiftView.xaml.cs">
       <DependentUpon>ShiftView.xaml</DependentUpon>
@@ -103,11 +118,31 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\TOD\Entry\CouponRevenueEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TOD\Entry\CouponUsageEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TOD\Entry\EMVEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Header\AccountHeader.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Header\PlazaHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TOD\Entry\QRCodeEntry.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TOD\Entry\RevenueEntry.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,7 +153,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\TA\" />
-    <Folder Include="Controls\TOD\Entry\" />
     <Folder Include="Windows\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

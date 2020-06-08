@@ -23,15 +23,15 @@
 [X] 0023 - Update sample for LiteDB rebuild database after delete.
 [X] 0024 - Add Generic Singelton Class sample project.
 [X] 0025 - Add Generic Singelton Class (WPF) sample project.
-[ ] 0026 - 
-[ ] 0027 - 
-[ ] 0028 - 
-[ ] 0029 - 
-[ ] 0030 - 
-[ ] 0031 - 
-[ ] 0032 - 
-[ ] 0033 - 
-[ ] 0034 - 
+[X] 0026 - Add Header - PlazaHeader Control.
+[X] 0027 - Add Header - AccountHeader Control.
+[X] 0028 - Add TOD - ShiftView Control.
+[X] 0029 - Add TOD - ShiftView Control.
+[x] 0030 - Add TOD - RevenueEntry control.
+[x] 0031 - Add TOD - EMVEntry control.
+[x] 0032 - Add TOD - QRCodeEntry control.
+[X] 0033 - Add TOD - CouponUsageEntry control.
+[X] 0034 - Add TOD - CouponReveunuEntry control.
 [ ] 0035 - 
 [ ] 0036 - 
 [ ] 0037 - 

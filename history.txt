@@ -2,8 +2,9 @@
 Update 2020-06-09 #14
 - 
 
+[commited]
 Update 2020-06-09 #13
-- 
+- Add sample structure for report datasource (criteria and item)/report file.
 
 [commited]
 Update 2020-06-09 #12

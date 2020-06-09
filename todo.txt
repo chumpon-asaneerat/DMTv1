@@ -68,7 +68,7 @@
 [X] 0068 - Add TA ReportManager.
 [X] 0069 - Add TOD ReportManager.
 [X] 0070 - Add DMT.Reports project.
-[ ] 0071 - 
+[X] 0071 - Add sample structure for report datasource (criteria and item)/report file.
 [ ] 0072 - 
 [ ] 0073 - 
 [ ] 0074 - 

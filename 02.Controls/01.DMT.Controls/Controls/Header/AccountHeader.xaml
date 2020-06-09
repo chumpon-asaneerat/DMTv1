@@ -9,6 +9,13 @@
              Loaded="UserControl_Loaded"
              Unloaded="UserControl_Unloaded">
     <Grid>
-            
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#A3404040" Offset="0.021"/>
+                <GradientStop Color="#FF404040" Offset="1"/>
+                <GradientStop Color="#FF646464" Offset="0.315"/>
+                <GradientStop Color="#FF646464" Offset="0.193"/>
+            </LinearGradientBrush>
+        </Grid.Background>
     </Grid>
 </UserControl>

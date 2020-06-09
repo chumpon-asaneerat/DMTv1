@@ -2,8 +2,13 @@
 Update 2020-06-09 #16
 - 
 
+[commited]
 Update 2020-06-09 #15
-- 
+- Implement HeaderDateTime GUI layout.
+- Implement HeaderLogo GUI layout.
+- Implement HeaderShift GUI layout.
+- Implement HeaderPlaza GUI layout.
+- Implement HeaderSupervisor GUI layout.
 
 [commited]
 Update 2020-06-09 #14

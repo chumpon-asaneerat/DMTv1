@@ -71,11 +71,11 @@
 [X] 0071 - Add sample structure for report datasource (criteria and item)/report file.
 [X] 0072 - Implement SignInWindow GUI layout.
 [X] 0073 - Implement SignInPage GUI layout.
-[ ] 0074 - 
-[ ] 0075 - 
-[ ] 0076 - 
-[ ] 0077 - 
-[ ] 0078 - 
+[X] 0074 - Implement HeaderDateTime GUI layout.
+[X] 0075 - Implement HeaderLogo GUI layout.
+[X] 0076 - Implement HeaderShift GUI layout.
+[X] 0077 - Implement HeaderPlaza GUI layout.
+[X] 0078 - Implement HeaderSupervisor GUI layout.
 [ ] 0079 - 
 [ ] 0080 - 
 [ ] 0081 - 

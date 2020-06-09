@@ -55,6 +55,21 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Header\HeaderSupervisor.xaml.cs">
+      <DependentUpon>HeaderSupervisor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Header\HeaderDateTime.xaml.cs">
+      <DependentUpon>HeaderDateTime.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Header\HeaderLogo.xaml.cs">
+      <DependentUpon>HeaderLogo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Header\HeaderPlaza.xaml.cs">
+      <DependentUpon>HeaderPlaza.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Header\HeaderShift.xaml.cs">
+      <DependentUpon>HeaderShift.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\SignIn\Pages\SignInPage.xaml.cs">
       <DependentUpon>SignInPage.xaml</DependentUpon>
     </Compile>
@@ -192,6 +207,26 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Controls\Header\HeaderSupervisor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Header\HeaderDateTime.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Header\HeaderLogo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Header\HeaderPlaza.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Header\HeaderShift.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\SignIn\Pages\SignInPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

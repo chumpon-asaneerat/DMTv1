@@ -34,8 +34,12 @@ namespace DMT.Windows
 
         private void cmdOK_Click(object sender, RoutedEventArgs e)
         {
-            // Init Main Menu
-            //PageContentManager.Instance.Current = new Pages.TA.MainMenu();
+            this.DialogResult = true;
+        }
+
+        private void cmdCancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
         }
 
         #endregion

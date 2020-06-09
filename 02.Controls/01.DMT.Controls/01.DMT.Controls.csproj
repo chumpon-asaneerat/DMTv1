@@ -55,20 +55,23 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Header\HeaderSupervisor.xaml.cs">
+    <Compile Include="Controls\Header\Elements\HeaderSupervisor.xaml.cs">
       <DependentUpon>HeaderSupervisor.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Header\HeaderDateTime.xaml.cs">
+    <Compile Include="Controls\Header\Elements\HeaderDateTime.xaml.cs">
       <DependentUpon>HeaderDateTime.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Header\HeaderLogo.xaml.cs">
+    <Compile Include="Controls\Header\Elements\HeaderLogo.xaml.cs">
       <DependentUpon>HeaderLogo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Header\HeaderPlaza.xaml.cs">
+    <Compile Include="Controls\Header\Elements\HeaderPlaza.xaml.cs">
       <DependentUpon>HeaderPlaza.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Header\HeaderShift.xaml.cs">
+    <Compile Include="Controls\Header\Elements\HeaderShift.xaml.cs">
       <DependentUpon>HeaderShift.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Header\Elements\HeaderUser.xaml.cs">
+      <DependentUpon>HeaderUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SignIn\Pages\SignInPage.xaml.cs">
       <DependentUpon>SignInPage.xaml</DependentUpon>
@@ -207,23 +210,27 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controls\Header\HeaderSupervisor.xaml">
+    <Page Include="Controls\Header\Elements\HeaderSupervisor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Header\HeaderDateTime.xaml">
+    <Page Include="Controls\Header\Elements\HeaderDateTime.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Header\HeaderLogo.xaml">
+    <Page Include="Controls\Header\Elements\HeaderLogo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Header\HeaderPlaza.xaml">
+    <Page Include="Controls\Header\Elements\HeaderPlaza.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\Header\HeaderShift.xaml">
+    <Page Include="Controls\Header\Elements\HeaderShift.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Header\Elements\HeaderUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

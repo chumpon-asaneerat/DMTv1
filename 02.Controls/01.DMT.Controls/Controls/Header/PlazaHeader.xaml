@@ -6,7 +6,7 @@
              xmlns:ctrl="clr-namespace:DMT.Controls.Header"
              mc:Ignorable="d" 
              d:DesignHeight="100" 
-             d:DesignWidth="800"
+             d:DesignWidth="1200"
              Loaded="UserControl_Loaded"
              Unloaded="UserControl_Unloaded">
     <Grid>
@@ -29,6 +29,7 @@
             <ctrl:HeaderLogo x:Name="hdrLogo" Grid.Column="0" />
             <ctrl:HeaderPlaza x:Name="hdrPlaza" Grid.Column="1" />
             <ctrl:HeaderShift x:Name="hdrShift" Grid.Column="2" />
+            <ctrl:HeaderSupervisor x:Name="hdrSupervisor" Grid.Column="3" />
             <ctrl:HeaderDateTime x:Name="hdrDateTime" Grid.Column="4" />
         </Grid>
     </Grid>

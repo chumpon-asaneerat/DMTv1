@@ -76,8 +76,8 @@
 [X] 0076 - Implement HeaderShift GUI layout.
 [X] 0077 - Implement HeaderPlaza GUI layout.
 [X] 0078 - Implement HeaderSupervisor GUI layout.
-[ ] 0079 - 
-[ ] 0080 - 
+[X] 0079 - Implement HeaderUser GUI layout.
+[X] 0080 - Implement PlazaHeader GUI layout.
 [ ] 0081 - 
 [ ] 0082 - 
 [ ] 0083 - 

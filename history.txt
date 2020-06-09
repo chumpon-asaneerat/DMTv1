@@ -1,6 +1,54 @@
 --------------------------------------------------------------------------------------------
-Update 2020-06-09 #19
+Update 2020-06-10 #15
 - 
+
+Update 2020-06-10 #14
+- 
+
+Update 2020-06-10 #13
+- 
+
+Update 2020-06-10 #12
+- 
+
+Update 2020-06-10 #11
+- 
+
+Update 2020-06-10 #10
+- 
+
+Update 2020-06-10 #9
+- 
+
+Update 2020-06-10 #8
+- 
+
+Update 2020-06-10 #7
+- 
+
+Update 2020-06-10 #6
+- 
+
+Update 2020-06-10 #5
+- 
+
+Update 2020-06-10 #4
+- 
+
+Update 2020-06-10 #3
+- 
+
+Update 2020-06-10 #2
+- 
+
+Update 2020-06-10 #1
+- 
+
+
+--------------------------------------------------------------------------------------------
+[commited]
+Update 2020-06-09 #19
+- Update todo.txt #2.
 
 [commited]
 Update 2020-06-09 #18
@@ -13,22 +61,22 @@ Update 2020-06-09 #17
 
 [commited]
 Update 2020-06-09 #16
-- Implement HeaderUser GUI layout.
-- Implement PlazaHeader GUI layout.
-- Implement AccountHeader GUI layout.
+- Implements HeaderUser GUI layout.
+- Implements PlazaHeader GUI layout.
+- Implements AccountHeader GUI layout.
 
 [commited]
 Update 2020-06-09 #15
-- Implement HeaderDateTime GUI layout.
-- Implement HeaderLogo GUI layout.
-- Implement HeaderShift GUI layout.
-- Implement HeaderPlaza GUI layout.
-- Implement HeaderSupervisor GUI layout.
+- Implements HeaderDateTime GUI layout.
+- Implements HeaderLogo GUI layout.
+- Implements HeaderShift GUI layout.
+- Implements HeaderPlaza GUI layout.
+- Implements HeaderSupervisor GUI layout.
 
 [commited]
 Update 2020-06-09 #14
-- Implement SignInWindow GUI layout.
-- Implement SignInPage GUI layout.
+- Implements SignInWindow GUI layout.
+- Implements SignInPage GUI layout.
 
 [commited]
 Update 2020-06-09 #13

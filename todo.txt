@@ -69,28 +69,28 @@
 [X] 0069 - Add TOD ReportManager.
 [X] 0070 - Add DMT.Reports project.
 [X] 0071 - Add sample structure for report datasource (criteria and item)/report file.
-[X] 0072 - Implement SignInWindow GUI layout.
-[X] 0073 - Implement SignInPage GUI layout.
-[X] 0074 - Implement HeaderDateTime GUI layout.
-[X] 0075 - Implement HeaderLogo GUI layout.
-[X] 0076 - Implement HeaderShift GUI layout.
-[X] 0077 - Implement HeaderPlaza GUI layout.
-[X] 0078 - Implement HeaderSupervisor GUI layout.
-[X] 0079 - Implement HeaderUser GUI layout.
-[X] 0080 - Implement PlazaHeader GUI layout.
+[X] 0072 - Implements SignInWindow GUI layout.
+[X] 0073 - Implements SignInPage GUI layout.
+[X] 0074 - Implements HeaderDateTime GUI layout.
+[X] 0075 - Implements HeaderLogo GUI layout.
+[X] 0076 - Implements HeaderShift GUI layout.
+[X] 0077 - Implements HeaderPlaza GUI layout.
+[X] 0078 - Implements HeaderSupervisor GUI layout.
+[X] 0079 - Implements HeaderUser GUI layout.
+[X] 0080 - Implements PlazaHeader GUI layout.
 [X] 0081 - Add DMT.Plaza.Simulator.App project.
 [X] 0082 - Set all DMT applications to run as single instance.
-[ ] 0083 - 
-[ ] 0084 - 
-[ ] 0085 - 
-[ ] 0086 - 
-[ ] 0087 - 
-[ ] 0088 - 
-[ ] 0089 - 
-[ ] 0090 - 
-[ ] 0091 - 
-[ ] 0092 - 
-[ ] 0093 - 
+[ ] 0083 - Implements TOD MainMenu page.
+[ ] 0084 - Implements TA MainMenu page.
+[ ] 0085 - Implements Status bar for all application.
+[ ] 0086 - Implements TA/TOD service install/uninstall page.
+[ ] 0087 - Implements TA/TOD Web Service health (heartbeat) check.
+[ ] 0088 - Implements TA/TOD local service health (heartbeat) check.
+[ ] 0089 - Implements Plaza config setting for TA/TOD.
+[ ] 0090 - Implements local service (TA/TOD) -> add/edit/get user(s).
+[ ] 0091 - Implements local service (TOD) -> change shift.
+[ ] 0092 - Implements local service (TOD/TA) -> lane user signin (for simulator).
+[ ] 0093 - Implements local service (TA) -> plaza fund/coupon (init/received).
 [ ] 0094 - 
 [ ] 0095 - 
 [ ] 0096 - 

@@ -31,8 +31,9 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
-![Ee]xecutable/
-![Ee]xecutables/
+
+# ![Ee]xecutable/
+# ![Ee]xecutables/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/

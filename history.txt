@@ -5,8 +5,9 @@ Update 2020-06-09 #10
 Update 2020-06-09 #9
 - 
 
+[commited]
 Update 2020-06-09 #8
-- 
+- Update gitignore and remove executable folder.
 
 [commited]
 Update 2020-06-09 #7

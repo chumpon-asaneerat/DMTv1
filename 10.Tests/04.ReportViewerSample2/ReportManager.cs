@@ -144,6 +144,10 @@ namespace ReportViewerSample2
 
         public decimal? Coupon80Sell { get; set; }
 
+        public decimal? Coupon35SellTotal { get; set; }
+
+        public decimal? Coupon80SellTotal { get; set; }
+
         public decimal? CouponSellTotal { get; set; }
         public decimal? Coupon30Use { get; set; }
         public decimal? Coupon35Use { get; set; }

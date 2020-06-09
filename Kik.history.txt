@@ -1,10 +1,14 @@
 --------------------------------------------------------------------------------------------
-Update 2020-06-09 (Kik) #3
+Update 2020-06-10 (Kik) #2
 - 
 
-Update 2020-06-09 (Kik) #2
-- 
+Update 2020-06-10 (Kik) #1
+- [commited]
+Update 2020-06-10 (Kik) #1
+- Update ReportViewSample2 -> edit repor1
 
+
+--------------------------------------------------------------------------------------------
 [commited]
 Update 2020-06-09 (Kik) #1
 - Update ReportViewSample2 -> add repor1/change ReportManager.

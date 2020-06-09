@@ -312,6 +312,10 @@
   <ItemGroup>
     <Folder Include="Controls\Reports\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background\snartcard.png" />
+    <Resource Include="Images\Logo\tollway.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

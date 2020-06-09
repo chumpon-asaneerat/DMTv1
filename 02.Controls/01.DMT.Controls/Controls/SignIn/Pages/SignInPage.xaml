@@ -7,6 +7,60 @@
              d:DesignHeight="450"
              d:DesignWidth="800">
     <Grid>
-            
+        <Border Width="500" Height="300">
+            <Grid Background="DimGray">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="25"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="25"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1"
+                      Grid.Column="1"
+                      Grid.ColumnSpan="3"
+                      Grid.RowSpan="4">
+                    <Image Opacity="20"
+                           Source="/DMT.Controls;component/Images/Background/snartcard.png"/>
+                </Grid>
+                <StackPanel Grid.Row="1"
+                            Grid.Column="1">
+                    <StackPanel Margin="5">
+                        <TextBlock Foreground="WhiteSmoke" 
+                                   FontSize="18"
+                                   Text="กรุณาระบุรหัสพนักงาน 5 หลัก"/>
+                        <Grid Height="5" />
+                        <TextBox x:Name="txtCardId" 
+                                 FontSize="18"
+                                 Text=""/>
+                        <Grid Height="5" />
+                        <TextBlock Foreground="WhiteSmoke" 
+                                   FontSize="18"
+                                   Text="กรุณาป้อนรหัสผ่าน"/>
+                        <Grid Height="5" />
+                        <PasswordBox x:Name="txtPassword" 
+                                     FontSize="18"
+                                     PasswordChar="*"/>
+                        <Grid Height="5" />
+                    </StackPanel>
+                </StackPanel>
+                <Grid Grid.Row="1"
+                      Grid.Column="2"
+                      Margin="5">
+                    <StackPanel Margin="5 0">
+                        <Grid Height="20" />
+                        <Button x:Name="cmdOK" 
+                                Height="22" Click="cmdOK_Click">OK</Button>
+                        <Grid Height="5"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

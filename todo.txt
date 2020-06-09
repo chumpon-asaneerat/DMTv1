@@ -69,8 +69,8 @@
 [X] 0069 - Add TOD ReportManager.
 [X] 0070 - Add DMT.Reports project.
 [X] 0071 - Add sample structure for report datasource (criteria and item)/report file.
-[ ] 0072 - 
-[ ] 0073 - 
+[X] 0072 - Implement SignInWindow GUI layout.
+[X] 0073 - Implement SignInPage GUI layout.
 [ ] 0074 - 
 [ ] 0075 - 
 [ ] 0076 - 

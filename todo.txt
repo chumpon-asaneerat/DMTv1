@@ -64,7 +64,7 @@
 [X] 0064 - Add TOD MainMenu (page).
 [X] 0065 - Add DMT.Plaza.Config app project.
 [X] 0066 - All application projects add app.manifest file for supports windows form dpi aware.
-[ ] 0067 - 
+[X] 0067 - Add extension methods for export excel from report viewer control.
 [ ] 0068 - 
 [ ] 0069 - 
 [ ] 0070 - 

@@ -78,8 +78,8 @@
 [X] 0078 - Implement HeaderSupervisor GUI layout.
 [X] 0079 - Implement HeaderUser GUI layout.
 [X] 0080 - Implement PlazaHeader GUI layout.
-[ ] 0081 - 
-[ ] 0082 - 
+[X] 0081 - Add DMT.Plaza.Simulator.App project.
+[X] 0082 - Set all DMT applications to run as single instance.
 [ ] 0083 - 
 [ ] 0084 - 
 [ ] 0085 - 

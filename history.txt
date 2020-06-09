@@ -2,8 +2,9 @@
 Update 2020-06-09 #19
 - 
 
+[commited]
 Update 2020-06-09 #18
-- 
+- Update todo.txt.
 
 [commited]
 Update 2020-06-09 #17

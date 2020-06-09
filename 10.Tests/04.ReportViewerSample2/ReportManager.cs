@@ -215,7 +215,7 @@ namespace ReportViewerSample2
     }
 
 
-    #region SlipRegularItem
+    #region SlipRegularItemCriteria
 
     public class SlipRegularItemCriteria : RdlcReportCriteria
     {

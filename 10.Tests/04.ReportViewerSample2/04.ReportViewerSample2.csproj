@@ -84,6 +84,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="slip.rdlc" />
     <None Include="Properties\DataSources\SlipRegularItem.datasource" />
     <None Include="Properties\Settings.settings">

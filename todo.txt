@@ -67,7 +67,7 @@
 [X] 0067 - Add extension methods for report viewer control.
 [X] 0068 - Add TA ReportManager.
 [X] 0069 - Add TOD ReportManager.
-[ ] 0070 - 
+[X] 0070 - Add DMT.Reports project.
 [ ] 0071 - 
 [ ] 0072 - 
 [ ] 0073 - 

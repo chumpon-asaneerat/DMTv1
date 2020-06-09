@@ -1,6 +1,16 @@
 --------------------------------------------------------------------------------------------
-Update 2020-06-09 #12
+Update 2020-06-09 #14
 - 
+
+Update 2020-06-09 #13
+- 
+
+[commited]
+Update 2020-06-09 #12
+- Add DMT.Reports project.
+- Move extension methods for report viewer control to DMT.Reports project.
+- Move TA ReportManager to DMT.Reports project.
+- Move TOD ReportManager to DMT.Reports project.
 
 [commited]
 Update 2020-06-09 #11

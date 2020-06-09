@@ -100,6 +100,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\00.NLib\NLib.Reports\NLib.Reports.csproj">
+      <Project>{5879d92a-f850-4a70-8d88-99d29f6a46f3}</Project>
+      <Name>NLib.Reports</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\00.NLib\NLib\NLib.csproj">
       <Project>{41a9d6c0-c833-403f-9bc1-eecdc246a428}</Project>
       <Name>NLib</Name>
@@ -111,6 +115,14 @@
     <ProjectReference Include="..\..\01.Core\02.DMT.Models\02.DMT.Models.csproj">
       <Project>{14bf5c3c-cafe-41cb-b7d0-d3ca0910d8f2}</Project>
       <Name>02.DMT.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\01.Core\03.DMT.Reports\03.DMT.Reports.csproj">
+      <Project>{009b803c-4537-4851-985b-06bda996385a}</Project>
+      <Name>03.DMT.Reports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\01.Core\04.DMT.Services\04.DMT.Services.csproj">
+      <Project>{0040f19e-4885-4267-9404-61c8dc150f5f}</Project>
+      <Name>04.DMT.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\01.DMT.Controls\01.DMT.Controls.csproj">
       <Project>{aeed7b1c-4e56-4d44-bbd1-a936be653d4d}</Project>

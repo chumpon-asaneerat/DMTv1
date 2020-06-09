@@ -118,10 +118,6 @@
       <Project>{14bf5c3c-cafe-41cb-b7d0-d3ca0910d8f2}</Project>
       <Name>02.DMT.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\01.Core\03.DMT.Services\03.DMT.Services.csproj">
-      <Project>{0040f19e-4885-4267-9404-61c8dc150f5f}</Project>
-      <Name>03.DMT.Services</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="app.ico" />

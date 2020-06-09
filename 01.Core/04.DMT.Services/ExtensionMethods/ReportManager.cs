@@ -13,9 +13,9 @@ using NLib.Reports.Rdlc;
 namespace DMT.Controls
 {
     /// <summary>
-    /// Windows Forms Report Viewer Control Extension Methods for Export Excel.
+    /// Windows Forms Report Viewer Control Extension Methods.
     /// </summary>
-    public static class ExcelReportExtensionMethods
+    public static class ReportViewerExtensionMethods
     {
         /// <summary>
         /// Load Report.

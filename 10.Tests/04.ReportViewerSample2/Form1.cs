@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 using NLib.Reports.Rdlc;
 using Ctrl = NLib.Controls;
-
+using DMT.Controls;
 
 namespace ReportViewerSample2
 {

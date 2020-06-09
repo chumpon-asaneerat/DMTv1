@@ -68,6 +68,109 @@ namespace ReportViewerSample2
 
     #endregion
 
+    #region SlipRegularItem
+
+    /// <summary>
+    /// Slip Regular Item for report.
+    /// </summary>
+    public class TotalIncomeSlip
+    {
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets CheckPointName.
+        /// </summary>
+        public string CheckPointName
+        { get; set; }
+        /// <summary>
+        /// Gets or sets CheckPointCode.
+        /// </summary>
+        public string CheckPointCode { get; set; }
+        /// <summary>
+        /// Gets or sets EmpCode.
+        /// </summary>
+        public string EmpCode { get; set; }
+        public string EmpName { get; set; }
+
+        public string Lane { get; set; }
+
+        public string Shift { get; set; }
+
+        public string StartShift { get; set; }
+
+        public string EndShift { get; set; }
+
+        public string MoneyBagNo { get; set; }
+
+        public decimal? Baht1Qty { get; set; }
+
+        public decimal? Baht2Qty { get; set; }
+
+        public decimal? Baht5Qty { get; set; }
+
+        public decimal? Baht10Qty { get; set; }
+
+        public decimal? Baht20Qty { get; set; }
+
+        public decimal? Baht50Qty { get; set; }
+
+        public decimal? Baht100Qty { get; set; }
+
+        public decimal? Baht500Qty { get; set; }
+
+        public decimal? Baht1000Qty { get; set; }
+
+        public decimal? Baht1Total { get; set; }
+
+        public decimal? Baht2Total { get; set; }
+
+        public decimal? Baht5Total { get; set; }
+
+        public decimal? Baht10Total { get; set; }
+
+        public decimal? Baht20Total { get; set; }
+
+        public decimal? Baht50Total { get; set; }
+
+        public decimal? Baht100Total { get; set; }
+
+        public decimal? Baht500Total { get; set; }
+
+        public decimal? Baht1000Total { get; set; }
+
+        public decimal? BahtTotal { get; set; }
+
+        public decimal? Coupon35Sell { get; set; }
+
+        public decimal? Coupon80Sell { get; set; }
+
+        public decimal? CouponSellTotal { get; set; }
+        public decimal? Coupon30Use { get; set; }
+        public decimal? Coupon35Use { get; set; }
+
+        public decimal? Coupon75Use { get; set; }
+
+        public decimal? Coupon80Use { get; set; }
+
+        public decimal? CouponFreeUse { get; set; }
+
+        public decimal? CouponUseTotal { get; set; }
+
+        public decimal? OtherIncome { get; set; }
+
+        public string UserName1 { get; set; }
+
+        public string Position1 { get; set; }
+
+        public string UserName2 { get; set; }
+
+        public string Position2 { get; set; }
+
+        #endregion
+    }
+
+    #endregion
+
     public class TestReportManager : RdlcReportManager
     {
         #region Singelton

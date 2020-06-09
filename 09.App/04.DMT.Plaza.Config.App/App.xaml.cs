@@ -41,7 +41,7 @@ namespace DMT
                     /*  This property is required */
                     CompanyName = "DMT",
                     /*  This property is required */
-                    ProductName = "DMT TA Application",
+                    ProductName = "DMT TOD/TA Plaza Config",
                     /* For Application Version */
                     Version = "1.0",
                     Minor = "0",

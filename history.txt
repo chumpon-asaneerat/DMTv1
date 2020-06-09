@@ -5,8 +5,10 @@ Update 2020-06-09 #19
 Update 2020-06-09 #18
 - 
 
+[commited]
 Update 2020-06-09 #17
-- 
+- Add DMT.Plaza.Simulator.App project.
+- Set all DMT applications to run as single instance.
 
 [commited]
 Update 2020-06-09 #16

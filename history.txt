@@ -5,8 +5,9 @@ Update 2020-06-10 #15
 Update 2020-06-10 #14
 - 
 
+[commited]
 Update 2020-06-10 #13
-- 
+- DMT.Reports project add Images folder and logo image.
 
 [commited]
 Update 2020-06-10 #12

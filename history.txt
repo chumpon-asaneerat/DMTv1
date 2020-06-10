@@ -35,8 +35,9 @@ Update 2020-06-10 #5
 Update 2020-06-10 #4
 - 
 
+[commited]
 Update 2020-06-10 #3
-- 
+- Add note.to.kik.txt
 
 [commited]
 Update 2020-06-10 #2

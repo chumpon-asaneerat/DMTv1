@@ -13,12 +13,12 @@ using NLib.ServiceProcess;
 
 namespace DMT.Services
 {
-    #region ServiceStatus
+    #region DMTServiceInstalledStatus
 
     /// <summary>
-    /// The Window Service Status class.
+    /// The DMT Window Service Installed Status class.
     /// </summary>
-    public class ServiceStatus
+    public class DMTServiceInstalledStatus
     {
         #region Public properties
 
@@ -44,28 +44,28 @@ namespace DMT.Services
 
     #endregion
 
-    #region ServiceOperations
+    #region DMTServiceOperations
 
     /// <summary>
-    /// The Service Operations class.
+    /// The DMT Service Operations class.
     /// </summary>
-    public class ServiceOperations
+    public class DMTServiceOperations
     {
         #region Singelton
 
-        private static ServiceOperations _instance = null;
+        private static DMTServiceOperations _instance = null;
         /// <summary>
         /// Singelton Access.
         /// </summary>
-        public static ServiceOperations Instance
+        public static DMTServiceOperations Instance
         {
             get
             {
                 if (null == _instance)
                 {
-                    lock (typeof(ServiceOperations))
+                    lock (typeof(DMTServiceOperations))
                     {
-                        _instance = new ServiceOperations();
+                        _instance = new DMTServiceOperations();
                     }
                 }
                 return _instance;
@@ -85,7 +85,7 @@ namespace DMT.Services
         /// <summary>
         /// Constructor.
         /// </summary>
-        private ServiceOperations() : base()
+        private DMTServiceOperations() : base()
         {
             // Init windows service monitor.
             InitWindowsServices();
@@ -93,7 +93,7 @@ namespace DMT.Services
         /// <summary>
         /// Destructor.
         /// </summary>
-        ~ServiceOperations()
+        ~DMTServiceOperations()
         {
             // Shutdown windows service monitor.
             if (null != _srvMon)
@@ -168,12 +168,12 @@ namespace DMT.Services
             _srvMon.UninstallAll();
         }
         /// <summary>
-        /// Scan services status.
+        /// Checks services installed status.
         /// </summary>
         /// <returns>Returns ServiceStatus instance.</returns>
-        public ServiceStatus Scan()
+        public DMTServiceInstalledStatus CheckInstalled()
         {
-            ServiceStatus result = new ServiceStatus();
+            DMTServiceInstalledStatus result = new DMTServiceInstalledStatus();
             result.ServiceCount = 0;
             result.InstalledCount = 0;
             result.TODLocalServiceInstalled = false;

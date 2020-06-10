@@ -5,11 +5,11 @@
       <Image Name="logo">
         <Source>Embedded</Source>
         <Value>tollway</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.34138cm</Top>
-        <Left>0.38716cm</Left>
-        <Height>1.5cm</Height>
-        <Width>1.5cm</Width>
+        <Sizing>Fit</Sizing>
+        <Top>0.31492cm</Top>
+        <Left>0.51416cm</Left>
+        <Height>1.8cm</Height>
+        <Width>1.8cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -26,7 +26,7 @@
                 <Value>บริษัท ทางยกระดับดอนเมือง จำกัด</Value>
                 <Style>
                   <FontFamily>Tahoma</FontFamily>
-                  <FontSize>9pt</FontSize>
+                  <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -37,10 +37,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>0.31492cm</Top>
-        <Left>2.21869cm</Left>
-        <Height>0.6cm</Height>
-        <Width>14.69729cm</Width>
+        <Top>0.37842cm</Top>
+        <Left>2.45066cm</Left>
+        <Height>0.8211cm</Height>
+        <Width>14.26424cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -62,7 +62,7 @@
                 <Value>ใบนำส่งรายได้จัดเก็บค่าผ่านทาง</Value>
                 <Style>
                   <FontFamily>Tahoma</FontFamily>
-                  <FontSize>9pt</FontSize>
+                  <FontSize>14pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -73,10 +73,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.02028cm</Top>
-        <Left>2.21869cm</Left>
-        <Height>0.6cm</Height>
-        <Width>14.69729cm</Width>
+        <Top>1.27428cm</Top>
+        <Left>2.45066cm</Left>
+        <Height>0.8211cm</Height>
+        <Width>14.26424cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -105,7 +105,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>2.21932cm</Top>
+        <Top>2.44157cm</Top>
         <Left>0.63119cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -137,7 +137,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>2.21932cm</Top>
+        <Top>2.44157cm</Top>
         <Left>9.66671cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -169,7 +169,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>3.07873cm</Top>
+        <Top>3.30098cm</Top>
         <Left>0.63119cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -201,7 +201,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>3.07873cm</Top>
+        <Top>3.30098cm</Top>
         <Left>9.66671cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -233,7 +233,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>3.91862cm</Top>
+        <Top>4.14087cm</Top>
         <Left>0.63119cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -265,7 +265,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>3.91862cm</Top>
+        <Top>4.14087cm</Top>
         <Left>9.66671cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -297,7 +297,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>4.74628cm</Top>
+        <Top>4.96853cm</Top>
         <Left>0.63119cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -329,7 +329,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>4.74628cm</Top>
+        <Top>4.96853cm</Top>
         <Left>9.66671cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -361,7 +361,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>5.56733cm</Top>
+        <Top>5.78958cm</Top>
         <Left>0.63119cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -2195,7 +2195,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>CheckPointCode</rd:DefaultName>
-        <Top>2.21932cm</Top>
+        <Top>2.44157cm</Top>
         <Left>12.3431cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -2225,7 +2225,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>CheckPointName</rd:DefaultName>
-        <Top>2.21932cm</Top>
+        <Top>2.44157cm</Top>
         <Left>3.30758cm</Left>
         <Height>0.6cm</Height>
         <Width>5.17639cm</Width>
@@ -2525,7 +2525,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EmpCode</rd:DefaultName>
-        <Top>3.07873cm</Top>
+        <Top>3.30098cm</Top>
         <Left>3.30758cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -2555,7 +2555,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EmpName</rd:DefaultName>
-        <Top>3.07873cm</Top>
+        <Top>3.30098cm</Top>
         <Left>12.3431cm</Left>
         <Height>0.6cm</Height>
         <Width>6.12889cm</Width>
@@ -2585,7 +2585,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Lane</rd:DefaultName>
-        <Top>3.91862cm</Top>
+        <Top>4.14087cm</Top>
         <Left>3.30758cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -2615,7 +2615,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>MoneyBagNo</rd:DefaultName>
-        <Top>5.56733cm</Top>
+        <Top>5.78958cm</Top>
         <Left>3.30758cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -2645,7 +2645,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>EndShift</rd:DefaultName>
-        <Top>4.74628cm</Top>
+        <Top>4.96853cm</Top>
         <Left>12.3431cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -2765,7 +2765,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>StartShift</rd:DefaultName>
-        <Top>4.74628cm</Top>
+        <Top>4.96853cm</Top>
         <Left>3.30758cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -2795,7 +2795,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Shift</rd:DefaultName>
-        <Top>3.91862cm</Top>
+        <Top>4.14087cm</Top>
         <Left>12.3431cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>

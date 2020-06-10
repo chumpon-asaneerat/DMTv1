@@ -23,8 +23,9 @@ Update 2020-06-10 #9
 Update 2020-06-10 #8
 - 
 
+[commited]
 Update 2020-06-10 #7
-- 
+- ReportViewerSample2 project change "main" to "DataSet1" in ReportManager (temporary).
 
 [commited]
 Update 2020-06-10 #6

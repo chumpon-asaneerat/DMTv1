@@ -223,11 +223,11 @@ namespace ReportViewerSample2
             // set report definition and load report stream
             if (noPageBreak)
             {
-                inst.Definition.EmbededReportName = "ReportViewerSample2.slip.rdlc";
+                inst.Definition.EmbededReportName = "ReportViewerSample2.Report1.rdlc";
             }
             else
             {
-                inst.Definition.EmbededReportName = "ReportViewerSample2.slip.rdlc";
+                inst.Definition.EmbededReportName = "ReportViewerSample2.Report1.rdlc";
             }
             inst.Definition.RdlcInstance =
                 this.GetEmbededReport(inst.Definition.EmbededReportName);
@@ -263,7 +263,7 @@ namespace ReportViewerSample2
 
             // assign new data source
             RdlcReportDataSource mainDS = new RdlcReportDataSource();
-            mainDS.Name = "main"; // the datasource name in the rdlc report.
+            mainDS.Name = "DataSet1"; // the datasource name in the rdlc report.
             mainDS.Items = items; // setup data source
             // Add to datasources
             inst.DataSources.Add(mainDS);

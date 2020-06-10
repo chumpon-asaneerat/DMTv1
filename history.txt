@@ -14,8 +14,10 @@ Update 2020-06-11 #3
 Update 2020-06-11 #2
 - 
 
+[commited]
 Update 2020-06-11 #1
-- 
+- Add server images in DMT.Plaza.Config.App.
+- Add server images in DMT.Plaza.Simulator.App.
 
 --------------------------------------------------------------------------------------------
 [commited]

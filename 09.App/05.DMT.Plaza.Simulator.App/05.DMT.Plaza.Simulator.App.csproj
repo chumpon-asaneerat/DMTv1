@@ -187,5 +187,29 @@
   <ItemGroup>
     <Resource Include="Images\Hardwares\Security_Reader2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Servers\connected.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Servers\db-add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Servers\db-delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Servers\desable-server.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Servers\disconnected.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Servers\enable-server.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Servers\Install.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Servers\uninstall.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

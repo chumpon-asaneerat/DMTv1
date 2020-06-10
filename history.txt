@@ -29,8 +29,9 @@ Update 2020-06-11 #7
 Update 2020-06-11 #6
 - 
 
+[commited]
 Update 2020-06-11 #5
-- 
+- Add AvalonDockAndEditSample project.
 
 [commited]
 Update 2020-06-11 #4

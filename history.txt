@@ -8,8 +8,10 @@ Update 2020-06-10 #14
 Update 2020-06-10 #13
 - 
 
+[commited]
 Update 2020-06-10 #12
-- 
+- Add WpfButtonUISample project.
+- Add WpfListViewUISample project.
 
 [commited]
 Update 2020-06-10 #11

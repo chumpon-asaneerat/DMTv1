@@ -38,8 +38,10 @@ Update 2020-06-10 #4
 Update 2020-06-10 #3
 - 
 
+[commited]
 Update 2020-06-10 #2
-- 
+- Update references for DMT.Plaza.Config.App and DMT.Plaza.Simulator.App.
+- Change image folder for ReportViewerSample2 into project folder.
 
 [commited]
 Update 2020-06-10 #1

@@ -14,8 +14,9 @@ Update 2020-06-10 #12
 Update 2020-06-10 #11
 - 
 
+[commited]
 Update 2020-06-10 #10
-- 
+- Add DMT.Smartcard project.
 
 [commited]
 Update 2020-06-10 #9

@@ -1,9 +1,34 @@
 --------------------------------------------------------------------------------------------
+Update 2020-06-10 #23
+- 
+
+Update 2020-06-10 #22
+- 
+
+Update 2020-06-10 #21
+- 
+
+Update 2020-06-10 #20
+- 
+
+Update 2020-06-10 #19
+- 
+
+Update 2020-06-10 #18
+- 
+
+Update 2020-06-10 #17
+- 
+
+Update 2020-06-10 #16
+- 
+
 Update 2020-06-10 #15
 - 
 
+[commited]
 Update 2020-06-10 #14
-- 
+- Update ReportViewerSample2 project change logo position and size.
 
 [commited]
 Update 2020-06-10 #13

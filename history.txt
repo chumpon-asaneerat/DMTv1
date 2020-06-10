@@ -1,4 +1,31 @@
 --------------------------------------------------------------------------------------------
+Update 2020-06-11 #15
+- 
+
+Update 2020-06-11 #14
+- 
+
+Update 2020-06-11 #13
+- 
+
+Update 2020-06-11 #12
+- 
+
+Update 2020-06-11 #11
+- 
+
+Update 2020-06-11 #10
+- 
+
+Update 2020-06-11 #9
+- 
+
+Update 2020-06-11 #8
+- 
+
+Update 2020-06-11 #7
+- 
+
 Update 2020-06-11 #6
 - 
 
@@ -11,8 +38,10 @@ Update 2020-06-11 #4
 Update 2020-06-11 #3
 - 
 
+[commited]
 Update 2020-06-11 #2
-- 
+- DMT.Core project add ServiceOperations class.
+- Implements ServiceOperations for handle windows service install/uninstall.
 
 [commited]
 Update 2020-06-11 #1

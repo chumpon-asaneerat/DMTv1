@@ -11,8 +11,9 @@ Update 2020-06-10 #13
 Update 2020-06-10 #12
 - 
 
+[commited]
 Update 2020-06-10 #11
-- 
+- Remove unused files from DMT.Smartcard project.
 
 [commited]
 Update 2020-06-10 #10

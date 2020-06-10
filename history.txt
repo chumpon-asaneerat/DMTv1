@@ -41,8 +41,9 @@ Update 2020-06-10 #3
 Update 2020-06-10 #2
 - 
 
+[commited]
 Update 2020-06-10 #1
-- 
+- Add assemblies for Ribbon Controls and Xceed Wpf Extended Toolkits.
 
 
 --------------------------------------------------------------------------------------------

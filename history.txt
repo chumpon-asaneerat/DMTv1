@@ -17,8 +17,9 @@ Update 2020-06-10 #11
 Update 2020-06-10 #10
 - 
 
+[commited]
 Update 2020-06-10 #9
-- 
+- Prepare Images/Icons in DMT.Controls project.
 
 [commited]
 Update 2020-06-10 #8

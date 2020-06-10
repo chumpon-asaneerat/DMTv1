@@ -8,6 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		history.txt = history.txt
 		Kik.history.txt = Kik.history.txt
 		note.to.kik.txt = note.to.kik.txt
+		TextFile2.txt = TextFile2.txt
 		todo.txt = todo.txt
 	EndProjectSection
 EndProject

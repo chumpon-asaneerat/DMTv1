@@ -32,8 +32,9 @@ Update 2020-06-10 #6
 Update 2020-06-10 #5
 - 
 
+[commited]
 Update 2020-06-10 #4
-- 
+- Update VS option->document setting to save file as unicode.
 
 [commited]
 Update 2020-06-10 #3

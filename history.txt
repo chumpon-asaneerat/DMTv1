@@ -20,8 +20,11 @@ Update 2020-06-10 #18
 Update 2020-06-10 #17
 - 
 
+[commited]
 Update 2020-06-10 #16
-- 
+- Add Smartcard hardware images in DMT.Controls.
+- Add Smartcard hardware images in DMT.Plaza.Config.App.
+- Add Smartcard hardware images in DMT.Plaza.Simulator.App.
 
 [commited]
 Update 2020-06-10 #15

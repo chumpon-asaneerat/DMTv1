@@ -460,6 +460,9 @@
     <Resource Include="Images\Icons\YesNo\No.png" />
     <Resource Include="Images\Icons\YesNo\Yes.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\Hardwares\CRU-67CL.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

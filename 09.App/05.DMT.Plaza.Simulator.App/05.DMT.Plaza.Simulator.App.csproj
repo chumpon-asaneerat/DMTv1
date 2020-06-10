@@ -148,12 +148,44 @@
   <ItemGroup>
     <Resource Include="app.ico" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Gray.png" />
     <Resource Include="Images\GrayLarge.png" />
     <Resource Include="Images\Green.png" />
     <Resource Include="Images\GreenLarge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cards\Card-Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cards\Card-Blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cards\Card-Gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cards\Card-Green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cards\Card-Purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Cards\Card-Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Hardwares\Clock.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Hardwares\CRU-67CL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Hardwares\job-viewer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Hardwares\Security_Reader1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Hardwares\Security_Reader2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

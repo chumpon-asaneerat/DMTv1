@@ -13,6 +13,39 @@ using NLib.ServiceProcess;
 
 namespace DMT.Services
 {
+    #region ServiceStatus
+
+    /// <summary>
+    /// The Window Service Status class.
+    /// </summary>
+    public class ServiceStatus
+    {
+        #region Public properties
+
+        /// <summary>
+        /// Gets (or internal set) all service count.
+        /// </summary>
+        public int ServiceCount { get; internal set; }
+        /// <summary>
+        /// Gets (or internal set) service install count.
+        /// </summary>
+        public int InstalledCount { get; internal set; }
+        /// <summary>
+        /// Gets (or internal set) is TOD Local Service installed.
+        /// </summary>
+        public bool TODLocalServiceInstalled { get; internal set; }
+        /// <summary>
+        /// Gets (or internal set) is TA Local Service installed.
+        /// </summary>
+        public bool TALocalServiceInstalled { get; internal set; }
+
+        #endregion
+    }
+
+    #endregion
+
+    #region ServiceOperations
+
     /// <summary>
     /// The Service Operations class.
     /// </summary>
@@ -91,7 +124,7 @@ namespace DMT.Services
                 {
                     // The Service Name must match the name that declare name 
                     // in NServiceInstaller inherited class
-                    ServiceName = "My Choice Rater Compact Windows Service",
+                    ServiceName = "TOD Local Web Service",
                     // The File Name must match actual path related to entry (main execute)
                     // assembly.
                     FileName = System.IO.Path.Combine(path, @"DMT.TOD.Data.Services.exe")
@@ -103,7 +136,7 @@ namespace DMT.Services
                 {
                     // The Service Name must match the name that declare name 
                     // in NServiceInstaller inherited class
-                    ServiceName = "My Choice Rater Compact Windows Service",
+                    ServiceName = "TA Local Web Service",
                     // The File Name must match actual path related to entry (main execute)
                     // assembly.
                     FileName = System.IO.Path.Combine(path, @"DMT.TA.Data.Services.exe")
@@ -134,6 +167,43 @@ namespace DMT.Services
                 return;
             _srvMon.UninstallAll();
         }
+        /// <summary>
+        /// Scan services status.
+        /// </summary>
+        /// <returns>Returns ServiceStatus instance.</returns>
+        public ServiceStatus Scan()
+        {
+            ServiceStatus result = new ServiceStatus();
+            result.ServiceCount = 0;
+            result.InstalledCount = 0;
+            result.TODLocalServiceInstalled = false;
+            result.TALocalServiceInstalled = false;
+
+            NServiceInfo[] srvs = null;
+            try
+            {
+                srvs = _srvMon.ServiceInformations;
+                if (null != srvs)
+                {
+                    result.ServiceCount = srvs.Length;
+                    foreach (NServiceInfo srvInfo in srvs)
+                    {
+                        if (srvInfo.IsInstalled) ++result.InstalledCount;
+                        if (srvInfo.ServiceName == "TOD Local Web Service") 
+                        {
+                            result.TODLocalServiceInstalled = true;
+                        }
+                        if (srvInfo.ServiceName == "TA Local Web Service")
+                        {
+                            result.TALocalServiceInstalled = true;
+                        }
+                    }
+                }
+            }
+            catch { }
+            
+            return result; // return scan result.
+        }
 
         #endregion
 
@@ -148,4 +218,6 @@ namespace DMT.Services
 
         #endregion
     }
+
+    #endregion
 }

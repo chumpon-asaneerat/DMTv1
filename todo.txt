@@ -81,21 +81,21 @@
 [X] 0081 - Add DMT.Plaza.Simulator.App project.
 [X] 0082 - Set all DMT applications to run as single instance.
 [X] 0083 - Implements ServiceOperations for handle windows service install/uninstall.
-[ ] 0084 - Implements ServiceOperations for check service health.
-[ ] 0085 - 
-[ ] 0086 - Implements TOD MainMenu page.
-[ ] 0087 - Implements TA MainMenu page.
-[ ] 0088 - Implements Status bar for all application.
-[ ] 0089 - Implements TA/TOD service install/uninstall page.
+[X] 0084 - Implements ServiceOperations for scan method (check service installation).
+[ ] 0085 - Implements TA/TOD service install (start)/uninstall (stop) page.
+[ ] 0086 - Implements TA/TOD local service (loca web service).
+[ ] 0087 - Implements TA/TOD local service health (heartbeat) check.
+[ ] 0088 - Implements ServiceOperations for check service health.
+[ ] 0089 - Implements Status bar for all application.
 [ ] 0090 - Implements TA/TOD Web Service health (heartbeat) check.
-[ ] 0091 - Implements TA/TOD local service health (heartbeat) check.
+[ ] 0091 - 
 [ ] 0092 - Implements Plaza config setting for TA/TOD.
 [ ] 0093 - Implements local service (TA/TOD) -> add/edit/get user(s).
 [ ] 0094 - Implements local service (TOD) -> change shift.
 [ ] 0095 - Implements local service (TOD/TA) -> lane user signin (for simulator).
 [ ] 0096 - Implements local service (TA) -> plaza fund/coupon (init/received).
-[ ] 0097 - 
-[ ] 0098 - 
+[ ] 0097 - Implements TOD MainMenu page.
+[ ] 0098 - Implements TA MainMenu page.
 [ ] 0099 - 
 [ ] 0100 - 
 [ ] 0101 - 

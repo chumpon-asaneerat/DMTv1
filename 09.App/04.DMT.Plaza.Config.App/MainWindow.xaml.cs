@@ -9,6 +9,8 @@ using NLib.Services;
 //using DMT.Models;
 //using DMT.Services;
 
+using Fluent;
+
 #endregion
 
 namespace DMT
@@ -16,7 +18,7 @@ namespace DMT
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : RibbonWindow
     {
         #region Constructor
 

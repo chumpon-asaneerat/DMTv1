@@ -20,8 +20,9 @@ Update 2020-06-10 #10
 Update 2020-06-10 #9
 - 
 
+[commited]
 Update 2020-06-10 #8
-- 
+- Set all project platform target to 'Any CPU' and unchecked Prefer 32-bit.
 
 [commited]
 Update 2020-06-10 #7

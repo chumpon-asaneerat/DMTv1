@@ -22,7 +22,7 @@ namespace LiteDBSample
         // Create your POCO class entity
         public class User
         {
-            //public int Id { get; set; }
+            public string CardId { get; set; }
             public string UserName { get; set; }
             public string Password { get; set; }
             //public string[] Phones { get; set; }
@@ -63,6 +63,7 @@ namespace LiteDBSample
             // Add
             var user = new User
             {
+                CardId = "",
                 UserName = txtUserName.Text,
                 Password = txtPassword.Text
             };

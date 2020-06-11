@@ -38,8 +38,9 @@ Update 2020-06-12 #4
 Update 2020-06-12 #3
 - 
 
+[commited]
 Update 2020-06-12 #2
-- 
+- Update LiteDBSample project #1.
 
 [commited]
 Update 2020-06-12 #1

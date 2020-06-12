@@ -21,33 +21,52 @@
         <Fluent:Ribbon Grid.Row="0"
                        IsQuickAccessToolBarVisible="False"
                        IsQuickAccessToolBarMenuDropDownVisible="False">
-            <!-- Tab - Local Service -->
-            <Fluent:RibbonTabItem Header="Local Server">
-                <Fluent:RibbonGroupBox Header="Group">
+            <!-- Tab - Local Database -->
+            <Fluent:RibbonTabItem Header="Local Database">
+                <Fluent:RibbonGroupBox Header="Toll of Duty">
                     <Fluent:Button Header="Green"
                                    Width="100">
-                        <Fluent:Button.Icon>
-                            <Image Source="Images/Green.png" />
-                        </Fluent:Button.Icon>
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/GreenLarge.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                     <Fluent:Button Header="Grey"
                                    Width="100">
-                        <Fluent:Button.Icon>
-                            <Image Source="Images/Gray.png"/>
-                        </Fluent:Button.Icon>
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="Images/GrayLarge.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Toll Admin">
+                    <Fluent:Button Header="Green"
+                                   Width="100">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="Images/GreenLarge.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Grey"
+                                   Width="100">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/GrayLarge.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
-            <!-- Tab - Remote Service -->
-            <Fluent:RibbonTabItem Header="Remote Server">
+            <!-- Tab - Data Center -->
+            <Fluent:RibbonTabItem Header="Data Center">
                 <Fluent:RibbonGroupBox Header="Server">
-                    
+                    <Fluent:Button Header="Green"
+                                   Width="100">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="Images/GreenLarge.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Grey"
+                                   Width="100">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="Images/GrayLarge.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
             <!-- Tab - System & Device -->

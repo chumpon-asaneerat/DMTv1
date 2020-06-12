@@ -26,8 +26,10 @@ Update 2020-06-13 #5
 Update 2020-06-13 #3
 - 
 
+[commited]
 Update 2020-06-13 #2
-- 
+- Rename DMT.TOD.Data.Services to DMT.TOD.Windows.Services and add icon.
+- Rename DMT.TA.Data.Services to DMT.TA.Windows.Services and add icon.
 
 [commited]
 Update 2020-06-13 #1

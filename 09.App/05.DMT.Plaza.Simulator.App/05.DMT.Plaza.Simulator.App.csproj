@@ -316,5 +316,107 @@
   <ItemGroup>
     <Resource Include="Images\Reports\slip_07.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 1 Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 1 Check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 1 Configuration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 1 Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 1 Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 1 Information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 1 Progress.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 1 Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 1 Security.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 1 Start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 1 Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 1 Warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 2  IP Filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 2 Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 2 Bandwidth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 2 Check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 2 Configuration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 2 Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 2 Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 2 Information.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 2 Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 2 Security.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 2 Start.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 2 Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 2 Warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\Network 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\network_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\network_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\network_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\network_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\plaza_network1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\plaza_network2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Networks\plaza_network3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

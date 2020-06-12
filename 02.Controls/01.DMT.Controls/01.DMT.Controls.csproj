@@ -463,6 +463,11 @@
   <ItemGroup>
     <Resource Include="Images\Icons\Hardwares\CRU-67CL.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\Networks\plaza_network1.png" />
+    <Resource Include="Images\Icons\Networks\plaza_network2.png" />
+    <Resource Include="Images\Icons\Networks\plaza_network3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

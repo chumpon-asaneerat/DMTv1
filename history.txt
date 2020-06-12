@@ -11,8 +11,11 @@ Update 2020-06-12 #13
 Update 2020-06-12 #12
 - 
 
+[commited]
 Update 2020-06-12 #11
-- 
+- Add Plaza Network images in DMT.Control project.
+- Add Networks images in DMT.Plaza.Config.App.
+- Add Networks images in DMT.Plaza.Simulator.App.
 
 [commited]
 Update 2020-06-12 #10

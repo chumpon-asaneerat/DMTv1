@@ -20,18 +20,19 @@ Update 2020-06-12 #10
 Update 2020-06-12 #9
 - 
 
+[commited]
 Update 2020-06-12 #8
-- 
+- DMT.Plaza.Config.App - Prepare Ribbon layout #3.
 
 [commited]
 Update 2020-06-12 #7
-- Prepare Ribbon layout #2.
+- DMT.Plaza.Config.App - Prepare Ribbon layout #2.
 
 [commited]
 Update 2020-06-12 #6
 - Add Configs images in DMT.Plaza.Config.App.
 - Add Configs images in DMT.Plaza.Simulator.App.
-- Prepare Ribbon layout #1.
+- DMT.Plaza.Config.App - Prepare Ribbon layout #1.
 
 [commited]
 Update 2020-06-12 #5

@@ -23,15 +23,37 @@
                        IsQuickAccessToolBarMenuDropDownVisible="False">
             <!-- Tab - Local Database -->
             <Fluent:RibbonTabItem Header="Local Database">
+                <Fluent:RibbonGroupBox Header="Data Service">
+                    <Fluent:Button Header="Setup"
+                                   Width="75">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="Images/GreenLarge.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Master Data">
+                    <Fluent:Button Header="Plaza"
+                                   Width="75">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="Images/GreenLarge.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Staff"
+                                   Width="75">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="Images/GreenLarge.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
                 <Fluent:RibbonGroupBox Header="Toll of Duty">
                     <Fluent:Button Header="Green"
-                                   Width="100">
+                                   Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/GreenLarge.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                     <Fluent:Button Header="Grey"
-                                   Width="100">
+                                   Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/GrayLarge.png" />
                         </Fluent:Button.LargeIcon>
@@ -39,13 +61,13 @@
                 </Fluent:RibbonGroupBox>
                 <Fluent:RibbonGroupBox Header="Toll Admin">
                     <Fluent:Button Header="Green"
-                                   Width="100">
+                                   Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/GreenLarge.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                     <Fluent:Button Header="Grey"
-                                   Width="100">
+                                   Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/GrayLarge.png" />
                         </Fluent:Button.LargeIcon>
@@ -55,14 +77,14 @@
             <!-- Tab - Data Center -->
             <Fluent:RibbonTabItem Header="Data Center">
                 <Fluent:RibbonGroupBox Header="Server">
-                    <Fluent:Button Header="Green"
-                                   Width="100">
+                    <Fluent:Button Header="Setup"
+                                   Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/GreenLarge.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                     <Fluent:Button Header="Grey"
-                                   Width="100">
+                                   Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/GrayLarge.png" />
                         </Fluent:Button.LargeIcon>
@@ -73,7 +95,7 @@
             <Fluent:RibbonTabItem Header="System &amp; Device">
                 <Fluent:RibbonGroupBox Header="Services">
                     <Fluent:Button Header="Service Management"
-                                   Width="100">
+                                   Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/Configs/services.png" />
                         </Fluent:Button.LargeIcon>
@@ -81,7 +103,7 @@
                 </Fluent:RibbonGroupBox>
                 <Fluent:RibbonGroupBox Header="Device">
                     <Fluent:Button Header="Device Management"
-                                   Width="100">
+                                   Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/Hardwares/CRU-67CL.png" />
                         </Fluent:Button.LargeIcon>

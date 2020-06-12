@@ -29,8 +29,9 @@ Update 2020-06-12 #7
 Update 2020-06-12 #6
 - 
 
+[commited]
 Update 2020-06-12 #5
-- 
+- Update SqlLiteSamlple project - remove db file (the always copy setting make overwrite every time app build).
 
 [commited]
 Update 2020-06-12 #4

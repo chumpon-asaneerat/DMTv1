@@ -48,5 +48,16 @@ namespace SqlLiteSamlple
             // Query
             dataGridView1.DataSource = db.Load<Stock>();
         }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = db.GetPersons();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            // Query
+            dataGridView1.DataSource = db.Load<Person>();
+        }
     }
 }

@@ -14,8 +14,11 @@ Update 2020-06-12 #12
 Update 2020-06-12 #11
 - 
 
+[commited]
 Update 2020-06-12 #10
-- 
+- Add Reports images in DMT.Plaza.Config.App.
+- Add Reports images in DMT.Plaza.Simulator.App.
+- DMT.Plaza.Config.App - Prepare Ribbon layout #5.
 
 [commited]
 Update 2020-06-12 #9

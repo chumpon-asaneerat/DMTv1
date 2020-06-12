@@ -261,5 +261,53 @@
   <ItemGroup>
     <Resource Include="Images\Users\users.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\reports_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\reports_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\reports_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\reports_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\reports_05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\reports_06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\reports_07.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\reports_08.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\reports_09.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\slip_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\slip_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\slip_03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\slip_04.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\slip_05.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\slip_06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Reports\slip_07.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

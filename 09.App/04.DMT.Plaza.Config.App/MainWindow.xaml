@@ -21,10 +21,10 @@
         <Fluent:Ribbon Grid.Row="0"
                        IsQuickAccessToolBarVisible="False"
                        IsQuickAccessToolBarMenuDropDownVisible="False">
-            <!-- Tab - Local Database -->
-            <Fluent:RibbonTabItem Header="Local Database">
+            <!-- Tab - Local Data Service -->
+            <Fluent:RibbonTabItem Header="Local Data Service">
                 <Fluent:RibbonGroupBox Header="Data Service">
-                    <Fluent:Button Header="Setup"
+                    <Fluent:Button Header="Setup URI (local)"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/Configs/config_01.png"/>
@@ -32,13 +32,13 @@
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>
                 <Fluent:RibbonGroupBox Header="Master Data">
-                    <Fluent:Button Header="Plaza"
+                    <Fluent:Button Header="Plaza Manage"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/Toll/toll-booth.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
-                    <Fluent:Button Header="Staff"
+                    <Fluent:Button Header="Staff Manage"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/users/users.ico" />
@@ -60,16 +60,16 @@
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>
                 <Fluent:RibbonGroupBox Header="Toll Admin">
-                    <Fluent:Button Header="Green"
+                    <Fluent:Button Header="Audit Plaza Notes"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
-                            <Image Source="Images/GreenLarge.png" />
+                            <Image Source="Images/Toll/money.ico" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
-                    <Fluent:Button Header="Grey"
+                    <Fluent:Button Header="Audit Plaza Coupon"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
-                            <Image Source="Images/GrayLarge.png" />
+                            <Image Source="Images/Reports/slip_06.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>
@@ -77,7 +77,7 @@
             <!-- Tab - Data Center -->
             <Fluent:RibbonTabItem Header="Data Center">
                 <Fluent:RibbonGroupBox Header="Server">
-                    <Fluent:Button Header="Setup"
+                    <Fluent:Button Header="Setup URI (HQ)"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/Configs/config_02.png" />

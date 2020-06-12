@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DMT.TOD.Data.Services")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("DMT Windows Service for TOD Applicaton")]
+[assembly: AssemblyDescription("The DMT Windows Service for TOD Applicaton.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DMT.TOD.Data.Services")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("Softbase Co., Ltd.")]
+[assembly: AssemblyProduct("The DMT Windows Service for TOD Applicaton.")]
+[assembly: AssemblyCopyright("Copyright ©Softbase Co., Ltd. 2020")]
+[assembly: AssemblyTrademark("The DMT Windows Service for TOD Applicaton.")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible

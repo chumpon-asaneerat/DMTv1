@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("NLib Rdlc Reports Library")]
-[assembly: AssemblyDescription("The NLib Rdlc Reports Library")]
+[assembly: AssemblyDescription("The NLib Rdlc Reports Library for .NET 4.6")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Softbase Co., Ltd.")]
 [assembly: AssemblyProduct("NLib Rdlc Reports Library")]
-[assembly: AssemblyCopyright("Copyright © Softbase Co., Ltd. 2015")]
-[assembly: AssemblyTrademark("NLib Rdlc Reports Library")]
+[assembly: AssemblyCopyright("Copyright ©Softbase Co., Ltd. 2015")]
+[assembly: AssemblyTrademark("NLib Rdlc Reports Library for .NET 4.6")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DMT.Models")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("DMT SQLite Data Models for access local database.")]
+[assembly: AssemblyDescription("The DMT SQLite Data model assembly for TOD/TA system.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("DMT.Models")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("Softbase Co., Ltd.")]
+[assembly: AssemblyProduct("The DMT SQLite Data model assembly for TOD/TA system.")]
+[assembly: AssemblyCopyright("Copyright ©Softbase Co., Ltd. 2020")]
+[assembly: AssemblyTrademark("The DMT SQLite Data model assembly for TOD/TA system.")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("14bf5c3c-cafe-41cb-b7d0-d3ca0910d8f2")]
+[assembly: Guid("a4ab433e-96b5-4ef5-a1b0-9783bc7ba591")]
 
 // Version information for an assembly consists of the following four values:
 //

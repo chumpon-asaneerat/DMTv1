@@ -35,7 +35,7 @@
                     <Fluent:Button Header="Plaza Manage"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
-                            <Image Source="Images/Toll/toll-booth.png" />
+                            <Image Source="Images/Networks/plaza_network1.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                     <Fluent:Button Header="Staff Manage"

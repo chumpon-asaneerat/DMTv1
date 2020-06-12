@@ -116,13 +116,21 @@
       <Project>{14bf5c3c-cafe-41cb-b7d0-d3ca0910d8f2}</Project>
       <Name>02.DMT.Object.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\01.Core\05.DMT.Reports\05.DMT.Reports.csproj">
-      <Project>{009b803c-4537-4851-985b-06bda996385a}</Project>
-      <Name>05.DMT.Reports</Name>
+    <ProjectReference Include="..\..\01.Core\03.DMT.Report.Models\03.DMT.Report.Models.csproj">
+      <Project>{c39ccfcb-5a39-468a-b674-8cd4ef896870}</Project>
+      <Name>03.DMT.Report.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\01.DMT.Controls\01.DMT.Controls.csproj">
+    <ProjectReference Include="..\..\01.Core\05.DMT.Data.Services\05.DMT.Data.Services.csproj">
+      <Project>{0040f19e-4885-4267-9404-61c8dc150f5f}</Project>
+      <Name>05.DMT.Data.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\01.DMT.Reports\01.DMT.Reports.csproj">
+      <Project>{009b803c-4537-4851-985b-06bda996385a}</Project>
+      <Name>01.DMT.Reports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\02.DMT.Controls\02.DMT.Controls.csproj">
       <Project>{aeed7b1c-4e56-4d44-bbd1-a936be653d4d}</Project>
-      <Name>01.DMT.Controls</Name>
+      <Name>02.DMT.Controls</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

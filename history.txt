@@ -29,8 +29,11 @@ Update 2020-06-13 #3
 Update 2020-06-13 #2
 - 
 
+[commited]
 Update 2020-06-13 #1
-- 
+- Restructure/Rename all projects in solution.
+- Add DMT.Report.Models project.
+- Update DMT.Report.Models project AssemblyInfo.cs file.
 
 --------------------------------------------------------------------------------------------
 [commited]

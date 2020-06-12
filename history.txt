@@ -22,10 +22,9 @@ Update 2020-06-13 #7
 Update 2020-06-13 #6
 - 
 
-
+[commited]
 Update 2020-06-13 #5
-- 
-
+- DMT.Plaza.Config.App - Prepare Ribbon layout #8.
 
 [commited]
 Update 2020-06-13 #4

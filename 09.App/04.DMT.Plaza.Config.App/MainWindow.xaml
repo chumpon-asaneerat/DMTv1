@@ -100,13 +100,13 @@
             <Fluent:RibbonTabItem Header="System &amp; Device">
                 <!-- Group - Local Windows Services (installed/uninstalled) -->
                 <Fluent:RibbonGroupBox Header="Services">
-                    <Fluent:Button Header="Start (installed)"
+                    <Fluent:Button Header="Start (Install)"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/Servers/install.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
-                    <Fluent:Button Header="Stop (Uninstalled)"
+                    <Fluent:Button Header="Stop (Uninstall)"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/Servers/uninstall.png" />

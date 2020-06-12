@@ -11,7 +11,7 @@ using Newtonsoft.Json;
 
 #endregion
 
-namespace DMT.Models
+namespace DMT.Object.Models
 {
     #region DMTModelBase (abstract)
 

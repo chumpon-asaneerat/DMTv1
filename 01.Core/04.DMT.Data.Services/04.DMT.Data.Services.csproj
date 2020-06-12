@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DMT</RootNamespace>
-    <AssemblyName>DMT.Services</AssemblyName>
+    <AssemblyName>DMT.Data.Services</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -35,9 +35,43 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SQLite-net">
+      <HintPath>..\..\References\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLiteNetExtensions">
+      <HintPath>..\..\References\SQLiteNetExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2">
+      <HintPath>..\..\References\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core">
+      <HintPath>..\..\References\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.nativelibrary">
+      <HintPath>..\..\References\SQLitePCLRaw.nativelibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl">
+      <HintPath>..\..\References\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,14 +92,19 @@
       <Project>{db7fb4b5-3662-479e-a7da-26b73611bfd4}</Project>
       <Name>01.DMT.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\02.DMT.Models\02.DMT.Models.csproj">
+    <ProjectReference Include="..\02.DMT.Object.Models\02.DMT.Object.Models.csproj">
       <Project>{14bf5c3c-cafe-41cb-b7d0-d3ca0910d8f2}</Project>
-      <Name>02.DMT.Models</Name>
+      <Name>02.DMT.Object.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\03.DMT.Data.Models\03.DMT.Data.Models.csproj">
+      <Project>{7d584f0a-920f-4be1-8652-3527fd7a5c27}</Project>
+      <Name>03.DMT.Data.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy "$(SolutionDir)References\SqlServerTypes\*.*" "$(TargetDir)\SqlServerTypes\*.*" /Y/D/E</PostBuildEvent>
+    <PostBuildEvent>REM xcopy "$(SolutionDir)References\SqlServerTypes\*.*" "$(TargetDir)\SqlServerTypes\*.*" /Y/D/E
+</PostBuildEvent>
   </PropertyGroup>
 </Project>

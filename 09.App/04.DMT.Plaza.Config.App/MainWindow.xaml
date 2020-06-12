@@ -19,37 +19,10 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Fluent:Ribbon Grid.Row="0"
-                       IsQuickAccessToolBarVisible="True"
-                       IsQuickAccessToolBarMenuDropDownVisible="True">
-            <!-- Backstage -->
-            <Fluent:Ribbon.Menu>
-                <Fluent:Backstage Header="EASY">
-                    <Fluent:BackstageTabControl>
-                        <Fluent:BackstageTabItem Header="New" />
-                        <Fluent:BackstageTabItem Header="Print" />
-                        <Fluent:Button Header="Blue" />
-                    </Fluent:BackstageTabControl>
-                </Fluent:Backstage>
-            </Fluent:Ribbon.Menu>
-
-            <!-- Quick Access Toolbar Items -->
-            <Fluent:Ribbon.QuickAccessItems>
-                <!--Use Content or Target Property to set QAT item-->
-                <Fluent:QuickAccessMenuItem IsChecked="true">
-                    <Fluent:Button Header="Pink">
-                        <Fluent:Button.Icon>
-                            <Image Source="Images/Green.png" />
-                        </Fluent:Button.Icon>
-                    </Fluent:Button>
-                </Fluent:QuickAccessMenuItem>
-                <!-- You Can Just Bind with Any Control -->
-                <!--
-                <Fluent:QuickAccessMenuItem Target="{Binding ElementName=buttonGreen}" />
-                -->
-            </Fluent:Ribbon.QuickAccessItems>
-
-            <!-- Tabs -->
-            <Fluent:RibbonTabItem Header="Home">
+                       IsQuickAccessToolBarVisible="False"
+                       IsQuickAccessToolBarMenuDropDownVisible="False">
+            <!-- Tab - Local Service -->
+            <Fluent:RibbonTabItem Header="Local Server">
                 <Fluent:RibbonGroupBox Header="Group">
                     <Fluent:Button Header="Green"
                                    Width="100">
@@ -67,6 +40,31 @@
                         </Fluent:Button.Icon>
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/GrayLarge.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+            <!-- Tab - Remote Service -->
+            <Fluent:RibbonTabItem Header="Remote Server">
+                <Fluent:RibbonGroupBox Header="Server">
+                    
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+            <!-- Tab - System & Device -->
+            <Fluent:RibbonTabItem Header="System &amp; Device">
+                <Fluent:RibbonGroupBox Header="Services">
+                    <Fluent:Button Header="Service Management"
+                                   Width="100">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="Images/Configs/services.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Device">
+                    <Fluent:Button Header="Device Management"
+                                   Width="100">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="Images/Hardwares/CRU-67CL.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>

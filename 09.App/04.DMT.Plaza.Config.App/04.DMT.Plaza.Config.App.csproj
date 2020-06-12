@@ -204,5 +204,23 @@
   <ItemGroup>
     <Resource Include="Images\Servers\uninstall.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Configs\config_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Configs\config_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Configs\Control-Panel-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Configs\Control-Panel-02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Configs\services.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Configs\Windows-Tools.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

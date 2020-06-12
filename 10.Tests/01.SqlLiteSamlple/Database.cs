@@ -5,83 +5,81 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Data;
-using System.Data.SQLite;
+using SQLite;
 
 namespace SqlLiteSamlple
 {
+    public class Stock
+    {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        public string Symbol { get; set; }
+    }
+
+    public class Valuation
+    {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        [Indexed]
+        public int StockId { get; set; }
+        public DateTime Time { get; set; }
+    }
+
     public class Database
     {
         public string FileName { get; set; }
 
-        private string ConnectionString
-        {
-            get { return "Data Source=" + FileName + ";Version=3"; }
-        }
+        public SQLiteConnection Db { get; private set; }
 
         public void Create()
         {
             string path = Path.Combine("./", FileName);
-            if (!File.Exists(path))
+            this.Db = new SQLiteConnection(path);
+            if (null != this.Db)
             {
-                SQLiteConnection.CreateFile(path);
-                using (SQLiteConnection conn = new SQLiteConnection(ConnectionString))
-                {
-                    conn.Open();
-
-                    SQLiteCommand cmd = new SQLiteCommand(conn);
-                    string query = @"CREATE TABLE LOGIN(UserName Text(25), Password Text(25));";
-                    cmd.CommandText = query;
-                    cmd.ExecuteNonQuery();
-                    cmd.Dispose();
-                    cmd = null;
-
-                    conn.Close();
-                }
+                this.Db.CreateTable<Stock>();
+                this.Db.CreateTable<Valuation>();
             }
         }
 
-        public void Add(string UserName, string Password)
+        public void Add<T>(T value)
+            where T : class, new()
         {
-            using (SQLiteConnection conn = new SQLiteConnection(ConnectionString))
-            {
-                conn.Open();
-
-                SQLiteCommand cmd = new SQLiteCommand(conn);
-                string query = @"INSERT INTO LOGIN(UserName, Password) VALUES(@username, @password);";
-                cmd.CommandText = query;
-                cmd.Parameters.Add(new SQLiteParameter("@username", UserName));
-                cmd.Parameters.Add(new SQLiteParameter("@password", Password));
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-                cmd = null;
-
-                conn.Close();
-            }
+            if (null == this.Db || null == value) return;
+            this.Db.Insert(value, typeof(T));
         }
 
-        public DataTable GetAll()
+        public void Update<T>(T value)
+            where T : class, new()
         {
-            DataTable result = new DataTable();
-            using (SQLiteConnection conn = new SQLiteConnection(ConnectionString))
+            if (null == this.Db || null == value) return;
+            this.Db.Update(value, typeof(T));
+        }
+
+        public T[] Load<T>() 
+            where T:class, new()
+        {
+            return this.Db.Table<T>().ToArray();
+        }
+
+        public void AddStock(string symbol)
+        {
+            var stock = new Stock()
             {
-                conn.Open();
+                Symbol = symbol
+            };
+            this.Add<Stock>(stock);
+            Console.WriteLine("{0} == {1}", stock.Symbol, stock.Id);
+        }
 
-                SQLiteCommand cmd = new SQLiteCommand(conn);
-                string query = @"SELECT * FROM LOGIN";
-                cmd.CommandText = query;
-                SQLiteDataAdapter adaptor = new SQLiteDataAdapter();
 
-                adaptor.SelectCommand = cmd;
-                adaptor.Fill(result);
-
-                adaptor.Dispose();
-                adaptor = null;
-                cmd.Dispose();
-                cmd = null;
-
-                conn.Close();
-            }
-            return result;
+        public void UpdateStock(int id, string symbol)
+        {
+            if (null == this.Db) return;
+            var query = this.Db.Table<Stock>().Where(v => v.Id == id);
+            var stock = query.First();
+            stock.Symbol = symbol;
+            this.Db.Update(stock);
         }
     }
 }

@@ -22,24 +22,31 @@ namespace SqlLiteSamlple
         private void Form1_Load(object sender, EventArgs e)
         {
             db.FileName = "sample.db";
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
             // Create
             db.Create();
+            // update grid.
+            dataGridView1.DataSource = db.Load<Stock>();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             // Add
-            db.Add(txtUserName.Text, txtPassword.Text);
+            db.AddStock(txtSymbol.Text);
+            // update grid.
+            dataGridView1.DataSource = db.Load<Stock>();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            db.UpdateStock(1, txtSymbol.Text);
+            // update grid.
+            dataGridView1.DataSource = db.Load<Stock>();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             // Query
-            dataGridView1.DataSource = db.GetAll();
+            dataGridView1.DataSource = db.Load<Stock>();
         }
     }
 }

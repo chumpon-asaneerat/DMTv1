@@ -32,8 +32,10 @@ Update 2020-06-12 #6
 Update 2020-06-12 #5
 - 
 
+[commited]
 Update 2020-06-12 #4
-- 
+- Update SqlLiteSamlple project - change from standard ADO.Net to SQLite-Net-PCL (native).
+- Remove all SQLite ADO.Net reference assemblies.
 
 [commited]
 Update 2020-06-12 #3

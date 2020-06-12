@@ -23,6 +23,7 @@
                        IsQuickAccessToolBarMenuDropDownVisible="False">
             <!-- Tab - Local Data Service -->
             <Fluent:RibbonTabItem Header="Local Data Service">
+                <!-- Group - Local URI -->
                 <Fluent:RibbonGroupBox Header="Data Service">
                     <Fluent:Button Header="Setup URI (local)"
                                    Width="75">
@@ -31,6 +32,7 @@
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>
+                <!-- Group - Master -->
                 <Fluent:RibbonGroupBox Header="Master Data">
                     <Fluent:Button Header="Plaza Manage"
                                    Width="75">
@@ -45,28 +47,30 @@
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>
+                <!-- Group - TOD -->
                 <Fluent:RibbonGroupBox Header="Toll of Duty">
-                    <Fluent:Button Header="Green"
+                    <Fluent:Button Header="Plaza Config"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
-                            <Image Source="Images/GreenLarge.png" />
+                            <Image Source="Images/Networks/plaza_network2.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
-                    <Fluent:Button Header="Grey"
+                    <Fluent:Button Header="Connection Status"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
-                            <Image Source="Images/GrayLarge.png" />
+                            <Image Source="Images/Networks/Network 2 Search.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>
+                <!-- Group - TA -->
                 <Fluent:RibbonGroupBox Header="Toll Admin">
-                    <Fluent:Button Header="Audit Plaza Notes"
+                    <Fluent:Button Header="Notes-Coins (Audit)"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/Toll/money.ico" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
-                    <Fluent:Button Header="Audit Plaza Coupon"
+                    <Fluent:Button Header="Coupons (Audit)"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/Reports/slip_06.png" />
@@ -76,6 +80,7 @@
             </Fluent:RibbonTabItem>
             <!-- Tab - Data Center -->
             <Fluent:RibbonTabItem Header="Data Center">
+                <!-- Group - Server URI -->
                 <Fluent:RibbonGroupBox Header="Server">
                     <Fluent:Button Header="Setup URI (HQ)"
                                    Width="75">
@@ -83,16 +88,17 @@
                             <Image Source="Images/Configs/config_02.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
-                    <Fluent:Button Header="Grey"
+                    <Fluent:Button Header="Connection Status"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
-                            <Image Source="Images/GrayLarge.png" />
+                            <Image Source="Images/Networks/Network 1 Information.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>
             </Fluent:RibbonTabItem>
             <!-- Tab - System & Device -->
             <Fluent:RibbonTabItem Header="System &amp; Device">
+                <!-- Group - Local Windows Services (installed/uninstalled) -->
                 <Fluent:RibbonGroupBox Header="Services">
                     <Fluent:Button Header="Start (installed)"
                                    Width="75">
@@ -113,8 +119,9 @@
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>
-                <Fluent:RibbonGroupBox Header="Device">
-                    <Fluent:Button Header="Device Management"
+                <!-- Group - Device (smartcard) -->
+                <Fluent:RibbonGroupBox Header="Smartcard">
+                    <Fluent:Button Header="Smartcard device"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/Hardwares/CRU-67CL.png" />

@@ -142,12 +142,6 @@
     <Resource Include="app.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Gray.png" />
-    <Resource Include="Images\GrayLarge.png" />
-    <Resource Include="Images\Green.png" />
-    <Resource Include="Images\GreenLarge.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Cards\Card-Black.png" />
   </ItemGroup>
   <ItemGroup>

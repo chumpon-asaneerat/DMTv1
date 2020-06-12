@@ -5,8 +5,9 @@ Update 2020-06-12 #15
 Update 2020-06-12 #14
 - 
 
+[commited]
 Update 2020-06-12 #13
-- 
+- DMT.Plaza.Config.App - Prepare Ribbon layout #7.
 
 [commited]
 Update 2020-06-12 #12

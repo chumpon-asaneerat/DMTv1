@@ -127,7 +127,7 @@ namespace DMT.Services
                     ServiceName = "TOD Local Web Service",
                     // The File Name must match actual path related to entry (main execute)
                     // assembly.
-                    FileName = System.IO.Path.Combine(path, @"DMT.TOD.Data.Services.exe")
+                    FileName = System.IO.Path.Combine(path, @"DMT.TOD.Windows.Services.exe")
             });
 
             // Append Local TA Window Service application
@@ -139,7 +139,7 @@ namespace DMT.Services
                     ServiceName = "TA Local Web Service",
                     // The File Name must match actual path related to entry (main execute)
                     // assembly.
-                    FileName = System.IO.Path.Combine(path, @"DMT.TA.Data.Services.exe")
+                    FileName = System.IO.Path.Combine(path, @"DMT.TA.Windows.Services.exe")
                 });
         }
 

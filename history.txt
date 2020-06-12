@@ -23,8 +23,9 @@ Update 2020-06-13 #5
 Update 2020-06-13 #5
 - 
 
+[commited]
 Update 2020-06-13 #3
-- 
+- Update DMT.Core -> ServiceOperations.cs update services's executable file name.
 
 [commited]
 Update 2020-06-13 #2

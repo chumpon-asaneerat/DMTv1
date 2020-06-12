@@ -222,5 +222,44 @@
   <ItemGroup>
     <Resource Include="Images\Configs\Windows-Tools.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Toll\CreditCard.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Toll\Money.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Toll\toll-booth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Users\absent-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Users\add-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Users\edit-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Users\offline-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Users\online-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Users\red-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Users\remove-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Users\send-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Users\upload-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Users\users.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

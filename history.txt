@@ -17,8 +17,11 @@ Update 2020-06-12 #11
 Update 2020-06-12 #10
 - 
 
+[commited]
 Update 2020-06-12 #9
-- 
+- Add Toll and Users images in DMT.Plaza.Config.App.
+- Add Toll and Users images in DMT.Plaza.Simulator.App.
+- DMT.Plaza.Config.App - Prepare Ribbon layout #4.
 
 [commited]
 Update 2020-06-12 #8

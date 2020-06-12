@@ -27,7 +27,7 @@
                     <Fluent:Button Header="Setup"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
-                            <Image Source="Images/GreenLarge.png" />
+                            <Image Source="Images/Configs/config_01.png"/>
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>
@@ -35,13 +35,13 @@
                     <Fluent:Button Header="Plaza"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
-                            <Image Source="Images/GreenLarge.png" />
+                            <Image Source="Images/Toll/toll-booth.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                     <Fluent:Button Header="Staff"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
-                            <Image Source="Images/GreenLarge.png" />
+                            <Image Source="Images/users/users.ico" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>
@@ -80,7 +80,7 @@
                     <Fluent:Button Header="Setup"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
-                            <Image Source="Images/GreenLarge.png" />
+                            <Image Source="Images/Configs/config_02.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                     <Fluent:Button Header="Grey"
@@ -94,10 +94,22 @@
             <!-- Tab - System & Device -->
             <Fluent:RibbonTabItem Header="System &amp; Device">
                 <Fluent:RibbonGroupBox Header="Services">
-                    <Fluent:Button Header="Service Management"
+                    <Fluent:Button Header="Start (installed)"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
-                            <Image Source="Images/Configs/services.png" />
+                            <Image Source="Images/Servers/install.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Stop (Uninstalled)"
+                                   Width="75">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="Images/Servers/uninstall.png" />
+                        </Fluent:Button.LargeIcon>
+                    </Fluent:Button>
+                    <Fluent:Button Header="Check Status"
+                                   Width="75">
+                        <Fluent:Button.LargeIcon>
+                            <Image Source="Images/Servers/connected.ico" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>

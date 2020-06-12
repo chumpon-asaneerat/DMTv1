@@ -2,26 +2,34 @@
 Update 2020-06-13 #11
 - 
 
+
 Update 2020-06-13 #10
 - 
+
 
 Update 2020-06-13 #9
 - 
 
+
 Update 2020-06-13 #8
 - 
+
 
 Update 2020-06-13 #7
 - 
 
+
 Update 2020-06-13 #6
 - 
 
-Update 2020-06-13 #5
-- 
 
 Update 2020-06-13 #5
 - 
+
+
+[commited]
+Update 2020-06-13 #4
+- Move ServiceOperations.cs from DMT.Core to DMT.Data.Services.
 
 [commited]
 Update 2020-06-13 #3

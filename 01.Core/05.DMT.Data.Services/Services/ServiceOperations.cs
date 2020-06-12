@@ -9,7 +9,6 @@ using System.Text;
 #endregion
 
 using NLib.ServiceProcess;
-//using Rater.ServiceModel;
 
 namespace DMT.Services
 {

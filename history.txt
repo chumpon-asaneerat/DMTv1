@@ -1,24 +1,26 @@
 --------------------------------------------------------------------------------------------
-Update 2020-06-13 #11
+Update 2020-06-14 #5
 - 
 
 
-Update 2020-06-13 #10
+Update 2020-06-14 #4
 - 
 
 
-Update 2020-06-13 #9
+Update 2020-06-14 #3
 - 
 
 
-Update 2020-06-13 #8
+Update 2020-06-14 #2
 - 
 
+[commited]
+Update 2020-06-14 #1
+- Update Nlib -> NServiceMonitor class (in WindowServiceController.cs) add method FindServiceController.
+- ServiceOperations -> init service monitor in constructor instead inline variable.
+- DMT.Plaza.Config.App -> Add basic implements of install/uninstall/check windows services.
 
-Update 2020-06-13 #7
-- 
-
-
+--------------------------------------------------------------------------------------------
 [commited]
 Update 2020-06-13 #6
 - DMT.Core add AppConsts and related class.

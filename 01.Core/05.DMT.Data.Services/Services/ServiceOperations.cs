@@ -75,7 +75,7 @@ namespace DMT.Services
 
         #region Internal Variables
 
-        private NServiceMonitor _srvMon = new NServiceMonitor();
+        private NServiceMonitor _srvMon = null;
 
         #endregion
 
@@ -86,6 +86,7 @@ namespace DMT.Services
         /// </summary>
         private DMTServiceOperations() : base()
         {
+            _srvMon = new NServiceMonitor();
             // Init windows service monitor.
             InitWindowsServices();
         }
@@ -177,30 +178,33 @@ namespace DMT.Services
             result.InstalledCount = 0;
             result.TODLocalServiceInstalled = false;
             result.TALocalServiceInstalled = false;
-
-            NServiceInfo[] srvs = null;
-            try
+            if (null != _srvMon)
             {
-                srvs = _srvMon.ServiceInformations;
-                if (null != srvs)
+                try
                 {
-                    result.ServiceCount = srvs.Length;
-                    foreach (NServiceInfo srvInfo in srvs)
+                    NServiceInfo[] srvs = _srvMon.ServiceInformations;
+                    if (null != srvs)
                     {
-                        if (srvInfo.IsInstalled) ++result.InstalledCount;
-                        if (srvInfo.ServiceName == "TOD Local Web Service") 
+                        result.ServiceCount = srvs.Length;
+                        foreach (NServiceInfo srvInfo in srvs)
                         {
-                            result.TODLocalServiceInstalled = true;
-                        }
-                        if (srvInfo.ServiceName == "TA Local Web Service")
-                        {
-                            result.TALocalServiceInstalled = true;
+                            if (srvInfo.IsInstalled)
+                            {
+                                ++result.InstalledCount;
+                                if (srvInfo.ServiceName == AppConsts.WindowsService.TOD.ServiceName)
+                                {
+                                    result.TODLocalServiceInstalled = true;
+                                }
+                                if (srvInfo.ServiceName == AppConsts.WindowsService.TA.ServiceName)
+                                {
+                                    result.TALocalServiceInstalled = true;
+                                }
+                            }
                         }
                     }
                 }
-            }
-            catch { }
-            
+                catch { }
+            }            
             return result; // return scan result.
         }
 

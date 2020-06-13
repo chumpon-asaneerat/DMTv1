@@ -4,6 +4,11 @@
 #if HISTORY_COMMENT
 
 // <[History]> 
+Update 2020-06-14
+=================
+- NLib Windows Service Framework Updated.
+  - Update NServiceMonitor class add FindServiceController to prevent InvalidOperation Exception.
+======================================================================================================================
 Update 2015-08-09
 =================
 - NLib Windows Service Framework Updated.
@@ -57,6 +62,7 @@ Update 2011-12-15
 #region Using
 
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -918,6 +924,16 @@ namespace NLib.ServiceProcess
             _isChecking = false;
         }
 
+        private ServiceController FindServiceController(string serviceName)
+        {
+            // Update 2020-06-14 
+            // - update code to prevent invalid operation exception
+            //   when service not installed so create new ServiceController(servicename)
+            //   will cause InvalidOperation exception.
+            ServiceController[] services = ServiceController.GetServices();
+            return services.FirstOrDefault(s => s.ServiceName == serviceName);
+        }
+
         private NServiceInfo CheckService(NServiceName serviceName)
         {
             if (null == serviceName)
@@ -931,7 +947,11 @@ namespace NLib.ServiceProcess
                 IsInstalled = false
             };
 
-            ServiceController sc = new ServiceController(serviceName.ServiceName);
+            // Update 2020-06-14 
+            // - update code to prevent invalid operation exception
+            //   when service not installed so create new ServiceController(servicename)
+            //   will cause InvalidOperation exception.
+            ServiceController sc = FindServiceController(serviceName.ServiceName);
             if (null != sc)
             {
                 try

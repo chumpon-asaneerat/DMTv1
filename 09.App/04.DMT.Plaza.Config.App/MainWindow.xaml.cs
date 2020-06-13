@@ -36,15 +36,27 @@ namespace DMT
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            DMTServiceOperations.Instance.ServiceMonitor.ScanConpleted += ServiceMonitor_ScanConpleted;
+            DMTServiceOperations.Instance.ServiceMonitor.Start();
         }
 
         private void Window_Unloaded(object sender, RoutedEventArgs e)
         {
-
+            DMTServiceOperations.Instance.ServiceMonitor.Shutdown();
+            DMTServiceOperations.Instance.ServiceMonitor.ScanConpleted -= ServiceMonitor_ScanConpleted;
         }
 
         #endregion
+
+        class InstallStatus
+        {
+
+        }
+
+        private void ServiceMonitor_ScanConpleted(object sender, EventArgs e)
+        {
+
+        }
 
         #region Button Handlers
 

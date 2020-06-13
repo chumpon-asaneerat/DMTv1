@@ -11,8 +11,10 @@ Update 2020-06-14 #3
 - 
 
 
+[commited]
 Update 2020-06-14 #2
-- 
+- DMT.Core updte AppConsts for DMT.ACC.App.
+- Update DMT.ACC.App used Program information from AppConsts class.
 
 [commited]
 Update 2020-06-14 #1

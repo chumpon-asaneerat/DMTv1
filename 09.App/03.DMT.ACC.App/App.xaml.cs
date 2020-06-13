@@ -41,12 +41,12 @@ namespace DMT
                     /*  This property is required */
                     CompanyName = "DMT",
                     /*  This property is required */
-                    ProductName = "DMT Toll Account Application",
+                    ProductName = AppConsts.Application.Account.ApplicationName,
                     /* For Application Version */
-                    Version = "1.0",
-                    Minor = "0",
-                    Build = "0",
-                    LastUpdate = new DateTime(2020, 05, 17, 09, 40, 0)
+                    Version = AppConsts.Application.Account.Version,
+                    Minor = AppConsts.Application.Account.Minor,
+                    Build = AppConsts.Application.Account.Build,
+                    LastUpdate = AppConsts.Application.Account.LastUpdate
                 },
                 /* Setup Storage */
                 Storage = new NAppStorage()

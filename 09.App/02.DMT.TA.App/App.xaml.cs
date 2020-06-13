@@ -41,12 +41,12 @@ namespace DMT
                     /*  This property is required */
                     CompanyName = "DMT",
                     /*  This property is required */
-                    ProductName = "DMT TA Application",
+                    ProductName = AppConsts.Application.TA.ApplicationName,
                     /* For Application Version */
-                    Version = "1.0",
-                    Minor = "0",
-                    Build = "0",
-                    LastUpdate = new DateTime(2020, 05, 17, 09, 40, 0)
+                    Version = AppConsts.Application.TA.Version,
+                    Minor = AppConsts.Application.TA.Minor,
+                    Build = AppConsts.Application.TA.Build,
+                    LastUpdate = AppConsts.Application.TA.LastUpdate
                 },
                 /* Setup Storage */
                 Storage = new NAppStorage()

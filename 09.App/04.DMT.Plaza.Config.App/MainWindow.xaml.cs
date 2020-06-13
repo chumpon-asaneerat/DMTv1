@@ -7,7 +7,7 @@ using System.Windows;
 using NLib.Services;
 
 //using DMT.Models;
-//using DMT.Services;
+using DMT.Services;
 
 using Fluent;
 
@@ -43,6 +43,37 @@ namespace DMT
         {
 
         }
+
+        #endregion
+
+        #region Button Handlers
+
+        #region Windows Services (Install/Unstall/CheckStatus)
+
+        private void cmdInstall_Click(object sender, RoutedEventArgs e)
+        {
+            DMTServiceOperations.Instance.Install();
+        }
+
+        private void cmdUninstall_Click(object sender, RoutedEventArgs e)
+        {
+            DMTServiceOperations.Instance.Uninstall();
+        }
+
+        private void cmdCheckWindowServiceStatus_Click(object sender, RoutedEventArgs e)
+        {
+            var status = DMTServiceOperations.Instance.CheckInstalled();
+            if (status.TALocalServiceInstalled && status.TODLocalServiceInstalled)
+            {
+                MessageBox.Show("TA/TOD Sercice installed and running");
+            }
+            else
+            {
+                MessageBox.Show("TA/TOD Some Sercice is not installed or stopped");
+            }
+        }
+
+        #endregion
 
         #endregion
     }

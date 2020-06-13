@@ -41,12 +41,12 @@ namespace DMT
                     /*  This property is required */
                     CompanyName = "DMT",
                     /*  This property is required */
-                    ProductName = "DMT Plaza Simulator",
+                    ProductName = AppConsts.Application.PlazaSumulator.ApplicationName,
                     /* For Application Version */
-                    Version = "1.0",
-                    Minor = "0",
-                    Build = "0",
-                    LastUpdate = new DateTime(2020, 05, 17, 09, 40, 0)
+                    Version = AppConsts.Application.PlazaSumulator.Version,
+                    Minor = AppConsts.Application.PlazaSumulator.Minor,
+                    Build = AppConsts.Application.PlazaSumulator.Build,
+                    LastUpdate = AppConsts.Application.PlazaSumulator.LastUpdate
                 },
                 /* Setup Storage */
                 Storage = new NAppStorage()

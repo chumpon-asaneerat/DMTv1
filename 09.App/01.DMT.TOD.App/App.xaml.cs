@@ -41,12 +41,12 @@ namespace DMT
                     /*  This property is required */
                     CompanyName = "DMT",
                     /*  This property is required */
-                    ProductName = "DMT TOD Application",
+                    ProductName = AppConsts.Application.TOD.ApplicationName,
                     /* For Application Version */
-                    Version = "1.0",
-                    Minor = "0",
-                    Build = "0",
-                    LastUpdate = new DateTime(2020, 05, 17, 09, 40, 0)
+                    Version = AppConsts.Application.TOD.Version,
+                    Minor = AppConsts.Application.TOD.Minor,
+                    Build = AppConsts.Application.TOD.Build,
+                    LastUpdate = AppConsts.Application.TOD.LastUpdate
                 },
                 /* Setup Storage */
                 Storage = new NAppStorage()

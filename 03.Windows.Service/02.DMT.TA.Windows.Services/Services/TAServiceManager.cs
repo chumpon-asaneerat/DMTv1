@@ -45,9 +45,9 @@ namespace DMT.Services
         public TADataServiceManager()
             : base()
         {
-            ServiceName = "TA Data Service";
-            DisplayName = "TA Data Service";
-            Description = "TA Data Service";
+            ServiceName = AppConsts.WindowsService.TA.ServiceName;
+            DisplayName = AppConsts.WindowsService.TA.DisplayName;
+            Description = AppConsts.WindowsService.TA.Description;
         }
 
         #endregion

@@ -45,9 +45,9 @@ namespace DMT.Services
         public TODDataServiceManager()
             : base()
         {
-            ServiceName = "TOD Data Service";
-            DisplayName = "TOD Data Service";
-            Description = "TOD Data Service";
+            ServiceName = AppConsts.WindowsService.TOD.ServiceName;
+            DisplayName = AppConsts.WindowsService.TOD.DisplayName;
+            Description = AppConsts.WindowsService.TOD.Description;
         }
 
         #endregion

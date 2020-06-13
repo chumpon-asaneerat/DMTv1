@@ -35,13 +35,12 @@ namespace DMT
 						/*  This property is required */
 						CompanyName = "DMT",
 						/*  This property is required */
-						ProductName = "DMT TOD Data Service",
+						ProductName = AppConsts.WindowsService.TOD.ServiceName,
 						/* For Application Version */
-						/* For Application Version */
-						Version = "1",
-						Minor = "0",
-						Build = "125",
-						LastUpdate = new DateTime(2020, 06, 08, 10, 00, 00)
+						Version = AppConsts.WindowsService.TOD.Version,
+						Minor = AppConsts.WindowsService.TOD.Minor,
+						Build = AppConsts.WindowsService.TOD.Build,
+						LastUpdate = AppConsts.WindowsService.TOD.LastUpdate
 					},
 					/* Setup Storage */
 					Storage = new NAppStorage()

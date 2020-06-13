@@ -41,12 +41,12 @@ namespace DMT
                     /*  This property is required */
                     CompanyName = "DMT",
                     /*  This property is required */
-                    ProductName = "DMT TOD/TA Plaza Config",
+                    ProductName = AppConsts.Application.PlazaConfig.ApplicationName,
                     /* For Application Version */
-                    Version = "1.0",
-                    Minor = "0",
-                    Build = "0",
-                    LastUpdate = new DateTime(2020, 05, 17, 09, 40, 0)
+                    Version = AppConsts.Application.PlazaConfig.Version,
+                    Minor = AppConsts.Application.PlazaConfig.Minor,
+                    Build = AppConsts.Application.PlazaConfig.Build,
+                    LastUpdate = AppConsts.Application.PlazaConfig.LastUpdate
                 },
                 /* Setup Storage */
                 Storage = new NAppStorage()

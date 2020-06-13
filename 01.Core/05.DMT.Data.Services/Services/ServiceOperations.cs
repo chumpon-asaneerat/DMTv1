@@ -123,10 +123,10 @@ namespace DMT.Services
                 {
                     // The Service Name must match the name that declare name 
                     // in NServiceInstaller inherited class
-                    ServiceName = "TOD Local Web Service",
+                    ServiceName = DMT.AppConsts.WindowsService.TOD.ServiceName,
                     // The File Name must match actual path related to entry (main execute)
                     // assembly.
-                    FileName = System.IO.Path.Combine(path, @"DMT.TOD.Windows.Services.exe")
+                    FileName = System.IO.Path.Combine(path, AppConsts.WindowsService.TOD.ExecutableFileName)
             });
 
             // Append Local TA Window Service application
@@ -135,10 +135,10 @@ namespace DMT.Services
                 {
                     // The Service Name must match the name that declare name 
                     // in NServiceInstaller inherited class
-                    ServiceName = "TA Local Web Service",
+                    ServiceName = DMT.AppConsts.WindowsService.TA.ServiceName,
                     // The File Name must match actual path related to entry (main execute)
                     // assembly.
-                    FileName = System.IO.Path.Combine(path, @"DMT.TA.Windows.Services.exe")
+                    FileName = System.IO.Path.Combine(path, AppConsts.WindowsService.TA.ExecutableFileName)
                 });
         }
 

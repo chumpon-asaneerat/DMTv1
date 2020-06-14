@@ -1,16 +1,24 @@
 --------------------------------------------------------------------------------------------
-Update 2020-06-14 #5
+Update 2020-06-15 #5
 - 
 
 
-Update 2020-06-14 #4
+Update 2020-06-15 #4
 - 
 
 
-Update 2020-06-14 #3
+Update 2020-06-15 #3
 - 
 
+Update 2020-06-15 #2
+- 
 
+[commited]
+Update 2020-06-15 #1
+- Add DMT.Plaza.Windows.Services project.
+- Update AppConsts for Plaza Windows Services.
+
+--------------------------------------------------------------------------------------------
 [commited]
 Update 2020-06-14 #2
 - DMT.Core updte AppConsts for DMT.ACC.App.

@@ -30,6 +30,10 @@ namespace DMT.Services
         /// </summary>
         public int InstalledCount { get; internal set; }
         /// <summary>
+        /// Gets (or internal set) is Plaza Local Service installed.
+        /// </summary>
+        public bool PlazaLocalServiceInstalled { get; internal set; }
+        /// <summary>
         /// Gets (or internal set) is TOD Local Service installed.
         /// </summary>
         public bool TODLocalServiceInstalled { get; internal set; }
@@ -118,6 +122,18 @@ namespace DMT.Services
             _srvMon.ServiceNames.Clear();
             string path = System.IO.Path.GetDirectoryName(this.GetType().Assembly.Location);
 
+            // Append Local Plaza Window Service application
+            _srvMon.ServiceNames.Add(
+                new NServiceName()
+                {
+                    // The Service Name must match the name that declare name 
+                    // in NServiceInstaller inherited class
+                    ServiceName = DMT.AppConsts.WindowsService.Plaza.ServiceName,
+                    // The File Name must match actual path related to entry (main execute)
+                    // assembly.
+                    FileName = System.IO.Path.Combine(path, AppConsts.WindowsService.Plaza.ExecutableFileName)
+                });
+
             // Append Local TOD Window Service application
             _srvMon.ServiceNames.Add(
                 new NServiceName()
@@ -176,6 +192,7 @@ namespace DMT.Services
             DMTServiceInstalledStatus result = new DMTServiceInstalledStatus();
             result.ServiceCount = 0;
             result.InstalledCount = 0;
+            result.PlazaLocalServiceInstalled = false;
             result.TODLocalServiceInstalled = false;
             result.TALocalServiceInstalled = false;
             if (null != _srvMon)
@@ -191,6 +208,10 @@ namespace DMT.Services
                             if (srvInfo.IsInstalled)
                             {
                                 ++result.InstalledCount;
+                                if (srvInfo.ServiceName == AppConsts.WindowsService.Plaza.ServiceName)
+                                {
+                                    result.PlazaLocalServiceInstalled = true;
+                                }
                                 if (srvInfo.ServiceName == AppConsts.WindowsService.TOD.ServiceName)
                                 {
                                     result.TODLocalServiceInstalled = true;

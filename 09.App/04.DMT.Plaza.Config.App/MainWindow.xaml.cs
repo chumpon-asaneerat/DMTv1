@@ -77,11 +77,11 @@ namespace DMT
             var status = DMTServiceOperations.Instance.CheckInstalled();
             if (status.TALocalServiceInstalled && status.TODLocalServiceInstalled)
             {
-                MessageBox.Show("TA/TOD Sercice installed and running");
+                MessageBox.Show("Plaza/TA/TOD Sercice installed and running");
             }
             else
             {
-                MessageBox.Show("TA/TOD Some Sercice is not installed or stopped");
+                MessageBox.Show("Plaza/TA/TOD Some Sercice is not installed or stopped");
             }
         }
 

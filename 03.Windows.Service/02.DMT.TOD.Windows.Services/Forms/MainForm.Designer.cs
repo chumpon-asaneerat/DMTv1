@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Name = "MainForm";
-            this.Text = "TA Data Service (Windows Service)";
+            this.Text = "TOD Data Service (Windows Services)";
             this.ResumeLayout(false);
 
         }

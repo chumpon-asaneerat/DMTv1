@@ -7,7 +7,7 @@
     <ProjectGuid>{0B6AA1E6-3657-43ED-8297-4ED57A076209}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>DMT</RootNamespace>
-    <AssemblyName>DMT.TA.Windows.Services</AssemblyName>
+    <AssemblyName>DMT.Plaza.Windows.Services</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>

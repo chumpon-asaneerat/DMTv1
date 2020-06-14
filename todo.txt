@@ -82,30 +82,30 @@
 [X] 0082 - Set all DMT applications to run as single instance.
 [X] 0083 - Implements ServiceOperations for handle windows service install/uninstall.
 [X] 0084 - Implements ServiceOperations for scan method (check service installation).
-[ ] 0085 - Implements TA/TOD service install (start)/uninstall (stop) page.
-[ ] 0086 - Implements TA/TOD local service (loca web service).
-[ ] 0087 - Implements TA/TOD local service health (heartbeat) check.
-[ ] 0088 - Implements ServiceOperations for check service health.
-[ ] 0089 - Implements Status bar for all application.
-[ ] 0090 - Implements TA/TOD Web Service health (heartbeat) check.
+[ ] 0085 - 
+[ ] 0086 - Implements ImageButton control (WPF).
+[ ] 0087 - 
+[ ] 0088 - Implements Plaza/TA/TOD local service (loca web service).
+[ ] 0089 - Implements Plaza/TA/TOD service install (start)/uninstall (stop) page.
+[ ] 0090 - 
 [ ] 0091 - 
-[ ] 0092 - Implements Plaza config setting for TA/TOD.
-[ ] 0093 - Implements local service (TA/TOD) -> add/edit/get user(s).
-[ ] 0094 - Implements local service (TOD) -> change shift.
-[ ] 0095 - Implements local service (TOD/TA) -> lane user signin (for simulator).
-[ ] 0096 - Implements local service (TA) -> plaza fund/coupon (init/received).
-[ ] 0097 - Implements TOD MainMenu page.
-[ ] 0098 - Implements TA MainMenu page.
-[ ] 0099 - 
-[ ] 0100 - 
-[ ] 0101 - 
+[ ] 0092 - Implements Plaza/TA/TOD local service health (heartbeat) check.
+[ ] 0093 - Implements ServiceOperations for check service health.
+[ ] 0094 - Implements Status bar for all application.
+[ ] 0095 - 
+[ ] 0096 - Implements Plaza/TA/TOD Web Service (server) health (heartbeat) check.
+[ ] 0097 - 
+[ ] 0098 - 
+[ ] 0099 - Implements Plaza config setting for Plaza/TA/TOD.
+[ ] 0100 - Implements local service (Plaza) -> add/edit/get user(s).
+[ ] 0101 - Implements local service (TOD) -> change shift.
 [ ] 0102 - 
-[ ] 0103 - 
-[ ] 0104 - 
+[ ] 0103 - Implements local service (TOD/TA) -> lane user signin (for simulator).
+[ ] 0104 - Implements local service (TA) -> plaza fund/coupon (init/received).
 [ ] 0105 - 
 [ ] 0106 - 
-[ ] 0107 - 
-[ ] 0108 - 
+[ ] 0107 - Implements TOD MainMenu page.
+[ ] 0108 - Implements TA MainMenu page.
 [ ] 0109 - 
 [ ] 0110 - 
 [ ] 0111 - 

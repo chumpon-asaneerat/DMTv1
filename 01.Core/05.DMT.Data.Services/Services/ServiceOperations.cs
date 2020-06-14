@@ -12,6 +12,47 @@ using NLib.ServiceProcess;
 
 namespace DMT.Services
 {
+    /// <summary>
+    /// PlazaOperations class. Provide Operations for Plaza (common).
+    /// </summary>
+    public class PlazaOperations
+    {
+        #region Public Methods
+
+        #endregion
+    }
+}
+
+
+namespace DMT.Services
+{
+    /// <summary>
+    /// TODOperations class. Provide Operations for TOD.
+    /// </summary>
+    public class TODOperations
+    {
+        #region Public Methods
+
+        #endregion
+    }
+}
+
+
+namespace DMT.Services
+{
+    /// <summary>
+    /// TAOperations class. Provide Operations for TA.
+    /// </summary>
+    public class TAOperations
+    {
+        #region Public Methods
+
+        #endregion
+    }
+}
+
+namespace DMT.Services
+{
     #region DMTServiceInstalledStatus
 
     /// <summary>
@@ -52,7 +93,7 @@ namespace DMT.Services
     /// <summary>
     /// The DMT Service Operations class.
     /// </summary>
-    public class DMTServiceOperations
+    public partial class DMTServiceOperations
     {
         #region Singelton
 
@@ -80,6 +121,9 @@ namespace DMT.Services
         #region Internal Variables
 
         private NServiceMonitor _srvMon = null;
+        private PlazaOperations _plaza = null;
+        private TODOperations _tod = null;
+        private TAOperations _ta = null;
 
         #endregion
 
@@ -93,6 +137,10 @@ namespace DMT.Services
             _srvMon = new NServiceMonitor();
             // Init windows service monitor.
             InitWindowsServices();
+
+            _plaza = new PlazaOperations();
+            _tod = new TODOperations();
+            _ta = new TAOperations();
         }
         /// <summary>
         /// Destructor.
@@ -163,7 +211,7 @@ namespace DMT.Services
 
         #region Public Methods
 
-        #region Windows Services Methods
+        #region Install/Uninstall/CheckInstalled
 
         /// <summary>
         /// Install all registered windows services.
@@ -239,6 +287,18 @@ namespace DMT.Services
         /// Gets Instance of Windows Services Monitor.
         /// </summary>
         public NServiceMonitor ServiceMonitor { get { return _srvMon; } }
+        /// <summary>
+        /// Gets instance of Plaza Operations.
+        /// </summary>
+        public PlazaOperations Plaza { get { return _plaza; } }
+        /// <summary>
+        /// Gets instance of TOD Operations.
+        /// </summary>
+        public TODOperations TOD { get { return _tod; } }
+        /// <summary>
+        /// Gets instance of TA Operations.
+        /// </summary>
+        public TAOperations TA { get { return _ta; } }
 
         #endregion
     }

@@ -2,54 +2,11 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-
-#endregion
 
 using NLib.ServiceProcess;
 
-namespace DMT.Services
-{
-    /// <summary>
-    /// PlazaOperations class. Provide Operations for Plaza (common).
-    /// </summary>
-    public class PlazaOperations
-    {
-        #region Public Methods
-
-        #endregion
-    }
-}
-
-
-namespace DMT.Services
-{
-    /// <summary>
-    /// TODOperations class. Provide Operations for TOD.
-    /// </summary>
-    public class TODOperations
-    {
-        #region Public Methods
-
-        #endregion
-    }
-}
-
-
-namespace DMT.Services
-{
-    /// <summary>
-    /// TAOperations class. Provide Operations for TA.
-    /// </summary>
-    public class TAOperations
-    {
-        #region Public Methods
-
-        #endregion
-    }
-}
+#endregion
 
 namespace DMT.Services
 {
@@ -121,9 +78,9 @@ namespace DMT.Services
         #region Internal Variables
 
         private NServiceMonitor _srvMon = null;
-        private PlazaOperations _plaza = null;
-        private TODOperations _tod = null;
-        private TAOperations _ta = null;
+        private Plaza.LodalDbOperations _plaza = null;
+        private TOD.LodalDbOperations _tod = null;
+        private TA.LodalDbOperations _ta = null;
 
         #endregion
 
@@ -138,9 +95,9 @@ namespace DMT.Services
             // Init windows service monitor.
             InitWindowsServices();
 
-            _plaza = new PlazaOperations();
-            _tod = new TODOperations();
-            _ta = new TAOperations();
+            _plaza = new Plaza.LodalDbOperations();
+            _tod = new TOD.LodalDbOperations();
+            _ta = new TA.LodalDbOperations();
         }
         /// <summary>
         /// Destructor.
@@ -290,15 +247,15 @@ namespace DMT.Services
         /// <summary>
         /// Gets instance of Plaza Operations.
         /// </summary>
-        public PlazaOperations Plaza { get { return _plaza; } }
+        public Plaza.LodalDbOperations Plaza { get { return _plaza; } }
         /// <summary>
         /// Gets instance of TOD Operations.
         /// </summary>
-        public TODOperations TOD { get { return _tod; } }
+        public TOD.LodalDbOperations TOD { get { return _tod; } }
         /// <summary>
         /// Gets instance of TA Operations.
         /// </summary>
-        public TAOperations TA { get { return _ta; } }
+        public TA.LodalDbOperations TA { get { return _ta; } }
 
         #endregion
     }

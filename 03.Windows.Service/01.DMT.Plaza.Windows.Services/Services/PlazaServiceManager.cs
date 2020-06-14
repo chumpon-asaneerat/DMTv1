@@ -26,17 +26,17 @@ using System.Web.Http;
 
 namespace DMT.Services
 {
-    #region TODDataServiceManager (Installer)
+    #region PlazaDataServiceManager (Installer)
 
     /// <summary>
-    /// TOD Data Service Manager.
+    /// Plaza Data Service Manager.
     /// </summary>
     [RunInstaller(true)]
-    public class TODDataServiceManager : NServiceInstaller
+    public class PlazaDataServiceManager : NServiceInstaller
     {
         #region Internal Variables
 
-        private TODDataService _service = new TODDataService();
+        private PlazaDataService _service = new PlazaDataService();
 
         #endregion
 
@@ -45,12 +45,12 @@ namespace DMT.Services
         /// <summary>
         /// Constructor.
         /// </summary>
-        public TODDataServiceManager()
+        public PlazaDataServiceManager()
             : base()
         {
-            ServiceName = AppConsts.WindowsService.TOD.ServiceName;
-            DisplayName = AppConsts.WindowsService.TOD.DisplayName;
-            Description = AppConsts.WindowsService.TOD.Description;
+            ServiceName = AppConsts.WindowsService.Plaza.ServiceName;
+            DisplayName = AppConsts.WindowsService.Plaza.DisplayName;
+            Description = AppConsts.WindowsService.Plaza.Description;
         }
 
         #endregion
@@ -102,31 +102,31 @@ namespace DMT.Services
         }
     }
 
-    public class TODController : ApiController
+    public class PlazaController : ApiController
     {
-        public class TODItem
+        public class Plaza
         {
             public int Id { get; set; }
             public string Name { get; set; }
             public string Category { get; set; }
             public decimal Price { get; set; }
         }
-        TODItem[] items = new TODItem[]
+        Plaza[] plazas = new Plaza[]
         {
-            new TODItem { Id = 1, Name = "Change Shift", Category = "Groceries", Price = 1 },
-            new TODItem { Id = 2, Name = "Revenue Entry", Category = "Toys", Price = 3.75M },
-            new TODItem { Id = 3, Name = "Print Slip", Category = "Hardware", Price = 16.99M },
-            new TODItem { Id = 4, Name = "Daily Reprots", Category = "Hardware", Price = 6.12M }
+            new Plaza { Id = 1, Name = "Dindang", Category = "Groceries", Price = 1 },
+            new Plaza { Id = 2, Name = "Ramintra", Category = "Toys", Price = 3.75M },
+            new Plaza { Id = 3, Name = "Doanmeung", Category = "Hardware", Price = 16.99M },
+            new Plaza { Id = 4, Name = "Bangna", Category = "Hardware", Price = 6.12M }
         };
 
-        public IEnumerable<TODItem> Get()
+        public IEnumerable<Plaza> Get()
         {
-            return items;
+            return plazas;
         }
 
-        public TODItem Get(int id)
+        public Plaza Get(int id)
         {
-            var product = items.FirstOrDefault((p) => p.Id == id);
+            var product = plazas.FirstOrDefault((p) => p.Id == id);
             if (product == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
@@ -134,16 +134,16 @@ namespace DMT.Services
             return product;
         }
 
-        public IEnumerable<TODItem> Get(string category)
+        public IEnumerable<Plaza> Get(string category)
         {
-            return items.Where(p => string.Equals(p.Category, category,
+            return plazas.Where(p => string.Equals(p.Category, category,
                     StringComparison.OrdinalIgnoreCase));
         }
     }
 
     public class WebServer
     {
-        private string baseAddress = "http://localhost:9001/";
+        private string baseAddress = "http://localhost:9000/";
         private IDisposable server = null;
 
         public void Start()
@@ -165,18 +165,18 @@ namespace DMT.Services
 
     #endregion
 
-    #region TODDataService (Core service)
+
+    #region PlazaDataService (Core service)
 
     /// <summary>
-    /// TOD Data Service. (Core service).
+    /// Plaza Data Service. (Core service).
     /// </summary>
-    public class TODDataService : NServiceBase
+    public class PlazaDataService : NServiceBase
     {
         #region Internal Variables
 
         private bool _running = false;
         private bool _pause = true;
-
         private WebServer _server = null;
 
         #endregion
@@ -186,14 +186,14 @@ namespace DMT.Services
         /// <summary>
         /// Constructor.
         /// </summary>
-        public TODDataService() : base()
+        public PlazaDataService() : base()
         {
             _server = new WebServer();
         }
         /// <summary>
         /// Destructor.
         /// </summary>
-        ~TODDataService()
+        ~PlazaDataService()
         {
             if (null != _server)
             {

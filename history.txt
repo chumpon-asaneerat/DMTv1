@@ -7,8 +7,10 @@ Update 2020-06-15 #4
 - 
 
 
+[commited]
 Update 2020-06-15 #3
-- 
+- Rewrite all windows service with implements WebServer.
+- Fixed runtime dll conflict in Microsoft.Owin and Newtonsoft.json
 
 [commited]
 Update 2020-06-15 #2

@@ -16,5 +16,25 @@ namespace DMT.Forms
         {
             InitializeComponent();
         }
+
+        private Services.WebServer server = null;
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            if (null == server)
+            {
+                server = new Services.WebServer();
+                server.Start();
+            }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (null != server)
+            {
+                server.Shutdown();
+            }
+            server = null;
+        }
     }
 }

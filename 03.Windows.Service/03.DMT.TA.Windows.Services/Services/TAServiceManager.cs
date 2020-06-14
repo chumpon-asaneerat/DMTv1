@@ -13,11 +13,14 @@ using NLib;
 using NLib.Data;
 using NLib.ServiceProcess;
 using NLib.Services;
-//using NLib.Wcf;
-using NLib.Xml;
 
-//using Rater.Configs;
-//using Rater.ServiceModel;
+using Owin;
+using Microsoft.Owin.Hosting;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json;
+using System.Net;
+using System.Web.Http;
 
 #endregion
 
@@ -70,6 +73,98 @@ namespace DMT.Services
 
     #endregion
 
+    #region WebServer Implements
+
+    public class StartUp
+    {
+        // This code configures Web API. The Startup class is specified as a type
+        // parameter in the WebApp.Start method.
+        public void Configuration(IAppBuilder appBuilder)
+        {
+            // Configure Web API for self-host. 
+            HttpConfiguration config = new HttpConfiguration();
+            config.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            );
+
+            config.Formatters.Clear();
+            config.Formatters.Add(new System.Net.Http.Formatting.JsonMediaTypeFormatter());
+            config.Formatters.JsonFormatter.SerializerSettings =
+            new JsonSerializerSettings
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
+            config.Formatters.JsonFormatter.SerializerSettings.Converters.Add(new StringEnumConverter());
+
+            appBuilder.UseWebApi(config);
+        }
+    }
+
+    public class TAController : ApiController
+    {
+        public class TAItem
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public string Category { get; set; }
+            public decimal Price { get; set; }
+        }
+        TAItem[] items = new TAItem[]
+        {
+            new TAItem { Id = 1, Name = "TA1", Category = "Groceries", Price = 1 },
+            new TAItem { Id = 2, Name = "TA2", Category = "Toys", Price = 3.75M },
+            new TAItem { Id = 3, Name = "TA3", Category = "Hardware", Price = 16.99M },
+            new TAItem { Id = 4, Name = "TA4", Category = "Hardware", Price = 6.12M }
+        };
+
+        public IEnumerable<TAItem> Get()
+        {
+            return items;
+        }
+
+        public TAItem Get(int id)
+        {
+            var product = items.FirstOrDefault((p) => p.Id == id);
+            if (product == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            return product;
+        }
+
+        public IEnumerable<TAItem> Get(string category)
+        {
+            return items.Where(p => string.Equals(p.Category, category,
+                    StringComparison.OrdinalIgnoreCase));
+        }
+    }
+
+    public class WebServer
+    {
+        private string baseAddress = "http://localhost:9002/";
+        private IDisposable server = null;
+
+        public void Start()
+        {
+            if (null == server)
+            {
+                server = WebApp.Start<StartUp>(url: baseAddress);
+            }
+        }
+        public void Shutdown()
+        {
+            if (null != server)
+            {
+                server.Dispose();
+            }
+            server = null;
+        }
+    }
+
+    #endregion
+
     #region TADataService (Core service)
 
     /// <summary>
@@ -82,6 +177,8 @@ namespace DMT.Services
         private bool _running = false;
         private bool _pause = true;
 
+        private WebServer _server = null;
+
         #endregion
 
         #region Constructor and Destructor
@@ -91,14 +188,18 @@ namespace DMT.Services
         /// </summary>
         public TADataService() : base()
         {
-
+            _server = new WebServer();
         }
         /// <summary>
         /// Destructor.
         /// </summary>
         ~TADataService()
         {
-            //RaterCompactService.Instance.Shutdown();
+            if (null != _server)
+            {
+                _server.Shutdown();
+            }
+            _server = null;
         }
 
         #endregion
@@ -113,8 +214,7 @@ namespace DMT.Services
         {
             _running = true;
             _pause = false;
-
-            //RaterCompactService.Instance.Start();
+            if (null != _server) _server.Start();
         }
         /// <summary>
         /// OnPause
@@ -139,8 +239,7 @@ namespace DMT.Services
         {
             _running = false;
             _pause = true;
-
-            //RaterCompactService.Instance.Shutdown();
+            if (null != _server) _server.Shutdown();
         }
 
         #endregion

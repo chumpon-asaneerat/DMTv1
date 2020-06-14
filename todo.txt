@@ -82,30 +82,30 @@
 [X] 0082 - Set all DMT applications to run as single instance.
 [X] 0083 - Implements ServiceOperations for handle windows service install/uninstall.
 [X] 0084 - Implements ServiceOperations for scan method (check service installation).
-[ ] 0085 - 
-[ ] 0086 - Implements ImageButton control (WPF).
-[ ] 0087 - 
-[ ] 0088 - Implements Plaza/TA/TOD local service (loca web service).
+[X] 0085 - Implements Plaza/TA/TOD local service (loca web service).
+[ ] 0086 - Implements Plaza/TA/TOD local service health (heartbeat) check.
+[ ] 0087 - Implements ServiceOperations for check service health.
+[ ] 0088 - Implements Plaza/TA/TOD Web Service (server) health (heartbeat) check.
 [ ] 0089 - Implements Plaza/TA/TOD service install (start)/uninstall (stop) page.
-[ ] 0090 - 
+[ ] 0090 - Implements Status bar for all application.
 [ ] 0091 - 
-[ ] 0092 - Implements Plaza/TA/TOD local service health (heartbeat) check.
-[ ] 0093 - Implements ServiceOperations for check service health.
-[ ] 0094 - Implements Status bar for all application.
-[ ] 0095 - 
-[ ] 0096 - Implements Plaza/TA/TOD Web Service (server) health (heartbeat) check.
+[ ] 0092 - 
+[ ] 0093 - 
+[ ] 0094 - Implements Plaza config setting for Plaza/TA/TOD.
+[ ] 0095 - Implements local service (Plaza) -> add/edit/get user(s).
+[ ] 0096 - Implements local service (TOD) -> change shift.
 [ ] 0097 - 
-[ ] 0098 - 
-[ ] 0099 - Implements Plaza config setting for Plaza/TA/TOD.
-[ ] 0100 - Implements local service (Plaza) -> add/edit/get user(s).
-[ ] 0101 - Implements local service (TOD) -> change shift.
-[ ] 0102 - 
-[ ] 0103 - Implements local service (TOD/TA) -> lane user signin (for simulator).
-[ ] 0104 - Implements local service (TA) -> plaza fund/coupon (init/received).
+[ ] 0098 - Implements local service (TOD/TA) -> lane user signin (for simulator).
+[ ] 0099 - Implements local service (TA) -> plaza fund/coupon (init/received).
+[ ] 0100 - 
+[ ] 0101 - Implements ImageButton control (WPF).
+[ ] 0102 - Implements TOD MainMenu page.
+[ ] 0103 - Implements TA MainMenu page.
+[ ] 0104 - 
 [ ] 0105 - 
 [ ] 0106 - 
-[ ] 0107 - Implements TOD MainMenu page.
-[ ] 0108 - Implements TA MainMenu page.
+[ ] 0107 - 
+[ ] 0108 - 
 [ ] 0109 - 
 [ ] 0110 - 
 [ ] 0111 - 

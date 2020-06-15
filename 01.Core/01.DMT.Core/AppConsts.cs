@@ -63,6 +63,11 @@ namespace DMT
                 public static string Minor = "0";
                 public static string Build = "125";
                 public static DateTime LastUpdate = new DateTime(2020, 06, 13, 10, 00, 00);
+
+                public static class LocaWebServer
+                {
+                    public static int PortNumber = 9000;
+                }
             }
             public static class TA
             {
@@ -74,6 +79,11 @@ namespace DMT
                 public static string Minor = "0";
                 public static string Build = "125";
                 public static DateTime LastUpdate = new DateTime(2020, 06, 13, 10, 00, 00);
+
+                public static class LocaWebServer
+                {
+                    public static int PortNumber = 9001;
+                }
             }
             public static class TOD
             {
@@ -85,6 +95,11 @@ namespace DMT
                 public static string Minor = "0";
                 public static string Build = "125";
                 public static DateTime LastUpdate = new DateTime(2020, 06, 13, 10, 00, 00);
+
+                public static class LocaWebServer
+                {
+                    public static int PortNumber = 9002;
+                }
             }
         }
     }

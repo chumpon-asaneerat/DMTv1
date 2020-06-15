@@ -193,7 +193,8 @@ namespace DMT.Services
     /// </summary>
     public class WebServer
     {
-        private string baseAddress = "http://localhost:9000/";
+        private string baseAddress = string.Format(@"http://localhost:{0}/", 
+            AppConsts.WindowsService.Plaza.LocaWebServer.PortNumber);
         private IDisposable server = null;
 
         public void Start()

@@ -3,10 +3,106 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfLayoutSample"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TabControl>
+            <TabItem Header="Wrap Panel">
+                <WrapPanel>
+                    
+                </WrapPanel>
+            </TabItem>
+            <TabItem Header="Uniform Grid">
+                <UniformGrid Rows="5" VerticalAlignment="Top" Grid.IsSharedSizeScope="True">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="A"/>
+                            <ColumnDefinition SharedSizeGroup="B"/>
+                            <ColumnDefinition SharedSizeGroup="C"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0" Content="Gas Volume Fraction"/>
+                        <TextBox Grid.Column="1" Text="0.45" MinWidth="40"/>
+                        <Label Grid.Column="2">-</Label>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="A"/>
+                            <ColumnDefinition SharedSizeGroup="B"/>
+                            <ColumnDefinition SharedSizeGroup="C"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0">Density</Label>
+                        <TextBox Grid.Column="1" Text="11.25" MinWidth="40"/>
+                        <Label Grid.Column="2" Content="kg/m3"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="A"/>
+                            <ColumnDefinition SharedSizeGroup="B"/>
+                            <ColumnDefinition SharedSizeGroup="C"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="Curve speed"/>
+                        <TextBox Grid.Column="1" Text="12" MinWidth="40"/>
+                        <Label Grid.Column="2" Content="rpm"/>
+                    </Grid>
+                    <WrapPanel>
+                        <RadioButton>Delta pressure</RadioButton>
+                        <RadioButton>Head</RadioButton>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <RadioButton>Efficiency</RadioButton>
+                        <RadioButton>Power</RadioButton>
+                        <RadioButton>Torque</RadioButton>
+                    </WrapPanel>
+                </UniformGrid>
+            </TabItem>
+            <TabItem Header="Grid (SharedSizeGroup)">
+                <Grid Grid.IsSharedSizeScope="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Grid.Row="0" Grid.Column="0" Header="Header 1" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="Button" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="Button" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="Button" />
+                            </Grid.ColumnDefinitions>
+                            <Button Content="A" Grid.Row="0" Grid.Column="0" Margin="2" />
+                            <Button Content="B" Grid.Row="0" Grid.Column="1" Margin="2" />
+                            <Button Content="C" Grid.Row="0" Grid.Column="2" Margin="2" />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Grid.Row="1" Grid.Column="0" Header="Header 2" >
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="Button" />
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="Button" />
+                            </Grid.ColumnDefinitions>
+                            <Button Content="AA" Grid.Row="0" Grid.Column="0" Margin="2" 
+                                    Width="300"/>
+                            <Button Content="BB" Grid.Row="0" Grid.Column="1" Margin="2" />
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Scroll Viewer">
+                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                              HorizontalScrollBarVisibility="Auto">
+                    
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

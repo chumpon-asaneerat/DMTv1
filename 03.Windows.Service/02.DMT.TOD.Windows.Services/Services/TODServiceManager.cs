@@ -13,7 +13,11 @@ using NLib;
 using NLib.Data;
 using NLib.ServiceProcess;
 using NLib.Services;
-
+// SQLite
+using SQLite;
+using SQLiteNetExtensions.Attributes;
+using SQLiteNetExtensions.Extensions;
+// Owin SelfHost
 using Owin;
 using Microsoft.Owin.Hosting;
 using Newtonsoft.Json.Converters;
@@ -73,8 +77,48 @@ namespace DMT.Services
 
     #endregion
 
+    #region LobalDbServer Implements
+
+    /// <summary>
+    /// Local Database Server.
+    /// </summary>
+    public class LocalDbServer
+    {
+        #region Internal Variables
+
+        #endregion
+
+        #region Constructor and Destructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public LocalDbServer() : base()
+        {
+
+        }
+        /// <summary>
+        /// Destructor.
+        /// </summary>
+        ~LocalDbServer()
+        {
+
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        #endregion
+    }
+
+    #endregion
+
     #region WebServer Implements
 
+    /// <summary>
+    /// Web Server StartUp class.
+    /// </summary>
     public class StartUp
     {
         // This code configures Web API. The Startup class is specified as a type
@@ -102,6 +146,9 @@ namespace DMT.Services
         }
     }
 
+    /// <summary>
+    /// Route Controller.
+    /// </summary>
     public class TODController : ApiController
     {
         public class TODItem
@@ -141,6 +188,9 @@ namespace DMT.Services
         }
     }
 
+    /// <summary>
+    /// Web Server (Self Host).
+    /// </summary>
     public class WebServer
     {
         private string baseAddress = "http://localhost:9001/";

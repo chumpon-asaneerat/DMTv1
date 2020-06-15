@@ -3,9 +3,10 @@ Update 2020-06-15 #5
 - 
 
 
+[commited]
 Update 2020-06-15 #4
-- 
-
+- Move all lodal database class to windows service projects.
+- Update references in changed projects.
 
 [commited]
 Update 2020-06-15 #3

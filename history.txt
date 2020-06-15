@@ -1,12 +1,16 @@
 --------------------------------------------------------------------------------------------
+Update 2020-06-15 #12
+- 
+
 Update 2020-06-15 #11
 - 
 
 Update 2020-06-15 #10
 - 
 
+[commited]
 Update 2020-06-15 #9
-- 
+- Update WpfButtonUISample project #2 (add implements of ImageButton).
 
 [commited]
 Update 2020-06-15 #8

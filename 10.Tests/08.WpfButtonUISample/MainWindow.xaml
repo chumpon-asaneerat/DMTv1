@@ -3,10 +3,29 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfButtonUISample"
+        xmlns:local="clr-namespace:WpfButtonUISample.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <StackPanel Orientation="Horizontal">
+            <local:ImageButton HorizontalAlignment="Left"
+                               Margin="54,54,0,0" 
+                               x:Name="imageButton1" 
+                               VerticalAlignment="Top" 
+                               Width="211" 
+                               Height="186" 
+                               NormalImageSource="Images/Money/emblem-money.png" 
+                               MouseOverImageSource="/Images/Money/gold.png" 
+                               PressedImageSource="Images/Save/Save-as.png" />
+            <local:ImageButton HorizontalAlignment="Left"
+                               Margin="54,54,0,0" 
+                               x:Name="imageButton2" 
+                               VerticalAlignment="Top" 
+                               Width="211" 
+                               Height="186" 
+                               NormalImageSource="Images/Money/emblem-money.png" 
+                               MouseOverImageSource="/Images/Money/gold.png" 
+                               PressedImageSource="Images/Save/Save.png" />
+        </StackPanel>
     </Grid>
 </Window>

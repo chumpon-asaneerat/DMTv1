@@ -99,5 +99,80 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Approve\Approve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Approve\Approve2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Approve\approve3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Approve\Rejected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Approve\Rejected2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Approve\Security Approved.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\2_100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\2_101.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\2_102.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\2_103.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\kisspng-human-behavior-symbol-yellow-male-user-add-5ab05074510432.1922811515215043723319.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\user %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\User %2810%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\User %2811%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\User %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\user %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\User %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\User %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\User %286%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\User %287%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\User %288%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\User %289%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\User Delete-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\User New-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\User\user.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

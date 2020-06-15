@@ -8,8 +8,9 @@ Update 2020-06-15 #10
 Update 2020-06-15 #9
 - 
 
+[commited]
 Update 2020-06-15 #8
-- 
+- Update WpfButtonUISample project #2 (add images).
 
 [commited]
 Update 2020-06-15 #7

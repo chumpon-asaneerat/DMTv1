@@ -69,38 +69,6 @@ namespace DMT
                     public static int PortNumber = 9000;
                 }
             }
-            public static class TA
-            {
-                public static string ServiceName = "DMT Toll Admin Windows Service";
-                public static string DisplayName = "DMT Toll Admin Windows Service";
-                public static string Description = "DMT Toll Admin Windows Service";
-                public static string ExecutableFileName = @"DMT.TOD.Windows.Services.exe";
-                public static string Version = "1";
-                public static string Minor = "0";
-                public static string Build = "125";
-                public static DateTime LastUpdate = new DateTime(2020, 06, 13, 10, 00, 00);
-
-                public static class LocaWebServer
-                {
-                    public static int PortNumber = 9001;
-                }
-            }
-            public static class TOD
-            {
-                public static string ServiceName = "DMT Toll of Duty Windows Service";
-                public static string DisplayName = "DMT Toll of Duty Windows Service";
-                public static string Description = "DMT Toll of Duty Windows Service";
-                public static string ExecutableFileName = @"DMT.TA.Windows.Services.exe";
-                public static string Version = "1";
-                public static string Minor = "0";
-                public static string Build = "125";
-                public static DateTime LastUpdate = new DateTime(2020, 06, 13, 10, 00, 00);
-
-                public static class LocaWebServer
-                {
-                    public static int PortNumber = 9002;
-                }
-            }
         }
     }
 }

@@ -31,14 +31,20 @@ namespace DMT.Services
         /// Gets (or internal set) is Plaza Local Service installed.
         /// </summary>
         public bool PlazaLocalServiceInstalled { get; internal set; }
-        /// <summary>
-        /// Gets (or internal set) is TOD Local Service installed.
-        /// </summary>
-        public bool TODLocalServiceInstalled { get; internal set; }
-        /// <summary>
-        /// Gets (or internal set) is TA Local Service installed.
-        /// </summary>
-        public bool TALocalServiceInstalled { get; internal set; }
+
+        #endregion
+    }
+
+    #endregion
+
+    #region PlazaOperations
+
+    /// <summary>
+    /// Plaza Operations class.
+    /// </summary>
+    public class PlazaOperations
+    {
+        #region Public Methods
 
         #endregion
     }
@@ -78,9 +84,7 @@ namespace DMT.Services
         #region Internal Variables
 
         private NServiceMonitor _srvMon = null;
-        private Plaza.LodalDbOperations _plaza = null;
-        private TOD.LodalDbOperations _tod = null;
-        private TA.LodalDbOperations _ta = null;
+        private PlazaOperations _operations = null;
 
         #endregion
 
@@ -95,9 +99,7 @@ namespace DMT.Services
             // Init windows service monitor.
             InitWindowsServices();
 
-            _plaza = new Plaza.LodalDbOperations();
-            _tod = new TOD.LodalDbOperations();
-            _ta = new TA.LodalDbOperations();
+            _operations = new PlazaOperations();
         }
         /// <summary>
         /// Destructor.
@@ -138,30 +140,6 @@ namespace DMT.Services
                     // assembly.
                     FileName = System.IO.Path.Combine(path, AppConsts.WindowsService.Plaza.ExecutableFileName)
                 });
-
-            // Append Local TOD Window Service application
-            _srvMon.ServiceNames.Add(
-                new NServiceName()
-                {
-                    // The Service Name must match the name that declare name 
-                    // in NServiceInstaller inherited class
-                    ServiceName = DMT.AppConsts.WindowsService.TOD.ServiceName,
-                    // The File Name must match actual path related to entry (main execute)
-                    // assembly.
-                    FileName = System.IO.Path.Combine(path, AppConsts.WindowsService.TOD.ExecutableFileName)
-            });
-
-            // Append Local TA Window Service application
-            _srvMon.ServiceNames.Add(
-                new NServiceName()
-                {
-                    // The Service Name must match the name that declare name 
-                    // in NServiceInstaller inherited class
-                    ServiceName = DMT.AppConsts.WindowsService.TA.ServiceName,
-                    // The File Name must match actual path related to entry (main execute)
-                    // assembly.
-                    FileName = System.IO.Path.Combine(path, AppConsts.WindowsService.TA.ExecutableFileName)
-                });
         }
 
         #endregion
@@ -198,8 +176,6 @@ namespace DMT.Services
             result.ServiceCount = 0;
             result.InstalledCount = 0;
             result.PlazaLocalServiceInstalled = false;
-            result.TODLocalServiceInstalled = false;
-            result.TALocalServiceInstalled = false;
             if (null != _srvMon)
             {
                 try
@@ -216,14 +192,6 @@ namespace DMT.Services
                                 if (srvInfo.ServiceName == AppConsts.WindowsService.Plaza.ServiceName)
                                 {
                                     result.PlazaLocalServiceInstalled = true;
-                                }
-                                if (srvInfo.ServiceName == AppConsts.WindowsService.TOD.ServiceName)
-                                {
-                                    result.TODLocalServiceInstalled = true;
-                                }
-                                if (srvInfo.ServiceName == AppConsts.WindowsService.TA.ServiceName)
-                                {
-                                    result.TALocalServiceInstalled = true;
                                 }
                             }
                         }
@@ -247,15 +215,7 @@ namespace DMT.Services
         /// <summary>
         /// Gets instance of Plaza Operations.
         /// </summary>
-        public Plaza.LodalDbOperations Plaza { get { return _plaza; } }
-        /// <summary>
-        /// Gets instance of TOD Operations.
-        /// </summary>
-        public TOD.LodalDbOperations TOD { get { return _tod; } }
-        /// <summary>
-        /// Gets instance of TA Operations.
-        /// </summary>
-        public TA.LodalDbOperations TA { get { return _ta; } }
+        public PlazaOperations Plaza { get { return _operations; } }
 
         #endregion
     }

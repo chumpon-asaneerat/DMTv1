@@ -189,6 +189,90 @@ namespace DMT.Services
     }
 
     /// <summary>
+    /// Route Controller.
+    /// </summary>
+    public class TODController : ApiController
+    {
+        public class TODItem
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public string Category { get; set; }
+            public decimal Price { get; set; }
+        }
+        TODItem[] items = new TODItem[]
+        {
+            new TODItem { Id = 1, Name = "Change Shift", Category = "Groceries", Price = 1 },
+            new TODItem { Id = 2, Name = "Revenue Entry", Category = "Toys", Price = 3.75M },
+            new TODItem { Id = 3, Name = "Print Slip", Category = "Hardware", Price = 16.99M },
+            new TODItem { Id = 4, Name = "Daily Reprots", Category = "Hardware", Price = 6.12M }
+        };
+
+        public IEnumerable<TODItem> Get()
+        {
+            return items;
+        }
+
+        public TODItem Get(int id)
+        {
+            var product = items.FirstOrDefault((p) => p.Id == id);
+            if (product == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            return product;
+        }
+
+        public IEnumerable<TODItem> Get(string category)
+        {
+            return items.Where(p => string.Equals(p.Category, category,
+                    StringComparison.OrdinalIgnoreCase));
+        }
+    }
+
+    /// <summary>
+    /// Route Controller.
+    /// </summary>
+    public class TAController : ApiController
+    {
+        public class TAItem
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
+            public string Category { get; set; }
+            public decimal Price { get; set; }
+        }
+        TAItem[] items = new TAItem[]
+        {
+            new TAItem { Id = 1, Name = "TA1", Category = "Groceries", Price = 1 },
+            new TAItem { Id = 2, Name = "TA2", Category = "Toys", Price = 3.75M },
+            new TAItem { Id = 3, Name = "TA3", Category = "Hardware", Price = 16.99M },
+            new TAItem { Id = 4, Name = "TA4", Category = "Hardware", Price = 6.12M }
+        };
+
+        public IEnumerable<TAItem> Get()
+        {
+            return items;
+        }
+
+        public TAItem Get(int id)
+        {
+            var product = items.FirstOrDefault((p) => p.Id == id);
+            if (product == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            return product;
+        }
+
+        public IEnumerable<TAItem> Get(string category)
+        {
+            return items.Where(p => string.Equals(p.Category, category,
+                    StringComparison.OrdinalIgnoreCase));
+        }
+    }
+
+    /// <summary>
     /// Web Server (Self Host).
     /// </summary>
     public class WebServer

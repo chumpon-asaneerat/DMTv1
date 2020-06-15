@@ -11,8 +11,12 @@ Update 2020-06-15 #9
 Update 2020-06-15 #8
 - 
 
+[commited]
 Update 2020-06-15 #7
-- 
+- Merge all Windows Services projects to Plaza Windows Services.
+- Remove unused AppConsts.
+- Update DMT.Data.Services project.
+- Update DMT.Plaza.Config.App project.
 
 [commited]
 Update 2020-06-15 #6

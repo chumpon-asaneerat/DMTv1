@@ -90,10 +90,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.DMT.Pages", "02.Controls
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.DMT.Plaza.Windows.Services", "03.Windows.Service\01.DMT.Plaza.Windows.Services\01.DMT.Plaza.Windows.Services.csproj", "{0B6AA1E6-3657-43ED-8297-4ED57A076209}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.DMT.TOD.Windows.Services", "03.Windows.Service\02.DMT.TOD.Windows.Services\02.DMT.TOD.Windows.Services.csproj", "{1C35A29F-CD48-4F69-99BB-1655DC47B9F2}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.DMT.TA.Windows.Services", "03.Windows.Service\03.DMT.TA.Windows.Services\03.DMT.TA.Windows.Services.csproj", "{A34F6CD0-A5FD-403C-B3DC-7CD95FE5127A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -208,14 +204,6 @@ Global
 		{0B6AA1E6-3657-43ED-8297-4ED57A076209}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B6AA1E6-3657-43ED-8297-4ED57A076209}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B6AA1E6-3657-43ED-8297-4ED57A076209}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1C35A29F-CD48-4F69-99BB-1655DC47B9F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1C35A29F-CD48-4F69-99BB-1655DC47B9F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1C35A29F-CD48-4F69-99BB-1655DC47B9F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1C35A29F-CD48-4F69-99BB-1655DC47B9F2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A34F6CD0-A5FD-403C-B3DC-7CD95FE5127A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A34F6CD0-A5FD-403C-B3DC-7CD95FE5127A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A34F6CD0-A5FD-403C-B3DC-7CD95FE5127A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A34F6CD0-A5FD-403C-B3DC-7CD95FE5127A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -250,8 +238,6 @@ Global
 		{AEED7B1C-4E56-4D44-BBD1-A936BE653D4D} = {E0AEE26B-F15A-4A31-8E4B-7721DE8D8464}
 		{42DCC6BA-69B6-4DE0-8988-85EC884A2228} = {E0AEE26B-F15A-4A31-8E4B-7721DE8D8464}
 		{0B6AA1E6-3657-43ED-8297-4ED57A076209} = {37600ED1-987F-4C0D-B7A3-C2BCA6DBD0FE}
-		{1C35A29F-CD48-4F69-99BB-1655DC47B9F2} = {37600ED1-987F-4C0D-B7A3-C2BCA6DBD0FE}
-		{A34F6CD0-A5FD-403C-B3DC-7CD95FE5127A} = {37600ED1-987F-4C0D-B7A3-C2BCA6DBD0FE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E649CF5-EC41-479A-BECB-ADF883B25263}

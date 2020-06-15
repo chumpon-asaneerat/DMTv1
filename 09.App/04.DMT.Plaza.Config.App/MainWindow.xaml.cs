@@ -75,13 +75,13 @@ namespace DMT
         private void cmdCheckWindowServiceStatus_Click(object sender, RoutedEventArgs e)
         {
             var status = DMTServiceOperations.Instance.CheckInstalled();
-            if (status.TALocalServiceInstalled && status.TODLocalServiceInstalled)
+            if (status.PlazaLocalServiceInstalled)
             {
-                MessageBox.Show("Plaza/TA/TOD Sercice installed and running");
+                MessageBox.Show("Plaza Sercice installed and running");
             }
             else
             {
-                MessageBox.Show("Plaza/TA/TOD Some Sercice is not installed or stopped");
+                MessageBox.Show("Plaza Sercice is not installed or stopped");
             }
         }
 

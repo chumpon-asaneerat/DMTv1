@@ -2,8 +2,9 @@
 Update 2020-06-15 #15
 - 
 
+[commited]
 Update 2020-06-15 #14
-- 
+- Update WpfLayoutSample project #5.
 
 [commited]
 Update 2020-06-15 #13

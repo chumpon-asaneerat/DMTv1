@@ -8,8 +8,11 @@
     <Grid>
         <TabControl>
             <TabItem Header="Wrap Panel">
-                <WrapPanel>
-                    
+                <WrapPanel Margin="10" Background="Lavender">
+                    <Button Content="Button 1" Width="100" Height="25" Margin="3"/>
+                    <Button Content="Button 2" Width="100" Height="25" Margin="3"/>
+                    <Button Content="Button 3" Width="100" Height="25" Margin="3"/>
+                    <Button Content="Button 4" Width="100" Height="25" Margin="3"/>
                 </WrapPanel>
             </TabItem>
             <TabItem Header="Uniform Grid">

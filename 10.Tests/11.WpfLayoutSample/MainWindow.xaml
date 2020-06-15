@@ -100,8 +100,50 @@
             <TabItem Header="Scroll Viewer">
                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                               HorizontalScrollBarVisibility="Auto">
-                    
+                    <StackPanel VerticalAlignment="Top" HorizontalAlignment="Left">
+                        <TextBlock Text="Resize window to auto enable or disable scrolling."/>
+                        <Separator />
+                        <Rectangle Fill="DodgerBlue" Width="450" Height="450"/>
+                    </StackPanel>
                 </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Scroll Viewer with Wrap Panel">
+                <Grid x:Name="configGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <ScrollViewer Grid.Row="0" 
+                                  VerticalScrollBarVisibility="Auto" 
+                                  HorizontalScrollBarVisibility="Disabled"
+                                  Height="{Binding ElementName=configGrid, Path=ActualHeight}">
+                        <WrapPanel VerticalAlignment="Top"
+                                   HorizontalAlignment="Left"
+                                   Orientation="Horizontal" 
+                                   x:Name="ConfigWrapPanel" >
+                            <Border BorderBrush="White" BorderThickness="1" 
+                                    CornerRadius="2" Margin="10">
+                                <Expander IsExpanded="True" BorderThickness="0" 
+                                          Header="General"
+                                          ExpandDirection="Right">
+                                    <Button Width="300" Height="250" Content="Button1"/>
+                                </Expander>
+                            </Border>
+                            <Border BorderBrush="White" BorderThickness="1" 
+                                    CornerRadius="2" Margin="10">
+                                <Expander IsExpanded="True" BorderThickness="0" 
+                                          Header="Another Block"
+                                          ExpandDirection="Right">
+                                    <Button Width="300" Height="250" Content="Button2"/>
+                                </Expander>
+                            </Border>
+
+
+                        </WrapPanel>
+                    </ScrollViewer>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>

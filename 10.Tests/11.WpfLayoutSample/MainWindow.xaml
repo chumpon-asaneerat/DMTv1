@@ -168,7 +168,55 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Group WrapPanel">
-                
+                <ScrollViewer HorizontalScrollBarVisibility="Hidden"
+                              VerticalScrollBarVisibility="Auto">
+                    <StackPanel Orientation="Horizontal">
+                        <!-- Col 1 -->
+                        <StackPanel Orientation="Vertical">
+                            <!-- Group 1 -->
+                            <WrapPanel Orientation="Horizontal" 
+                                       ItemWidth="250" ItemHeight="100"
+                                       MaxWidth="500">
+                                <Rectangle Fill="DodgerBlue"/>
+                                <Rectangle Fill="SeaGreen"/>
+                                <Rectangle Fill="RoyalBlue"/>
+                                <Rectangle Fill="Purple"/>
+                            </WrapPanel>
+                            <!-- Group 2 -->
+                            <WrapPanel Orientation="Horizontal" 
+                                       ItemWidth="250" ItemHeight="100"
+                                        MaxWidth="500">
+                                <Rectangle Fill="ForestGreen"/>
+                                <Rectangle Fill="RoyalBlue"/>
+                                <Rectangle Fill="SeaGreen"/>
+                            </WrapPanel>
+                            <!-- Group 3 -->
+                            <WrapPanel Orientation="Horizontal" 
+                                       ItemWidth="250" ItemHeight="100"
+                                       MaxWidth="500">
+                                <Rectangle Fill="Goldenrod"/>
+                                <Rectangle Fill="PowderBlue"/>
+                                <Rectangle Fill="RoyalBlue"/>
+                                <Rectangle Fill="Salmon"/>
+                                <Rectangle Fill="Red"/>
+                            </WrapPanel>
+                        </StackPanel>
+                        <!-- Col 2 -->
+                        <StackPanel Orientation="Vertical">
+                            <!-- Group 1 -->
+                            <Rectangle Fill="PowderBlue"/>
+                            <!-- Group 2 -->
+                            <!-- Group 3 -->
+                        </StackPanel>
+                        <!-- Col 3 -->
+                        <StackPanel Orientation="Vertical">
+                            <!-- Group 1 -->
+                            <Rectangle Fill="PowderBlue"/>
+                            <!-- Group 2 -->
+                            <!-- Group 3 -->
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
             </TabItem>
         </TabControl>
     </Grid>

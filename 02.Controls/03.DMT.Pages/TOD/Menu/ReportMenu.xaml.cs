@@ -30,8 +30,8 @@ namespace DMT.TOD.Pages
 
         private void revSlip_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            var search = new Windows.TOD.Reports.RevenueSlipSearchWindow();
+            
+            var search = new Windows.Reports.RevenueSlipSearchWindow();
             search.Owner = Application.Current.MainWindow;
             if (search.ShowDialog() == false)
             {
@@ -41,13 +41,13 @@ namespace DMT.TOD.Pages
             var page = new Reports.RevenueSlipPreview();
             page.MenuPage = this;
             PageContentManager.Instance.Current = page;
-            */
+            
         }
 
         private void revSummary_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            var search = new Windows.TOD.Reports.RevenueSummarySearchWindow();
+            
+            var search = new Windows.Reports.RevenueSummarySearchWindow();
             search.Owner = Application.Current.MainWindow;
             if (search.ShowDialog() == false)
             {
@@ -56,7 +56,7 @@ namespace DMT.TOD.Pages
             // Daily Revenue Summary Preview
             var page = new Reports.DailyRevenueSummaryPreview();
             PageContentManager.Instance.Current = page;
-            */
+            
         }
 
         private void backHome_Click(object sender, RoutedEventArgs e)

@@ -29,9 +29,22 @@ namespace DMT.TOD.Windows.Job
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            txtDate.Text = DateTime.Now.ToThaiDateString();
+            txtTime.Text = DateTime.Now.ToThaiTimeString();
         }
 
         #endregion
+
+
+        private void cmdOK_Click(object sender, RoutedEventArgs e)
+        {
+            //Models.Job.BeginJob("14077", "นายเอนก หอมจรูง", 2);
+            DialogResult = true;
+        }
+
+        private void cmdCancel_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
     }
 }

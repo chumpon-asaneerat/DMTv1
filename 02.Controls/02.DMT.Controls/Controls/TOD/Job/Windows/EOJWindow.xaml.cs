@@ -29,9 +29,30 @@ namespace DMT.TOD.Windows.Job
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            txtDate.Text = DateTime.Now.ToThaiDateString();
+            txtTime.Text = DateTime.Now.ToThaiTimeString();
 
+            //txtShiftId.Text = (null != this.Job) ? this.Job.ShiftId.ToString() : string.Empty;
         }
 
         #endregion
+
+        private void cmdOK_Click(object sender, RoutedEventArgs e)
+        {
+            /*
+            if (null != this.Job)
+            {
+                this.Job.EndJob();
+            }
+            */
+            DialogResult = true;
+        }
+
+        private void cmdCancel_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
+
+        //public Models.Job Job { get; set; }
     }
 }

@@ -107,6 +107,12 @@
     <Compile Include="Controls\TA\Plaza\View\PlazaFundView.xaml.cs">
       <DependentUpon>PlazaFundView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TOD\Reports\Windows\RevenueSlipSearchWindow1.xaml.cs">
+      <DependentUpon>RevenueSlipSearchWindow1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TOD\Reports\Windows\RevenueSummarySearchWindow.xaml.cs">
+      <DependentUpon>RevenueSummarySearchWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TOD\Revenue\View\LaneView.xaml.cs">
       <DependentUpon>LaneView.xaml</DependentUpon>
     </Compile>
@@ -136,6 +142,9 @@
     </Compile>
     <Compile Include="Controls\TOD\Shift\View\ShiftView.xaml.cs">
       <DependentUpon>ShiftView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TOD\Shift\View\SlipView.xaml.cs">
+      <DependentUpon>SlipView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -278,6 +287,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\TOD\Reports\Windows\RevenueSlipSearchWindow1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TOD\Reports\Windows\RevenueSummarySearchWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\TOD\Revenue\View\LaneView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -347,6 +364,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SignIn\Windows\SignInWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TOD\Shift\View\SlipView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

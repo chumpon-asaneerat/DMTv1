@@ -50,7 +50,6 @@ namespace DMT.TOD.Pages
 
         private void endJob_Click(object sender, RoutedEventArgs e)
         {
-            
             var signinWin = new SignInWindow();
             signinWin.Owner = Application.Current.MainWindow;
             if (signinWin.ShowDialog() == false)
@@ -58,16 +57,18 @@ namespace DMT.TOD.Pages
                 return;
             }
             // End of Job Page
-            //var page = new DMT.TOD.Windows.Job.EOJPage();
+            var page = new DMT.TOD.Job.EOJPage();
+            
             // setup
             //page.Setup(Models.Job.FindJob("14077"));
-            //PageContentManager.Instance.Current = page;
+            PageContentManager.Instance.Current = page;
             
+
         }
 
         private void revEntry_Click(object sender, RoutedEventArgs e)
         {
-            /*
+            
             var signinWin = new SignInWindow();
             signinWin.Owner = Application.Current.MainWindow;
             if (signinWin.ShowDialog() == false)
@@ -77,22 +78,22 @@ namespace DMT.TOD.Pages
             // Revenue Entry
             var page = new Revenue.RevenueDateSelectionPage();
             // setup
-            Models.RevenueEntry entry = new Models.RevenueEntry();
+            //Models.RevenueEntry entry = new Models.RevenueEntry();
             //page.Setup(Models.Job.FindJob("14077"), entry);
             PageContentManager.Instance.Current = page;
-            */
+            
         }
 
         private void reprintRevSlip_Click(object sender, RoutedEventArgs e)
         {
-            /*
-            var signinWin = new Windows.SignInWindow();
+            
+            var signinWin = new SignInWindow();
             signinWin.Owner = Application.Current.MainWindow;
             if (signinWin.ShowDialog() == false)
             {
                 return;
             }
-            var search = new Windows.TOD.Reports.RevenueSlipSearchWindow();
+            var search = new DMT.TOD.Windows.Reports.RevenueSlipSearchWindow();
             search.Owner = Application.Current.MainWindow;
             if (search.ShowDialog() == false)
             {
@@ -102,12 +103,12 @@ namespace DMT.TOD.Pages
             var page = new Reports.RevenueSlipPreview();
             page.MenuPage = this;
             PageContentManager.Instance.Current = page;
-            */
+            
         }
 
         private void changeShift_Click(object sender, RoutedEventArgs e)
         {
-            /*
+            
             var signinWin = new SignInWindow();
             signinWin.Owner = Application.Current.MainWindow;
             if (signinWin.ShowDialog() == false)
@@ -119,7 +120,7 @@ namespace DMT.TOD.Pages
             // setup
             //page.Setup(Models.Job.FindJob("14077"));
             PageContentManager.Instance.Current = page;
-            */
+            
         }
 
         private void reportMenu_Click(object sender, RoutedEventArgs e)

@@ -148,6 +148,25 @@
                     </ScrollViewer>
                 </Grid>
             </TabItem>
+            <TabItem Header="Group Grid">
+                <Grid Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="Caption" 
+                                Margin="2"
+                               Grid.Row="0"/>
+                    <UniformGrid Columns="2"
+                                 Margin="2"
+                                 Grid.Row="1">
+                        <Rectangle Fill="DodgerBlue" Height="450"/>
+                        <Rectangle Fill="Red" Height="450"/>
+                        <Rectangle Fill="SeaGreen" Height="450"/>
+                        <Rectangle Fill="RoyalBlue" Height="450"/>
+                    </UniformGrid>
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

@@ -32,18 +32,17 @@ Update 2020-06-16 #6
 Update 2020-06-16 #5
 - 
 
+[commited]
 Update 2020-06-16 #4
-- 
+- Fixed commit.
 
 [commited]
 Update 2020-06-16 #3
 - Update SL600SmartCardReaderSample project #2 (SThe Smart card resource manager is not running).
-- Fixed commit.
 
 [commited]
 Update 2020-06-16 #2
 - Add SL600SmartCardReaderSample project (SThe Smart card resource manager is not running).
-- Fixed commit.
 
 [commited]
 Update 2020-06-16 #1

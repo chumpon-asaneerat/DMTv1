@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 using NLib.ServiceProcess;
-using DMT.Models;
 
 #endregion
 
@@ -46,6 +45,21 @@ namespace DMT.Services
     public class PlazaOperations
     {
         #region Public Methods
+
+        #region Plaza methods
+
+        public Models.Objects.Plaza[] GetPlazas()
+        {
+            Models.Objects.Plaza[] results = new Models.Objects.Plaza[] { };
+            return results;
+        }
+
+        public void SavePlaza(Models.Objects.Plaza value)
+        {
+
+        }
+
+        #endregion
 
         #endregion
     }

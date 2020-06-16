@@ -35,11 +35,13 @@ Update 2020-06-16 #5
 Update 2020-06-16 #4
 - 
 
+[commited]
 Update 2020-06-16 #3
-- 
+- Update SL600SmartCardReaderSample project #2 (SThe Smart card resource manager is not running).
 
+[commited]
 Update 2020-06-16 #2
-- 
+- Add SL600SmartCardReaderSample project (SThe Smart card resource manager is not running).
 
 [commited]
 Update 2020-06-16 #1

@@ -39,5 +39,12 @@ namespace DMT.TOD.Controls.Shift.View
         }
 
         #endregion
+
+        /*
+        public void Setup(List<Models.RevenueSlip> slips)
+        {
+            listView.ItemsSource = slips;
+        }
+        */
     }
 }

@@ -9,6 +9,20 @@
              Loaded="UserControl_Loaded"
              Unloaded="UserControl_Unloaded">
     <Grid>
-            
+        <ListView x:Name="listView" FontSize="18" ItemsSource="{Binding}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="รหัสพนักงาน" 
+                                    DisplayMemberBinding="{Binding Path=StaffId}" 
+                                    Width="100"/>
+                    <GridViewColumn Header="ชื่อพนักงาน" 
+                                    DisplayMemberBinding="{Binding Path=StaffName}" 
+                                    Width="150"/>
+                    <GridViewColumn Header="ถุงเงิน" 
+                                    DisplayMemberBinding="{Binding Path=BagNo}" 
+                                    Width="70"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </UserControl>

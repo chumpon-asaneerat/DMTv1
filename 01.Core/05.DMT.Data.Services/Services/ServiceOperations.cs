@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+using RestSharp;
 using NLib.ServiceProcess;
 
 #endregion
@@ -44,6 +45,10 @@ namespace DMT.Services
     /// </summary>
     public class PlazaOperations
     {
+        #region Private Methods
+
+        #endregion
+
         #region Public Methods
 
         #region Plaza methods

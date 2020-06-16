@@ -3,9 +3,83 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:ctrl="clr-namespace:DMT.TA.Controls.Plaza.Entry;assembly=DMT.Controls"
+             xmlns:ctrl2="clr-namespace:DMT.TA.Controls.Collector.Fund.View;assembly=DMT.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <DockPanel Margin="5">
+        <Border DockPanel.Dock="Left"
+                BorderThickness="1"
+                BorderBrush="Silver">
+            <DockPanel Width="300">
+                <Border Background="DimGray"
+                        DockPanel.Dock="Top"
+                        BorderThickness="1"
+                        BorderBrush="Silver">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Margin="2"
+                                   FontSize="18"
+                                   Foreground="WhiteSmoke"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Center"
+                                   Text="ยอดคงเหลือ"
+                                   Width="100"/>
+                        <TextBlock Margin="2"
+                                   x:Name="plazaBalance"
+                                   FontSize="20"
+                                   FontWeight="Bold"
+                                   Foreground="WhiteSmoke"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   TextAlignment="Center"
+                                   Text="0"
+                                   Width="200"/>
+                    </StackPanel>
+                </Border>
+                <StackPanel Orientation="Horizontal"
+                            DockPanel.Dock="Bottom"                            
+                            HorizontalAlignment="Center">
+                    <Button x:Name="addCollector"
+                            Content="เพิ่มพนักงาน" 
+                            Margin="2"
+                            FontSize="18"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Height="45"
+                            Width="200"
+                            Click="addCollector_Click"/>
+                </StackPanel>
+                <ctrl:PlazaFundEntry x:Name="plaza"
+                                FontSize="16"
+                                Background="Orange"
+                                Foreground="WhiteSmoke"/>
+            </DockPanel>
+        </Border>
+        <Border DockPanel.Dock="Bottom"
+                BorderThickness="1"
+                BorderBrush="Silver">
+            <DockPanel>
+                <Button x:Name="cmdCancel" 
+                                DockPanel.Dock="Right"
+                                Margin="2"
+                                FontSize="18"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Content="กลับสู่หน้าจอหลัก"
+                                Height="45"
+                                Width="200"
+                                Click="cmdCancel_Click"/>
+                <Grid />
+            </DockPanel>
+        </Border>
+        <Border BorderThickness="1"
+                BorderBrush="Silver">
+            <ctrl2:CollectorFundSummaryView x:Name="grid" />
+        </Border>
+    </DockPanel>
 </UserControl>

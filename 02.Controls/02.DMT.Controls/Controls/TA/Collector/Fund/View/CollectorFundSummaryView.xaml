@@ -8,7 +8,88 @@
              d:DesignWidth="800"
              Loaded="UserControl_Loaded"
              Unloaded="UserControl_Unloaded">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type ListBox}">
+            <!-- Set the ItemTemplate of the ListBox to a DataTemplate which explains how to display an object of type BitmapImage. -->
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border BorderBrush="Black" 
+                                BorderThickness="1" 
+                                CornerRadius="1"
+                                Margin="5">
+                            <StackPanel Orientation="Vertical"
+                                        Margin="3">
+                                <Border Background="CornflowerBlue">
+                                    <TextBlock Margin="3"
+                                               FontSize="18"                                               
+                                               Foreground="WhiteSmoke"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               TextAlignment="Center"
+                                               Text="{Binding Path=Description}"/>
+                                </Border>
+                                <TextBlock FontSize="20"
+                                           Foreground="Yellow"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           TextAlignment="Center">
+                                    <Run Text="ID: " />
+                                    <Run Text="{Binding StaffId}" />
+                                </TextBlock>
+                                <TextBlock FontSize="24"
+                                           Foreground="GreenYellow"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           TextAlignment="Center">
+                                    <Run Text="ยืมแล้ว" />
+                                    <Run Text="{Binding Path=BHTTotal, StringFormat={}{0:N0}}" />
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center">
+                                    <Button x:Name="cmdReceived"
+                                            Content="ยืมเงิน"
+                                            Margin="3"
+                                            FontSize="14"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalContentAlignment="Center"
+                                            VerticalContentAlignment="Center"
+                                            Width="100"
+                                            Click="cmdReceived_Click"/>
+                                    <Button x:Name="cmdReturn"
+                                            Content="คืนเงิน"
+                                            Margin="3"
+                                            FontSize="14"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            HorizontalContentAlignment="Center"
+                                            VerticalContentAlignment="Center"
+                                            Width="100"
+                                            Click="cmdReturn_Click"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <!-- Swap out the default items panel with a WrapPanel so that the images will be arranged with a different layout. -->
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <!-- Set this attached property to 'Disabled' so that the ScrollViewer in the ListBox will never show a horizontal scrollbar, and the WrapPanel it contains will be constrained to the width of the ScrollViewer's viewable surface. -->
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" 
+                    Value="Disabled" />
+        </Style>
+    </UserControl.Resources>
     <Grid>
-            
+        <ListBox x:Name="listView" FontSize="18" ItemsSource="{Binding}"
+                 Background="Transparent">
+        </ListBox>
     </Grid>
 </UserControl>

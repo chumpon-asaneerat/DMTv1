@@ -1,11 +1,6 @@
-﻿#region Using
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-
-#endregion
 
 namespace DMT.TA.Windows.Plaza
 {
@@ -25,5 +20,22 @@ namespace DMT.TA.Windows.Plaza
         }
 
         #endregion
+
+        private void cmdClose_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }
+        /*
+        public void Setup(Models.FundEntry fund, Models.CouponEntry coupon)
+        {
+            this.Fund = fund;
+            this.Coupon = coupon;
+            fundEntry.DataContext = this.Fund;
+            couponEntry.DataContext = this.Coupon;
+        }
+
+        public Models.FundEntry Fund { get; set; }
+        public Models.CouponEntry Coupon { get; set; }
+        */
     }
 }

@@ -3,9 +3,134 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:ctrl="clr-namespace:DMT.TA.Controls.Collector.Coupon;assembly=DMT.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+    <DockPanel Margin="5">
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom">
+            <Border BorderBrush="Silver" 
+                    BorderThickness="1"
+                    Background="Silver">
+                <DockPanel>
+                    <Button x:Name="cmdOk" 
+                            DockPanel.Dock="Right"
+                            Margin="2"
+                            FontSize="18"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Content="ตกลง"
+                            Height="45"
+                            Width="150"
+                            Click="cmdOk_Click"/>
+                    <Button x:Name="cmdCancel" 
+                            DockPanel.Dock="Right"
+                            Margin="2"
+                            FontSize="18"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Content="ยกเลิก"
+                            Height="45"
+                            Width="150"
+                            Click="cmdCancel_Click"/>
+                    <Grid />
+                </DockPanel>
+            </Border>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Border BorderBrush="Silver" 
+                    BorderThickness="1"
+                    Background="CornflowerBlue">
+                <TextBlock FontSize="18"
+                           Foreground="WhiteSmoke"
+                           Margin="5"
+                           Text="ข้อมูลการรับคูปอง"                           
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Silver" 
+                    BorderThickness="1"
+                    Background="Silver">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock FontSize="18"
+                           Foreground="Black"
+                           Margin="5"
+                           Text="วันที่"                   
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+                    <TextBox x:Name="revDate"
+                             FontSize="18"
+                             Margin="5"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"
+                             HorizontalContentAlignment="Center"
+                             VerticalContentAlignment="Center"
+                             Width="220"
+                             Text="2020/03/17 09:22:44"/>
+                    <TextBlock FontSize="18"
+                           Margin="5"
+                           Text="รหัสพนักงาน"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+                    <TextBox FontSize="18"
+                           Margin="5"
+                           Text="14055"                   
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+            <Border BorderBrush="Silver" 
+                    BorderThickness="1">
+                <Grid HorizontalAlignment="Center"
+                      VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <Grid Height="50" />
+                        <TextBlock FontSize="20"
+                                   Foreground="WhiteSmoke"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Width="150"
+                                   Text="ประเภทคูปอง" />
+                        <ComboBox x:Name="cbCouponTypes" 
+                                  ItemsSource="{Binding}"
+                                  FontSize="20"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  HorizontalContentAlignment="Center"
+                                  VerticalContentAlignment="Center"
+                                  Width="200"/>
+                        <Grid Height="50" Width="10" />
+                        <TextBlock FontSize="20"
+                                   Foreground="WhiteSmoke"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Width="150"
+                                   Text="จำนวนเล่ม" />
+                        <TextBox FontSize="20"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 HorizontalContentAlignment="Center"
+                                 VerticalContentAlignment="Center"
+                                 Width="200"
+                                 Text="10"/>
+                        <Button Content="บันทึก" 
+                                x:Name="cmdAppend"
+                                Margin="5"
+                                FontSize="20"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Width="200"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Grid>
+                <ctrl:CouponReceiveView x:Name="grid"></ctrl:CouponReceiveView>
+            </Grid>
+        </StackPanel>
+    </DockPanel>
 </UserControl>

@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ctrl="clr-namespace:DMT.TA.Controls.Plaza.Entry"
         mc:Ignorable="d"
         Title="Plaza Fund Request Exchange" 
         ResizeMode="NoResize" 
@@ -13,7 +14,62 @@
         Height="580" 
         Width="400"
         Background="DimGray">
-    <Grid>
-        
+    <Grid Margin="15">
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Bottom"
+                       Margin="5">
+                <Button x:Name="cmdOk" 
+                        DockPanel.Dock="Right"
+                        Margin="2"
+                        FontSize="18"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Content="บันทึก"
+                        Height="45"
+                        Width="150"
+                        Click="cmdOk_Click"/>
+                <Grid Width="20"/>
+                <Button x:Name="cmdCancelRequest" 
+                        DockPanel.Dock="Right"
+                        Margin="2"
+                        FontSize="18"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Content="ยกเลิกคำร้อง"
+                        Height="45"
+                        Width="150"
+                        Click="cmdCancelRequest_Click"/>
+                <Grid Width="20"/>
+                <Button x:Name="cmdClose" 
+                        DockPanel.Dock="Left"
+                        Margin="2"
+                        FontSize="18"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        Content="ปิด"
+                        Height="45"                        
+                        Width="150"
+                        Click="cmdClose_Click"/>
+                <Grid />
+            </DockPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="10" />
+                </Grid.ColumnDefinitions>
+                <ctrl:PlazaFundEntry x:Name="requestEntry"
+                                Grid.Column="1"
+                                FontSize="16"
+                                Background="Indigo"
+                                Foreground="WhiteSmoke"/>
+            </Grid>
+        </DockPanel>
     </Grid>
 </Window>

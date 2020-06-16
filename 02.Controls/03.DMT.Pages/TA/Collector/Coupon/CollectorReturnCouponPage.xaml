@@ -3,9 +3,58 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+            xmlns:ctrl="clr-namespace:DMT.TA.Controls.Collector.Coupon;assembly=DMT.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="450"
+             d:DesignWidth="800">
+    <DockPanel Margin="5">
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Bottom">
+            <Border BorderBrush="Silver" 
+                    BorderThickness="1"
+                    Background="Silver">
+                <DockPanel>
+                    <Button x:Name="cmdOk" 
+                            DockPanel.Dock="Right"
+                            Margin="2"
+                            FontSize="18"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Content="ตกลง"
+                            Height="45"
+                            Width="150"
+                            Click="cmdOk_Click"/>
+                    <Button x:Name="cmdCancel" 
+                            DockPanel.Dock="Right"
+                            Margin="2"
+                            FontSize="18"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Content="ยกเลิก"
+                            Height="45"
+                            Width="150"
+                            Click="cmdCancel_Click"/>
+                    <Grid />
+                </DockPanel>
+            </Border>
+        </StackPanel>
+        <StackPanel Orientation="Vertical">
+            <Border BorderBrush="Silver" 
+                    BorderThickness="1"
+                    Background="CornflowerBlue">
+                <TextBlock FontSize="18"
+                           Foreground="WhiteSmoke"
+                           Margin="5"
+                           Text="ข้อมูลการคืนคูปอง"                           
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"/>
+            </Border>
+            <Grid>
+                <ctrl:CouponReturnView x:Name="grid"></ctrl:CouponReturnView>
+            </Grid>
+        </StackPanel>
+    </DockPanel>
 </UserControl>

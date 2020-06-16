@@ -87,6 +87,9 @@
     <Compile Include="TA\Plaza\Fund\PlazaFundReceivedPage.xaml.cs">
       <DependentUpon>PlazaFundReceivedPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TA\Reports\CollectorFundSummaryReportPage.xaml.cs">
+      <DependentUpon>CollectorFundSummaryReportPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TOD\Job\EOJPage.xaml.cs">
       <DependentUpon>EOJPage.xaml</DependentUpon>
     </Compile>
@@ -180,8 +183,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TA\Plaza\Fund\PlazaFundReceivedPage.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TA\Reports\CollectorFundSummaryReportPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="TOD\Job\EOJPage.xaml">
       <SubType>Designer</SubType>
@@ -216,9 +223,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TA\Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\Background\snartcard.png" />
     <Resource Include="Images\Menu\bag4.png" />

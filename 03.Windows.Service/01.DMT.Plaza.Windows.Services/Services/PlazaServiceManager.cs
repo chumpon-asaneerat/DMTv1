@@ -86,6 +86,8 @@ namespace DMT.Services
     {
         #region Internal Variables
 
+        private SQLiteConnection _db = null;
+
         #endregion
 
         #region Constructor and Destructor
@@ -107,7 +109,48 @@ namespace DMT.Services
 
         #endregion
 
+        #region Private Methods
+
+        private void InitTables()
+        {
+            if (null == _db) return;
+            //_db.CreateTable<Models.Domains.Plaza>();
+            //_db.CreateTable<Models.Domains.Lane>();
+            //_db.CreateTable<Models.Domains.User>();
+            //_db.CreateTable<Models.Domains.RevenueSlip>();
+        }
+
+        #endregion
+
         #region Public Methods
+
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets database file name.
+        /// </summary>
+        public string FileName { get; set; }
+        /// <summary>
+        /// Gets SQLite Connection.
+        /// </summary>
+        public SQLiteConnection Db
+        { 
+            get
+            {
+                if (null == _db)
+                {
+                    lock (typeof(LocalDbServer))
+                    {
+                        string path = Path.Combine("./data", FileName);
+                        _db = new SQLiteConnection(path);
+                        InitTables();
+                    }
+                }
+                return _db;
+            }
+        }
 
         #endregion
     }

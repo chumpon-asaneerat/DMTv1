@@ -148,7 +148,7 @@
                     </ScrollViewer>
                 </Grid>
             </TabItem>
-            <TabItem Header="Group Grid">
+            <TabItem Header="Group Uniform Grid">
                 <Grid Margin="3">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -166,6 +166,9 @@
                         <Rectangle Fill="RoyalBlue" Height="450"/>
                     </UniformGrid>
                 </Grid>
+            </TabItem>
+            <TabItem Header="Group WrapPanel">
+                
             </TabItem>
         </TabControl>
     </Grid>

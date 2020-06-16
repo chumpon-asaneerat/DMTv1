@@ -46,8 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtensionMethods\ModelExtensionMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Plaza\LodalDbOperations.cs" />
     <Compile Include="Services\ServiceOperations.cs" />
   </ItemGroup>
   <ItemGroup>

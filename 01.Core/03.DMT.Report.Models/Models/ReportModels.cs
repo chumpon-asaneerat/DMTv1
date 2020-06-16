@@ -21,6 +21,10 @@ namespace DMT.Models.Reports
         public RevenueSlip() : base() { }
 
         #endregion
+
+        #region Public Proprties
+
+        #endregion
     }
 
     #endregion

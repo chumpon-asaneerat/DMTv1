@@ -52,6 +52,30 @@ namespace SqlLiteSamlple
 
     }
 
+    public class Lane
+    {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        [MaxLength(50)]
+        public string Name { get; set; }
+
+        public DateTime Begin { get; set; }
+        public DateTime End { get; set; }
+
+        [Ignore]
+        public string BeginS 
+        { 
+            get { return this.Begin.ToString("yyyy-MM-dd HH:mm:ss.fff"); } 
+            set { }  
+        }
+        [Ignore]
+        public string EndS 
+        { 
+            get { return this.Begin.ToString("yyyy-MM-dd HH:mm:ss.fff"); } 
+            set { } 
+        }
+    }
+
     public class Database
     {
         public Database() { }
@@ -78,6 +102,8 @@ namespace SqlLiteSamlple
                 this.Db.CreateTable<Valuation>();
                 this.Db.CreateTable<Passport>();
                 this.Db.CreateTable<Person>();
+
+                this.Db.CreateTable<Lane>();
             }
         }
 
@@ -155,6 +181,39 @@ namespace SqlLiteSamlple
             InitPersonPassport();
 
             return this.Db.GetAllWithChildren<Person>().ToArray();
+        }
+
+        public void AddLanes()
+        {
+            Lane item;
+            item = new Lane()
+            {
+                Name = "Item 1",
+                Begin = new DateTime(2020, 6, 1, 1, 10, 10, 222),
+                End = new DateTime(2020, 6, 1, 3, 22, 30, 80)
+            };
+            Db.Insert(item);
+            item = new Lane()
+            {
+                Name = "Item 2",
+                Begin = new DateTime(2020, 6, 1, 3, 30, 10, 250),
+                End = new DateTime(2020, 6, 1, 6, 45, 36, 274)
+            };
+            Db.Insert(item);
+            item = new Lane()
+            {
+                Name = "Item 3",
+                Begin = new DateTime(2020, 6, 2, 3, 22, 44, 577),
+                End = new DateTime(2020, 6, 2, 6, 16, 12, 512)
+            };
+            Db.Insert(item);
+            item = new Lane()
+            {
+                Name = "Item 4",
+                Begin = new DateTime(2020, 6, 2, 7, 55, 12, 784),
+                End = new DateTime(2020, 6, 2, 12, 35, 27, 752)
+            };
+            Db.Insert(item);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLiteNetExtensions.Extensions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -58,6 +59,30 @@ namespace SqlLiteSamlple
         {
             // Query
             dataGridView1.DataSource = db.Load<Person>();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            // Add data
+            db.AddLanes();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            DateTime bDT, eDT;
+            // Filter on 2020-06-01 (2 records - OK).
+            //bDT = new DateTime(2020, 6, 1, 0, 0, 0, 0);
+            //eDT = new DateTime(2020, 6, 1, 23, 59, 59, 999);
+
+            // Filter on 2020-06-01 1.00 to 3.00 (1 record - OK).
+            bDT = new DateTime(2020, 6, 1, 0, 0, 0, 0);
+            eDT = new DateTime(2020, 6, 1, 2, 59, 59, 999);
+
+            // Filter on 2020-06-01 1.00 to 2020-06-02 4.00 (3 records - OK).
+            bDT = new DateTime(2020, 6, 1, 0, 0, 0, 0);
+            eDT = new DateTime(2020, 6, 2, 3, 59, 59, 999);
+
+            dataGridView1.DataSource = db.Db.GetAllWithChildren<Lane>(p => p.Begin >= bDT && p.Begin <= eDT);
         }
     }
 }

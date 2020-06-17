@@ -366,9 +366,9 @@ namespace DMT.Models.Domains
 
         #region Public Proprties
 
-        [PrimaryKey, MaxLength(10)]
+        [PrimaryKey, MaxLength(20)]
         public string RoleId { get; set; }
-        [MaxLength(20)]
+        [MaxLength(50)]
         public string RoleName { get; set; }
 
         [OneToMany(CascadeOperations = CascadeOperation.All)]
@@ -377,6 +377,76 @@ namespace DMT.Models.Domains
         #endregion
 
         #region Static Methods
+
+        /// <summary>
+        /// Create new instance.
+        /// </summary>
+        /// <returns>Returns new instance</returns>
+        public static Role Create()
+        {
+            return new Role() { Users = new List<User>() };
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(SQLiteConnection db, Role value)
+        {
+            if (null == db || null == value) return false;
+            var item = (from p in db.Table<Role>()
+                        where p.RoleId == value.RoleId
+                        select p).FirstOrDefault();
+            return (null != item);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(SQLiteConnection db, Role value)
+        {
+            if (null == db || null == value) return;
+            if (!Exists(db, value))
+            {
+                db.Insert(value);
+            }
+            else db.Update(value);
+            // save children.
+            if (null != value.Users)
+            {
+                foreach (var user in value.Users)
+                {
+                    User.Save(db, user);
+                }
+            }
+            // udpate all children item
+            db.UpdateWithChildren(value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<Role> Gets(SQLiteConnection db, bool recursive = false)
+        {
+            return db.GetAllWithChildren<Role>(recursive: recursive);
+        }
+        /// <summary>
+        /// Gets by Id
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="RoleId">The RoleId.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static Role Get(SQLiteConnection db, string RoleId, bool recursive = false)
+        {
+            return db.GetAllWithChildren<Role>(
+                p => p.RoleId == RoleId,
+                recursive: recursive).FirstOrDefault();
+        }
 
         #endregion
     }
@@ -405,7 +475,9 @@ namespace DMT.Models.Domains
         [PrimaryKey, MaxLength(10)]
         public string UserId { get; set; }
         [MaxLength(100)]
-        public string FullName { get; set; }
+        public string FullNameEN { get; set; }
+        [MaxLength(100)]
+        public string FullNameTH { get; set; }
 
         [MaxLength(20)]
         public string UserName { get; set; }
@@ -423,6 +495,107 @@ namespace DMT.Models.Domains
         #endregion
 
         #region Static Methods
+
+        /// <summary>
+        /// Create new instance.
+        /// </summary>
+        /// <returns>Returns new instance</returns>
+        public static User Create()
+        {
+            return new User() { };
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(SQLiteConnection db, User value)
+        {
+            if (null == db || null == value) return false;
+            var item = (from p in db.Table<User>()
+                        where p.UserId == value.UserId
+                        select p).FirstOrDefault();
+            return (null != item);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(SQLiteConnection db, User value)
+        {
+            if (null == db || null == value) return;
+            if (!Exists(db, value))
+            {
+                db.Insert(value);
+            }
+            else db.Update(value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<User> Gets(SQLiteConnection db, bool recursive = false)
+        {
+            return db.GetAllWithChildren<User>(recursive: recursive);
+        }
+        /// <summary>
+        /// Gets by Id without password.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="UserId">The UserId.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static User Get(SQLiteConnection db, string UserId, bool recursive = false)
+        {
+            return db.GetAllWithChildren<User>(
+                p => p.UserId == UserId,
+                recursive: recursive).FirstOrDefault();
+        }
+        /// <summary>
+        /// Gets by UserId and password.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="UserId">The UserId.</param>
+        /// /// <param name="password">The password.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static User GetByUserId(SQLiteConnection db, string UserId, string password, bool recursive = false)
+        {
+            return db.GetAllWithChildren<User>(
+                p => p.UserId == UserId && p.Password == password,
+                recursive: recursive).FirstOrDefault();
+        }
+        /// <summary>
+        /// Gets by UserName and password.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="userName">The userName.</param>
+        /// /// <param name="password">The password.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static User GetByUserName(SQLiteConnection db, string userName, string password, bool recursive = false)
+        {
+            return db.GetAllWithChildren<User>(
+                p => p.UserName == userName && p.Password == password,
+                recursive: recursive).FirstOrDefault();
+        }
+        /// <summary>
+        /// Gets by CardId
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="cardId">The cardId.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static User GetByCardId(SQLiteConnection db, string cardId, bool recursive = false)
+        {
+            return db.GetAllWithChildren<User>(
+                p => p.CardId == cardId,
+                recursive: recursive).FirstOrDefault();
+        }
 
         #endregion
     }

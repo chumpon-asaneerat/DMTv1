@@ -60,22 +60,27 @@ namespace LocalDbServerFunctionTest
 
         private void cmdUserSearch_Click(object sender, EventArgs e)
         {
-
+            lstUsers.DataSource = LocalDbServer.Instance.GetUsers(true);
         }
 
         private void lstUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            pgUser.SelectedObject = lstUsers.SelectedItem;
         }
 
         private void cmdNewUser_Click(object sender, EventArgs e)
         {
-
+            User inst = User.Create();
+            pgUser.SelectedObject = inst;
         }
 
         private void cmdSaveUser_Click(object sender, EventArgs e)
         {
+            User inst = pgUser.SelectedObject as User;
 
+            LocalDbServer.Instance.Save(inst);
+            // reload
+            lstTSB.DataSource = LocalDbServer.Instance.GetUsers(true);
         }
     }
 }

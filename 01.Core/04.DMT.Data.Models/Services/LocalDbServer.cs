@@ -79,7 +79,8 @@ namespace DMT.Services
             Db.CreateTable<Models.Domains.TSB>();
             Db.CreateTable<Models.Domains.Plaza>();
             Db.CreateTable<Models.Domains.Lane>();
-            //Db.CreateTable<Models.Domains.User>();
+            Db.CreateTable<Models.Domains.Role>();
+            Db.CreateTable<Models.Domains.User>();
             //Db.CreateTable<Models.Domains.RevenueSlip>();
 
             InitDefaults();
@@ -88,6 +89,7 @@ namespace DMT.Services
         private void InitDefaults()
         {
             InitTSBAndPlazaAndLanes();
+            InitRoleAndUsers();
         }
 
         private void InitTSBAndPlazaAndLanes()
@@ -316,6 +318,192 @@ namespace DMT.Services
             if (!TSB.Exists(this.Db, item)) TSB.Save(this.Db, item);
         }
 
+        private void InitRoleAndUsers()
+        {
+            if (null == Db) return;
+            Role item;
+            item = new Role()
+            {
+                RoleId = "QFREE",
+                RoleName = "QFree",
+                Users = new List<User>()
+                {
+                    new User()
+                    {
+                        UserId = "99001",
+                        FullNameEN = "QFree User 1",
+                        FullNameTH = "QFree User 1",
+                        UserName = "qfree1",
+                        Password = "1234",
+                        CardId = ""
+                    }
+                }
+            };
+            if (!Role.Exists(this.Db, item)) Role.Save(this.Db, item);
+            item = new Role()
+            {
+                RoleId = "ADMIN",
+                RoleName = "Administrator",
+                Users = new List<User>()
+                {
+                    new User()
+                    {
+                        UserId = "99901",
+                        FullNameEN = "Admin 1",
+                        FullNameTH = "Admin 1",
+                        UserName = "admin1",
+                        Password = "1234",
+                        CardId = ""
+                    }
+                }
+            };
+            if (!Role.Exists(this.Db, item)) Role.Save(this.Db, item);
+            item = new Role()
+            {
+                RoleId = "AUDIT",
+                RoleName = "Auditor",
+                Users = new List<User>()
+                {
+                    new User()
+                    {
+                        UserId = "85020",
+                        FullNameEN = "audit1",
+                        FullNameTH = "audit1",
+                        UserName = "audit1",
+                        Password = "1234",
+                        CardId = ""
+                    },
+                    new User()
+                    {
+                        UserId = "65401",
+                        FullNameEN = "นาย สมชาย ตุยเอียว",
+                        FullNameTH = "นาย สมชาย ตุยเอียว",
+                        UserName = "audit2",
+                        Password = "1234",
+                        CardId = ""
+                    }
+                }
+            };
+            if (!Role.Exists(this.Db, item)) Role.Save(this.Db, item);
+            item = new Role()
+            {
+                RoleId = "SUPERVISOR",
+                RoleName = "Supervisor",
+                Users = new List<User>()
+                {
+                    new User()
+                    {
+                        UserId = "13566",
+                        FullNameEN = "นาย ผจญ สุดศิริ",
+                        FullNameTH = "นาย ผจญ สุดศิริ",
+                        UserName = "sup1",
+                        Password = "1234",
+                        CardId = ""
+                    },
+                    new User()
+                    {
+                        UserId = "26855",
+                        FullNameEN = "นวย วิรชัย ขำหิรัญ",
+                        FullNameTH = "นวย วิรชัย ขำหิรัญ",
+                        UserName = "sup2",
+                        Password = "1234",
+                        CardId = ""
+                    },
+                    new User()
+                    {
+                        UserId = "30242",
+                        FullNameEN = "นาย บุญส่ง บุญปลื้ม",
+                        FullNameTH = "นาย บุญส่ง บุญปลื้ม",
+                        UserName = "sup3",
+                        Password = "1234",
+                        CardId = ""
+                    },
+                    new User()
+                    {
+                        UserId = "76333",
+                        FullNameEN = "นาย สมบูรณ์ สบายดี",
+                        FullNameTH = "นาย สมบูรณ์ สบายดี",
+                        UserName = "sup4",
+                        Password = "1234",
+                        CardId = ""
+                    }
+                }
+            };
+            if (!Role.Exists(this.Db, item)) Role.Save(this.Db, item);
+            item = new Role()
+            {
+                RoleId = "COLLECTOR",
+                RoleName = "Collector",
+                Users = new List<User>()
+                {
+                    new User()
+                    {
+                        UserId = "14211",
+                        FullNameEN = "นาย ภักดี อมรรุ่งโรจน์",
+                        FullNameTH = "นาย ภักดี อมรรุ่งโรจน์",
+                        UserName = "user1",
+                        Password = "1234",
+                        CardId = ""
+                    },
+                    new User()
+                    {
+                        UserId = "14124",
+                        FullNameEN = "นางสาว แก้วใส ฟ้ารุ่งโรจณ์",
+                        FullNameTH = "นางสาว แก้วใส ฟ้ารุ่งโรจณ์",
+                        UserName = "user2",
+                        Password = "1234",
+                        CardId = ""
+                    },
+                    new User()
+                    {
+                        UserId = "14055",
+                        FullNameEN = "นางวิภา สวัสดิวัฒน์",
+                        FullNameTH = "นางวิภา สวัสดิวัฒน์",
+                        UserName = "user3",
+                        Password = "1234",
+                        CardId = ""
+                    },
+                    new User()
+                    {
+                        UserId = "14321",
+                        FullNameEN = "นาย สุเทพ เหมัน",
+                        FullNameTH = "นาย สุเทพ เหมัน",
+                        UserName = "user4",
+                        Password = "1234",
+                        CardId = ""
+                    },
+                    new User()
+                    {
+                        UserId = "14477",
+                        FullNameEN = "นาย ศิริลักษณ์ วงษาหาร",
+                        FullNameTH = "นาย ศิริลักษณ์ วงษาหาร",
+                        UserName = "user5",
+                        Password = "1234",
+                        CardId = ""
+                    },
+                    new User()
+                    {
+                        UserId = "14566",
+                        FullNameEN = "นางสาว สุณิสา อีนูน",
+                        FullNameTH = "นางสาว สุณิสา อีนูน",
+                        UserName = "user6",
+                        Password = "1234",
+                        CardId = ""
+                    },
+                    new User()
+                    {
+                        UserId = "15097",
+                        FullNameEN = "นาง วาสนา ชาญวิเศษ",
+                        FullNameTH = "นาง วาสนา ชาญวิเศษ",
+                        UserName = "user7",
+                        Password = "1234",
+                        CardId = ""
+                    },
+                }
+            };
+            if (!Role.Exists(this.Db, item)) Role.Save(this.Db, item);
+        }
+
         #endregion
 
         #region Public Methods
@@ -330,7 +518,7 @@ namespace DMT.Services
                 lock (typeof(LocalDbServer))
                 {
                     string path = Path.Combine("./", FileName);
-                    Db = new SQLiteConnection(path);
+                    Db = new SQLiteConnection(path, storeDateTimeAsTicks: true);
                     InitTables();
                 }
             }
@@ -350,29 +538,6 @@ namespace DMT.Services
         #endregion
 
         #region Public Methods
-
-        public T[] Table<T>()
-            where T : class, new()
-        {
-            var result = this.Db.Table<T>().ToArray();
-            return result;
-        }
-
-        public void Add<T>(T value)
-            where T : class
-        {
-            if (null == this.Db || null == value) return;
-            this.Db.Insert(value, typeof(T));
-            //this.Db.Insert(value);
-        }
-
-        public void Update<T>(T value)
-            where T : class
-        {
-            if (null == this.Db || null == value) return;
-            this.Db.Update(value, typeof(T));
-            //this.Db.Update(value);
-        }
 
         // TSB
         public bool Exists(TSB value) { return TSB.Exists(this.Db, value); }
@@ -406,6 +571,40 @@ namespace DMT.Services
         public Lane GetLane(string plazaId, int laneId, bool recursive = false) 
         { 
             return Lane.Get(this.Db, plazaId, laneId, recursive); 
+        }
+        // Role
+        public bool Exists(Role value) { return Role.Exists(this.Db, value); }
+        public void Save(Role value) { Role.Save(this.Db, value); }
+        public List<Role> GetRoles(bool recursive = false)
+        {
+            return Role.Gets(this.Db, recursive);
+        }
+        public Role GetRole(string roleId, bool recursive = false)
+        {
+            return Role.Get(this.Db, roleId, recursive);
+        }
+        // User
+        public bool Exists(User value) { return User.Exists(this.Db, value); }
+        public void Save(User value) { User.Save(this.Db, value); }
+        public List<User> GetUsers(bool recursive = false)
+        {
+            return User.Gets(this.Db, recursive);
+        }
+        public User Get(string userId, bool recursive = false)
+        {
+            return User.Get(this.Db, userId, recursive);
+        }
+        public User LogInByUserId(string userId, string password, bool recursive = false)
+        {
+            return User.GetByUserId(this.Db, userId, password, recursive);
+        }
+        public User LogInByUserName(string userName, string password, bool recursive = false)
+        {
+            return User.GetByUserName(this.Db, userName, password, recursive);
+        }
+        public User LogInByCardId(string cardId, bool recursive = false)
+        {
+            return User.GetByCardId(this.Db, cardId, recursive);
         }
 
         #endregion

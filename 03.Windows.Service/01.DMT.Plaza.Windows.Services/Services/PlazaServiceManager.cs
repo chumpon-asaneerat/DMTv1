@@ -13,10 +13,7 @@ using NLib;
 using NLib.Data;
 using NLib.ServiceProcess;
 using NLib.Services;
-// SQLite
-using SQLite;
-using SQLiteNetExtensions.Attributes;
-using SQLiteNetExtensions.Extensions;
+
 // Owin SelfHost
 using Owin;
 using Microsoft.Owin.Hosting;
@@ -69,86 +66,6 @@ namespace DMT.Services
             get
             {
                 return _service;
-            }
-        }
-
-        #endregion
-    }
-
-    #endregion
-
-    #region LobalDbServer Implements
-
-    /// <summary>
-    /// Local Database Server.
-    /// </summary>
-    public class LocalDbServer
-    {
-        #region Internal Variables
-
-        private SQLiteConnection _db = null;
-
-        #endregion
-
-        #region Constructor and Destructor
-
-        /// <summary>
-        /// Constructor.
-        /// </summary>
-        public LocalDbServer() : base()
-        {
-
-        }
-        /// <summary>
-        /// Destructor.
-        /// </summary>
-        ~LocalDbServer()
-        {
-
-        }
-
-        #endregion
-
-        #region Private Methods
-
-        private void InitTables()
-        {
-            if (null == _db) return;
-            //_db.CreateTable<Models.Domains.Plaza>();
-            //_db.CreateTable<Models.Domains.Lane>();
-            //_db.CreateTable<Models.Domains.User>();
-            //_db.CreateTable<Models.Domains.RevenueSlip>();
-        }
-
-        #endregion
-
-        #region Public Methods
-
-        #endregion
-
-        #region Public Properties
-
-        /// <summary>
-        /// Gets or sets database file name.
-        /// </summary>
-        public string FileName { get; set; }
-        /// <summary>
-        /// Gets SQLite Connection.
-        /// </summary>
-        public SQLiteConnection Db
-        { 
-            get
-            {
-                if (null == _db)
-                {
-                    lock (typeof(LocalDbServer))
-                    {
-                        string path = Path.Combine("./data", FileName);
-                        _db = new SQLiteConnection(path);
-                        InitTables();
-                    }
-                }
-                return _db;
             }
         }
 

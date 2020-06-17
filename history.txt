@@ -8,8 +8,9 @@ Update 2020-06-17 #4
 Update 2020-06-17 #3
 - 
 
+[commited]
 Update 2020-06-17 #2
-- 
+- Add LocalDbServerFunctionTest project.
 
 [commited]
 Update 2020-06-17 #1

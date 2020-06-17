@@ -602,6 +602,62 @@ namespace DMT.Models.Domains
 
     #endregion
 
+    #region SupervisorShift
+
+    /// <summary>
+    /// The SupervisorShift Data Model Class.
+    /// </summary>
+    //[Table("SupervisorShift")]
+    public class SupervisorShift
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public SupervisorShift() : base() { }
+
+        #endregion
+
+        #region Public Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+    }
+
+    #endregion
+
+    #region CollectorShift
+
+    /// <summary>
+    /// The CollectorShift Data Model Class.
+    /// </summary>
+    //[Table("CollectorShift")]
+    public class CollectorShift
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public CollectorShift() : base() { }
+
+        #endregion
+
+        #region Public Properties
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+    }
+
+    #endregion
+
     #endregion
 
     #region Reports

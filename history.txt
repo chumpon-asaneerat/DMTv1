@@ -20,8 +20,10 @@ Update 2020-06-17 #10
 Update 2020-06-17 #9
 - 
 
+[commited]
 Update 2020-06-17 #8
-- 
+- Implements Domain Model - SupervisorShift.
+- Implements Domain Model - CollectorShift.
 
 [commited]
 Update 2020-06-17 #7

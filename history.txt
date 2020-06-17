@@ -5,8 +5,9 @@ Update 2020-06-17 #5
 Update 2020-06-17 #4
 - 
 
+[commited]
 Update 2020-06-17 #3
-- 
+- Update LocalDbServerFunctionTest project #2 - Save TSB with Plaza as children.
 
 [commited]
 Update 2020-06-17 #2

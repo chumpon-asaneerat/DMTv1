@@ -38,7 +38,8 @@ namespace LocalDbServerFunctionTest
 
         private void cmdTSBRefresh_Click(object sender, EventArgs e)
         {
-            lstTSB.DataSource = LocalDbServer.Instance.Db.Table<TSB>().ToList();
+            //lstTSB.DataSource = LocalDbServer.Instance.Db.Table<TSB>().ToList();
+            lstTSB.DataSource = LocalDbServer.Instance.Db.GetAllWithChildren<TSB>();
         }
 
         private void cmdNewTSB_Click(object sender, EventArgs e)
@@ -51,11 +52,11 @@ namespace LocalDbServerFunctionTest
         {
             TSB inst = pgTSB.SelectedObject as TSB;
 
-            TSB exist = (from p in LocalDbServer.Instance.Db.Table<TSB>()
+            var tsb = (from p in LocalDbServer.Instance.Db.Table<TSB>()
                          where p.TSBId == inst.TSBId
                          select p).FirstOrDefault();
 
-            if (null == exist)
+            if (null == tsb)
             {
                 LocalDbServer.Instance.Db.Insert(inst);
             }
@@ -63,8 +64,29 @@ namespace LocalDbServerFunctionTest
             {
                 LocalDbServer.Instance.Db.Update(inst);
             }
+
+            if (null != inst.Plazas)
+            {
+                foreach (var plaza in inst.Plazas)
+                {
+                    var pz = (from p in LocalDbServer.Instance.Db.Table<Plaza>()
+                                 where p.PlazaId == plaza.PlazaId
+                              select p).FirstOrDefault();
+                    if (null == pz)
+                    {
+                        LocalDbServer.Instance.Db.Insert(plaza);
+                    }
+                    else
+                    {
+                        LocalDbServer.Instance.Db.Update(plaza);
+                    }
+                }
+            }
+
+            LocalDbServer.Instance.Db.UpdateWithChildren(inst);
+
             // reload
-            lstTSB.DataSource = LocalDbServer.Instance.Db.Table<TSB>().ToList();
+            lstTSB.DataSource = LocalDbServer.Instance.Db.GetAllWithChildren<TSB>();
         }
     }
 }

@@ -18,6 +18,38 @@ using DMT.Models.Domains;
 
 namespace DMT.Services
 {
+    #region Configs(key) constants
+
+    /// <summary>
+    /// The Config key constants.
+    /// </summary>
+    public static class Configs
+    {
+        /// <summary>
+        /// DC Config key constants.
+        /// </summary>
+        public static class DC
+        {
+            // for data center
+            public static string network = "network";
+            public static string tsb = "tsb";
+            public static string terminal = "terminal";
+        }
+        /// <summary>
+        /// Application Config key constants.
+        /// </summary>
+        public static class App
+        {
+            // For app.
+            public static string TSBId = "app_tsb_id";
+            public static string PlazaId = "app_plaza_id";
+            public static string SupervisorId = "app_sup_id";
+            public static string ShiftId = "app_shift_id";
+        }
+    }
+
+    #endregion
+
     #region LobalDbServer Implements
 
     /// <summary>
@@ -81,6 +113,7 @@ namespace DMT.Services
             Db.CreateTable<Models.Domains.Lane>();
             Db.CreateTable<Models.Domains.Role>();
             Db.CreateTable<Models.Domains.User>();
+            Db.CreateTable<Models.Domains.Config>();
             //Db.CreateTable<Models.Domains.RevenueSlip>();
 
             InitDefaults();
@@ -90,6 +123,7 @@ namespace DMT.Services
         {
             InitTSBAndPlazaAndLanes();
             InitRoleAndUsers();
+            InitConfigs();
         }
 
         private void InitTSBAndPlazaAndLanes()
@@ -504,6 +538,28 @@ namespace DMT.Services
             if (!Role.Exists(this.Db, item)) Role.Save(this.Db, item);
         }
 
+        private void InitConfigs()
+        {
+            if (null == Db) return;
+            Config item;
+            // for send to Data Center.
+            item = new Config() { Key = Configs.DC.network, Value = "4" };
+            if (!Config.Exists(this.Db, item)) Config.Save(this.Db, item);
+            item = new Config() { Key = Configs.DC.tsb, Value = "97" };
+            if (!Config.Exists(this.Db, item)) Config.Save(this.Db, item);
+            item = new Config() { Key = Configs.DC.terminal, Value = "49701" };
+            if (!Config.Exists(this.Db, item)) Config.Save(this.Db, item);
+            // for application
+            item = new Config() { Key = Configs.App.TSBId, Value = "" };
+            if (!Config.Exists(this.Db, item)) Config.Save(this.Db, item);
+            item = new Config() { Key = Configs.App.PlazaId, Value = "" };
+            if (!Config.Exists(this.Db, item)) Config.Save(this.Db, item);
+            item = new Config() { Key = Configs.App.SupervisorId, Value = "" };
+            if (!Config.Exists(this.Db, item)) Config.Save(this.Db, item);
+            item = new Config() { Key = Configs.App.ShiftId, Value = "" };
+            if (!Config.Exists(this.Db, item)) Config.Save(this.Db, item);
+        }
+
         #endregion
 
         #region Public Methods
@@ -605,6 +661,17 @@ namespace DMT.Services
         public User LogInByCardId(string cardId, bool recursive = false)
         {
             return User.GetByCardId(this.Db, cardId, recursive);
+        }
+        // CurrentSetting
+        public bool Exists(Config value) { return Config.Exists(this.Db, value); }
+        public void Save(Config value) { Config.Save(this.Db, value); }
+        public List<Config> GetConfigs(bool recursive = false)
+        {
+            return Config.Gets(this.Db, recursive);
+        }
+        public Config GetConfig(string key, bool recursive = false)
+        {
+            return Config.Get(this.Db, key, recursive);
         }
 
         #endregion

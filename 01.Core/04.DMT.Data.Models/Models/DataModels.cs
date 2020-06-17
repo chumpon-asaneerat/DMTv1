@@ -602,6 +602,99 @@ namespace DMT.Models.Domains
 
     #endregion
 
+    #region Config
+
+    /// <summary>
+    /// The Config Data Model Class.
+    /// </summary>
+    [Table("Config")]
+    public class Config
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public Config() : base() { }
+
+        #endregion
+
+        #region Public Properties
+
+        [PrimaryKey, MaxLength(20)]
+        public string Key { get; set; }
+        [MaxLength(100)]
+        public string Value { get; set; }
+
+        #endregion
+
+        #region Static Methods
+
+        /// <summary>
+        /// Create new instance.
+        /// </summary>
+        /// <returns>Returns new instance</returns>
+        public static Config Create()
+        {
+            return new Config() { };
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(SQLiteConnection db, Config value)
+        {
+            if (null == db || null == value) return false;
+            var item = (from p in db.Table<Config>()
+                        where p.Key == value.Key
+                        select p).FirstOrDefault();
+            return (null != item);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(SQLiteConnection db, Config value)
+        {
+            if (null == db || null == value) return;
+            if (!Exists(db, value))
+            {
+                db.Insert(value);
+            }
+            else db.Update(value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<Config> Gets(SQLiteConnection db, bool recursive = false)
+        {
+            return db.GetAllWithChildren<Config>(recursive: recursive);
+        }
+        /// <summary>
+        /// Gets by Key.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="key">The key.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static Config Get(SQLiteConnection db, string key, bool recursive = false)
+        {
+            return db.GetAllWithChildren<Config>(
+                p => p.Key == key,
+                recursive: recursive).FirstOrDefault();
+        }
+
+        #endregion
+    }
+
+    #endregion
+
     #region SupervisorShift
 
     /// <summary>
@@ -624,6 +717,15 @@ namespace DMT.Models.Domains
         #endregion
 
         #region Static Methods
+
+        /// <summary>
+        /// Create new instance.
+        /// </summary>
+        /// <returns>Returns new instance</returns>
+        public static SupervisorShift Create()
+        {
+            return new SupervisorShift() { };
+        }
 
         #endregion
     }
@@ -652,6 +754,15 @@ namespace DMT.Models.Domains
         #endregion
 
         #region Static Methods
+
+        /// <summary>
+        /// Create new instance.
+        /// </summary>
+        /// <returns>Returns new instance</returns>
+        public static CollectorShift Create()
+        {
+            return new CollectorShift() { };
+        }
 
         #endregion
     }

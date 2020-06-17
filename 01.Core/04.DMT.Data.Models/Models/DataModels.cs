@@ -722,11 +722,11 @@ namespace DMT.Models.Domains
         public int SupervisorShiftId { get; set; }
         [MaxLength(10)]
         public string PlazaId { get; set; }
-        //[ForeignKey(typeof(User), Name = "UserId"), MaxLength(10)]
-        [MaxLength(10)]
+
+        [ForeignKey(typeof(User), Name = "UserId"), MaxLength(10)]
         public string SupervisorId { get; set; }
-        //[OneToOne(foreignKey: "SupervisorId", CascadeOperations = CascadeOperation.CascadeRead)]
-        [Ignore]
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [OneToOne(foreignKey: "SupervisorId", CascadeOperations = CascadeOperation.All)]        
         public User User { get; set; }
 
         public DateTime Begin { get; set; }
@@ -783,11 +783,10 @@ namespace DMT.Models.Domains
         public int CollectorShiftId { get; set; }
         [MaxLength(10)]
         public string PlazaId { get; set; }
-        //[ForeignKey(typeof(User), Name = "UserId"), MaxLength(10)]
-        [MaxLength(10)]
+        [ForeignKey(typeof(User), Name = "UserId"), MaxLength(10)]
         public string CollectorId { get; set; }
-        //[ManyToOne]
-        [Ignore]
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [OneToOne(foreignKey: "CollectorId", CascadeOperations = CascadeOperation.All)]
         public User User { get; set; }
 
         public DateTime Begin { get; set; }
@@ -844,14 +843,12 @@ namespace DMT.Models.Domains
         [MaxLength(10)]
         public string PlazaId { get; set; }
         
-        //[ForeignKey(typeof(User), Name = "UserId"), MaxLength(10)]
-        [MaxLength(10)]
+        [ForeignKey(typeof(User), Name = "UserId"), MaxLength(10)]
         public string CollectorId { get; set; }
-        //[ManyToOne]
-        [Ignore]
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [OneToOne(foreignKey: "CollectorId", CascadeOperations = CascadeOperation.All)]
         public User User { get; set; }
 
-        [MaxLength(10)]
         public int LaneId { get; set; }
 
         public DateTime Begin { get; set; }

@@ -105,7 +105,7 @@ namespace SqlLiteSamlple
         [MaxLength(10)]
         public string Name { get; set; }
 
-        [ForeignKey(typeof(Body))]
+        [ForeignKey(typeof(Body), Name = "Id")]
         public int BodyId { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
@@ -121,7 +121,7 @@ namespace SqlLiteSamlple
         [MaxLength(10)]
         public string Name { get; set; }
 
-        [ForeignKey(typeof(Body))]
+        [ForeignKey(typeof(Body), Name = "Id")]
         public int BodyId { get; set; }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
@@ -299,6 +299,33 @@ namespace SqlLiteSamlple
                     new Leg() { Name = "Back right Leg 1" },
                     new Leg() { Name = "Back right Leg 2" },
                     new Leg() { Name = "Back right Leg 3" }
+                }
+            };
+
+            Db.Insert(item);
+            foreach (var hand in item.Hands)
+            {
+                Db.Insert(hand);
+            }
+            foreach (var leg in item.Legs)
+            {
+                Db.Insert(leg);
+            }
+
+            Db.UpdateWithChildren(item);
+
+            item = new Body()
+            {
+                Name = "Human",
+                Hands = new List<Hand>()
+                {
+                    new Hand() { Name = "Left Hand" },
+                    new Hand() { Name = "Right Hand" }
+                },
+                Legs = new List<Leg>()
+                {
+                    new Leg() { Name = "Left Leg" },
+                    new Leg() { Name = "Right Leg" }
                 }
             };
 

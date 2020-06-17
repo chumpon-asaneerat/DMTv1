@@ -1,9 +1,28 @@
 --------------------------------------------------------------------------------------------
+Update 2020-06-17 #25
+- 
+
+Update 2020-06-17 #24
+- 
+
+Update 2020-06-17 #23
+- 
+
+Update 2020-06-17 #22
+- 
+
+Update 2020-06-17 #21
+- 
+
 Update 2020-06-17 #20
 - 
 
+[commited]
 Update 2020-06-17 #19
-- 
+- Update SqlLiteSamlple project - Add DateTime Query (LINQ) sample code #4 multiple table ForeignKey.
+- Implements Domain Model - CollectorLane add ForeignKey.
+- Implements Domain Model - SupervisorShift add ForeignKey.
+- Implements Domain Model - CollectorShift add ForeignKey.
 
 [commited]
 Update 2020-06-17 #18

@@ -98,20 +98,18 @@ namespace SqlLiteSamlple
 
         private void button7_Click(object sender, EventArgs e)
         {
-            // Get Parent.
+            // Get body index 0.
             var list = db.Db.GetAllWithChildren<Body>();
             dataGridView1.DataSource = list;
             pgTest.SelectedObject = list[0];
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void button8_Click_1(object sender, EventArgs e)
         {
-            // Get Child 1
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            // Get Child 2
+            // Get body index 0.
+            var list = db.Db.GetAllWithChildren<Body>();
+            dataGridView1.DataSource = list;
+            pgTest.SelectedObject = list[1];
         }
     }
 }

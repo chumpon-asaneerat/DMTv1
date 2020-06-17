@@ -11,8 +11,9 @@ Update 2020-06-17 #23
 Update 2020-06-17 #22
 - 
 
+[commited]
 Update 2020-06-17 #21
-- 
+- Add websocket-sharp.dll in reference folder.
 
 [commited]
 Update 2020-06-17 #20

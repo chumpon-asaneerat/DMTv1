@@ -11,8 +11,9 @@ Update 2020-06-17 #18
 Update 2020-06-17 #17
 - 
 
+[commited]
 Update 2020-06-17 #16
-- 
+- Implements Domain Model - CollectorLane/SupervisorShift/CollectorShift ForeignKey attemp #1.
 
 [commited]
 Update 2020-06-17 #15

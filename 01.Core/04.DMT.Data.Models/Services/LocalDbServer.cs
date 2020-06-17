@@ -662,7 +662,7 @@ namespace DMT.Services
         {
             return User.GetByCardId(this.Db, cardId, recursive);
         }
-        // CurrentSetting
+        // Configs
         public bool Exists(Config value) { return Config.Exists(this.Db, value); }
         public void Save(Config value) { Config.Save(this.Db, value); }
         public List<Config> GetConfigs(bool recursive = false)

@@ -714,6 +714,16 @@ namespace DMT.Models.Domains
 
         #region Public Properties
 
+        [PrimaryKey, AutoIncrement]
+        public int SupervisorShiftId { get; set; }
+        [MaxLength(10)]
+        public string PlazaId { get; set; }
+        [MaxLength(10)]
+        public string SupervisorId { get; set; }
+
+        public DateTime Begin { get; set; }
+        public DateTime End { get; set; }
+
         #endregion
 
         #region Static Methods
@@ -751,6 +761,16 @@ namespace DMT.Models.Domains
 
         #region Public Properties
 
+        [PrimaryKey, AutoIncrement]
+        public int CollectorShiftId { get; set; }
+        [MaxLength(10)]
+        public string PlazaId { get; set; }
+        [MaxLength(10)]
+        public string CollectorId { get; set; }
+
+        public DateTime Begin { get; set; }
+        public DateTime End { get; set; }
+
         #endregion
 
         #region Static Methods
@@ -762,6 +782,54 @@ namespace DMT.Models.Domains
         public static CollectorShift Create()
         {
             return new CollectorShift() { };
+        }
+
+        #endregion
+    }
+
+    #endregion
+
+    #region CollectorLane
+
+    /// <summary>
+    /// The CollectorLane Data Model Class.
+    /// </summary>
+    public class CollectorLane
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public CollectorLane() : base() { }
+
+        #endregion
+
+        #region Public Properties
+
+        [PrimaryKey, AutoIncrement]
+        public int CollectorLaneId { get; set; }
+        [MaxLength(10)]
+        public string PlazaId { get; set; }
+        [MaxLength(10)]
+        public string CollectorId { get; set; }
+        [MaxLength(10)]
+        public int LaneId { get; set; }
+
+        public DateTime Begin { get; set; }
+        public DateTime End { get; set; }
+
+        #endregion
+
+        #region Static Methods
+
+        /// <summary>
+        /// Create new instance.
+        /// </summary>
+        /// <returns>Returns new instance</returns>
+        public static CollectorLane Create()
+        {
+            return new CollectorLane() { };
         }
 
         #endregion

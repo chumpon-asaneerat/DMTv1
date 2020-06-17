@@ -5,8 +5,11 @@ Update 2020-06-17 #15
 Update 2020-06-17 #14
 - 
 
+[commited]
 Update 2020-06-17 #13
-- 
+- Implements Domain Model - CollectorLane.
+- Implements Domain Model - SupervisorShift #2.
+- Implements Domain Model - CollectorShift #2.
 
 [commited]
 Update 2020-06-17 #12

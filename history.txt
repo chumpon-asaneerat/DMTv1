@@ -14,8 +14,9 @@ Update 2020-06-17 #12
 Update 2020-06-17 #11
 - 
 
+[commited]
 Update 2020-06-17 #10
-- 
+- Update SqlLiteSamlple project - Add DateTime Query (LINQ) sample code #2 null date.
 
 [commited]
 Update 2020-06-17 #9

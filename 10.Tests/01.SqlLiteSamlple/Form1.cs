@@ -69,6 +69,7 @@ namespace SqlLiteSamlple
 
         private void button5_Click(object sender, EventArgs e)
         {
+            /*
             DateTime bDT, eDT;
             // Filter on 2020-06-01 (2 records - OK).
             //bDT = new DateTime(2020, 6, 1, 0, 0, 0, 0);
@@ -83,6 +84,10 @@ namespace SqlLiteSamlple
             eDT = new DateTime(2020, 6, 2, 3, 59, 59, 999);
 
             dataGridView1.DataSource = db.Db.GetAllWithChildren<Lane>(p => p.Begin >= bDT && p.Begin <= eDT);
+            */
+
+            // Get all items
+            dataGridView1.DataSource = db.Db.GetAllWithChildren<Lane>();
         }
     }
 }

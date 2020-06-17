@@ -65,13 +65,21 @@ namespace SqlLiteSamlple
         [Ignore]
         public string BeginS 
         { 
-            get { return this.Begin.ToString("yyyy-MM-dd HH:mm:ss.fff"); } 
+            get 
+            {
+                if (this.Begin == DateTime.MinValue) return string.Empty;
+                return this.Begin.ToString("yyyy-MM-dd HH:mm:ss.fff"); 
+            } 
             set { }  
         }
         [Ignore]
         public string EndS 
         { 
-            get { return this.Begin.ToString("yyyy-MM-dd HH:mm:ss.fff"); } 
+            get 
+            {
+                if (this.End == DateTime.MinValue) return string.Empty;
+                return this.End.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            } 
             set { } 
         }
     }
@@ -212,6 +220,13 @@ namespace SqlLiteSamlple
                 Name = "Item 4",
                 Begin = new DateTime(2020, 6, 2, 7, 55, 12, 784),
                 End = new DateTime(2020, 6, 2, 12, 35, 27, 752)
+            };
+            Db.Insert(item);
+            // Item with not assigned end date.
+            item = new Lane()
+            {
+                Name = "Item 5",
+                Begin = new DateTime(2020, 6, 3, 12, 12, 12, 112)
             };
             Db.Insert(item);
         }

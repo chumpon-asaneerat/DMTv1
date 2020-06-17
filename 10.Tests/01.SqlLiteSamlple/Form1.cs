@@ -89,5 +89,29 @@ namespace SqlLiteSamlple
             // Get all items
             dataGridView1.DataSource = db.Db.GetAllWithChildren<Lane>();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            // Add bodies
+            db.AddBodies();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            // Get Parent.
+            var list = db.Db.GetAllWithChildren<Body>();
+            dataGridView1.DataSource = list;
+            pgTest.SelectedObject = list[0];
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            // Get Child 1
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            // Get Child 2
+        }
     }
 }

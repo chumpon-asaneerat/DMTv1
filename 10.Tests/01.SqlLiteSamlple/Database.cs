@@ -9,6 +9,8 @@ using SQLite;
 using SQLiteNetExtensions.Attributes;
 using SQLiteNetExtensions.Extensions;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace SqlLiteSamlple
 {
@@ -49,7 +51,6 @@ namespace SqlLiteSamlple
         {
             get { return (null != this.Passport) ? this.Passport.ExpirationDate : DateTime.MinValue; }
         }
-
     }
 
     public class Lane
@@ -84,6 +85,50 @@ namespace SqlLiteSamlple
         }
     }
 
+    public class Body
+    {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        [MaxLength(20)]
+        public string Name { get; set; }
+
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
+        public List<Hand> Hands { get; set; }
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
+        public List<Leg> Legs { get; set; }
+    }
+
+    public class Hand
+    {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        [MaxLength(10)]
+        public string Name { get; set; }
+
+        [ForeignKey(typeof(Body))]
+        public int BodyId { get; set; }
+
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [OneToOne(foreignKey: "BodyId", CascadeOperations = CascadeOperation.All)]
+        public Body Body { get; set; }
+    }
+
+
+    public class Leg
+    {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        [MaxLength(10)]
+        public string Name { get; set; }
+
+        [ForeignKey(typeof(Body))]
+        public int BodyId { get; set; }
+
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [OneToOne(foreignKey: "BodyId", CascadeOperations = CascadeOperation.All)]
+        public Body Body { get; set; }
+    }
+
     public class Database
     {
         public Database() { }
@@ -112,6 +157,10 @@ namespace SqlLiteSamlple
                 this.Db.CreateTable<Person>();
 
                 this.Db.CreateTable<Lane>();
+
+                this.Db.CreateTable<Body>();
+                this.Db.CreateTable<Hand>();
+                this.Db.CreateTable<Leg>();
             }
         }
 
@@ -229,6 +278,41 @@ namespace SqlLiteSamlple
                 Begin = new DateTime(2020, 6, 3, 12, 12, 12, 112)
             };
             Db.Insert(item);
+        }
+
+        public void AddBodies()
+        {
+            Body item;
+            item = new Body()
+            {
+                Name = "Crab",
+                Hands = new List<Hand>()
+                {
+                    new Hand() { Name = "Left Claw" },
+                    new Hand() { Name = "Right Claw" }
+                },
+                Legs = new List<Leg>()
+                {
+                    new Leg() { Name = "Back left Leg 1" },
+                    new Leg() { Name = "Back left Leg 2" },
+                    new Leg() { Name = "Back left Leg 3" },
+                    new Leg() { Name = "Back right Leg 1" },
+                    new Leg() { Name = "Back right Leg 2" },
+                    new Leg() { Name = "Back right Leg 3" }
+                }
+            };
+
+            Db.Insert(item);
+            foreach (var hand in item.Hands)
+            {
+                Db.Insert(hand);
+            }
+            foreach (var leg in item.Legs)
+            {
+                Db.Insert(leg);
+            }
+
+            Db.UpdateWithChildren(item);
         }
     }
 }

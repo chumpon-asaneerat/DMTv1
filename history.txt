@@ -1,9 +1,25 @@
 --------------------------------------------------------------------------------------------
+Update 2020-06-17 #20
+- 
+
+Update 2020-06-17 #19
+- 
+
+Update 2020-06-17 #18
+- 
+
+Update 2020-06-17 #17
+- 
+
+Update 2020-06-17 #16
+- 
+
 Update 2020-06-17 #15
 - 
 
+[commited]
 Update 2020-06-17 #14
-- 
+- Implements LocalServer method register table (SupervisorShift/CollectorShift/CollectorLane).
 
 [commited]
 Update 2020-06-17 #13

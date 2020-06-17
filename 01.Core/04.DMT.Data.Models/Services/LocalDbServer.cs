@@ -114,6 +114,12 @@ namespace DMT.Services
             Db.CreateTable<Models.Domains.Role>();
             Db.CreateTable<Models.Domains.User>();
             Db.CreateTable<Models.Domains.Config>();
+
+            //Db.CreateTable<Models.Domains.SupervisorShift>();
+            //Db.CreateTable<Models.Domains.CollectorShift>();
+            //Db.CreateTable<Models.Domains.CollectorLane>();
+
+
             //Db.CreateTable<Models.Domains.RevenueSlip>();
 
             InitDefaults();

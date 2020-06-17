@@ -736,6 +736,16 @@ namespace DMT.Models.Domains
         {
             return new SupervisorShift() { };
         }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<SupervisorShift> Gets(SQLiteConnection db, bool recursive = false)
+        {
+            return db.GetAllWithChildren<SupervisorShift>(recursive: recursive);
+        }
 
         #endregion
     }
@@ -782,6 +792,16 @@ namespace DMT.Models.Domains
         public static CollectorShift Create()
         {
             return new CollectorShift() { };
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<CollectorShift> Gets(SQLiteConnection db, bool recursive = false)
+        {
+            return db.GetAllWithChildren<CollectorShift>(recursive: recursive);
         }
 
         #endregion
@@ -830,6 +850,16 @@ namespace DMT.Models.Domains
         public static CollectorLane Create()
         {
             return new CollectorLane() { };
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<CollectorLane> Gets(SQLiteConnection db, bool recursive = false)
+        {
+            return db.GetAllWithChildren<CollectorLane>(recursive: recursive);
         }
 
         #endregion

@@ -14,8 +14,11 @@ Update 2020-06-17 #17
 Update 2020-06-17 #16
 - 
 
+[commited]
 Update 2020-06-17 #15
-- 
+- Implements Domain Model - CollectorLane add static method Gets.
+- Implements Domain Model - SupervisorShift add static method Gets.
+- Implements Domain Model - CollectorShift add static method Gets.
 
 [commited]
 Update 2020-06-17 #14

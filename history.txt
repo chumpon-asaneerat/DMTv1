@@ -14,8 +14,9 @@ Update 2020-06-17 #22
 Update 2020-06-17 #21
 - 
 
+[commited]
 Update 2020-06-17 #20
-- 
+- Update LocalServer create table (SupervisorShift/CollectorShift/CollectorLane).
 
 [commited]
 Update 2020-06-17 #19

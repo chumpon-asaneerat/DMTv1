@@ -108,16 +108,16 @@ namespace DMT.Services
         private void InitTables()
         {
             if (null == Db) return;
-            Db.CreateTable<Models.Domains.TSB>();
-            Db.CreateTable<Models.Domains.Plaza>();
-            Db.CreateTable<Models.Domains.Lane>();
-            Db.CreateTable<Models.Domains.Role>();
-            Db.CreateTable<Models.Domains.User>();
-            Db.CreateTable<Models.Domains.Config>();
+            Db.CreateTable<TSB>();
+            Db.CreateTable<Plaza>();
+            Db.CreateTable<Lane>();
+            Db.CreateTable<Role>();
+            Db.CreateTable<User>();
+            Db.CreateTable<Config>();
 
-            //Db.CreateTable<Models.Domains.SupervisorShift>();
-            //Db.CreateTable<Models.Domains.CollectorShift>();
-            //Db.CreateTable<Models.Domains.CollectorLane>();
+            Db.CreateTable<SupervisorShift>();
+            Db.CreateTable<CollectorShift>();
+            Db.CreateTable<CollectorLane>();
 
 
             //Db.CreateTable<Models.Domains.RevenueSlip>();

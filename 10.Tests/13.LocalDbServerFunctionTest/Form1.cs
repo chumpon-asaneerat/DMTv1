@@ -39,7 +39,7 @@ namespace LocalDbServerFunctionTest
         private void cmdTSBRefresh_Click(object sender, EventArgs e)
         {
             //lstTSB.DataSource = LocalDbServer.Instance.Db.Table<TSB>().ToList();
-            lstTSB.DataSource = LocalDbServer.Instance.Db.GetAllWithChildren<TSB>();
+            lstTSB.DataSource = LocalDbServer.Instance.GetTSBs(true);
         }
 
         private void cmdNewTSB_Click(object sender, EventArgs e)
@@ -90,7 +90,8 @@ namespace LocalDbServerFunctionTest
             */
 
             // reload
-            lstTSB.DataSource = LocalDbServer.Instance.Db.GetAllWithChildren<TSB>();
+            //lstTSB.DataSource = LocalDbServer.Instance.Db.GetAllWithChildren<TSB>(recursive: true);
+            lstTSB.DataSource = LocalDbServer.Instance.GetTSBs(true);
         }
     }
 }

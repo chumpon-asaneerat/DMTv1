@@ -29,8 +29,13 @@ Update 2020-06-17 #7
 Update 2020-06-17 #6
 - 
 
+[commited]
 Update 2020-06-17 #5
-- 
+- Implements Domain Model - Lane.
+- Implements Domain static methods for TSB/Plaza (Gets, Get).
+- Implements Domain static methods for Lane (Create, Exists, Save, Gets, Get).
+- Implements LocalServer method for TSB/Plaza/Lane (Gets, Get).
+- Update LocalDbServerFunctionTest project #4.
 
 [commited]
 Update 2020-06-17 #4

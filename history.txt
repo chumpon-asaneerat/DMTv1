@@ -8,8 +8,10 @@ Update 2020-06-17 #19
 Update 2020-06-17 #18
 - 
 
+[commited]
 Update 2020-06-17 #17
-- 
+- Implements Domain Model - Plaza/Lane add ExpandableObjectConverter.
+- Implements Domain Model - User add ExpandableObjectConverter.
 
 [commited]
 Update 2020-06-17 #16

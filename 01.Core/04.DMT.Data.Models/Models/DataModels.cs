@@ -10,6 +10,7 @@ using SQLite;
 using SQLiteNetExtensions.Attributes;
 using SQLiteNetExtensions.Extensions;
 using System.Runtime.InteropServices;
+using System.ComponentModel;
 
 namespace DMT.Models.Domains
 {
@@ -150,6 +151,7 @@ namespace DMT.Models.Domains
 
         [ForeignKey(typeof(TSB)), MaxLength(10)]
         public string TSBId { get; set; }
+        [TypeConverter(typeof(ExpandableObjectConverter))]
         [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead, ReadOnly=true)] 
         public TSB TSB { get; set; }
 
@@ -274,6 +276,7 @@ namespace DMT.Models.Domains
 
         [ForeignKey(typeof(TSB)), MaxLength(10)]
         public string PlazaId { get; set; }
+        [TypeConverter(typeof(ExpandableObjectConverter))]
         [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead, ReadOnly = true)]
         public Plaza Plaza { get; set; }
 
@@ -489,6 +492,7 @@ namespace DMT.Models.Domains
 
         [ForeignKey(typeof(Role)), MaxLength(10)]
         public string RoleId { get; set; }
+        [TypeConverter(typeof(ExpandableObjectConverter))]
         [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead, ReadOnly = true)]
         public Role Role { get; set; }
 

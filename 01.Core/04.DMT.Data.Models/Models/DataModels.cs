@@ -48,6 +48,57 @@ namespace DMT.Models.Domains
         public List<Plaza> Plazas { get; set; }
 
         #endregion
+
+        #region Static Methods
+
+        /// <summary>
+        /// Create new instance.
+        /// </summary>
+        /// <returns>Returns new instance</returns>
+        public static TSB Create()
+        {
+            return new TSB() { Plazas = new List<Plaza>() };
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(SQLiteConnection db, TSB value)
+        {
+            if (null == db || null == value) return false;
+            var item = (from p in db.Table<TSB>()
+                        where p.TSBId == value.TSBId
+                        select p).FirstOrDefault();
+            return (null != item);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(SQLiteConnection db, TSB value)
+        {
+            if (null == db || null == value) return;
+            if (!Exists(db, value))
+            {
+                db.Insert(value);
+            }
+            else db.Update(value);
+            // save children.
+            if (null != value.Plazas)
+            {
+                foreach (var plaza in value.Plazas)
+                {
+                    Plaza.Save(db, plaza);
+                }
+            }
+            // udpate all children item
+            db.UpdateWithChildren(value);
+        }
+
+        #endregion
     }
 
     #endregion
@@ -86,6 +137,47 @@ namespace DMT.Models.Domains
 
         [MaxLength(10)]
         public string Direction { get; set; }
+
+        #endregion
+
+        #region Static Methods
+
+        /// <summary>
+        /// Create new instance.
+        /// </summary>
+        /// <returns>Returns new instance</returns>
+        public static Plaza Create()
+        {
+            return new Plaza() { };
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(SQLiteConnection db, Plaza value)
+        {
+            if (null == db || null == value) return false;
+            var item = (from p in db.Table<Plaza>()
+                        where p.PlazaId == value.PlazaId
+                        select p).FirstOrDefault();
+            return (null != item);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(SQLiteConnection db, Plaza value)
+        {
+            if (null == db || null == value) return;
+            if (!Exists(db, value))
+            {
+                db.Insert(value);
+            }
+            else db.Update(value);
+        }
 
         #endregion
     }

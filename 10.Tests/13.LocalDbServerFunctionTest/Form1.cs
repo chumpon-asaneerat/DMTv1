@@ -44,7 +44,7 @@ namespace LocalDbServerFunctionTest
 
         private void cmdNewTSB_Click(object sender, EventArgs e)
         {
-            TSB inst = new TSB();
+            TSB inst = TSB.Create();
             pgTSB.SelectedObject = inst;
         }
 
@@ -52,6 +52,9 @@ namespace LocalDbServerFunctionTest
         {
             TSB inst = pgTSB.SelectedObject as TSB;
 
+            LocalDbServer.Instance.Save(inst);
+
+            /*
             var tsb = (from p in LocalDbServer.Instance.Db.Table<TSB>()
                          where p.TSBId == inst.TSBId
                          select p).FirstOrDefault();
@@ -84,6 +87,7 @@ namespace LocalDbServerFunctionTest
             }
 
             LocalDbServer.Instance.Db.UpdateWithChildren(inst);
+            */
 
             // reload
             lstTSB.DataSource = LocalDbServer.Instance.Db.GetAllWithChildren<TSB>();

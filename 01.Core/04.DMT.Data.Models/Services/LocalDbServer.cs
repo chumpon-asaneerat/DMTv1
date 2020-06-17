@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region Using
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +11,10 @@ using SQLite;
 using SQLiteNetExtensions.Attributes;
 using SQLiteNetExtensions.Extensions;
 using NLib.IO;
+using System.Runtime.CompilerServices;
+using DMT.Models.Domains;
+
+#endregion
 
 namespace DMT.Services
 {
@@ -75,6 +81,124 @@ namespace DMT.Services
             //Db.CreateTable<Models.Domains.Lane>();
             //Db.CreateTable<Models.Domains.User>();
             //Db.CreateTable<Models.Domains.RevenueSlip>();
+
+            InitDefaults();
+        }
+
+        private void InitDefaults()
+        {
+            InitTSBAndPlazas();
+        }
+
+        private void InitTSBAndPlazas()
+        {
+            if (null == Db) return;
+            TSB item;
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "311";
+            item.TSBNameEN = "DIN DAENG";
+            item.TSBNameTH = "ดินแดง";
+            item.Plazas = new List<Plaza>() 
+            { 
+                new Plaza() { PlazaId = "3101", PlazaNameEN = "DIN DAENG 1", PlazaNameTH = "ดินแดง 1", Direction = "IN" },
+                new Plaza() { PlazaId = "3102", PlazaNameEN = "DIN DAENG 2", PlazaNameTH = "ดินแดง 2", Direction = "OUT" }
+            };
+            if (!TSB.Exists(this.Db, item)) TSB.Save(this.Db, item);
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "312";
+            item.TSBNameEN = "SUTHISARN";
+            item.TSBNameTH = "สุทธิสาร";
+            item.Plazas = new List<Plaza>()
+            {
+                new Plaza() { PlazaId = "3103", PlazaNameEN = "SUTHISARN", PlazaNameTH = "สุทธิสาร", Direction = "" }
+            };
+            if (!TSB.Exists(this.Db, item)) TSB.Save(this.Db, item);
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "313";
+            item.TSBNameEN = "LAD PRAO";
+            item.TSBNameTH = "ลาดพร้าว";
+            item.Plazas = new List<Plaza>() 
+            {
+                new Plaza() { PlazaId = "3104", PlazaNameEN = "LAD PRAO INBOUND", PlazaNameTH = "ลาดพร้าว ขาเข้า", Direction = "IN" },
+                new Plaza() { PlazaId = "3105", PlazaNameEN = "LAD PRAO OUTBOUND", PlazaNameTH = "ลาดพร้าว ขาออก", Direction = "OUT" }
+            };
+            if (!TSB.Exists(this.Db, item)) TSB.Save(this.Db, item);
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "314";
+            item.TSBNameEN = "RATCHADA PHISEK";
+            item.TSBNameTH = "รัชดาภิเษก";
+            item.Plazas = new List<Plaza>()
+            {
+                new Plaza() { PlazaId = "3106", PlazaNameEN = "RATCHADA PHISEK 1", PlazaNameTH = "รัชดาภิเษก 1", Direction = "IN" },
+                new Plaza() { PlazaId = "3107", PlazaNameEN = "RATCHADA PHISEK 2", PlazaNameTH = "รัชดาภิเษก 2", Direction = "OUT" }
+            };
+            if (!TSB.Exists(this.Db, item)) TSB.Save(this.Db, item);
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "315";
+            item.TSBNameEN = "BANGKHEN";
+            item.TSBNameTH = "บางเขน";
+            item.Plazas = new List<Plaza>()
+            {
+                new Plaza() { PlazaId = "3108", PlazaNameEN = "BANGKHEN", PlazaNameTH = "บางเขน", Direction = "" }
+            };
+            if (!TSB.Exists(this.Db, item)) TSB.Save(this.Db, item);
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "316";
+            item.TSBNameEN = "CHANGEWATTANA";
+            item.TSBNameTH = "แจ้งวัฒนะ";
+            item.Plazas = new List<Plaza>()
+            {
+                new Plaza() { PlazaId = "3109", PlazaNameEN = "CHANGEWATTANA 1", PlazaNameTH = "แจ้งวัฒนะ 1", Direction = "IN" },
+                new Plaza() { PlazaId = "3110", PlazaNameEN = "CHANGEWATTANA 2", PlazaNameTH = "แจ้งวัฒนะ 2", Direction = "OUT" }
+            };
+            if (!TSB.Exists(this.Db, item)) TSB.Save(this.Db, item);
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "317";
+            item.TSBNameEN = "LAKSI";
+            item.TSBNameTH = "หลักสี่";
+            item.Plazas = new List<Plaza>()
+            {
+                new Plaza() { PlazaId = "3111", PlazaNameEN = "LAKSI INBOUND", PlazaNameTH = "หลักสี่ ขาเข้า", Direction = "IN" },
+                new Plaza() { PlazaId = "3112", PlazaNameEN = "LAKSI OUTBOUND", PlazaNameTH = "หลักสี่ ขาออก", Direction = "OUT" }
+            };
+            if (!TSB.Exists(this.Db, item)) TSB.Save(this.Db, item);
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "318";
+            item.TSBNameEN = "DON MUANG";
+            item.TSBNameTH = "ดอนเมือง";
+            item.Plazas = new List<Plaza>()
+            {
+                new Plaza() { PlazaId = "3113", PlazaNameEN = "DON MUANG 1", PlazaNameTH = "ดอนเมือง 1", Direction = "IN" },
+                new Plaza() { PlazaId = "3114", PlazaNameEN = "DON MUANG 2", PlazaNameTH = "ดอนเมือง 2", Direction = "OUT" }
+            };
+            if (!TSB.Exists(this.Db, item)) TSB.Save(this.Db, item);
+
+            item = new TSB();
+            item.NetworkId = "31";
+            item.TSBId = "319";
+            item.TSBNameEN = "ANUSORN SATHAN";
+            item.TSBNameTH = "อนุสรน์สถาน";
+            item.Plazas = new List<Plaza>()
+            {
+                new Plaza() { PlazaId = "3115", PlazaNameEN = "ANUSORN SATHAN 1", PlazaNameTH = "อนุสรน์สถาน 1", Direction = "IN" },
+                new Plaza() { PlazaId = "3116", PlazaNameEN = "ANUSORN SATHAN 2", PlazaNameTH = "อนุสรน์สถาน 2", Direction = "OUT" }
+            };
+            if (!TSB.Exists(this.Db, item)) TSB.Save(this.Db, item);
         }
 
         #endregion
@@ -134,6 +258,13 @@ namespace DMT.Services
             this.Db.Update(value, typeof(T));
             //this.Db.Update(value);
         }
+
+        // TSB
+        public bool Exists(TSB value) { return TSB.Exists(this.Db, value); }
+        public void Save(TSB value) { TSB.Save(this.Db, value); }
+        // Plaza
+        public bool Exists(Plaza value) { return Plaza.Exists(this.Db, value); }
+        public void Save(Plaza value) { Plaza.Save(this.Db, value); }
 
         #endregion
 

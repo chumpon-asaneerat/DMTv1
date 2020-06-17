@@ -53,45 +53,29 @@ namespace LocalDbServerFunctionTest
             TSB inst = pgTSB.SelectedObject as TSB;
 
             LocalDbServer.Instance.Save(inst);
-
-            /*
-            var tsb = (from p in LocalDbServer.Instance.Db.Table<TSB>()
-                         where p.TSBId == inst.TSBId
-                         select p).FirstOrDefault();
-
-            if (null == tsb)
-            {
-                LocalDbServer.Instance.Db.Insert(inst);
-            }
-            else
-            {
-                LocalDbServer.Instance.Db.Update(inst);
-            }
-
-            if (null != inst.Plazas)
-            {
-                foreach (var plaza in inst.Plazas)
-                {
-                    var pz = (from p in LocalDbServer.Instance.Db.Table<Plaza>()
-                                 where p.PlazaId == plaza.PlazaId
-                              select p).FirstOrDefault();
-                    if (null == pz)
-                    {
-                        LocalDbServer.Instance.Db.Insert(plaza);
-                    }
-                    else
-                    {
-                        LocalDbServer.Instance.Db.Update(plaza);
-                    }
-                }
-            }
-
-            LocalDbServer.Instance.Db.UpdateWithChildren(inst);
-            */
-
             // reload
             //lstTSB.DataSource = LocalDbServer.Instance.Db.GetAllWithChildren<TSB>(recursive: true);
             lstTSB.DataSource = LocalDbServer.Instance.GetTSBs(true);
+        }
+
+        private void cmdUserSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdNewUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdSaveUser_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

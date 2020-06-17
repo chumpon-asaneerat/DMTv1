@@ -347,6 +347,88 @@ namespace DMT.Models.Domains
 
     #endregion
 
+    #region Role
+
+    /// <summary>
+    /// The Role Data Model Class.
+    /// </summary>
+    //[Table("Role")]
+    public class Role
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public Role() : base() { }
+
+        #endregion
+
+        #region Public Proprties
+
+        [PrimaryKey, MaxLength(10)]
+        public string RoleId { get; set; }
+        [MaxLength(20)]
+        public string RoleName { get; set; }
+
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
+        public List<User> Users { get; set; }
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+    }
+
+    #endregion
+
+    #region User
+
+    /// <summary>
+    /// The User Data Model Class.
+    /// </summary>
+    //[Table("User")]
+    public class User
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public User() : base() { }
+
+        #endregion
+
+        #region Public Proprties
+
+        [PrimaryKey, MaxLength(10)]
+        public string UserId { get; set; }
+        [MaxLength(100)]
+        public string FullName { get; set; }
+
+        [MaxLength(20)]
+        public string UserName { get; set; }
+        [MaxLength(20)]
+        public string Password { get; set; }
+
+        [MaxLength(10)]
+        public string CardId { get; set; }
+
+        [ForeignKey(typeof(Role)), MaxLength(10)]
+        public string RoleId { get; set; }
+        [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead, ReadOnly = true)]
+        public Role Role { get; set; }
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
+    }
+
+    #endregion
+
     #endregion
 
     #region Reports

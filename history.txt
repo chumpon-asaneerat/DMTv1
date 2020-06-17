@@ -26,8 +26,10 @@ Update 2020-06-17 #8
 Update 2020-06-17 #7
 - 
 
+[commited]
 Update 2020-06-17 #6
-- 
+- Implements Domain Model - Role.
+- Implements Domain Model - User.
 
 [commited]
 Update 2020-06-17 #5

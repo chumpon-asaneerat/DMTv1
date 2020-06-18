@@ -2,8 +2,9 @@
 Update 2020-06-18 #20
 - 
 
+[commited]
 Update 2020-06-18 #19
-- 
+- unload WpfButtonUISample project.
 
 [commited]
 Update 2020-06-18 #18

@@ -33,8 +33,11 @@ Update 2020-06-19 #1
 - 
 
 --------------------------------------------------------------------------------------------
+[commited]
 Update 2020-06-18 #22
-- 
+- Set TCPServerSample project output path to TCPSample.
+- Set TCPClientSample project output path to TCPSample.
+- Recompile all projects.
 
 [commited]
 Update 2020-06-18 #21

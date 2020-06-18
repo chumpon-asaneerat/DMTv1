@@ -26,8 +26,14 @@ Update 2020-06-18 #8
 Update 2020-06-18 #7
 - 
 
+[commited]
 Update 2020-06-18 #6
-- 
+- Recheck test project - OwinSelfHostServerSample.
+- Recheck test project - GenericSingeltonSample.
+- Recheck test project - GenericSingeltonWPFSample.
+- Recheck test project - WpfButtonUISample.
+- Recheck test project - WpfListViewUISample.
+- Recheck test project - AvalonDockAndEditSample.
 
 [commited]
 Update 2020-06-18 #5

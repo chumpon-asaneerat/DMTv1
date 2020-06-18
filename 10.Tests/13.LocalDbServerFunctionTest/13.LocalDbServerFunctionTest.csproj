@@ -122,10 +122,6 @@
       <Project>{7d584f0a-920f-4be1-8652-3527fd7a5c27}</Project>
       <Name>04.DMT.Data.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\01.Core\05.DMT.Data.Services\05.DMT.Data.Services.csproj">
-      <Project>{0040f19e-4885-4267-9404-61c8dc150f5f}</Project>
-      <Name>05.DMT.Data.Services</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\02.Controls\01.DMT.Reports\01.DMT.Reports.csproj">
       <Project>{009b803c-4537-4851-985b-06bda996385a}</Project>
       <Name>01.DMT.Reports</Name>

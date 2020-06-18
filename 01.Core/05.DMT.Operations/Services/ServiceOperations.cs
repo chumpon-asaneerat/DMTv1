@@ -45,13 +45,7 @@ namespace DMT.Services
     /// </summary>
     public class PlazaOperations
     {
-        #region Private Methods
-
-        #endregion
-
         #region Public Methods
-
-        #region Plaza methods
 
         public Models.Objects.Plaza[] GetPlazas()
         {
@@ -63,8 +57,6 @@ namespace DMT.Services
         {
 
         }
-
-        #endregion
 
         #endregion
     }
@@ -101,13 +93,6 @@ namespace DMT.Services
 
         #endregion
 
-        #region Internal Variables
-
-        private NServiceMonitor _srvMon = null;
-        private PlazaOperations _operations = null;
-
-        #endregion
-
         #region Constructor and Destructor
 
         /// <summary>
@@ -115,11 +100,11 @@ namespace DMT.Services
         /// </summary>
         private DMTServiceOperations() : base()
         {
-            _srvMon = new NServiceMonitor();
+            ServiceMonitor = new NServiceMonitor();
             // Init windows service monitor.
             InitWindowsServices();
 
-            _operations = new PlazaOperations();
+            Plaza = new PlazaOperations();
         }
         /// <summary>
         /// Destructor.
@@ -127,11 +112,11 @@ namespace DMT.Services
         ~DMTServiceOperations()
         {
             // Shutdown windows service monitor.
-            if (null != _srvMon)
+            if (null != ServiceMonitor)
             {
-                _srvMon.Shutdown();
+                ServiceMonitor.Shutdown();
             }
-            _srvMon = null;
+            ServiceMonitor = null;
         }
 
         #endregion
@@ -143,14 +128,14 @@ namespace DMT.Services
         /// </summary>
         private void InitWindowsServices()
         {
-            if (null == _srvMon)
+            if (null == ServiceMonitor)
                 return;
             // Init Service to monitor
-            _srvMon.ServiceNames.Clear();
+            ServiceMonitor.ServiceNames.Clear();
             string path = System.IO.Path.GetDirectoryName(this.GetType().Assembly.Location);
 
             // Append Local Plaza Window Service application
-            _srvMon.ServiceNames.Add(
+            ServiceMonitor.ServiceNames.Add(
                 new NServiceName()
                 {
                     // The Service Name must match the name that declare name 
@@ -173,18 +158,18 @@ namespace DMT.Services
         /// </summary>
         public void Install()
         {
-            if (null == _srvMon)
+            if (null == ServiceMonitor)
                 return;
-            _srvMon.InstallAll();
+            ServiceMonitor.InstallAll();
         }
         /// <summary>
         /// Uninstall all registered windows services.
         /// </summary>
         public void Uninstall()
         {
-            if (null == _srvMon)
+            if (null == ServiceMonitor)
                 return;
-            _srvMon.UninstallAll();
+            ServiceMonitor.UninstallAll();
         }
         /// <summary>
         /// Checks services installed status.
@@ -196,11 +181,11 @@ namespace DMT.Services
             result.ServiceCount = 0;
             result.InstalledCount = 0;
             result.PlazaLocalServiceInstalled = false;
-            if (null != _srvMon)
+            if (null != ServiceMonitor)
             {
                 try
                 {
-                    NServiceInfo[] srvs = _srvMon.ServiceInformations;
+                    NServiceInfo[] srvs = ServiceMonitor.ServiceInformations;
                     if (null != srvs)
                     {
                         result.ServiceCount = srvs.Length;
@@ -231,11 +216,11 @@ namespace DMT.Services
         /// <summary>
         /// Gets Instance of Windows Services Monitor.
         /// </summary>
-        public NServiceMonitor ServiceMonitor { get { return _srvMon; } }
+        public NServiceMonitor ServiceMonitor { get;  private set; }
         /// <summary>
         /// Gets instance of Plaza Operations.
         /// </summary>
-        public PlazaOperations Plaza { get { return _operations; } }
+        public PlazaOperations Plaza { get; private set; }
 
         #endregion
     }

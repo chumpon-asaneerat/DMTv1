@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DMT Data service for model mappings and data management")]
-[assembly: AssemblyDescription("The DMT Data service assembly for model mappings and data management.")]
+[assembly: AssemblyTitle("DMT Operation interface for client access")]
+[assembly: AssemblyDescription("The DMT Operation interface for client access.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Softbase Co., Ltd.")]
-[assembly: AssemblyProduct("The DMT Data model assembly for model mappings and data management.")]
+[assembly: AssemblyProduct("The DMT Operation interface for client access.")]
 [assembly: AssemblyCopyright("Copyright ©Softbase Co., Ltd. 2020")]
-[assembly: AssemblyTrademark("The DMT Data model assembly for model mappings and data management")]
+[assembly: AssemblyTrademark("The DMT Operation interface for client access.")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible

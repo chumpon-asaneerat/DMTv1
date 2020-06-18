@@ -35,8 +35,10 @@ Update 2020-06-18 #5
 Update 2020-06-18 #4
 - 
 
+[commited]
 Update 2020-06-18 #3
-- 
+- Rename DMT.Data.Service project to DMT.Operations project.
+- Update relatead projects reference.
 
 [commited]
 Update 2020-06-18 #2

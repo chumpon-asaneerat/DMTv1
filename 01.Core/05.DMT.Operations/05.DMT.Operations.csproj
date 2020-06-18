@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DMT</RootNamespace>
-    <AssemblyName>DMT.Data.Services</AssemblyName>
+    <AssemblyName>DMT.Operations</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -77,7 +77,7 @@
     </ProjectReference>
     <ProjectReference Include="..\04.DMT.Data.Models\04.DMT.Data.Models.csproj">
       <Project>{7d584f0a-920f-4be1-8652-3527fd7a5c27}</Project>
-      <Name>03.DMT.Data.Models</Name>
+      <Name>04.DMT.Data.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

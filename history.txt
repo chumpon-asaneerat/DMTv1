@@ -11,8 +11,10 @@ Update 2020-06-18 #18
 Update 2020-06-18 #17
 - 
 
+[commited]
 Update 2020-06-18 #16
-- 
+- reload WpfButtonUISample project.
+- DMT.Controls project add Themes->generic.xaml, Style->ImageButtonStyle.xaml (comment out code).
 
 [commited]
 Update 2020-06-18 #15

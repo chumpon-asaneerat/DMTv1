@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SqlLiteSamlple.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="SQLite-net">
       <HintPath>..\..\References\SQLite-net.dll</HintPath>

@@ -96,6 +96,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12.SL600SmartCardReaderSamp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13.LocalDbServerFunctionTest", "10.Tests\13.LocalDbServerFunctionTest\13.LocalDbServerFunctionTest.csproj", "{A5C9D7C0-9FC5-45C0-8021-45411E15EE25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14.WebSocketServerSample", "10.Tests\14.WebSocketServerSample\14.WebSocketServerSample.csproj", "{41CABA75-23E8-4744-B3A9-8D5ACE8FE26F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15.WebSocketClientSample", "10.Tests\15.WebSocketClientSample\15.WebSocketClientSample.csproj", "{E36D0D9B-20C7-4D66-9C13-5CFB7650805A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -222,6 +226,14 @@ Global
 		{A5C9D7C0-9FC5-45C0-8021-45411E15EE25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5C9D7C0-9FC5-45C0-8021-45411E15EE25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5C9D7C0-9FC5-45C0-8021-45411E15EE25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41CABA75-23E8-4744-B3A9-8D5ACE8FE26F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41CABA75-23E8-4744-B3A9-8D5ACE8FE26F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41CABA75-23E8-4744-B3A9-8D5ACE8FE26F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41CABA75-23E8-4744-B3A9-8D5ACE8FE26F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E36D0D9B-20C7-4D66-9C13-5CFB7650805A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E36D0D9B-20C7-4D66-9C13-5CFB7650805A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E36D0D9B-20C7-4D66-9C13-5CFB7650805A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E36D0D9B-20C7-4D66-9C13-5CFB7650805A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -259,6 +271,8 @@ Global
 		{43EBC8A1-1BD6-43B4-A6C4-345FEF7905DF} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 		{7E3E6A41-F0ED-430C-AB95-C8DB7DC996B3} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 		{A5C9D7C0-9FC5-45C0-8021-45411E15EE25} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
+		{41CABA75-23E8-4744-B3A9-8D5ACE8FE26F} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
+		{E36D0D9B-20C7-4D66-9C13-5CFB7650805A} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E649CF5-EC41-479A-BECB-ADF883B25263}

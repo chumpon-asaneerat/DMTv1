@@ -20,8 +20,10 @@ Update 2020-06-18 #15
 Update 2020-06-18 #14
 - 
 
+[commited]
 Update 2020-06-18 #13
-- 
+- all test projects unloaded.
+- tesr full recompile.
 
 [commited]
 Update 2020-06-18 #12

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 using System.Reflection;
 using NLib.Reflection;
+using System.Net.NetworkInformation;
 
 namespace ReflectionSample
 {
@@ -33,11 +34,15 @@ namespace ReflectionSample
         private void button1_Click(object sender, EventArgs e)
         {
             // A->B
+            objA.AssignTo(objB);
+            propertyGrid2.Refresh();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             // B->A
+            objB.AssignTo(objA);
+            propertyGrid1.Refresh();
         }
     }
 
@@ -73,46 +78,91 @@ namespace ReflectionSample
         public string Name { get; set; }
     }
 
-    public static class AssignExtensionMethods
+    public class AssignTypeMap
     {
-        private static Dictionary<string, Dictionary<Type, string>> _caches = new Dictionary<string, Dictionary<Type, string>>();
+        private Dictionary<Type, AssignMapName> _map = new Dictionary<Type, AssignMapName>();
 
-        public static void InitType(Type type)
+        private void InitType(Type type)
         {
             PropertyInfo[] props = type.GetProperties(
-                BindingFlags.Public | BindingFlags.IgnoreCase);
+                BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
             foreach (var prop in props)
             {
                 MapToAttribute map = prop.GetCustomAttribute<MapToAttribute>(true);
                 if (null != map)
                 {
-                    Dictionary<Type, string> typeProps;
-                    if (!_caches.ContainsKey(map.Name))
+                    AssignMapName mapInfo;
+                    if (!_map.ContainsKey(type))
                     {
-                        typeProps = new Dictionary<Type, string>();
-                        _caches.Add(map.Name, typeProps);
+                        mapInfo = new AssignMapName();
+                        _map.Add(type, mapInfo);
                     }
-                    else typeProps = _caches[map.Name];
+                    else mapInfo = _map[type];
 
-                    if (!typeProps.ContainsKey(type))
+                    if (!mapInfo.ContainsKey(map.Name))
                     {
-                        typeProps.Add(type, prop.Name);
+                        mapInfo.Add(map.Name, prop);
                     }
                 }
             }
         }
 
+        public AssignMapName this[Type value]
+        {
+            get
+            {
+                if (!_map.ContainsKey(value)) InitType(value);
+                if (!_map.ContainsKey(value)) return null;
+                return _map[value];
+            }
+        }
+    }
+
+    public class AssignMapName
+    {
+        private Dictionary<string, PropertyInfo> _map = new Dictionary<string, PropertyInfo>();
+        private List<string> _names = new List<string>();
+
+        public void Add(string name, PropertyInfo value)
+        {
+            if (!_map.ContainsKey(name)) _map.Add(name, value);
+            if (!_names.Contains(name)) _names.Add(name); // keep map name.
+            else _map[name] = value;
+        }
+
+        public bool ContainsKey(string value)
+        {
+            return _map.ContainsKey(value);
+        }
+
+        public PropertyInfo this[string value]
+        {
+            get
+            {
+                if (!_map.ContainsKey(value)) _map.Add(value, null);
+                return _map[value];
+            }
+        }
+
+        public List<string> MapNames { get { return _names; } }
+    }
+
+    public static class AssignExtensionMethods
+    {
+        private static AssignTypeMap _caches = new AssignTypeMap();
 
         public static void AssignTo<TSource, TTarget>(this TSource source, TTarget target)
         {
             if (null == source || null == target) return;
             Type scrType = typeof(TSource);
             Type dstType = typeof(TTarget);
-            //NLib.Reflection.PropertyAccess;
-            InitType(scrType);
-            InitType(dstType);
-            //_caches
-            //MapToAttribute[] maps = scrType.GetCustomAttributes<MapToAttribute>(true).ToArray();
+            AssignMapName scrProp = _caches[scrType];
+            AssignMapName dstProp = _caches[dstType];
+            foreach (string name in scrProp.MapNames)
+            {
+                var val = PropertyAccess.GetValue(source, scrProp[name].Name);
+                PropertyAccess.SetValue(target, dstProp[name].Name, val);
+            }
         }
     }
 }

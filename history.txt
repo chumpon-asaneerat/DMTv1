@@ -17,8 +17,12 @@ Update 2020-06-18 #16
 Update 2020-06-18 #15
 - 
 
+[commited]
 Update 2020-06-18 #14
-- 
+- Add ReflectionSample project.
+- Add TaskSample project.
+- Add TCPServerSample project.
+- Add TCPClientSample project.
 
 [commited]
 Update 2020-06-18 #13

@@ -17,8 +17,11 @@ Update 2020-06-18 #11
 Update 2020-06-18 #10
 - 
 
+[commited]
 Update 2020-06-18 #9
-- 
+- Recheck DMT.Operations project.
+- Recheck DMT.Data.Services project (rename from DMT.Data.Models project).
+- Move extension methods classes from DMT.Operations project to DMT.Data.Services project.
 
 [commited]
 Update 2020-06-18 #8

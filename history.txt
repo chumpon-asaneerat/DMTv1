@@ -14,8 +14,12 @@ Update 2020-06-18 #17
 Update 2020-06-18 #16
 - 
 
+[commited]
 Update 2020-06-18 #15
-- 
+- Remove unused images from DMT.Plaza.Config.App project.
+- Remove unused images from DMT.Plaza.Simulator.App project.
+- Remove unused images from DMT.Controls project.
+- Remove unused images from DMT.Pages project.
 
 [commited]
 Update 2020-06-18 #14

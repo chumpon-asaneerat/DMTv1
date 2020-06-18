@@ -23,8 +23,13 @@ Update 2020-06-18 #9
 Update 2020-06-18 #8
 - 
 
+[commited]
 Update 2020-06-18 #7
-- 
+- Recheck test project - WpfLayoutSample.
+- Recheck test project - SL600SmartCardReaderSample.
+- Recheck test project - LocalDbServerFunctionTest.
+- Recheck test project - WebSocketServerSample.
+- Recheck test project - WebSocketClientSample.
 
 [commited]
 Update 2020-06-18 #6

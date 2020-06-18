@@ -11,8 +11,13 @@ Update 2020-06-18 #13
 Update 2020-06-18 #12
 - 
 
+[commited]
 Update 2020-06-18 #11
-- 
+- unload some test projects.
+- reload DMT.TOD.App.
+- reload DMT.TA.App.
+- reload DMT.Plaza.Config.App.
+- reload DMT.Plaza.Simulatpr.App.
 
 [commited]
 Update 2020-06-18 #10

@@ -126,11 +126,11 @@
       <Project>{009b803c-4537-4851-985b-06bda996385a}</Project>
       <Name>01.DMT.Reports</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\02.Controls\02.DMT.Controls\02.DMT.Controls.csproj">
+    <ProjectReference Include="..\..\04.Controls\02.DMT.Controls\02.DMT.Controls.csproj">
       <Project>{aeed7b1c-4e56-4d44-bbd1-a936be653d4d}</Project>
       <Name>02.DMT.Controls</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\02.Controls\03.DMT.Pages\03.DMT.Pages.csproj">
+    <ProjectReference Include="..\..\04.Controls\03.DMT.Pages\03.DMT.Pages.csproj">
       <Project>{42dcc6ba-69b6-4de0-8988-85ec884a2228}</Project>
       <Name>03.DMT.Pages</Name>
     </ProjectReference>

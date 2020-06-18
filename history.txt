@@ -20,8 +20,15 @@ Update 2020-06-18 #10
 Update 2020-06-18 #9
 - 
 
+[commited]
 Update 2020-06-18 #8
-- 
+- Remove DMT.ACC.App project.
+- Move DMT.Plaza.Windows.Service project in to App folder.
+- Recheck App project - DMT.Plaza.Windows.Service.
+- Recheck App project - DMT.TOD.App.
+- Recheck App project - DMT.TA.App.
+- Recheck App project - DMT.Plaza.Config.App.
+- Recheck App project - DMT.Plaza.Simulatpr.App.
 
 [commited]
 Update 2020-06-18 #7

@@ -138,7 +138,7 @@
       <Project>{db7fb4b5-3662-479e-a7da-26b73611bfd4}</Project>
       <Name>01.DMT.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\01.Core\02.DMT.Object.Models\02.DMT.Object.Models.csproj">
+    <ProjectReference Include="..\..\02.Models\01.DMT.Object.Models\01.DMT.Object.Models.csproj">
       <Project>{14bf5c3c-cafe-41cb-b7d0-d3ca0910d8f2}</Project>
       <Name>02.DMT.Object.Models</Name>
     </ProjectReference>

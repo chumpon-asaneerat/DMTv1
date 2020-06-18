@@ -14,8 +14,12 @@ Update 2020-06-18 #12
 Update 2020-06-18 #11
 - 
 
+[commited]
 Update 2020-06-18 #10
-- 
+- Reload DMT.Plaza.Windows.Service project and test compile.
+- Recheck controls project - DMT.Controls.
+- Recheck controls project - DMT.Pages.
+- fixed reference in DMT.Pages project.
 
 [commited]
 Update 2020-06-18 #9

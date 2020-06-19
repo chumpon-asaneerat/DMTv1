@@ -49,38 +49,75 @@ namespace ReflectionSample
 
     public class A
     {
-        [MapTo("Text")]
+        [PeropertyMapName("Text")]
         public string Text { get; set; }
-        [MapTo("Age")]
+        [PeropertyMapName("Age")]
         public int Age { get; set; }
-        [MapTo("DOB")]
+        [PeropertyMapName("DOB")]
         public DateTime DOB { get; set; }
     }
 
 
     public class B
     {
-        [MapTo("Text")]
+        [PeropertyMapName("Text")]
         public string MyText { get; set; }
-        [MapTo("Age")]
+        [PeropertyMapName("Age")]
         public int MyAge { get; set; }
-        [MapTo("DOB")]
+        [PeropertyMapName("DOB")]
         public DateTime Dob { get; set; }
     }
 
-    public class MapToAttribute : Attribute
+    #region PeropertyMapNameAttribute
+
+    /// <summary>
+    /// The PeropertyMapName Attribute class.
+    /// </summary>
+    public class PeropertyMapNameAttribute : Attribute
     {
-        private MapToAttribute() : base() { }
-        public MapToAttribute(string name) : base()
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        private PeropertyMapNameAttribute() : base() { }
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="name">The map name.</param>
+        public PeropertyMapNameAttribute(string name) : base()
         {
             this.Name = name;
         }
+
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets map name.
+        /// </summary>
         public string Name { get; set; }
+
+        #endregion
     }
 
-    public class AssignTypeMap
+    #endregion
+
+    #region PeropertyMapNameCache
+
+    /// <summary>
+    /// The PeropertyMapName Cache class.
+    /// </summary>
+    public class PeropertyMapNameCache
     {
-        private Dictionary<Type, AssignMapName> _map = new Dictionary<Type, AssignMapName>();
+        #region Internal Variables
+
+        private Dictionary<Type, PeropertyMapName> _map = new Dictionary<Type, PeropertyMapName>();
+
+        #endregion
+
+        #region Private Methods
 
         private void InitType(Type type)
         {
@@ -88,13 +125,13 @@ namespace ReflectionSample
                 BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
             foreach (var prop in props)
             {
-                MapToAttribute map = prop.GetCustomAttribute<MapToAttribute>(true);
+                PeropertyMapNameAttribute map = prop.GetCustomAttribute<PeropertyMapNameAttribute>(true);
                 if (null != map)
                 {
-                    AssignMapName mapInfo;
+                    PeropertyMapName mapInfo;
                     if (!_map.ContainsKey(type))
                     {
-                        mapInfo = new AssignMapName();
+                        mapInfo = new PeropertyMapName();
                         _map.Add(type, mapInfo);
                     }
                     else mapInfo = _map[type];
@@ -107,7 +144,18 @@ namespace ReflectionSample
             }
         }
 
-        public AssignMapName this[Type value]
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>
+        /// Indexer access.
+        /// </summary>
+        /// <param name="value">The target type.</param>
+        /// <returns>
+        /// Returns PeropertyMapName instance that match target type. If not found returns null.
+        /// </returns>
+        public PeropertyMapName this[Type value]
         {
             get
             {
@@ -116,25 +164,82 @@ namespace ReflectionSample
                 return _map[value];
             }
         }
+
+        #endregion
     }
 
-    public class AssignMapName
-    {
-        private Dictionary<string, PropertyInfo> _map = new Dictionary<string, PropertyInfo>();
-        private List<string> _names = new List<string>();
+    #endregion
 
+    #region PeropertyMapName
+
+    /// <summary>
+    /// The PeropertyMapName class.
+    /// </summary>
+    public class PeropertyMapName
+    {
+        #region Internal Variables
+
+        private Dictionary<string, PropertyInfo> _map = new Dictionary<string, PropertyInfo>();
+
+        #endregion
+
+        #region Constructor and Destructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public PeropertyMapName() : base()
+        {
+            MapNames = new List<string>();
+        }
+        /// <summary>
+        /// Destructor.
+        /// </summary>
+        ~PeropertyMapName() 
+        {
+            if (null != MapNames)
+            {
+                MapNames.Clear();
+            }
+            MapNames = null;
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Add.
+        /// </summary>
+        /// <param name="name">The map name</param>
+        /// <param name="value">The PropertyInfo instance for specificed map name.</param>
         public void Add(string name, PropertyInfo value)
         {
             if (!_map.ContainsKey(name)) _map.Add(name, value);
-            if (!_names.Contains(name)) _names.Add(name); // keep map name.
+            if (!MapNames.Contains(name)) MapNames.Add(name); // keep map name.
             else _map[name] = value;
         }
-
+        /// <summary>
+        /// Contains Key.
+        /// </summary>
+        /// <param name="value">The name to check exist.</param>
+        /// <returns>Returns true if name is exist.</returns>
         public bool ContainsKey(string value)
         {
             return _map.ContainsKey(value);
         }
 
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>
+        /// Indexer access.
+        /// </summary>
+        /// <param name="value">The map name.</param>
+        /// <returns>
+        /// Returns PropertyInfo instance if found otherwise returns null.
+        /// </returns>
         public PropertyInfo this[string value]
         {
             get
@@ -143,26 +248,54 @@ namespace ReflectionSample
                 return _map[value];
             }
         }
+        /// <summary>
+        /// Gets List of Map Names.
+        /// </summary>
+        public List<string> MapNames { get; private set; }
 
-        public List<string> MapNames { get { return _names; } }
+        #endregion
     }
 
-    public static class AssignExtensionMethods
-    {
-        private static AssignTypeMap _caches = new AssignTypeMap();
+    #endregion
 
+    #region PeropertyMapNameExtensionMethods
+
+    /// <summary>
+    /// The PeropertyMapName Extension Methods.
+    /// </summary>
+    public static class PeropertyMapNameExtensionMethods
+    {
+        #region Internal Static Variables
+
+        private static PeropertyMapNameCache _caches = new PeropertyMapNameCache();
+
+        #endregion
+
+        #region Public Static Methods
+
+        /// <summary>
+        /// Assign.
+        /// </summary>
+        /// <typeparam name="TSource">The source type.</typeparam>
+        /// <typeparam name="TTarget">The target type.</typeparam>
+        /// <param name="source">The source instance.</param>
+        /// <param name="target">The target instance.</param>
         public static void AssignTo<TSource, TTarget>(this TSource source, TTarget target)
         {
             if (null == source || null == target) return;
             Type scrType = typeof(TSource);
             Type dstType = typeof(TTarget);
-            AssignMapName scrProp = _caches[scrType];
-            AssignMapName dstProp = _caches[dstType];
+            PeropertyMapName scrProp = _caches[scrType];
+            PeropertyMapName dstProp = _caches[dstType];
             foreach (string name in scrProp.MapNames)
             {
                 var val = PropertyAccess.GetValue(source, scrProp[name].Name);
                 PropertyAccess.SetValue(target, dstProp[name].Name, val);
             }
         }
+
+        #endregion
     }
+
+    #endregion
 }

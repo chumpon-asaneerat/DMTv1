@@ -83,7 +83,7 @@
 [X] 0083 - Implements ServiceOperations for handle windows service install/uninstall.
 [X] 0084 - Implements ServiceOperations for scan method (check service installation).
 [X] 0085 - Implements Plaza/TA/TOD local service (loca web service).
-[ ] 0086 - 
+[ ] 0086 - Change all fundXXX controls/pages to cashXXX controls/pages.
 [ ] 0087 - Implements ImageButton control (WPF).
 [ ] 0088 - Implements Status bar for all application.
 [ ] 0089 - Implements Plaza/TA/TOD service install (start)/uninstall (stop) page.

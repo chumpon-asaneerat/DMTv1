@@ -106,6 +106,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "18.TCPServerSample", "10.Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "19.TCPClientSample", "10.Tests\19.TCPClientSample\19.TCPClientSample.csproj", "{9A085261-F51C-401A-9C17-7F5FBC3467A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLib.Wpf.Controls", "00.NLib\NLib.Wpf.Controls\NLib.Wpf.Controls.csproj", "{D4175874-8854-4318-8930-4C8166E4BEFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -248,6 +250,10 @@ Global
 		{9A085261-F51C-401A-9C17-7F5FBC3467A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A085261-F51C-401A-9C17-7F5FBC3467A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A085261-F51C-401A-9C17-7F5FBC3467A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4175874-8854-4318-8930-4C8166E4BEFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4175874-8854-4318-8930-4C8166E4BEFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4175874-8854-4318-8930-4C8166E4BEFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4175874-8854-4318-8930-4C8166E4BEFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -289,6 +295,7 @@ Global
 		{5B2982FD-3D60-4312-84FB-F8687FC1E076} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 		{E368DA28-14C4-4725-A80A-3C09BD8ABC00} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 		{9A085261-F51C-401A-9C17-7F5FBC3467A5} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
+		{D4175874-8854-4318-8930-4C8166E4BEFF} = {CCA955D0-DA08-4D75-BEAB-686142508899}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E649CF5-EC41-479A-BECB-ADF883B25263}

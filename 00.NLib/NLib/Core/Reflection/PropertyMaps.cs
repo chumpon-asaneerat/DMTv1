@@ -79,6 +79,30 @@ namespace NLib.Reflection
                 BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase);
             foreach (var prop in props)
             {
+                /*
+                // .NET 4.0
+                object[] attrs = prop.GetCustomAttributes(typeof(PeropertyMapNameAttribute), true);
+                if (null != attrs && attrs.Length > 0 && attrs[0] is PeropertyMapNameAttribute)
+                {
+                    PeropertyMapNameAttribute map = attrs[0] as PeropertyMapNameAttribute;
+                    if (null != map)
+                    {
+                        PeropertyMapName mapInfo;
+                        if (!_map.ContainsKey(type))
+                        {
+                            mapInfo = new PeropertyMapName();
+                            _map.Add(type, mapInfo);
+                        }
+                        else mapInfo = _map[type];
+
+                        if (!mapInfo.ContainsKey(map.Name))
+                        {
+                            mapInfo.Add(map.Name, prop);
+                        }
+                    }
+                }
+                */
+                // .NET 4.5
                 PeropertyMapNameAttribute map = prop.GetCustomAttribute<PeropertyMapNameAttribute>(true);
                 if (null != map)
                 {

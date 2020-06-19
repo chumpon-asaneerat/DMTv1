@@ -41,8 +41,9 @@ Update 2020-06-19 #10
 Update 2020-06-19 #9
 - 
 
+[commited]
 Update 2020-06-19 #8
-- 
+- Update NLib project - PeropertyMapName related class update code to supports .NET 4.0 (comment out).
 
 [commited]
 Update 2020-06-19 #7

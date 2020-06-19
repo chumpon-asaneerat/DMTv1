@@ -38,8 +38,10 @@ Update 2020-06-19 #11
 Update 2020-06-19 #10
 - 
 
+[commited]
 Update 2020-06-19 #9
-- 
+- unload ReflectionSample project.
+- recompile all projects.
 
 [commited]
 Update 2020-06-19 #8

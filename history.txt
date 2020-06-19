@@ -26,8 +26,10 @@ Update 2020-06-19 #4
 Update 2020-06-19 #3
 - 
 
+[commited]
 Update 2020-06-19 #2
-- 
+- Update NLib.Wpf.Controls project - add Themes->Generic.xaml.
+- NLib.Wpf.Controls add TileButton.
 
 [commited]
 Update 2020-06-19 #1

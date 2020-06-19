@@ -83,6 +83,7 @@
     <Compile Include="Core\Application\AppInstance.cs" />
     <Compile Include="Core\Application\ApplicationManager.cs" />
     <Compile Include="Core\Patterns\Retry.cs" />
+    <Compile Include="Core\Reflection\PropertyMaps.cs" />
     <Compile Include="Core\Threads\NETWorkerThreads.cs" />
     <Compile Include="Core\Threads\NThreads.cs" />
     <Compile Include="Data\Common\Common.cs" />

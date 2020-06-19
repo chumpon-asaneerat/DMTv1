@@ -44,8 +44,10 @@ Update 2020-06-19 #9
 Update 2020-06-19 #8
 - 
 
+[commited]
 Update 2020-06-19 #7
-- 
+- Update ReflectionSample project #6 - move all PeropertyMapName related class to NLib project.
+- Update NLib project - PeropertyMapName related class change some class to intenal access.
 
 [commited]
 Update 2020-06-19 #6

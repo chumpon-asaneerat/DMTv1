@@ -55,8 +55,9 @@ namespace ReflectionSample
         public int Age { get; set; }
         [PeropertyMapName("DOB")]
         public DateTime DOB { get; set; }
+        [PeropertyMapName("Extra")]
+        public string extra { get; set; }
     }
-
 
     public class B
     {
@@ -66,6 +67,8 @@ namespace ReflectionSample
         public int MyAge { get; set; }
         [PeropertyMapName("DOB")]
         public DateTime Dob { get; set; }
+        // no map name.
+        public string MyExtra { get; set; }
     }
 
     #region PeropertyMapNameAttribute
@@ -289,6 +292,8 @@ namespace ReflectionSample
             PeropertyMapName dstProp = _caches[dstType];
             foreach (string name in scrProp.MapNames)
             {
+                if (null == scrProp[name] || null == dstProp[name]) continue;
+                if (scrProp[name].PropertyType != dstProp[name].PropertyType) continue;
                 var val = PropertyAccess.GetValue(source, scrProp[name].Name);
                 PropertyAccess.SetValue(target, dstProp[name].Name, val);
             }

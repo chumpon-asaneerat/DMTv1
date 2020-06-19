@@ -47,12 +47,14 @@ Update 2020-06-19 #8
 Update 2020-06-19 #7
 - 
 
+[commited]
 Update 2020-06-19 #6
-- 
+- Update ReflectionSample project #5 - update assign logic check mismatch map name.
+- Update ReflectionSample project #5 - update assign logic check mismatch propety's type.
 
 [commited]
 Update 2020-06-19 #5
-- Update ReflectionSample project #3 - rename classes.
+- Update ReflectionSample project #4 - rename classes.
 
 [commited]
 Update 2020-06-19 #4
@@ -92,7 +94,7 @@ Update 2020-06-18 #19
 
 [commited]
 Update 2020-06-18 #18
-- Update ReflectionSample project #2 - work. required some logic to track unassigned map attribute.
+- Update ReflectionSample project #3 - work. required some logic to track unassigned map attribute.
 
 [commited]
 Update 2020-06-18 #17

@@ -14,8 +14,9 @@ Update 2020-06-20 #12
 Update 2020-06-20 #11
 - 
 
+[commited]
 Update 2020-06-20 #10
-- 
+- Nlib.Wpf.Controls - Add SquareControl (Aspect ratio) attemp #1.
 
 [commited]
 Update 2020-06-20 #9

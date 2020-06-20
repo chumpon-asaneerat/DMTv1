@@ -10,7 +10,13 @@
         Width="800">
     <Grid>
         <TabControl>
-            <TabItem Header="Control 1"></TabItem>
+            <TabItem Header="Control 1">
+                <Grid>
+                    <nctrl:SquareControl Background="Aqua" Margin="389,112,81,245.8" />
+                    <nctrl:SquareControl Background="Salmon" Margin="61,66,493,287.8" />
+                    <Button Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Margin="363,333,133,88.8"/>
+                </Grid>
+            </TabItem>
             <TabItem Header="Control 2"></TabItem>
         </TabControl>
     </Grid>

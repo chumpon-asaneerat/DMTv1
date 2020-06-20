@@ -82,5 +82,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\01.Core\02.DMT.Networks.Tcp\02.DMT.Networks.Tcp.csproj">
+      <Project>{a3f9521b-56cf-425b-bd7f-71139a744ca9}</Project>
+      <Name>02.DMT.Networks.Tcp</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

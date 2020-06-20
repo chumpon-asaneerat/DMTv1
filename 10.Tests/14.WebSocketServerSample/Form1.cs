@@ -80,12 +80,20 @@ namespace WebSocketServerSample
 
         protected override void OnClose(CloseEventArgs e)
         {
-            Sessions.Broadcast(string.Format("{0} got logged off...", _name));
+            try
+            {
+                Sessions.Broadcast(string.Format("{0} got logged off...", _name));
+            }
+            catch (Exception) { }
         }
 
         protected override void OnMessage(MessageEventArgs e)
         {
-            Sessions.Broadcast(string.Format("{0}: {1}", _name, e.Data));
+            try
+            {
+                Sessions.Broadcast(string.Format("{0}: {1}", _name, e.Data));
+            }
+            catch (Exception) { }
         }
     }
 }

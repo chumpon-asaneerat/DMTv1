@@ -14,8 +14,11 @@ Update 2020-06-20 #7
 Update 2020-06-20 #6
 - 
 
+[commited]
 Update 2020-06-20 #5
-- 
+- reload WebSocketServerSample/WebSocketClientSample project.
+- WebSocketServerSample project - update code to ignore boardcase error when server is closed.
+- WebSocketClientSample project - add code to auto reconnect.
 
 [commited]
 Update 2020-06-20 #4

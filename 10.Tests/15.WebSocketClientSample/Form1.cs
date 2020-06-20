@@ -29,6 +29,8 @@ namespace WebSocketClientSample
             {
                 ws = new WebSocket(string.Format("ws://localhost:{0}/Chat", portNo));
                 ws.OnMessage += Ws_OnMessage;
+                ws.OnError += Ws_OnError;
+                ws.OnClose += Ws_OnClose;
                 ws.Connect();
                 Send(name + " say hello");
             }
@@ -38,16 +40,44 @@ namespace WebSocketClientSample
         {
             if (null != ws)
             {
+                ws.OnClose -= Ws_OnClose;
+                ws.OnError -= Ws_OnError;
                 ws.OnMessage -= Ws_OnMessage;
                 ws.Close();
             }
             ws = null;
         }
 
+        void Reconnect(ushort code, string error)
+        {
+            if (code != (ushort)CloseStatusCode.Normal)
+            {
+                ws.Connect();
+            }
+        }
+
         private void Send(string message)
         {
+            string name = txtName.Text;
+            if (null == ws)
+            {
+                Connect(name);
+            }
+            if (null != ws && ws.ReadyState != WebSocketState.Open)
+            {
+                // auto reconnect.
+                try
+                {
+                    Disconnect();
+                    Connect(name);
+                }
+                catch
+                {
+                    Disconnect(); // attemp connection failed.
+                }
+            }
             if (null == ws || ws.ReadyState != WebSocketState.Open) return;
-            ws.Send(message);
+             ws.Send(message);
         }
 
         private void Ws_OnMessage(object sender, MessageEventArgs e)
@@ -60,6 +90,16 @@ namespace WebSocketClientSample
                 item.SubItems.Add(message);
                 lvMessages.Items.Add(item);
             }));
+        }
+
+        private void Ws_OnClose(object sender, CloseEventArgs e)
+        {
+            Reconnect(e.Code, e.Reason);
+        }
+
+        private void Ws_OnError(object sender, ErrorEventArgs e)
+        {
+            Disconnect();
         }
 
         private void Form1_Load(object sender, EventArgs e)

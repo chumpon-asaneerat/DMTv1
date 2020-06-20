@@ -20,8 +20,13 @@ Update 2020-06-20 #10
 Update 2020-06-20 #9
 - 
 
+[commited]
 Update 2020-06-20 #8
-- 
+- Update DMT.Networks.Tcp project #3.
+- Add DMTNetworkBase class. 
+- Add DMTNetworkClientBase class.
+- Add DMTNetworkServerBase class.
+- Add NetworkUtils class.
 
 [commited]
 Update 2020-06-20 #7

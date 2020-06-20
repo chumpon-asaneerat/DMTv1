@@ -10,16 +10,16 @@ using System.Windows.Controls;
 namespace DMT.TA.Windows.Exchange
 {
     /// <summary>
-    /// Interaction logic for PlazaFundRequestExchangeWindow.xaml
+    /// Interaction logic for PlazaCreditRequestExchangeWindow.xaml
     /// </summary>
-    public partial class PlazaFundRequestExchangeWindow : Window
+    public partial class PlazaCreditRequestExchangeWindow : Window
     {
         #region Constructor
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public PlazaFundRequestExchangeWindow()
+        public PlazaCreditRequestExchangeWindow()
         {
             InitializeComponent();
         }

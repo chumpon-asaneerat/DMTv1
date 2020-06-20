@@ -7,14 +7,14 @@ using System.Windows.Controls;
 using NLib;
 using NLib.Services;
 
-namespace DMT.TA.Pages.Plaza.Fund
+namespace DMT.TA.Pages.Plaza.Credit
 {
     /// <summary>
-    /// Interaction logic for PlazaFundReceivedPage.xaml
+    /// Interaction logic for PlazaCreditReceivedPage.xaml
     /// </summary>
-    public partial class PlazaFundReceivedPage : UserControl
+    public partial class PlazaCreditReceivedPage : UserControl
     {
-        public PlazaFundReceivedPage()
+        public PlazaCreditReceivedPage()
         {
             InitializeComponent();
         }
@@ -67,7 +67,7 @@ namespace DMT.TA.Pages.Plaza.Fund
 
         private void cmdAppend_Click(object sender, RoutedEventArgs e)
         {
-            var win = new DMT.TA.Windows.Plaza.PlazaReceivedFundWindow();
+            var win = new DMT.TA.Windows.Plaza.PlazaReceivedCreditWindow();
             win.Owner = Application.Current.MainWindow;
             /*
             Models.FundEntry srcObj = new Models.FundEntry();

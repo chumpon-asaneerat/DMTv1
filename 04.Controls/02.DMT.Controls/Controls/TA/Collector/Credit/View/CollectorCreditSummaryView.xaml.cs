@@ -8,19 +8,19 @@ using NLib;
 using NLib.Services;
 
 
-namespace DMT.TA.Controls.Collector.Fund.View
+namespace DMT.TA.Controls.Collector.Credit.View
 {
     /// <summary>
-    /// Interaction logic for CollectorFundSummaryView.xaml
+    /// Interaction logic for CollectorCreditSummaryView.xaml
     /// </summary>
-    public partial class CollectorFundSummaryView : UserControl
+    public partial class CollectorCreditSummaryView : UserControl
     {
         #region Constructor
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public CollectorFundSummaryView()
+        public CollectorCreditSummaryView()
         {
             InitializeComponent();
         }

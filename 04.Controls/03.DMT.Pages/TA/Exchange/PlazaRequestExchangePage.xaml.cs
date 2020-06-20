@@ -29,7 +29,7 @@ namespace DMT.TA.Pages.Exchange
 
         private void cmdRequest_Click(object sender, RoutedEventArgs e)
         {
-            var win = new DMT.TA.Windows.Exchange.PlazaFundRequestExchangeWindow();
+            var win = new DMT.TA.Windows.Exchange.PlazaCreditRequestExchangeWindow();
             win.Owner = Application.Current.MainWindow;
             /*
             var obj = Models.FundExchange.CreateNewRequest(_plaza, "14055", "นางวิภา สวัสดิวัฒน์", 0);

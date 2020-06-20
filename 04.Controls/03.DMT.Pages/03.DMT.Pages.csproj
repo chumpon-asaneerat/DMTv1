@@ -59,8 +59,8 @@
     <Compile Include="TA\Collector\Coupon\CollectorReturnCouponPage.xaml.cs">
       <DependentUpon>CollectorReturnCouponPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TA\Collector\Fund\CollectorFundSummaryPage.xaml.cs">
-      <DependentUpon>CollectorFundSummaryPage.xaml</DependentUpon>
+    <Compile Include="TA\Collector\Credit\CollectorCreditSummaryPage.xaml.cs">
+      <DependentUpon>CollectorCreditSummaryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -84,11 +84,11 @@
     <Compile Include="TA\Plaza\Coupon\PlazaCouponReceivedPage.xaml.cs">
       <DependentUpon>PlazaCouponReceivedPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TA\Plaza\Fund\PlazaFundReceivedPage.xaml.cs">
-      <DependentUpon>PlazaFundReceivedPage.xaml</DependentUpon>
+    <Compile Include="TA\Plaza\Credit\PlazaCreditReceivedPage.xaml.cs">
+      <DependentUpon>PlazaCreditReceivedPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TA\Reports\CollectorFundSummaryReportPage.xaml.cs">
-      <DependentUpon>CollectorFundSummaryReportPage.xaml</DependentUpon>
+    <Compile Include="TA\Reports\CollectorCreditSummaryReportPage.xaml.cs">
+      <DependentUpon>CollectorCreditSummaryReportPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="TOD\Job\EOJPage.xaml.cs">
       <DependentUpon>EOJPage.xaml</DependentUpon>
@@ -154,7 +154,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TA\Collector\Fund\CollectorFundSummaryPage.xaml">
+    <Page Include="TA\Collector\Credit\CollectorCreditSummaryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -170,11 +170,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TA\Plaza\Fund\PlazaFundReceivedPage.xaml">
+    <Page Include="TA\Plaza\Credit\PlazaCreditReceivedPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="TA\Reports\CollectorFundSummaryReportPage.xaml">
+    <Page Include="TA\Reports\CollectorCreditSummaryReportPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

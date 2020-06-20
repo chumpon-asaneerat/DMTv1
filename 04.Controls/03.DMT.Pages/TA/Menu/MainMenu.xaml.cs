@@ -57,7 +57,7 @@ namespace DMT.TA.Pages
             {
                 
                 // Plaza Fund Received
-                var page = new DMT.TA.Pages.Plaza.Fund.PlazaFundReceivedPage();
+                var page = new DMT.TA.Pages.Plaza.Credit.PlazaCreditReceivedPage();
                 /*
                 BindingList<Models.FundEntry> funds = new BindingList<Models.FundEntry>();
                 Models.FundEntry fund;
@@ -199,7 +199,7 @@ namespace DMT.TA.Pages
             try
             {
                 
-                var page = new DMT.TA.Pages.Collector.Fund.CollectorFundSummaryPage();
+                var page = new DMT.TA.Pages.Collector.Credit.CollectorCreditSummaryPage();
                 /*
                 Models.FundEntry plazaFund = new Models.FundEntry();
                 plazaFund.Description = "เงินยืม-ทอน (ด่าน)";
@@ -302,7 +302,7 @@ namespace DMT.TA.Pages
         {
             try
             {
-                var page = new DMT.TA.Pages.Plaza.Reports.CollectorFundSummaryReportPage();
+                var page = new DMT.TA.Pages.Plaza.Reports.CollectorCreditSummaryReportPage();
                 PageContentManager.Instance.Current = page;
             }
             catch (Exception)
@@ -315,7 +315,6 @@ namespace DMT.TA.Pages
         {
             try
             {
-                
                 // Coupon Return
                 var page = new DMT.TA.Pages.Collector.Coupon.CollectorBorrowCouponPage();
                 /*

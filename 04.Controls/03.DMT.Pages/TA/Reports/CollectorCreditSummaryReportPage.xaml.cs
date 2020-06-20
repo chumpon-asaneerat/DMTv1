@@ -9,11 +9,11 @@ using NLib.Services;
 namespace DMT.TA.Pages.Plaza.Reports
 {
     /// <summary>
-    /// Interaction logic for CollectorFundSummaryReportPage.xaml
+    /// Interaction logic for CollectorCreditSummaryReportPage.xaml
     /// </summary>
-    public partial class CollectorFundSummaryReportPage : UserControl
+    public partial class CollectorCreditSummaryReportPage : UserControl
     {
-        public CollectorFundSummaryReportPage()
+        public CollectorCreditSummaryReportPage()
         {
             InitializeComponent();
         }

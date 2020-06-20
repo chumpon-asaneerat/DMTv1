@@ -7,19 +7,19 @@ using System.Windows.Controls;
 
 #endregion
 
-namespace DMT.TA.Windows.Collector.Fund
+namespace DMT.TA.Windows.Collector.Credit
 {
     /// <summary>
-    /// Interaction logic for CollectorFundBorrowWindow.xaml
+    /// Interaction logic for CollectorCreditReturnWindow.xaml
     /// </summary>
-    public partial class CollectorFundBorrowWindow : Window
+    public partial class CollectorCreditReturnWindow : Window
     {
         #region Constructor
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public CollectorFundBorrowWindow()
+        public CollectorCreditReturnWindow()
         {
             InitializeComponent();
         }

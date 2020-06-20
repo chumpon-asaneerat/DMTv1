@@ -7,19 +7,19 @@ using System.Windows.Controls;
 using NLib;
 using NLib.Services;
 
-namespace DMT.TA.Pages.Collector.Fund
+namespace DMT.TA.Pages.Collector.Credit
 {
     /// <summary>
-    /// Interaction logic for CollectorFundSummaryPage.xaml
+    /// Interaction logic for CollectorCreditSummaryPage.xaml
     /// </summary>
-    public partial class CollectorFundSummaryPage : UserControl
+    public partial class CollectorCreditSummaryPage : UserControl
     {
         #region Constructor
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        public CollectorFundSummaryPage()
+        public CollectorCreditSummaryPage()
         {
             InitializeComponent();
 

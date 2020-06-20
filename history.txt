@@ -17,8 +17,9 @@ Update 2020-06-20 #6
 Update 2020-06-20 #5
 - 
 
+[commited]
 Update 2020-06-20 #4
-- 
+- Change all fundXXX controls/pages to creditXXX controls/pages.
 
 [commited]
 Update 2020-06-20 #3

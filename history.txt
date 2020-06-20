@@ -11,8 +11,9 @@ Update 2020-06-20 #4
 Update 2020-06-20 #3
 - 
 
+[commited]
 Update 2020-06-20 #2
-- 
+- Add NLib.Wpf.Controls.Sample project.
 
 [commited]
 Update 2020-06-20 #1

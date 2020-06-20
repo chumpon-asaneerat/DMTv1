@@ -17,8 +17,9 @@ Update 2020-06-20 #11
 Update 2020-06-20 #10
 - 
 
+[commited]
 Update 2020-06-20 #9
-- 
+- Update DMT.Networks.Tcp project #4 - update AssemblyInfo.cs file.
 
 [commited]
 Update 2020-06-20 #8

@@ -120,7 +120,7 @@
     </ProjectReference>
     <ProjectReference Include="..\..\02.Models\01.DMT.Object.Models\01.DMT.Object.Models.csproj">
       <Project>{14bf5c3c-cafe-41cb-b7d0-d3ca0910d8f2}</Project>
-      <Name>02.DMT.Object.Models</Name>
+      <Name>01.DMT.Object.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\04.Controls\01.DMT.Reports\01.DMT.Reports.csproj">
       <Project>{009b803c-4537-4851-985b-06bda996385a}</Project>

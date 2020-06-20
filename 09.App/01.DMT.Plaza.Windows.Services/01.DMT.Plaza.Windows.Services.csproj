@@ -140,11 +140,11 @@
     </ProjectReference>
     <ProjectReference Include="..\..\02.Models\01.DMT.Object.Models\01.DMT.Object.Models.csproj">
       <Project>{14bf5c3c-cafe-41cb-b7d0-d3ca0910d8f2}</Project>
-      <Name>02.DMT.Object.Models</Name>
+      <Name>01.DMT.Object.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\02.Models\02.DMT.Data.Services\02.DMT.Data.Services.csproj">
       <Project>{7d584f0a-920f-4be1-8652-3527fd7a5c27}</Project>
-      <Name>03.DMT.Data.Services</Name>
+      <Name>02.DMT.Data.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

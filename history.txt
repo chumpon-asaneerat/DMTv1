@@ -8,8 +8,10 @@ Update 2020-06-20 #14
 Update 2020-06-20 #13
 - 
 
+[commited]
 Update 2020-06-20 #12
-- 
+- Add Tools for test RF Reader.
+- Add Test instruction for RF Reader.
 
 [commited]
 Update 2020-06-20 #11

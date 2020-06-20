@@ -112,6 +112,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.DMT.Networks.Tcp", "01.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.DMT.Smartcard", "01.Core\03.DMT.Smartcard\03.DMT.Smartcard.csproj", "{5148ED2A-41FA-409C-BB41-36806D98BF81}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02.RFREADER", "02.RFREADER", "{562B2B64-B39A-4FAB-838D-2D2AA4103452}"
+	ProjectSection(SolutionItems) = preProject
+		99.Tools\02.RFREADER\ICTransfer.exe = 99.Tools\02.RFREADER\ICTransfer.exe
+		99.Tools\02.RFREADER\MasterCom.dll = 99.Tools\02.RFREADER\MasterCom.dll
+		99.Tools\02.RFREADER\MasterRD.dll = 99.Tools\02.RFREADER\MasterRD.dll
+		99.Tools\02.RFREADER\SL600 test.txt = 99.Tools\02.RFREADER\SL600 test.txt
+		99.Tools\02.RFREADER\SL_Paper.dll = 99.Tools\02.RFREADER\SL_Paper.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -310,6 +319,7 @@ Global
 		{72CA6EBE-152F-477C-9CF2-3CCE7ADF5601} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 		{A3F9521B-56CF-425B-BD7F-71139A744CA9} = {861D7F68-C870-4E1E-A9F7-8757034C0A63}
 		{5148ED2A-41FA-409C-BB41-36806D98BF81} = {861D7F68-C870-4E1E-A9F7-8757034C0A63}
+		{562B2B64-B39A-4FAB-838D-2D2AA4103452} = {BA63F3CC-5F62-4368-BDEC-729AFBE8C309}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E649CF5-EC41-479A-BECB-ADF883B25263}

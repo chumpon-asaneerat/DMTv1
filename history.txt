@@ -26,8 +26,9 @@ Update 2020-06-21 #5
 Update 2020-06-21 #4
 - 
 
+[commited]
 Update 2020-06-21 #3
-- 
+- Add StressTest class sync object for lock access.
 
 [commited]
 Update 2020-06-21 #2

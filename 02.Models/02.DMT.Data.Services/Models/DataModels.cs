@@ -892,6 +892,8 @@ namespace DMT.Models.Domains
 
         #region Static Methods
 
+        private static object sync = new object();
+
         /// <summary>
         /// Create new instance.
         /// </summary>
@@ -908,11 +910,14 @@ namespace DMT.Models.Domains
         /// <returns>Returns true if item is already in database.</returns>
         public static bool Exists(SQLiteConnection db, StressTest value)
         {
-            if (null == db || null == value) return false;
-            var item = (from p in db.Table<StressTest>()
-                        where p.RowId == value.RowId
-                        select p).FirstOrDefault();
-            return (null != item);
+            lock (sync)
+            {
+                if (null == db || null == value) return false;
+                var item = (from p in db.Table<StressTest>()
+                            where p.RowId == value.RowId
+                            select p).FirstOrDefault();
+                return (null != item);
+            }
         }
         /// <summary>
         /// Save.
@@ -921,12 +926,15 @@ namespace DMT.Models.Domains
         /// <param name="value">The item to save to database.</param>
         public static void Save(SQLiteConnection db, StressTest value)
         {
-            if (null == db || null == value) return;
-            if (!Exists(db, value))
+            lock (sync)
             {
-                db.Insert(value);
+                if (null == db || null == value) return;
+                if (!Exists(db, value))
+                {
+                    db.Insert(value);
+                }
+                else db.Update(value);
             }
-            else db.Update(value);
         }
         /// <summary>
         /// Gets All.
@@ -936,7 +944,10 @@ namespace DMT.Models.Domains
         /// <returns>Returns List of all records</returns>
         public static List<StressTest> Gets(SQLiteConnection db, bool recursive = false)
         {
-            return db.GetAllWithChildren<StressTest>(recursive: recursive);
+            lock (sync)
+            {
+                return db.GetAllWithChildren<StressTest>(recursive: recursive);
+            }
         }
 
         #endregion

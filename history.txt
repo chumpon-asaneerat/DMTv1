@@ -5,8 +5,9 @@ Update 2020-06-21 #15
 Update 2020-06-21 #14
 - 
 
+[commited]
 Update 2020-06-21 #13
-- 
+- NLib.Wpf.Controls project - Implements ImageButton control #1.
 
 [commited]
 Update 2020-06-21 #12

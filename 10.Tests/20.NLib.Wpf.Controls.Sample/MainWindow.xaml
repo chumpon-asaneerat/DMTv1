@@ -13,7 +13,7 @@
             <TabItem Header="Control 1">
                 <Grid>
                     <nctrl:SquareControl Background="Aqua" Margin="389,112,81,245.8" />
-                    <nctrl:SquareControl Background="Salmon" Margin="61,66,493,287.8" />
+                    <nctrl:SquareControl Background="Salmon" Margin="61,66,464,245.8" />
                     <Button Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" Margin="363,333,133,88.8"/>
                 </Grid>
             </TabItem>
@@ -51,6 +51,12 @@
                             <TextBlock Text="SAMPLE 2" Height="200" Background="Aqua"/>
                         </StackPanel>
                     </Grid>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Control 3">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                              VerticalScrollBarVisibility="Auto">
+                    
                 </ScrollViewer>
             </TabItem>
         </TabControl>

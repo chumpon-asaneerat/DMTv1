@@ -170,6 +170,8 @@ namespace DMT.Models.Domains
 
         #region Static Methods
 
+        private static object sync = new object();
+
         /// <summary>
         /// Create new instance.
         /// </summary>
@@ -186,11 +188,14 @@ namespace DMT.Models.Domains
         /// <returns>Returns true if item is already in database.</returns>
         public static bool Exists(SQLiteConnection db, Plaza value)
         {
-            if (null == db || null == value) return false;
-            var item = (from p in db.Table<Plaza>()
-                        where p.PlazaId == value.PlazaId
-                        select p).FirstOrDefault();
-            return (null != item);
+            lock (sync)
+            {
+                if (null == db || null == value) return false;
+                var item = (from p in db.Table<Plaza>()
+                            where p.PlazaId == value.PlazaId
+                            select p).FirstOrDefault();
+                return (null != item);
+            }
         }
         /// <summary>
         /// Save.
@@ -199,22 +204,25 @@ namespace DMT.Models.Domains
         /// <param name="value">The item to save to database.</param>
         public static void Save(SQLiteConnection db, Plaza value)
         {
-            if (null == db || null == value) return;
-            if (!Exists(db, value))
+            lock (sync)
             {
-                db.Insert(value);
-            }
-            else db.Update(value);
-            // save children.
-            if (null != value.Lanes)
-            {
-                foreach (var lane in value.Lanes)
+                if (null == db || null == value) return;
+                if (!Exists(db, value))
                 {
-                    Lane.Save(db, lane);
+                    db.Insert(value);
                 }
+                else db.Update(value);
+                // save children.
+                if (null != value.Lanes)
+                {
+                    foreach (var lane in value.Lanes)
+                    {
+                        Lane.Save(db, lane);
+                    }
+                }
+                // udpate all children item
+                db.UpdateWithChildren(value);
             }
-            // udpate all children item
-            db.UpdateWithChildren(value);
         }
         /// <summary>
         /// Gets All.
@@ -224,7 +232,10 @@ namespace DMT.Models.Domains
         /// <returns>Returns List of all records</returns>
         public static List<Plaza> Gets(SQLiteConnection db, bool recursive = false)
         {
-            return db.GetAllWithChildren<Plaza>(recursive: recursive);
+            lock (sync)
+            {
+                return db.GetAllWithChildren<Plaza>(recursive: recursive);
+            }
         }
         /// <summary>
         /// Gets by Id
@@ -235,9 +246,12 @@ namespace DMT.Models.Domains
         /// <returns>Returns found record.</returns>
         public static Plaza Get(SQLiteConnection db, string PlazaId, bool recursive = false)
         {
-            return db.GetAllWithChildren<Plaza>(
-                p => p.PlazaId == PlazaId, 
+            lock (sync)
+            {
+                return db.GetAllWithChildren<Plaza>(
+                p => p.PlazaId == PlazaId,
                 recursive: recursive).FirstOrDefault();
+            }
         }
 
         #endregion
@@ -284,6 +298,8 @@ namespace DMT.Models.Domains
 
         #region Static Methods
 
+        private static object sync = new object();
+
         /// <summary>
         /// Create new instance.
         /// </summary>
@@ -300,11 +316,14 @@ namespace DMT.Models.Domains
         /// <returns>Returns true if item is already in database.</returns>
         public static bool Exists(SQLiteConnection db, Lane value)
         {
-            if (null == db || null == value) return false;
-            var item = (from p in db.Table<Lane>()
-                        where p.PlazaId == value.PlazaId && p.LaneId == value.LaneId
-                        select p).FirstOrDefault();
-            return (null != item);
+            lock (sync)
+            {
+                if (null == db || null == value) return false;
+                var item = (from p in db.Table<Lane>()
+                            where p.PlazaId == value.PlazaId && p.LaneId == value.LaneId
+                            select p).FirstOrDefault();
+                return (null != item);
+            }
         }
         /// <summary>
         /// Save.
@@ -313,12 +332,15 @@ namespace DMT.Models.Domains
         /// <param name="value">The item to save to database.</param>
         public static void Save(SQLiteConnection db, Lane value)
         {
-            if (null == db || null == value) return;
-            if (!Exists(db, value))
+            lock (sync)
             {
-                db.Insert(value);
+                if (null == db || null == value) return;
+                if (!Exists(db, value))
+                {
+                    db.Insert(value);
+                }
+                else db.Update(value);
             }
-            else db.Update(value);
         }
         /// <summary>
         /// Gets All.
@@ -328,7 +350,10 @@ namespace DMT.Models.Domains
         /// <returns>Returns List of all records</returns>
         public static List<Lane> Gets(SQLiteConnection db, bool recursive = false)
         {
-            return db.GetAllWithChildren<Lane>(recursive: recursive);
+            lock (sync)
+            {
+                return db.GetAllWithChildren<Lane>(recursive: recursive);
+            }
         }
         /// <summary>
         /// Gets by Id
@@ -339,10 +364,13 @@ namespace DMT.Models.Domains
         /// <returns>Returns found record.</returns>
         public static Lane Get(SQLiteConnection db, string PlazaId, int LaneId, bool recursive = false)
         {
-            return db.GetAllWithChildren<Lane>(
-                p => p.PlazaId == PlazaId && 
-                p.LaneId == LaneId, 
+            lock (sync)
+            {
+                return db.GetAllWithChildren<Lane>(
+                p => p.PlazaId == PlazaId &&
+                p.LaneId == LaneId,
                 recursive: recursive).FirstOrDefault();
+            }
         }
 
         #endregion
@@ -381,6 +409,8 @@ namespace DMT.Models.Domains
 
         #region Static Methods
 
+        private static object sync = new object();
+
         /// <summary>
         /// Create new instance.
         /// </summary>
@@ -397,11 +427,14 @@ namespace DMT.Models.Domains
         /// <returns>Returns true if item is already in database.</returns>
         public static bool Exists(SQLiteConnection db, Role value)
         {
-            if (null == db || null == value) return false;
-            var item = (from p in db.Table<Role>()
-                        where p.RoleId == value.RoleId
-                        select p).FirstOrDefault();
-            return (null != item);
+            lock (sync)
+            {
+                if (null == db || null == value) return false;
+                var item = (from p in db.Table<Role>()
+                            where p.RoleId == value.RoleId
+                            select p).FirstOrDefault();
+                return (null != item);
+            }
         }
         /// <summary>
         /// Save.
@@ -410,22 +443,25 @@ namespace DMT.Models.Domains
         /// <param name="value">The item to save to database.</param>
         public static void Save(SQLiteConnection db, Role value)
         {
-            if (null == db || null == value) return;
-            if (!Exists(db, value))
+            lock (sync)
             {
-                db.Insert(value);
-            }
-            else db.Update(value);
-            // save children.
-            if (null != value.Users)
-            {
-                foreach (var user in value.Users)
+                if (null == db || null == value) return;
+                if (!Exists(db, value))
                 {
-                    User.Save(db, user);
+                    db.Insert(value);
                 }
+                else db.Update(value);
+                // save children.
+                if (null != value.Users)
+                {
+                    foreach (var user in value.Users)
+                    {
+                        User.Save(db, user);
+                    }
+                }
+                // udpate all children item
+                db.UpdateWithChildren(value);
             }
-            // udpate all children item
-            db.UpdateWithChildren(value);
         }
         /// <summary>
         /// Gets All.
@@ -435,7 +471,10 @@ namespace DMT.Models.Domains
         /// <returns>Returns List of all records</returns>
         public static List<Role> Gets(SQLiteConnection db, bool recursive = false)
         {
-            return db.GetAllWithChildren<Role>(recursive: recursive);
+            lock (sync)
+            {
+                return db.GetAllWithChildren<Role>(recursive: recursive);
+            }
         }
         /// <summary>
         /// Gets by Id
@@ -446,9 +485,12 @@ namespace DMT.Models.Domains
         /// <returns>Returns found record.</returns>
         public static Role Get(SQLiteConnection db, string RoleId, bool recursive = false)
         {
-            return db.GetAllWithChildren<Role>(
+            lock (sync)
+            {
+                return db.GetAllWithChildren<Role>(
                 p => p.RoleId == RoleId,
                 recursive: recursive).FirstOrDefault();
+            }
         }
 
         #endregion
@@ -500,6 +542,8 @@ namespace DMT.Models.Domains
 
         #region Static Methods
 
+        private static object sync = new object();
+
         /// <summary>
         /// Create new instance.
         /// </summary>
@@ -516,11 +560,14 @@ namespace DMT.Models.Domains
         /// <returns>Returns true if item is already in database.</returns>
         public static bool Exists(SQLiteConnection db, User value)
         {
-            if (null == db || null == value) return false;
-            var item = (from p in db.Table<User>()
-                        where p.UserId == value.UserId
-                        select p).FirstOrDefault();
-            return (null != item);
+            lock (sync)
+            {
+                if (null == db || null == value) return false;
+                var item = (from p in db.Table<User>()
+                            where p.UserId == value.UserId
+                            select p).FirstOrDefault();
+                return (null != item);
+            }
         }
         /// <summary>
         /// Save.
@@ -529,12 +576,15 @@ namespace DMT.Models.Domains
         /// <param name="value">The item to save to database.</param>
         public static void Save(SQLiteConnection db, User value)
         {
-            if (null == db || null == value) return;
-            if (!Exists(db, value))
+            lock (sync)
             {
-                db.Insert(value);
+                if (null == db || null == value) return;
+                if (!Exists(db, value))
+                {
+                    db.Insert(value);
+                }
+                else db.Update(value);
             }
-            else db.Update(value);
         }
         /// <summary>
         /// Gets All.
@@ -544,7 +594,10 @@ namespace DMT.Models.Domains
         /// <returns>Returns List of all records</returns>
         public static List<User> Gets(SQLiteConnection db, bool recursive = false)
         {
-            return db.GetAllWithChildren<User>(recursive: recursive);
+            lock (sync)
+            {
+                return db.GetAllWithChildren<User>(recursive: recursive);
+            }
         }
         /// <summary>
         /// Gets by Id without password.
@@ -555,9 +608,12 @@ namespace DMT.Models.Domains
         /// <returns>Returns found record.</returns>
         public static User Get(SQLiteConnection db, string UserId, bool recursive = false)
         {
-            return db.GetAllWithChildren<User>(
+            lock (sync)
+            {
+                return db.GetAllWithChildren<User>(
                 p => p.UserId == UserId,
                 recursive: recursive).FirstOrDefault();
+            }
         }
         /// <summary>
         /// Gets by UserId and password.
@@ -569,9 +625,12 @@ namespace DMT.Models.Domains
         /// <returns>Returns found record.</returns>
         public static User GetByUserId(SQLiteConnection db, string UserId, string password, bool recursive = false)
         {
-            return db.GetAllWithChildren<User>(
+            lock (sync)
+            {
+                return db.GetAllWithChildren<User>(
                 p => p.UserId == UserId && p.Password == password,
                 recursive: recursive).FirstOrDefault();
+            }
         }
         /// <summary>
         /// Gets by UserName and password.
@@ -583,9 +642,12 @@ namespace DMT.Models.Domains
         /// <returns>Returns found record.</returns>
         public static User GetByUserName(SQLiteConnection db, string userName, string password, bool recursive = false)
         {
-            return db.GetAllWithChildren<User>(
+            lock (sync)
+            {
+                return db.GetAllWithChildren<User>(
                 p => p.UserName == userName && p.Password == password,
                 recursive: recursive).FirstOrDefault();
+            }
         }
         /// <summary>
         /// Gets by CardId
@@ -596,9 +658,12 @@ namespace DMT.Models.Domains
         /// <returns>Returns found record.</returns>
         public static User GetByCardId(SQLiteConnection db, string cardId, bool recursive = false)
         {
-            return db.GetAllWithChildren<User>(
+            lock (sync)
+            {
+                return db.GetAllWithChildren<User>(
                 p => p.CardId == cardId,
                 recursive: recursive).FirstOrDefault();
+            }
         }
 
         #endregion
@@ -634,6 +699,8 @@ namespace DMT.Models.Domains
 
         #region Static Methods
 
+        private static object sync = new object();
+
         /// <summary>
         /// Create new instance.
         /// </summary>
@@ -650,11 +717,14 @@ namespace DMT.Models.Domains
         /// <returns>Returns true if item is already in database.</returns>
         public static bool Exists(SQLiteConnection db, Config value)
         {
-            if (null == db || null == value) return false;
-            var item = (from p in db.Table<Config>()
-                        where p.Key == value.Key
-                        select p).FirstOrDefault();
-            return (null != item);
+            lock (sync)
+            {
+                if (null == db || null == value) return false;
+                var item = (from p in db.Table<Config>()
+                            where p.Key == value.Key
+                            select p).FirstOrDefault();
+                return (null != item);
+            }
         }
         /// <summary>
         /// Save.
@@ -663,12 +733,15 @@ namespace DMT.Models.Domains
         /// <param name="value">The item to save to database.</param>
         public static void Save(SQLiteConnection db, Config value)
         {
-            if (null == db || null == value) return;
-            if (!Exists(db, value))
+            lock (sync)
             {
-                db.Insert(value);
+                if (null == db || null == value) return;
+                if (!Exists(db, value))
+                {
+                    db.Insert(value);
+                }
+                else db.Update(value);
             }
-            else db.Update(value);
         }
         /// <summary>
         /// Gets All.
@@ -678,7 +751,10 @@ namespace DMT.Models.Domains
         /// <returns>Returns List of all records</returns>
         public static List<Config> Gets(SQLiteConnection db, bool recursive = false)
         {
-            return db.GetAllWithChildren<Config>(recursive: recursive);
+            lock (sync)
+            {
+                return db.GetAllWithChildren<Config>(recursive: recursive);
+            }
         }
         /// <summary>
         /// Gets by Key.
@@ -689,9 +765,12 @@ namespace DMT.Models.Domains
         /// <returns>Returns found record.</returns>
         public static Config Get(SQLiteConnection db, string key, bool recursive = false)
         {
-            return db.GetAllWithChildren<Config>(
+            lock (sync)
+            {
+                return db.GetAllWithChildren<Config>(
                 p => p.Key == key,
                 recursive: recursive).FirstOrDefault();
+            }
         }
 
         #endregion
@@ -736,6 +815,8 @@ namespace DMT.Models.Domains
 
         #region Static Methods
 
+        private static object sync = new object();
+
         /// <summary>
         /// Create new instance.
         /// </summary>
@@ -752,7 +833,10 @@ namespace DMT.Models.Domains
         /// <returns>Returns List of all records</returns>
         public static List<SupervisorShift> Gets(SQLiteConnection db, bool recursive = false)
         {
-            return db.GetAllWithChildren<SupervisorShift>(recursive: recursive);
+            lock (sync)
+            {
+                return db.GetAllWithChildren<SupervisorShift>(recursive: recursive);
+            }
         }
 
         #endregion
@@ -796,6 +880,8 @@ namespace DMT.Models.Domains
 
         #region Static Methods
 
+        private static object sync = new object();
+
         /// <summary>
         /// Create new instance.
         /// </summary>
@@ -812,7 +898,10 @@ namespace DMT.Models.Domains
         /// <returns>Returns List of all records</returns>
         public static List<CollectorShift> Gets(SQLiteConnection db, bool recursive = false)
         {
-            return db.GetAllWithChildren<CollectorShift>(recursive: recursive);
+            lock (sync)
+            {
+                return db.GetAllWithChildren<CollectorShift>(recursive: recursive);
+            }
         }
 
         #endregion
@@ -858,6 +947,8 @@ namespace DMT.Models.Domains
 
         #region Static Methods
 
+        private static object sync = new object();
+
         /// <summary>
         /// Create new instance.
         /// </summary>
@@ -874,7 +965,10 @@ namespace DMT.Models.Domains
         /// <returns>Returns List of all records</returns>
         public static List<CollectorLane> Gets(SQLiteConnection db, bool recursive = false)
         {
-            return db.GetAllWithChildren<CollectorLane>(recursive: recursive);
+            lock (sync)
+            {
+                return db.GetAllWithChildren<CollectorLane>(recursive: recursive);
+            }
         }
 
         #endregion

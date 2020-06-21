@@ -14,8 +14,9 @@ Update 2020-06-21 #8
 Update 2020-06-21 #7
 - 
 
+[commited]
 Update 2020-06-21 #6
-- 
+- LocalServer add lock code for all domain access wrapper methods.
 
 [commited]
 Update 2020-06-21 #5

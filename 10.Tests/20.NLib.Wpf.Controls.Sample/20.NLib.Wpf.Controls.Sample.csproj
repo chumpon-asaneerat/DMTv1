@@ -108,5 +108,12 @@
       <Name>NLib</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\ActivityMonitor.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Heart.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -69,7 +69,7 @@
     <Compile Include="Controls\SquareControl.xaml.cs">
       <DependentUpon>SquareControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\TileButton.cs" />
+    <Compile Include="Controls\TileButtonTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

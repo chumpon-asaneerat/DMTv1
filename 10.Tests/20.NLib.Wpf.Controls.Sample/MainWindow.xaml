@@ -56,8 +56,13 @@
             <TabItem Header="Control 3">
                 <ScrollViewer HorizontalScrollBarVisibility="Auto"
                               VerticalScrollBarVisibility="Auto">
-                    
+
                 </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Control 4">
+                <Grid>
+                    <nctrl:ImageButton ImageSource="Images/Heart.png" Margin="81,157,437,271.8"/>
+                </Grid>
             </TabItem>
         </TabControl>
     </Grid>

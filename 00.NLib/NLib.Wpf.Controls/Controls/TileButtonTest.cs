@@ -41,14 +41,14 @@ namespace NLib.Controls
     /// Step 2)
     /// Go ahead and use your control in the XAML file.
     ///
-    ///     <MyNamespace:TileButton/>
+    ///     <MyNamespace:TileButtonTest/>
     ///
     /// </summary>
-    public class TileButton : Control
+    public class TileButtonTest : Control
     {
-        static TileButton()
+        static TileButtonTest()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(TileButton), new FrameworkPropertyMetadata(typeof(TileButton)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(TileButtonTest), new FrameworkPropertyMetadata(typeof(TileButtonTest)));
         }
     }
 }

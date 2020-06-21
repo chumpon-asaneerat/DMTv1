@@ -582,7 +582,13 @@ namespace DMT.Services
                 lock (typeof(LocalDbServer))
                 {
                     string path = Path.Combine("./", FileName);
-                    Db = new SQLiteConnection(path, storeDateTimeAsTicks: true);
+                    Db = new SQLiteConnection(path, 
+                        SQLiteOpenFlags.Create |
+                        SQLiteOpenFlags.SharedCache |
+                        SQLiteOpenFlags.ReadWrite | 
+                        SQLiteOpenFlags.FullMutex, 
+                        storeDateTimeAsTicks: true);
+                    Db.BusyTimeout = new TimeSpan(0, 0, 5); // set busy timeout.
                     InitTables();
                 }
             }

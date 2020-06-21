@@ -88,20 +88,26 @@ namespace LocalDbServerFunctionTest
         {
             dgStressTest.DataSource = null;
 
-            StressTest inst;
-            for (int i = 0; i < 300; ++i)
+            Task.Run(() =>
             {
-                inst = new StressTest();
-                inst.RowId = Guid.NewGuid().ToString();
-                inst.Updated = DateTime.Now;
-                inst.Name = "Item " + i.ToString("D6");
+                StressTest inst;
+                for (int i = 0; i < 300; ++i)
+                {
+                    inst = new StressTest();
+                    inst.RowId = Guid.NewGuid().ToString();
+                    inst.Updated = DateTime.Now;
+                    inst.Name = "Item " + i.ToString("D6");
 
-                LocalDbServer.Instance.Save(inst);
-            }
+                    LocalDbServer.Instance.Save(inst);
+                }
 
-            var items = LocalDbServer.Instance.GetStressTests(true);
-            lbStressTestCount.Text = "Count: " + ((null != items) ? items.Count.ToString("n0") : "0");
-            dgStressTest.DataSource = items;
+                Invoke((MethodInvoker)delegate
+                {
+                    var items = LocalDbServer.Instance.GetStressTests(true);
+                    lbStressTestCount.Text = "Count: " + ((null != items) ? items.Count.ToString("n0") : "0");
+                    dgStressTest.DataSource = items;
+                });
+            });
         }
 
         private void cmdRefreshStressTest_Click(object sender, EventArgs e)

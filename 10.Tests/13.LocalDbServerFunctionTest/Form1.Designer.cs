@@ -41,15 +41,24 @@
             this.pgUser = new System.Windows.Forms.PropertyGrid();
             this.cmdUserSearch = new System.Windows.Forms.Button();
             this.lstUsers = new System.Windows.Forms.ListBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.cmdAdd300 = new System.Windows.Forms.Button();
+            this.cmdRefreshStressTest = new System.Windows.Forms.Button();
+            this.dgStressTest = new System.Windows.Forms.DataGridView();
+            this.lbStressTestCount = new System.Windows.Forms.Label();
+            this.cmdClearStressTests = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgStressTest)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -197,6 +206,72 @@
             this.lstUsers.TabIndex = 5;
             this.lstUsers.SelectedIndexChanged += new System.EventHandler(this.lstUsers_SelectedIndexChanged);
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.cmdClearStressTests);
+            this.tabPage3.Controls.Add(this.lbStressTestCount);
+            this.tabPage3.Controls.Add(this.dgStressTest);
+            this.tabPage3.Controls.Add(this.cmdRefreshStressTest);
+            this.tabPage3.Controls.Add(this.cmdAdd300);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(926, 576);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Stress Tests";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // cmdAdd300
+            // 
+            this.cmdAdd300.Location = new System.Drawing.Point(136, 13);
+            this.cmdAdd300.Name = "cmdAdd300";
+            this.cmdAdd300.Size = new System.Drawing.Size(122, 37);
+            this.cmdAdd300.TabIndex = 2;
+            this.cmdAdd300.Text = "Add 300 rows";
+            this.cmdAdd300.UseVisualStyleBackColor = true;
+            this.cmdAdd300.Click += new System.EventHandler(this.cmdAdd300_Click);
+            // 
+            // cmdRefreshStressTest
+            // 
+            this.cmdRefreshStressTest.Location = new System.Drawing.Point(8, 13);
+            this.cmdRefreshStressTest.Name = "cmdRefreshStressTest";
+            this.cmdRefreshStressTest.Size = new System.Drawing.Size(122, 37);
+            this.cmdRefreshStressTest.TabIndex = 3;
+            this.cmdRefreshStressTest.Text = "Refresh";
+            this.cmdRefreshStressTest.UseVisualStyleBackColor = true;
+            this.cmdRefreshStressTest.Click += new System.EventHandler(this.cmdRefreshStressTest_Click);
+            // 
+            // dgStressTest
+            // 
+            this.dgStressTest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgStressTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgStressTest.Location = new System.Drawing.Point(8, 56);
+            this.dgStressTest.Name = "dgStressTest";
+            this.dgStressTest.RowHeadersWidth = 51;
+            this.dgStressTest.RowTemplate.Height = 24;
+            this.dgStressTest.Size = new System.Drawing.Size(910, 512);
+            this.dgStressTest.TabIndex = 4;
+            // 
+            // lbStressTestCount
+            // 
+            this.lbStressTestCount.AutoSize = true;
+            this.lbStressTestCount.Location = new System.Drawing.Point(512, 23);
+            this.lbStressTestCount.Name = "lbStressTestCount";
+            this.lbStressTestCount.Size = new System.Drawing.Size(49, 17);
+            this.lbStressTestCount.TabIndex = 5;
+            this.lbStressTestCount.Text = "Count:";
+            // 
+            // cmdClearStressTests
+            // 
+            this.cmdClearStressTests.Location = new System.Drawing.Point(264, 13);
+            this.cmdClearStressTests.Name = "cmdClearStressTests";
+            this.cmdClearStressTests.Size = new System.Drawing.Size(122, 37);
+            this.cmdClearStressTests.TabIndex = 6;
+            this.cmdClearStressTests.Text = "Clear";
+            this.cmdClearStressTests.UseVisualStyleBackColor = true;
+            this.cmdClearStressTests.Click += new System.EventHandler(this.cmdClearStressTests_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -210,6 +285,9 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgStressTest)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -229,6 +307,12 @@
         private System.Windows.Forms.PropertyGrid pgUser;
         private System.Windows.Forms.Button cmdUserSearch;
         private System.Windows.Forms.ListBox lstUsers;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button cmdAdd300;
+        private System.Windows.Forms.DataGridView dgStressTest;
+        private System.Windows.Forms.Button cmdRefreshStressTest;
+        private System.Windows.Forms.Label lbStressTestCount;
+        private System.Windows.Forms.Button cmdClearStressTests;
     }
 }
 

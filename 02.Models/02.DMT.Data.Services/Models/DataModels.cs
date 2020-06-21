@@ -882,6 +882,66 @@ namespace DMT.Models.Domains
 
     #endregion
 
+
+    public class StressTest
+    {
+        [PrimaryKey, MaxLength(50)]
+        public string RowId { get; set; }
+        public string Name { get; set; }
+        public DateTime Updated { get; set; }
+
+        #region Static Methods
+
+        /// <summary>
+        /// Create new instance.
+        /// </summary>
+        /// <returns>Returns new instance</returns>
+        public static StressTest Create()
+        {
+            return new StressTest() { };
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(SQLiteConnection db, StressTest value)
+        {
+            if (null == db || null == value) return false;
+            var item = (from p in db.Table<StressTest>()
+                        where p.RowId == value.RowId
+                        select p).FirstOrDefault();
+            return (null != item);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(SQLiteConnection db, StressTest value)
+        {
+            if (null == db || null == value) return;
+            if (!Exists(db, value))
+            {
+                db.Insert(value);
+            }
+            else db.Update(value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<StressTest> Gets(SQLiteConnection db, bool recursive = false)
+        {
+            return db.GetAllWithChildren<StressTest>(recursive: recursive);
+        }
+
+        #endregion
+    }
+
     #endregion
 
     #region Reports

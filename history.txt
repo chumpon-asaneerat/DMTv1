@@ -32,8 +32,10 @@ Update 2020-06-21 #3
 Update 2020-06-21 #2
 - 
 
+[commited]
 Update 2020-06-21 #1
-- 
+- Add StressTest class in Domain Models.
+- Add StressTest sample code. Found error database lock with run in multiple process.
 
 --------------------------------------------------------------------------------------------
 [commited]

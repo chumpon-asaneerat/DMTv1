@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using DMT.Models.Domains;
 using DMT.Services;
+using NLib.Controls.Utils;
 using SQLiteNetExtensions.Extensions;
 
 namespace LocalDbServerFunctionTest
@@ -81,6 +82,41 @@ namespace LocalDbServerFunctionTest
             LocalDbServer.Instance.Save(inst);
             // reload
             lstTSB.DataSource = LocalDbServer.Instance.GetUsers(true);
+        }
+
+        private void cmdAdd300_Click(object sender, EventArgs e)
+        {
+            dgStressTest.DataSource = null;
+
+            StressTest inst;
+            for (int i = 0; i < 300; ++i)
+            {
+                inst = new StressTest();
+                inst.RowId = Guid.NewGuid().ToString();
+                inst.Updated = DateTime.Now;
+                inst.Name = "Item " + i.ToString("D6");
+
+                LocalDbServer.Instance.Save(inst);
+            }
+
+            var items = LocalDbServer.Instance.GetStressTests(true);
+            lbStressTestCount.Text = "Count: " + ((null != items) ? items.Count.ToString("n0") : "0");
+            dgStressTest.DataSource = items;
+        }
+
+        private void cmdRefreshStressTest_Click(object sender, EventArgs e)
+        {
+            var items = LocalDbServer.Instance.GetStressTests(true);
+            lbStressTestCount.Text = "Count: " + ((null != items) ? items.Count.ToString("n0") : "0");
+            dgStressTest.DataSource = items;
+        }
+
+        private void cmdClearStressTests_Click(object sender, EventArgs e)
+        {
+            LocalDbServer.Instance.Db.DeleteAll<StressTest>();
+            var items = LocalDbServer.Instance.GetStressTests(true);
+            lbStressTestCount.Text = "Count: " + ((null != items) ? items.Count.ToString("n0") : "0");
+            dgStressTest.DataSource = items;
         }
     }
 }

@@ -120,6 +120,8 @@ namespace DMT.Services
             Db.CreateTable<CollectorLane>();
 
 
+            Db.CreateTable<StressTest>();
+
             //Db.CreateTable<Models.Domains.RevenueSlip>();
 
             InitDefaults();
@@ -568,7 +570,7 @@ namespace DMT.Services
 
         #endregion
 
-        #region Public Methods
+        #region Public Methods (Start/Shutdown)
 
         /// <summary>
         /// Start.
@@ -599,7 +601,7 @@ namespace DMT.Services
 
         #endregion
 
-        #region Public Methods
+        #region Models(Domain) Public Methods 
 
         // TSB
         public bool Exists(TSB value) { return TSB.Exists(this.Db, value); }
@@ -681,6 +683,28 @@ namespace DMT.Services
         }
 
         #endregion
+
+        public bool Exists(StressTest value) 
+        {
+            lock (this)
+            {
+                return StressTest.Exists(this.Db, value);
+            }
+        }
+        public void Save(StressTest value) 
+        {
+            lock (this)
+            {
+                StressTest.Save(this.Db, value);
+            }
+        }
+        public List<StressTest> GetStressTests(bool recursive = false)
+        {
+            lock (this)
+            {
+                return StressTest.Gets(this.Db, recursive);
+            }
+        }
 
         #region Public Properties
 

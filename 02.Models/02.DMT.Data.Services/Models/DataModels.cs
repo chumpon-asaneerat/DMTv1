@@ -1,15 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.Remoting;
-using System.Text;
-using System.Threading.Tasks;
 
 using SQLite;
 using SQLiteNetExtensions.Attributes;
 using SQLiteNetExtensions.Extensions;
-using System.Runtime.InteropServices;
 using System.ComponentModel;
 
 namespace DMT.Models.Domains
@@ -52,6 +47,8 @@ namespace DMT.Models.Domains
 
         #region Static Methods
 
+        private static object sync = new object();
+
         /// <summary>
         /// Create new instance.
         /// </summary>
@@ -68,11 +65,15 @@ namespace DMT.Models.Domains
         /// <returns>Returns true if item is already in database.</returns>
         public static bool Exists(SQLiteConnection db, TSB value)
         {
-            if (null == db || null == value) return false;
-            var item = (from p in db.Table<TSB>()
-                        where p.TSBId == value.TSBId
-                        select p).FirstOrDefault();
-            return (null != item);
+            lock (sync)
+            {
+                if (null == db || null == value) return false;
+                var item = (from p in db.Table<TSB>()
+                            where p.TSBId == value.TSBId
+                            select p).FirstOrDefault();
+                return (null != item);
+            }
+
         }
         /// <summary>
         /// Save.
@@ -81,22 +82,25 @@ namespace DMT.Models.Domains
         /// <param name="value">The item to save to database.</param>
         public static void Save(SQLiteConnection db, TSB value)
         {
-            if (null == db || null == value) return;
-            if (!Exists(db, value))
+            lock (sync)
             {
-                db.Insert(value);
-            }
-            else db.Update(value);
-            // save children.
-            if (null != value.Plazas)
-            {
-                foreach (var plaza in value.Plazas)
+                if (null == db || null == value) return;
+                if (!Exists(db, value))
                 {
-                    Plaza.Save(db, plaza);
+                    db.Insert(value);
                 }
+                else db.Update(value);
+                // save children.
+                if (null != value.Plazas)
+                {
+                    foreach (var plaza in value.Plazas)
+                    {
+                        Plaza.Save(db, plaza);
+                    }
+                }
+                // udpate all children item
+                db.UpdateWithChildren(value);
             }
-            // udpate all children item
-            db.UpdateWithChildren(value);
         }
         /// <summary>
         /// Gets All.
@@ -106,7 +110,11 @@ namespace DMT.Models.Domains
         /// <returns>Returns List of all records</returns>
         public static List<TSB> Gets(SQLiteConnection db, bool recursive = false)
         {
-            return db.GetAllWithChildren<TSB>(recursive: recursive);
+            lock (sync)
+            {
+                if (null == db) return new List<TSB>();
+                return db.GetAllWithChildren<TSB>(recursive: recursive);
+            }
         }
         /// <summary>
         /// Gets by Id
@@ -117,9 +125,13 @@ namespace DMT.Models.Domains
         /// <returns>Returns found record.</returns>
         public static TSB Get(SQLiteConnection db, string TSBId, bool recursive = false)
         {
-            return db.GetAllWithChildren<TSB>(
-                p => p.TSBId == TSBId, 
-                recursive: recursive).FirstOrDefault();
+            lock (sync)
+            {
+                if (null == db) return null;
+                return db.GetAllWithChildren<TSB>(
+                    p => p.TSBId == TSBId,
+                    recursive: recursive).FirstOrDefault();
+            }
         }
 
         #endregion
@@ -234,6 +246,7 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return new List<Plaza>();
                 return db.GetAllWithChildren<Plaza>(recursive: recursive);
             }
         }
@@ -248,9 +261,10 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return null;
                 return db.GetAllWithChildren<Plaza>(
-                p => p.PlazaId == PlazaId,
-                recursive: recursive).FirstOrDefault();
+                    p => p.PlazaId == PlazaId,
+                    recursive: recursive).FirstOrDefault();
             }
         }
 
@@ -352,6 +366,7 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return new List<Lane>();
                 return db.GetAllWithChildren<Lane>(recursive: recursive);
             }
         }
@@ -366,10 +381,11 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return null;
                 return db.GetAllWithChildren<Lane>(
-                p => p.PlazaId == PlazaId &&
-                p.LaneId == LaneId,
-                recursive: recursive).FirstOrDefault();
+                    p => p.PlazaId == PlazaId &&
+                    p.LaneId == LaneId,
+                    recursive: recursive).FirstOrDefault();
             }
         }
 
@@ -473,6 +489,7 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return new List<Role>();
                 return db.GetAllWithChildren<Role>(recursive: recursive);
             }
         }
@@ -487,9 +504,10 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return null;
                 return db.GetAllWithChildren<Role>(
-                p => p.RoleId == RoleId,
-                recursive: recursive).FirstOrDefault();
+                    p => p.RoleId == RoleId,
+                    recursive: recursive).FirstOrDefault();
             }
         }
 
@@ -596,6 +614,7 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return new List<User>();
                 return db.GetAllWithChildren<User>(recursive: recursive);
             }
         }
@@ -610,9 +629,10 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return null;
                 return db.GetAllWithChildren<User>(
-                p => p.UserId == UserId,
-                recursive: recursive).FirstOrDefault();
+                    p => p.UserId == UserId,
+                    recursive: recursive).FirstOrDefault();
             }
         }
         /// <summary>
@@ -627,9 +647,10 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return null;
                 return db.GetAllWithChildren<User>(
-                p => p.UserId == UserId && p.Password == password,
-                recursive: recursive).FirstOrDefault();
+                    p => p.UserId == UserId && p.Password == password,
+                    recursive: recursive).FirstOrDefault();
             }
         }
         /// <summary>
@@ -644,9 +665,10 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return null;
                 return db.GetAllWithChildren<User>(
-                p => p.UserName == userName && p.Password == password,
-                recursive: recursive).FirstOrDefault();
+                    p => p.UserName == userName && p.Password == password,
+                    recursive: recursive).FirstOrDefault();
             }
         }
         /// <summary>
@@ -660,9 +682,10 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return null;
                 return db.GetAllWithChildren<User>(
-                p => p.CardId == cardId,
-                recursive: recursive).FirstOrDefault();
+                    p => p.CardId == cardId,
+                    recursive: recursive).FirstOrDefault();
             }
         }
 
@@ -753,6 +776,7 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return new List<Config>();
                 return db.GetAllWithChildren<Config>(recursive: recursive);
             }
         }
@@ -767,9 +791,10 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return null;
                 return db.GetAllWithChildren<Config>(
-                p => p.Key == key,
-                recursive: recursive).FirstOrDefault();
+                    p => p.Key == key,
+                    recursive: recursive).FirstOrDefault();
             }
         }
 
@@ -835,6 +860,7 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return new List<SupervisorShift>();
                 return db.GetAllWithChildren<SupervisorShift>(recursive: recursive);
             }
         }
@@ -900,6 +926,7 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return new List<CollectorShift>();
                 return db.GetAllWithChildren<CollectorShift>(recursive: recursive);
             }
         }
@@ -967,6 +994,7 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return new List<CollectorLane>();
                 return db.GetAllWithChildren<CollectorLane>(recursive: recursive);
             }
         }
@@ -1040,6 +1068,7 @@ namespace DMT.Models.Domains
         {
             lock (sync)
             {
+                if (null == db) return new List<StressTest>();
                 return db.GetAllWithChildren<StressTest>(recursive: recursive);
             }
         }

@@ -20,8 +20,9 @@ Update 2020-06-21 #6
 Update 2020-06-21 #5
 - 
 
+[commited]
 Update 2020-06-21 #5
-- 
+- Update all domain classes add check db connection is null in Gets/Get methods.
 
 [commited]
 Update 2020-06-21 #4

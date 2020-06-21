@@ -1384,6 +1384,19 @@ namespace DMT.Models.Domains
             }
         }
         /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        internal static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<StressTest>();
+            }
+        }
+        /// <summary>
         /// Checks is item is already exists in database.
         /// </summary>
         /// <param name="value">The item to checks.</param>
@@ -1411,6 +1424,15 @@ namespace DMT.Models.Domains
         {
             SQLiteConnection db = LocalDbServer.Instance.Db;
             return Gets(db, recursive);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return DeleteAll(db);
         }
 
         #endregion

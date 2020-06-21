@@ -39,8 +39,8 @@ namespace LocalDbServerFunctionTest
 
         private void cmdTSBRefresh_Click(object sender, EventArgs e)
         {
-            //lstTSB.DataSource = LocalDbServer.Instance.Db.Table<TSB>().ToList();
-            lstTSB.DataSource = LocalDbServer.Instance.GetTSBs(true);
+            //lstTSB.DataSource = LocalDbServer.Instance.GetTSBs(true);
+            lstTSB.DataSource = TSB.Gets(true);
         }
 
         private void cmdNewTSB_Click(object sender, EventArgs e)
@@ -53,15 +53,19 @@ namespace LocalDbServerFunctionTest
         {
             TSB inst = pgTSB.SelectedObject as TSB;
 
-            LocalDbServer.Instance.Save(inst);
+            //LocalDbServer.Instance.Save(inst);
+            TSB.Save(inst);
+
             // reload
             //lstTSB.DataSource = LocalDbServer.Instance.Db.GetAllWithChildren<TSB>(recursive: true);
-            lstTSB.DataSource = LocalDbServer.Instance.GetTSBs(true);
+            //lstTSB.DataSource = LocalDbServer.Instance.GetTSBs(true);
+            lstTSB.DataSource = TSB.Gets(true);
         }
 
         private void cmdUserSearch_Click(object sender, EventArgs e)
         {
-            lstUsers.DataSource = LocalDbServer.Instance.GetUsers(true);
+            //lstUsers.DataSource = LocalDbServer.Instance.GetUsers(true);
+            lstUsers.DataSource = User.Gets(true);
         }
 
         private void lstUsers_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,9 +83,12 @@ namespace LocalDbServerFunctionTest
         {
             User inst = pgUser.SelectedObject as User;
 
-            LocalDbServer.Instance.Save(inst);
+            //LocalDbServer.Instance.Save(inst);
+            User.Save(inst);
+
             // reload
-            lstTSB.DataSource = LocalDbServer.Instance.GetUsers(true);
+            //lstTSB.DataSource = LocalDbServer.Instance.GetUsers(true);
+            lstUsers.DataSource = User.Gets(true);
         }
 
         private void cmdAdd300_Click(object sender, EventArgs e)
@@ -98,12 +105,14 @@ namespace LocalDbServerFunctionTest
                     inst.Updated = DateTime.Now;
                     inst.Name = "Item " + i.ToString("D6");
 
-                    LocalDbServer.Instance.Save(inst);
+                    //LocalDbServer.Instance.Save(inst);
+                    StressTest.Save(inst);
                 }
 
                 Invoke((MethodInvoker)delegate
                 {
-                    var items = LocalDbServer.Instance.GetStressTests(true);
+                    //var items = LocalDbServer.Instance.GetStressTests(true);
+                    var items = StressTest.Gets(true);
                     lbStressTestCount.Text = "Count: " + ((null != items) ? items.Count.ToString("n0") : "0");
                     dgStressTest.DataSource = items;
                 });
@@ -112,7 +121,8 @@ namespace LocalDbServerFunctionTest
 
         private void cmdRefreshStressTest_Click(object sender, EventArgs e)
         {
-            var items = LocalDbServer.Instance.GetStressTests(true);
+            //var items = LocalDbServer.Instance.GetStressTests(true);
+            var items = StressTest.Gets(true);
             lbStressTestCount.Text = "Count: " + ((null != items) ? items.Count.ToString("n0") : "0");
             dgStressTest.DataSource = items;
         }
@@ -120,7 +130,8 @@ namespace LocalDbServerFunctionTest
         private void cmdClearStressTests_Click(object sender, EventArgs e)
         {
             LocalDbServer.Instance.Db.DeleteAll<StressTest>();
-            var items = LocalDbServer.Instance.GetStressTests(true);
+            //var items = LocalDbServer.Instance.GetStressTests(true);
+            var items = StressTest.Gets(true);
             lbStressTestCount.Text = "Count: " + ((null != items) ? items.Count.ToString("n0") : "0");
             dgStressTest.DataSource = items;
         }

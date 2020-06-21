@@ -14,11 +14,6 @@ using NLib;
 
 namespace DMT.Networks
 {
-    public abstract class ProtocolProcesser
-    {
-        public abstract string ProcessMessage(string message);
-    }
-
     /// <summary>
     /// The DMTNetworkClientBase abstract class.
     /// </summary>

@@ -135,6 +135,19 @@ namespace DMT.Models.Domains
             }
         }
         /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        internal static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<TSB>();
+            }
+        }
+        /// <summary>
         /// Checks is item is already exists in database.
         /// </summary>
         /// <param name="value">The item to checks.</param>
@@ -173,6 +186,15 @@ namespace DMT.Models.Domains
         {
             SQLiteConnection db = LocalDbServer.Instance.Db;
             return Get(db, TSBId, recursive);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return DeleteAll(db);
         }
 
         #endregion
@@ -309,6 +331,19 @@ namespace DMT.Models.Domains
             }
         }
         /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        internal static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<Plaza>();
+            }
+        }
+        /// <summary>
         /// Checks is item is already exists in database.
         /// </summary>
         /// <param name="value">The item to checks.</param>
@@ -347,6 +382,15 @@ namespace DMT.Models.Domains
         {
             SQLiteConnection db = LocalDbServer.Instance.Db;
             return Get(db, PlazaId, recursive);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return DeleteAll(db);
         }
 
         #endregion
@@ -471,6 +515,19 @@ namespace DMT.Models.Domains
             }
         }
         /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        internal static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<Lane>();
+            }
+        }
+        /// <summary>
         /// Checks is item is already exists in database.
         /// </summary>
         /// <param name="value">The item to checks.</param>
@@ -510,6 +567,15 @@ namespace DMT.Models.Domains
         {
             SQLiteConnection db = LocalDbServer.Instance.Db;
             return Get(db, PlazaId, LaneId, recursive);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return DeleteAll(db);
         }
 
         #endregion
@@ -634,6 +700,19 @@ namespace DMT.Models.Domains
             }
         }
         /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        internal static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<Role>();
+            }
+        }
+        /// <summary>
         /// Checks is item is already exists in database.
         /// </summary>
         /// <param name="value">The item to checks.</param>
@@ -672,6 +751,15 @@ namespace DMT.Models.Domains
         {
             SQLiteConnection db = LocalDbServer.Instance.Db;
             return Get(db, RoleId, recursive);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return DeleteAll(db);
         }
 
         #endregion
@@ -852,6 +940,19 @@ namespace DMT.Models.Domains
             }
         }
         /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        internal static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<User>();
+            }
+        }
+        /// <summary>
         /// Checks is item is already exists in database.
         /// </summary>
         /// <param name="value">The item to checks.</param>
@@ -928,6 +1029,15 @@ namespace DMT.Models.Domains
         {
             SQLiteConnection db = LocalDbServer.Instance.Db;
             return GetByCardId(db, cardId, recursive);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return DeleteAll(db);
         }
 
         #endregion
@@ -1039,6 +1149,19 @@ namespace DMT.Models.Domains
             }
         }
         /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        internal static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<Config>();
+            }
+        }
+        /// <summary>
         /// Checks is item is already exists in database.
         /// </summary>
         /// <param name="value">The item to checks.</param>
@@ -1077,6 +1200,15 @@ namespace DMT.Models.Domains
         {
             SQLiteConnection db = LocalDbServer.Instance.Db;
             return Get(db, key, recursive);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return DeleteAll(db);
         }
 
         #endregion
@@ -1146,6 +1278,19 @@ namespace DMT.Models.Domains
             }
         }
         /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        internal static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<SupervisorShift>();
+            }
+        }
+        /// <summary>
         /// Gets All.
         /// </summary>
         /// <param name="recursive">True for load related nested children.</param>
@@ -1154,6 +1299,15 @@ namespace DMT.Models.Domains
         {
             SQLiteConnection db = LocalDbServer.Instance.Db;
             return Gets(db, recursive);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return DeleteAll(db);
         }
 
         #endregion
@@ -1222,6 +1376,19 @@ namespace DMT.Models.Domains
             }
         }
         /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        internal static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<CollectorShift>();
+            }
+        }
+        /// <summary>
         /// Gets All.
         /// </summary>
         /// <param name="recursive">True for load related nested children.</param>
@@ -1230,6 +1397,15 @@ namespace DMT.Models.Domains
         {
             SQLiteConnection db = LocalDbServer.Instance.Db;
             return Gets(db, recursive);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return DeleteAll(db);
         }
 
         #endregion
@@ -1300,6 +1476,19 @@ namespace DMT.Models.Domains
             }
         }
         /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        internal static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<CollectorLane>();
+            }
+        }
+        /// <summary>
         /// Gets All.
         /// </summary>
         /// <param name="recursive">True for load related nested children.</param>
@@ -1308,6 +1497,15 @@ namespace DMT.Models.Domains
         {
             SQLiteConnection db = LocalDbServer.Instance.Db;
             return Gets(db, recursive);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return DeleteAll(db);
         }
 
         #endregion

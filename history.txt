@@ -1,12 +1,26 @@
 --------------------------------------------------------------------------------------------
+Update 2020-06-21 #15
+- 
+
+Update 2020-06-21 #14
+- 
+
+Update 2020-06-21 #13
+- 
+
+Update 2020-06-21 #12
+- 
+
 Update 2020-06-21 #11
 - 
 
 Update 2020-06-21 #10
 - 
 
+[commited]
 Update 2020-06-21 #9
-- 
+- All domain classes add DeleteAll static method(s).
+- Update LocalDbServerFunctionTest replace exist code with new domain static metods.
 
 [commited]
 Update 2020-06-21 #8

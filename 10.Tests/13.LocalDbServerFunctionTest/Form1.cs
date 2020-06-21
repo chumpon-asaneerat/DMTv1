@@ -129,7 +129,8 @@ namespace LocalDbServerFunctionTest
 
         private void cmdClearStressTests_Click(object sender, EventArgs e)
         {
-            LocalDbServer.Instance.Db.DeleteAll<StressTest>();
+            //LocalDbServer.Instance.Db.DeleteAll<StressTest>();
+            StressTest.DeleteAll();
             //var items = LocalDbServer.Instance.GetStressTests(true);
             var items = StressTest.Gets(true);
             lbStressTestCount.Text = "Count: " + ((null != items) ? items.Count.ToString("n0") : "0");

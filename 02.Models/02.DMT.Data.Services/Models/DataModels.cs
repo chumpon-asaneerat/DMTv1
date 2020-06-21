@@ -63,7 +63,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="value">The item to checks.</param>
         /// <returns>Returns true if item is already in database.</returns>
-        public static bool Exists(SQLiteConnection db, TSB value)
+        internal static bool Exists(SQLiteConnection db, TSB value)
         {
             lock (sync)
             {
@@ -80,7 +80,7 @@ namespace DMT.Models.Domains
         /// </summary>
         /// <param name="db">The connection.</param>
         /// <param name="value">The item to save to database.</param>
-        public static void Save(SQLiteConnection db, TSB value)
+        internal static void Save(SQLiteConnection db, TSB value)
         {
             lock (sync)
             {
@@ -108,7 +108,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns List of all records</returns>
-        public static List<TSB> Gets(SQLiteConnection db, bool recursive = false)
+        internal static List<TSB> Gets(SQLiteConnection db, bool recursive = false)
         {
             lock (sync)
             {
@@ -123,7 +123,7 @@ namespace DMT.Models.Domains
         /// <param name="TSBId">The TSBId.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns found record.</returns>
-        public static TSB Get(SQLiteConnection db, string TSBId, bool recursive = false)
+        internal static TSB Get(SQLiteConnection db, string TSBId, bool recursive = false)
         {
             lock (sync)
             {
@@ -198,7 +198,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="value">The item to checks.</param>
         /// <returns>Returns true if item is already in database.</returns>
-        public static bool Exists(SQLiteConnection db, Plaza value)
+        internal static bool Exists(SQLiteConnection db, Plaza value)
         {
             lock (sync)
             {
@@ -214,7 +214,7 @@ namespace DMT.Models.Domains
         /// </summary>
         /// <param name="db">The connection.</param>
         /// <param name="value">The item to save to database.</param>
-        public static void Save(SQLiteConnection db, Plaza value)
+        internal static void Save(SQLiteConnection db, Plaza value)
         {
             lock (sync)
             {
@@ -242,7 +242,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns List of all records</returns>
-        public static List<Plaza> Gets(SQLiteConnection db, bool recursive = false)
+        internal static List<Plaza> Gets(SQLiteConnection db, bool recursive = false)
         {
             lock (sync)
             {
@@ -257,7 +257,7 @@ namespace DMT.Models.Domains
         /// <param name="PlazaId">The PlazaId.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns found record.</returns>
-        public static Plaza Get(SQLiteConnection db, string PlazaId, bool recursive = false)
+        internal static Plaza Get(SQLiteConnection db, string PlazaId, bool recursive = false)
         {
             lock (sync)
             {
@@ -328,7 +328,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="value">The item to checks.</param>
         /// <returns>Returns true if item is already in database.</returns>
-        public static bool Exists(SQLiteConnection db, Lane value)
+        internal static bool Exists(SQLiteConnection db, Lane value)
         {
             lock (sync)
             {
@@ -344,7 +344,7 @@ namespace DMT.Models.Domains
         /// </summary>
         /// <param name="db">The connection.</param>
         /// <param name="value">The item to save to database.</param>
-        public static void Save(SQLiteConnection db, Lane value)
+        internal static void Save(SQLiteConnection db, Lane value)
         {
             lock (sync)
             {
@@ -362,7 +362,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns List of all records</returns>
-        public static List<Lane> Gets(SQLiteConnection db, bool recursive = false)
+        internal static List<Lane> Gets(SQLiteConnection db, bool recursive = false)
         {
             lock (sync)
             {
@@ -377,7 +377,7 @@ namespace DMT.Models.Domains
         /// <param name="PlazaId">The PlazaId.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns found record.</returns>
-        public static Lane Get(SQLiteConnection db, string PlazaId, int LaneId, bool recursive = false)
+        internal static Lane Get(SQLiteConnection db, string PlazaId, int LaneId, bool recursive = false)
         {
             lock (sync)
             {
@@ -441,7 +441,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="value">The item to checks.</param>
         /// <returns>Returns true if item is already in database.</returns>
-        public static bool Exists(SQLiteConnection db, Role value)
+        internal static bool Exists(SQLiteConnection db, Role value)
         {
             lock (sync)
             {
@@ -457,7 +457,7 @@ namespace DMT.Models.Domains
         /// </summary>
         /// <param name="db">The connection.</param>
         /// <param name="value">The item to save to database.</param>
-        public static void Save(SQLiteConnection db, Role value)
+        internal static void Save(SQLiteConnection db, Role value)
         {
             lock (sync)
             {
@@ -485,7 +485,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns List of all records</returns>
-        public static List<Role> Gets(SQLiteConnection db, bool recursive = false)
+        internal static List<Role> Gets(SQLiteConnection db, bool recursive = false)
         {
             lock (sync)
             {
@@ -500,7 +500,7 @@ namespace DMT.Models.Domains
         /// <param name="RoleId">The RoleId.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns found record.</returns>
-        public static Role Get(SQLiteConnection db, string RoleId, bool recursive = false)
+        internal static Role Get(SQLiteConnection db, string RoleId, bool recursive = false)
         {
             lock (sync)
             {
@@ -576,7 +576,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="value">The item to checks.</param>
         /// <returns>Returns true if item is already in database.</returns>
-        public static bool Exists(SQLiteConnection db, User value)
+        internal static bool Exists(SQLiteConnection db, User value)
         {
             lock (sync)
             {
@@ -592,7 +592,7 @@ namespace DMT.Models.Domains
         /// </summary>
         /// <param name="db">The connection.</param>
         /// <param name="value">The item to save to database.</param>
-        public static void Save(SQLiteConnection db, User value)
+        internal static void Save(SQLiteConnection db, User value)
         {
             lock (sync)
             {
@@ -610,7 +610,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns List of all records</returns>
-        public static List<User> Gets(SQLiteConnection db, bool recursive = false)
+        internal static List<User> Gets(SQLiteConnection db, bool recursive = false)
         {
             lock (sync)
             {
@@ -625,7 +625,7 @@ namespace DMT.Models.Domains
         /// <param name="UserId">The UserId.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns found record.</returns>
-        public static User Get(SQLiteConnection db, string UserId, bool recursive = false)
+        internal static User Get(SQLiteConnection db, string UserId, bool recursive = false)
         {
             lock (sync)
             {
@@ -643,7 +643,7 @@ namespace DMT.Models.Domains
         /// /// <param name="password">The password.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns found record.</returns>
-        public static User GetByUserId(SQLiteConnection db, string UserId, string password, bool recursive = false)
+        internal static User GetByUserId(SQLiteConnection db, string UserId, string password, bool recursive = false)
         {
             lock (sync)
             {
@@ -661,7 +661,7 @@ namespace DMT.Models.Domains
         /// /// <param name="password">The password.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns found record.</returns>
-        public static User GetByUserName(SQLiteConnection db, string userName, string password, bool recursive = false)
+        internal static User GetByUserName(SQLiteConnection db, string userName, string password, bool recursive = false)
         {
             lock (sync)
             {
@@ -678,7 +678,7 @@ namespace DMT.Models.Domains
         /// <param name="cardId">The cardId.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns found record.</returns>
-        public static User GetByCardId(SQLiteConnection db, string cardId, bool recursive = false)
+        internal static User GetByCardId(SQLiteConnection db, string cardId, bool recursive = false)
         {
             lock (sync)
             {
@@ -738,7 +738,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="value">The item to checks.</param>
         /// <returns>Returns true if item is already in database.</returns>
-        public static bool Exists(SQLiteConnection db, Config value)
+        internal static bool Exists(SQLiteConnection db, Config value)
         {
             lock (sync)
             {
@@ -754,7 +754,7 @@ namespace DMT.Models.Domains
         /// </summary>
         /// <param name="db">The connection.</param>
         /// <param name="value">The item to save to database.</param>
-        public static void Save(SQLiteConnection db, Config value)
+        internal static void Save(SQLiteConnection db, Config value)
         {
             lock (sync)
             {
@@ -772,7 +772,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns List of all records</returns>
-        public static List<Config> Gets(SQLiteConnection db, bool recursive = false)
+        internal static List<Config> Gets(SQLiteConnection db, bool recursive = false)
         {
             lock (sync)
             {
@@ -787,7 +787,7 @@ namespace DMT.Models.Domains
         /// <param name="key">The key.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns found record.</returns>
-        public static Config Get(SQLiteConnection db, string key, bool recursive = false)
+        internal static Config Get(SQLiteConnection db, string key, bool recursive = false)
         {
             lock (sync)
             {
@@ -856,7 +856,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns List of all records</returns>
-        public static List<SupervisorShift> Gets(SQLiteConnection db, bool recursive = false)
+        internal static List<SupervisorShift> Gets(SQLiteConnection db, bool recursive = false)
         {
             lock (sync)
             {
@@ -922,7 +922,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns List of all records</returns>
-        public static List<CollectorShift> Gets(SQLiteConnection db, bool recursive = false)
+        internal static List<CollectorShift> Gets(SQLiteConnection db, bool recursive = false)
         {
             lock (sync)
             {
@@ -990,7 +990,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns List of all records</returns>
-        public static List<CollectorLane> Gets(SQLiteConnection db, bool recursive = false)
+        internal static List<CollectorLane> Gets(SQLiteConnection db, bool recursive = false)
         {
             lock (sync)
             {
@@ -1030,7 +1030,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="value">The item to checks.</param>
         /// <returns>Returns true if item is already in database.</returns>
-        public static bool Exists(SQLiteConnection db, StressTest value)
+        internal static bool Exists(SQLiteConnection db, StressTest value)
         {
             lock (sync)
             {
@@ -1046,7 +1046,7 @@ namespace DMT.Models.Domains
         /// </summary>
         /// <param name="db">The connection.</param>
         /// <param name="value">The item to save to database.</param>
-        public static void Save(SQLiteConnection db, StressTest value)
+        internal static void Save(SQLiteConnection db, StressTest value)
         {
             lock (sync)
             {
@@ -1064,7 +1064,7 @@ namespace DMT.Models.Domains
         /// <param name="db">The connection.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns List of all records</returns>
-        public static List<StressTest> Gets(SQLiteConnection db, bool recursive = false)
+        internal static List<StressTest> Gets(SQLiteConnection db, bool recursive = false)
         {
             lock (sync)
             {

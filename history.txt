@@ -17,8 +17,9 @@ Update 2020-06-21 #7
 Update 2020-06-21 #6
 - 
 
+[commited]
 Update 2020-06-21 #5
-- 
+- Update all domain classes change all static method access to internal (except Create).
 
 [commited]
 Update 2020-06-21 #5

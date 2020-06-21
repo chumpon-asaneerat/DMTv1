@@ -9,64 +9,23 @@
              d:DesignWidth="180"
              DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <Grid>
-        <Button>
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Name="buttonBorder">
-                        <!--
-                        <Border.Effect>
-                            <DropShadowEffect Opacity="0.0" />
-                        </Border.Effect>
-                        -->
-                        <Border.Child>
-                            <DockPanel>
-                                <Image Name="img" 
-                                       DockPanel.Dock="Left"
-                                       Height="{Binding ActualHeight, ElementName=buttonBorder}"
-                                       Width="{Binding ActualHeight, ElementName=buttonBorder}"
-                                       Source="{Binding ImageSource}"/>
-                                <TextBlock Text="{Binding Text}" />
-                            </DockPanel>
-                        </Border.Child>
-                    </Border>
-                    <!--
-                    <DockPanel>
-                        <Image DockPanel.Dock="Left" 
-                           Source="{Binding Path=ImageSource, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:ImageButton}}}"
-                           Width="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" />
-                        <TextBlock Text="Button">
-                        </TextBlock>
-                    </DockPanel>
-                    -->
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="true">
-                            <Setter TargetName="buttonBorder" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Opacity="0.8" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <Trigger Property="IsMouseCaptured" Value="true">
-                            <Setter TargetName="buttonBorder" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Opacity="0.8" Direction="135"  
-                                                      ShadowDepth="3" BlurRadius="1" />
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        <!--
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="img" Property="Source" Value="{Binding DisabledImage}"/>
-                            <Setter TargetName="buttonBorder" Property="Effect">
-                                <Setter.Value>
-                                    <DropShadowEffect Opacity="0.0"/>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                        -->
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Button.Template>
+        <Button x:Name="buttonHost" 
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                Foreground="{Binding Foreground}"
+                Background="{Binding Background}">
+            <DockPanel x:Name="dockHost" Margin="5">
+                <Image Name="img"
+                       DockPanel.Dock="Left"
+                       Height="{Binding ActualHeight, ElementName=dockHost}"
+                       Width="{Binding ActualHeight, ElementName=dockHost}"
+                       Source="{Binding ImageSource}"/>
+                <Grid DockPanel.Dock="Left" Width="5" />
+                <ContentPresenter Margin="5"
+                                  HorizontalAlignment="Stretch"
+                                  VerticalAlignment="Stretch"
+                                  Content="{Binding TextContent}"/>
+            </DockPanel>
         </Button>
     </Grid>
 </UserControl>

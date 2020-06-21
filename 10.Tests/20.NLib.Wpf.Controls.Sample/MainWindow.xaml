@@ -61,7 +61,21 @@
             </TabItem>
             <TabItem Header="Control 4">
                 <Grid>
-                    <nctrl:ImageButton ImageSource="Images/Heart.png" Margin="81,157,437,271.8"/>
+                    <nctrl:ImageButton ImageSource="Images/Heart.png" 
+                                       Background="CornflowerBlue"
+                                       Foreground="WhiteSmoke"
+                                       Cursor="Hand"
+                                       Margin="81,157,417,255.8">
+                        <nctrl:ImageButton.TextContent>
+                            <TextBlock>
+                                <Run Text="Line 1"/>
+                                <LineBreak/>
+                                <Run Text="Line 2"/>
+                            </TextBlock>
+                        </nctrl:ImageButton.TextContent>
+                    </nctrl:ImageButton>
+                    <Button Content="Button" Height="66" Width="245" Margin="391,125,152,301.8"/>
+                    <Button Content="Button" Height="100" Margin="420,255,178,137.8"/>
                 </Grid>
             </TabItem>
         </TabControl>

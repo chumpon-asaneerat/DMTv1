@@ -6,6 +6,7 @@ using SQLite;
 using SQLiteNetExtensions.Attributes;
 using SQLiteNetExtensions.Extensions;
 using System.ComponentModel;
+using DMT.Services;
 
 namespace DMT.Models.Domains
 {
@@ -132,6 +133,46 @@ namespace DMT.Models.Domains
                     p => p.TSBId == TSBId,
                     recursive: recursive).FirstOrDefault();
             }
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(TSB value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Exists(db, value);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(TSB value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            Save(db, value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<TSB> Gets(bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Gets(db, recursive);
+        }
+        /// <summary>
+        /// Gets by Id
+        /// </summary>
+        /// <param name="TSBId">The TSBId.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static TSB Get(string TSBId, bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Get(db, TSBId, recursive);
         }
 
         #endregion
@@ -267,6 +308,46 @@ namespace DMT.Models.Domains
                     recursive: recursive).FirstOrDefault();
             }
         }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(Plaza value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Exists(db, value);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(Plaza value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            Save(db, value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<Plaza> Gets(bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Gets(db, recursive);
+        }
+        /// <summary>
+        /// Gets by Id
+        /// </summary>
+        /// <param name="PlazaId">The PlazaId.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static Plaza Get(string PlazaId, bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Get(db, PlazaId, recursive);
+        }
 
         #endregion
     }
@@ -375,6 +456,7 @@ namespace DMT.Models.Domains
         /// </summary>
         /// <param name="db">The connection.</param>
         /// <param name="PlazaId">The PlazaId.</param>
+        /// <param name="LaneId">The LaneId.</param>
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns found record.</returns>
         internal static Lane Get(SQLiteConnection db, string PlazaId, int LaneId, bool recursive = false)
@@ -387,6 +469,47 @@ namespace DMT.Models.Domains
                     p.LaneId == LaneId,
                     recursive: recursive).FirstOrDefault();
             }
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(Lane value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Exists(db, value);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(Lane value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            Save(db, value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<Lane> Gets(bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Gets(db, recursive);
+        }
+        /// <summary>
+        /// Gets by Id
+        /// </summary>
+        /// <param name="PlazaId">The PlazaId.</param>
+        /// <param name="LaneId">The LaneId.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static Lane Get(string PlazaId, int LaneId, bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Get(db, PlazaId, LaneId, recursive);
         }
 
         #endregion
@@ -509,6 +632,46 @@ namespace DMT.Models.Domains
                     p => p.RoleId == RoleId,
                     recursive: recursive).FirstOrDefault();
             }
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(Role value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Exists(db, value);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(Role value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            Save(db, value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<Role> Gets(bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Gets(db, recursive);
+        }
+        /// <summary>
+        /// Gets by Id
+        /// </summary>
+        /// <param name="RoleId">The RoleId.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static Role Get(string RoleId, bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Get(db, RoleId, recursive);
         }
 
         #endregion
@@ -688,6 +851,84 @@ namespace DMT.Models.Domains
                     recursive: recursive).FirstOrDefault();
             }
         }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(User value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Exists(db, value);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(User value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            Save(db, value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<User> Gets(bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Gets(db, recursive);
+        }
+        /// <summary>
+        /// Gets by Id
+        /// </summary>
+        /// <param name="UserId">The UserId.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static User Get(string UserId, bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Get(db, UserId, recursive);
+        }
+        /// <summary>
+        /// Gets by UserId and password.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="UserId">The UserId.</param>
+        /// /// <param name="password">The password.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static User GetByUserId(string UserId, string password, bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return GetByUserId(db, UserId, password, recursive);
+        }
+        /// <summary>
+        /// Gets by UserName and password.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="userName">The userName.</param>
+        /// /// <param name="password">The password.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static User GetByUserName(string userName, string password, bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return GetByUserName(db, userName, password, recursive);
+        }
+        /// <summary>
+        /// Gets by CardId
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="cardId">The cardId.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static User GetByCardId(string cardId, bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return GetByCardId(db, cardId, recursive);
+        }
 
         #endregion
     }
@@ -797,6 +1038,46 @@ namespace DMT.Models.Domains
                     recursive: recursive).FirstOrDefault();
             }
         }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(Config value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Exists(db, value);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(Config value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            Save(db, value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<Config> Gets(bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Gets(db, recursive);
+        }
+        /// <summary>
+        /// Gets by Id
+        /// </summary>
+        /// <param name="key">The key.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static Config Get(string key, bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Get(db, key, recursive);
+        }
 
         #endregion
     }
@@ -864,6 +1145,16 @@ namespace DMT.Models.Domains
                 return db.GetAllWithChildren<SupervisorShift>(recursive: recursive);
             }
         }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<SupervisorShift> Gets(bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Gets(db, recursive);
+        }
 
         #endregion
     }
@@ -929,6 +1220,16 @@ namespace DMT.Models.Domains
                 if (null == db) return new List<CollectorShift>();
                 return db.GetAllWithChildren<CollectorShift>(recursive: recursive);
             }
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<CollectorShift> Gets(bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Gets(db, recursive);
         }
 
         #endregion
@@ -997,6 +1298,16 @@ namespace DMT.Models.Domains
                 if (null == db) return new List<CollectorLane>();
                 return db.GetAllWithChildren<CollectorLane>(recursive: recursive);
             }
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<CollectorLane> Gets(bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Gets(db, recursive);
         }
 
         #endregion
@@ -1071,6 +1382,35 @@ namespace DMT.Models.Domains
                 if (null == db) return new List<StressTest>();
                 return db.GetAllWithChildren<StressTest>(recursive: recursive);
             }
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(StressTest value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Exists(db, value);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(StressTest value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            Save(db, value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<StressTest> Gets(bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Gets(db, recursive);
         }
 
         #endregion

@@ -11,8 +11,9 @@ Update 2020-06-21 #9
 Update 2020-06-21 #8
 - 
 
+[commited]
 Update 2020-06-21 #7
-- 
+- Update all domain classes add static methods that internal access LocalServer connection.
 
 [commited]
 Update 2020-06-21 #6

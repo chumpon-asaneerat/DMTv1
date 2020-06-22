@@ -9,7 +9,8 @@ using System.ComponentModel;
 using DMT.Services;
 // required for JsonIgnore.
 using Newtonsoft.Json;
-
+using NLib;
+using NLib.Reflection;
 
 namespace DMT.Models.Domains
 {
@@ -44,6 +45,7 @@ namespace DMT.Models.Domains
         /// Gets or sets TSBId.
         /// </summary>
         [PrimaryKey, MaxLength(10)]
+        [PeropertyMapName("TSBId")]
         public string TSBId 
         {
             get
@@ -1296,6 +1298,7 @@ namespace DMT.Models.Domains
         /// <summary>
         /// Gets or sets Begin Date.
         /// </summary>
+        [PeropertyMapName("Begin")]
         public DateTime Begin
         {
             get { return _Begin; }
@@ -1312,6 +1315,7 @@ namespace DMT.Models.Domains
         /// <summary>
         /// Gets or sets End Date.
         /// </summary>
+        [PeropertyMapName("End")]
         public DateTime End
         {
             get { return _End; }
@@ -1434,6 +1438,7 @@ namespace DMT.Models.Domains
         /// <summary>
         /// Gets or sets Begin Date.
         /// </summary>
+        [PeropertyMapName("Begin")]
         public DateTime Begin
         {
             get { return _Begin; }
@@ -1450,6 +1455,7 @@ namespace DMT.Models.Domains
         /// <summary>
         /// Gets or sets End Date.
         /// </summary>
+        [PeropertyMapName("End")]
         public DateTime End
         {
             get { return _End; }

@@ -71,4 +71,24 @@ namespace DMT
             }
         }
     }
+
+    public static class RouteConsts
+    {
+        public const string Url = @"api";
+        public static class Job
+        {
+            public const string Url = RouteConsts.Url + @"/jobs";
+
+            public static class BeginJob
+            {
+                public const string Url = Job.Url + @"/begin";
+                public const string Name = "BeginJob";
+            }
+            public static class EndJob
+            {
+                public const string Url = Job.Url + @"/end";
+                public const string Name = "EndJob";
+            }
+        }
+    }
 }

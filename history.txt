@@ -8,8 +8,10 @@ Update 2020-06-22 #14
 Update 2020-06-22 #13
 - 
 
+[commited]
 Update 2020-06-22 #12
-- 
+- Add DMT.Core project add RouteConst class.
+- Windows Services Project update #2 - Add Job Controller and user name in RouteConsts.
 
 [commited]
 Update 2020-06-22 #11

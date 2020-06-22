@@ -208,6 +208,22 @@ namespace DMT.Services
         }
     }
 
+    public class JobController : ApiController
+    {
+        [HttpPost]
+        [ActionName(RouteConsts.Job.BeginJob.Name)]
+        public string BeginJob([FromBody] Collector collector) 
+        {
+            return collector.Name + "Begin Job";
+        }
+        [HttpPost]
+        [ActionName(RouteConsts.Job.EndJob.Name)]
+        public string EndJob([FromBody] Collector collector)
+        {
+            return collector.Name + "End Job";
+        }
+    }
+
     /*
     /// <summary>
     /// Route Controller.

@@ -1,4 +1,52 @@
 --------------------------------------------------------------------------------------------
+Update 2020-06-22 #15
+- 
+
+Update 2020-06-22 #14
+- 
+
+Update 2020-06-22 #13
+- 
+
+Update 2020-06-22 #12
+- 
+
+Update 2020-06-22 #11
+- 
+
+Update 2020-06-22 #10
+- 
+
+Update 2020-06-22 #9
+- 
+
+Update 2020-06-22 #8
+- 
+
+Update 2020-06-22 #7
+- 
+
+Update 2020-06-22 #6
+- 
+
+Update 2020-06-22 #5
+- 
+
+Update 2020-06-22 #4
+- 
+
+Update 2020-06-22 #3
+- 
+
+Update 2020-06-22 #2
+- 
+
+[commited]
+Update 2020-06-22 #1
+- Prpare history.txt
+- Set windows service project for debug application connumitation testing.
+
+--------------------------------------------------------------------------------------------
 [commited]
 Update 2020-06-21 #15
 - NLib.Wpf.Controls project - Implements ImageButton control #3.

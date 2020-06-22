@@ -11,8 +11,9 @@ Update 2020-06-22 #13
 Update 2020-06-22 #12
 - 
 
+[commited]
 Update 2020-06-22 #11
-- 
+- Windows Services Project update #2 - Change action name (TEST PASSED).
 
 [commited]
 Update 2020-06-22 #10

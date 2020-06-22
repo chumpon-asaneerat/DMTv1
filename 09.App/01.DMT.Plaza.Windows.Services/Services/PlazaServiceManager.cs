@@ -161,7 +161,7 @@ namespace DMT.Services
         }
 
         [HttpPost]
-        [ActionName("Supervisors")]
+        [ActionName("ActiveSups")]
         public List<Supervisor> GetSupervisors([FromBody] SearchOptions options)
         {
             List<Supervisor> results = new List<Supervisor>();
@@ -178,7 +178,7 @@ namespace DMT.Services
             return results;
         }
         [HttpPost]
-        [ActionName("Collectors")]
+        [ActionName("ListCollectorsUnderSup")]
         public List<Collector> GetCollectors([FromBody] Supervisor sup)
         {
             List<Collector> results = new List<Collector>();

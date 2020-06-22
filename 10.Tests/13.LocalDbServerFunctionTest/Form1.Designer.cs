@@ -42,11 +42,12 @@
             this.cmdUserSearch = new System.Windows.Forms.Button();
             this.lstUsers = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.cmdAdd300 = new System.Windows.Forms.Button();
-            this.cmdRefreshStressTest = new System.Windows.Forms.Button();
-            this.dgStressTest = new System.Windows.Forms.DataGridView();
-            this.lbStressTestCount = new System.Windows.Forms.Label();
+            this.lbStressTestSum = new System.Windows.Forms.Label();
             this.cmdClearStressTests = new System.Windows.Forms.Button();
+            this.lbStressTestCount = new System.Windows.Forms.Label();
+            this.dgStressTest = new System.Windows.Forms.DataGridView();
+            this.cmdRefreshStressTest = new System.Windows.Forms.Button();
+            this.cmdAdd300 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -208,6 +209,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.lbStressTestSum);
             this.tabPage3.Controls.Add(this.cmdClearStressTests);
             this.tabPage3.Controls.Add(this.lbStressTestCount);
             this.tabPage3.Controls.Add(this.dgStressTest);
@@ -220,25 +222,33 @@
             this.tabPage3.Text = "Stress Tests";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // cmdAdd300
+            // lbStressTestSum
             // 
-            this.cmdAdd300.Location = new System.Drawing.Point(136, 13);
-            this.cmdAdd300.Name = "cmdAdd300";
-            this.cmdAdd300.Size = new System.Drawing.Size(122, 37);
-            this.cmdAdd300.TabIndex = 2;
-            this.cmdAdd300.Text = "Add 300 rows";
-            this.cmdAdd300.UseVisualStyleBackColor = true;
-            this.cmdAdd300.Click += new System.EventHandler(this.cmdAdd300_Click);
+            this.lbStressTestSum.AutoSize = true;
+            this.lbStressTestSum.Location = new System.Drawing.Point(611, 23);
+            this.lbStressTestSum.Name = "lbStressTestSum";
+            this.lbStressTestSum.Size = new System.Drawing.Size(40, 17);
+            this.lbStressTestSum.TabIndex = 7;
+            this.lbStressTestSum.Text = "Sum:";
             // 
-            // cmdRefreshStressTest
+            // cmdClearStressTests
             // 
-            this.cmdRefreshStressTest.Location = new System.Drawing.Point(8, 13);
-            this.cmdRefreshStressTest.Name = "cmdRefreshStressTest";
-            this.cmdRefreshStressTest.Size = new System.Drawing.Size(122, 37);
-            this.cmdRefreshStressTest.TabIndex = 3;
-            this.cmdRefreshStressTest.Text = "Refresh";
-            this.cmdRefreshStressTest.UseVisualStyleBackColor = true;
-            this.cmdRefreshStressTest.Click += new System.EventHandler(this.cmdRefreshStressTest_Click);
+            this.cmdClearStressTests.Location = new System.Drawing.Point(264, 13);
+            this.cmdClearStressTests.Name = "cmdClearStressTests";
+            this.cmdClearStressTests.Size = new System.Drawing.Size(122, 37);
+            this.cmdClearStressTests.TabIndex = 6;
+            this.cmdClearStressTests.Text = "Clear";
+            this.cmdClearStressTests.UseVisualStyleBackColor = true;
+            this.cmdClearStressTests.Click += new System.EventHandler(this.cmdClearStressTests_Click);
+            // 
+            // lbStressTestCount
+            // 
+            this.lbStressTestCount.AutoSize = true;
+            this.lbStressTestCount.Location = new System.Drawing.Point(469, 23);
+            this.lbStressTestCount.Name = "lbStressTestCount";
+            this.lbStressTestCount.Size = new System.Drawing.Size(49, 17);
+            this.lbStressTestCount.TabIndex = 5;
+            this.lbStressTestCount.Text = "Count:";
             // 
             // dgStressTest
             // 
@@ -253,24 +263,25 @@
             this.dgStressTest.Size = new System.Drawing.Size(910, 512);
             this.dgStressTest.TabIndex = 4;
             // 
-            // lbStressTestCount
+            // cmdRefreshStressTest
             // 
-            this.lbStressTestCount.AutoSize = true;
-            this.lbStressTestCount.Location = new System.Drawing.Point(512, 23);
-            this.lbStressTestCount.Name = "lbStressTestCount";
-            this.lbStressTestCount.Size = new System.Drawing.Size(49, 17);
-            this.lbStressTestCount.TabIndex = 5;
-            this.lbStressTestCount.Text = "Count:";
+            this.cmdRefreshStressTest.Location = new System.Drawing.Point(8, 13);
+            this.cmdRefreshStressTest.Name = "cmdRefreshStressTest";
+            this.cmdRefreshStressTest.Size = new System.Drawing.Size(122, 37);
+            this.cmdRefreshStressTest.TabIndex = 3;
+            this.cmdRefreshStressTest.Text = "Refresh";
+            this.cmdRefreshStressTest.UseVisualStyleBackColor = true;
+            this.cmdRefreshStressTest.Click += new System.EventHandler(this.cmdRefreshStressTest_Click);
             // 
-            // cmdClearStressTests
+            // cmdAdd300
             // 
-            this.cmdClearStressTests.Location = new System.Drawing.Point(264, 13);
-            this.cmdClearStressTests.Name = "cmdClearStressTests";
-            this.cmdClearStressTests.Size = new System.Drawing.Size(122, 37);
-            this.cmdClearStressTests.TabIndex = 6;
-            this.cmdClearStressTests.Text = "Clear";
-            this.cmdClearStressTests.UseVisualStyleBackColor = true;
-            this.cmdClearStressTests.Click += new System.EventHandler(this.cmdClearStressTests_Click);
+            this.cmdAdd300.Location = new System.Drawing.Point(136, 13);
+            this.cmdAdd300.Name = "cmdAdd300";
+            this.cmdAdd300.Size = new System.Drawing.Size(122, 37);
+            this.cmdAdd300.TabIndex = 2;
+            this.cmdAdd300.Text = "Add 300 rows";
+            this.cmdAdd300.UseVisualStyleBackColor = true;
+            this.cmdAdd300.Click += new System.EventHandler(this.cmdAdd300_Click);
             // 
             // Form1
             // 
@@ -313,6 +324,7 @@
         private System.Windows.Forms.Button cmdRefreshStressTest;
         private System.Windows.Forms.Label lbStressTestCount;
         private System.Windows.Forms.Button cmdClearStressTests;
+        private System.Windows.Forms.Label lbStressTestSum;
     }
 }
 

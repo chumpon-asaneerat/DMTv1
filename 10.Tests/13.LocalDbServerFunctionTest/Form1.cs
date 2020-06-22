@@ -103,6 +103,9 @@ namespace LocalDbServerFunctionTest
                     inst = new StressTest();
                     inst.RowId = Guid.NewGuid().ToString();
                     inst.Updated = DateTime.Now;
+                    inst.Amount = 1;
+                    inst.Amount1 = 2;
+                    inst.Amount2 = 3;
                     inst.Name = "Item " + i.ToString("D6");
 
                     //LocalDbServer.Instance.Save(inst);
@@ -114,6 +117,11 @@ namespace LocalDbServerFunctionTest
                     //var items = LocalDbServer.Instance.GetStressTests(true);
                     var items = StressTest.Gets(true);
                     lbStressTestCount.Text = "Count: " + ((null != items) ? items.Count.ToString("n0") : "0");
+
+                    //lbStressTestSum.Text = "Sum:" + StressTest.Sum().ToString("n0");
+                    var sum2 = StressTest.Sum2();
+                    lbStressTestSum.Text = string.Format("Sum: Amount1 = {0:n0}, Amount2 = {1:n0}", sum2.Sum1, sum2.Sum2);
+
                     dgStressTest.DataSource = items;
                 });
             });
@@ -124,6 +132,11 @@ namespace LocalDbServerFunctionTest
             //var items = LocalDbServer.Instance.GetStressTests(true);
             var items = StressTest.Gets(true);
             lbStressTestCount.Text = "Count: " + ((null != items) ? items.Count.ToString("n0") : "0");
+
+            //lbStressTestSum.Text = "Sum:" + StressTest.Sum().ToString("n0");
+            var sum2 = StressTest.Sum2();
+            lbStressTestSum.Text = string.Format("Sum: Amount1 = {0:n0}, Amount2 = {1:n0}", sum2.Sum1, sum2.Sum2);
+
             dgStressTest.DataSource = items;
         }
 
@@ -134,6 +147,11 @@ namespace LocalDbServerFunctionTest
             //var items = LocalDbServer.Instance.GetStressTests(true);
             var items = StressTest.Gets(true);
             lbStressTestCount.Text = "Count: " + ((null != items) ? items.Count.ToString("n0") : "0");
+
+            //lbStressTestSum.Text = "Sum:" + StressTest.Sum().ToString("n0");
+            var sum2 = StressTest.Sum2();
+            lbStressTestSum.Text = string.Format("Sum: Amount1 = {0:n0}, Amount2 = {1:n0}", sum2.Sum1, sum2.Sum2);
+
             dgStressTest.DataSource = items;
         }
     }

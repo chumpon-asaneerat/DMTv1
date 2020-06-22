@@ -2334,6 +2334,9 @@ namespace DMT.Models.Domains
         [PrimaryKey, MaxLength(50)]
         public string RowId { get; set; }
         public string Name { get; set; }
+        public int Amount { get; set; }
+        public int Amount1 { get; set; }
+        public int Amount2 { get; set; }
         public DateTime Updated { get; set; }
 
         #region Static Methods
@@ -2446,6 +2449,50 @@ namespace DMT.Models.Domains
         {
             SQLiteConnection db = LocalDbServer.Instance.Db;
             return DeleteAll(db);
+        }
+
+        public class SumAmount
+        {
+            public int Sum1 { get; set; }
+            public int Sum2 { get; set; }
+        }
+
+        internal static int Sum(SQLiteConnection db)
+        {
+            int ret = 0;
+            lock (sync)
+            {
+                string cmd = string.Empty;
+                cmd += @"SELECT SUM(Amount) AS TotalCnt ";
+                cmd += @"  FROM StressTest ";
+                cmd += @" WHERE Amount > ? ";
+                ret = db.ExecuteScalar<int>(cmd, 0);
+            }
+            return ret;
+        }
+
+        internal static SumAmount Sum2(SQLiteConnection db)
+        {
+            SumAmount ret = new SumAmount();
+            lock (sync)
+            {
+                string cmd = string.Empty;
+                cmd += @"SELECT SUM(Amount1) AS Sum1, ";
+                cmd += @"       SUM(Amount2) AS Sum2 ";
+                cmd += @"  FROM StressTest ";
+                ret = db.Query<SumAmount>(cmd).FirstOrDefault();
+            }
+            return ret;
+        }
+        public static int Sum()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Sum(db);
+        }
+        public static SumAmount Sum2()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Sum2(db);
         }
 
         #endregion

@@ -17,8 +17,10 @@ Update 2020-06-22 #11
 Update 2020-06-22 #10
 - 
 
+[commited]
 Update 2020-06-22 #9
-- 
+- StressTest class add static sum methods.
+- Update LocalDbServerFunctionTest for test sum methods.
 
 [commited]
 Update 2020-06-22 #8

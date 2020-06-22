@@ -8,10 +8,11 @@ using DMT;
 
 // required for JsonIgnore attribute.
 using Newtonsoft.Json;
+using Newtonsoft.Json.Bson;
 
 #endregion
 
-namespace DMT.Models.Objects
+namespace DMT.Models
 {
     #region DMTModelBase (abstract)
 
@@ -21,6 +22,12 @@ namespace DMT.Models.Objects
     /// </summary>
     public abstract class DMTModelBase : INotifyPropertyChanged
     {
+        #region Internal Variables
+
+        private bool _lock = false;
+
+        #endregion
+
         #region Private Methods
 
         /// <summary>
@@ -29,7 +36,29 @@ namespace DMT.Models.Objects
         /// <param name="propertyName">The property name.</param>
         protected void RaiseChanged(string propertyName)
         {
-            PropertyChanged.Call(this, new PropertyChangedEventArgs(propertyName));
+            if (!_lock)
+            {
+                PropertyChanged.Call(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        /// <summary>
+        /// Enable Notify Change Event.
+        /// </summary>
+        public void EnableNotify()
+        {
+            _lock = true;
+        }
+        /// <summary>
+        /// Disable Notify Change Event.
+        /// </summary>
+        public void DisableNotify()
+        {
+            _lock = false;
         }
 
         #endregion

@@ -18,8 +18,14 @@ namespace DMT.Models.Domains
     /// The TSB Data Model class.
     /// </summary>
     //[Table("TSB")]
-    public class TSB
+    public class TSB : DMTModelBase
     {
+        #region Intenral Variables
+
+        private string _TSBId = string.Empty;
+
+        #endregion
+
         #region Constructor
 
         /// <summary>
@@ -32,7 +38,21 @@ namespace DMT.Models.Domains
         #region Public Proprties
 
         [PrimaryKey, MaxLength(10)]
-        public string TSBId { get; set; }
+        public string TSBId 
+        {
+            get
+            {
+                return _TSBId;
+            }
+            set
+            {
+                if (_TSBId != value)
+                {
+                    _TSBId = value;
+                    this.RaiseChanged("TSBId");
+                }
+            }
+        }
         [MaxLength(10)]
         public string NetworkId { get; set; }
 

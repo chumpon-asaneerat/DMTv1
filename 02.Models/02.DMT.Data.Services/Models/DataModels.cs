@@ -49,7 +49,6 @@ namespace DMT.Models.Domains
         /// </summary>
         [PrimaryKey, MaxLength(10)]
         [PeropertyMapName("TSBId")]
-    
         public string TSBId 
         {
             get
@@ -916,7 +915,6 @@ namespace DMT.Models.Domains
         /// </summary>
         [MaxLength(50)]
         [PeropertyMapName("RoleName")]
-
         public string RoleName
         {
             get

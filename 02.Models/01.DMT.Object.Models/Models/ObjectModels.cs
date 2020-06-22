@@ -56,10 +56,10 @@ namespace DMT.Models.Objects
                 }
             }
         }
-        [PeropertyMapName("NetworkId")]
         /// <summary>
         /// Gets or sets NetworkId.
         /// </summary>
+        [PeropertyMapName("NetworkId")]
         public string NetworkId
         {
             get
@@ -75,10 +75,10 @@ namespace DMT.Models.Objects
                 }
             }
         }
-        [PeropertyMapName("TSBNameEN")]
         /// <summary>
         /// Gets or sets TSBNameEN.
         /// </summary>
+        [PeropertyMapName("TSBNameEN")]
         public string TSBNameEN
         {
             get
@@ -94,10 +94,10 @@ namespace DMT.Models.Objects
                 }
             }
         }
-        [PeropertyMapName("TSBNameTH")]
         /// <summary>
         /// Gets or sets TSBNameTH.
         /// </summary>
+        [PeropertyMapName("TSBNameTH")]
         public string TSBNameTH
         {
             get

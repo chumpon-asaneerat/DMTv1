@@ -20,8 +20,10 @@ Update 2020-06-22 #10
 Update 2020-06-22 #9
 - 
 
+[commited]
 Update 2020-06-22 #8
-- 
+- Sync code from Kik
+- Implements Domain class supports NotifyPropertyChanged #5.
 
 [commited]
 Update 2020-06-22 #7

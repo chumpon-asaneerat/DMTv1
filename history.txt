@@ -26,8 +26,9 @@ Update 2020-06-22 #8
 Update 2020-06-22 #7
 - 
 
+[commited]
 Update 2020-06-22 #6
-- 
+- Implements Domain class supports NotifyPropertyChanged #3.
 
 [commited]
 Update 2020-06-22 #5

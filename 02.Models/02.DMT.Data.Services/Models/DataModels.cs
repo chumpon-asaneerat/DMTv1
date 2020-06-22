@@ -40,6 +40,9 @@ namespace DMT.Models.Domains
 
         #region Public Proprties
 
+        /// <summary>
+        /// Gets or sets TSBId.
+        /// </summary>
         [PrimaryKey, MaxLength(10)]
         public string TSBId 
         {
@@ -56,11 +59,13 @@ namespace DMT.Models.Domains
                 }
             }
         }
+
         [MaxLength(10)]
         public string NetworkId { get; set; }
 
         [MaxLength(100)]
         public string TSBNameEN { get; set; }
+
         [MaxLength(100)]
         public string TSBNameTH { get; set; }
 
@@ -231,7 +236,7 @@ namespace DMT.Models.Domains
     /// The Plaza Data Model class.
     /// </summary>
     //[Table("Plaza")]
-    public class Plaza
+    public class Plaza : DMTModelBase
     {
         #region Constructor
 
@@ -249,6 +254,7 @@ namespace DMT.Models.Domains
 
         [ForeignKey(typeof(TSB)), MaxLength(10)]
         public string TSBId { get; set; }
+
         [TypeConverter(typeof(ExpandableObjectConverter))]
         [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead, ReadOnly=true)] 
         public TSB TSB { get; set; }
@@ -427,7 +433,7 @@ namespace DMT.Models.Domains
     /// The Lane Data Model class.
     /// </summary>
     //[Table("Lane")]
-    public class Lane
+    public class Lane : DMTModelBase
     {
         #region Constructor
 
@@ -445,13 +451,16 @@ namespace DMT.Models.Domains
 
         [MaxLength(10)]
         public int LaneId { get; set; }
+
         [MaxLength(10)]
         public string LaneType { get; set; }
+
         [MaxLength(10)]
         public string LaneAbbr { get; set; }
 
         [ForeignKey(typeof(TSB)), MaxLength(10)]
         public string PlazaId { get; set; }
+
         [TypeConverter(typeof(ExpandableObjectConverter))]
         [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead, ReadOnly = true)]
         public Plaza Plaza { get; set; }
@@ -612,7 +621,7 @@ namespace DMT.Models.Domains
     /// The Role Data Model Class.
     /// </summary>
     //[Table("Role")]
-    public class Role
+    public class Role : DMTModelBase
     {
         #region Constructor
 
@@ -627,6 +636,7 @@ namespace DMT.Models.Domains
 
         [PrimaryKey, MaxLength(20)]
         public string RoleId { get; set; }
+
         [MaxLength(50)]
         public string RoleName { get; set; }
 
@@ -796,7 +806,7 @@ namespace DMT.Models.Domains
     /// The User Data Model Class.
     /// </summary>
     //[Table("User")]
-    public class User
+    public class User : DMTModelBase
     {
         #region Constructor
 
@@ -811,13 +821,16 @@ namespace DMT.Models.Domains
 
         [PrimaryKey, MaxLength(10)]
         public string UserId { get; set; }
+
         [MaxLength(100)]
         public string FullNameEN { get; set; }
+
         [MaxLength(100)]
         public string FullNameTH { get; set; }
 
         [MaxLength(20)]
         public string UserName { get; set; }
+
         [MaxLength(20)]
         public string Password { get; set; }
 
@@ -1075,7 +1088,7 @@ namespace DMT.Models.Domains
     /// The Config Data Model Class.
     /// </summary>
     [Table("Config")]
-    public class Config
+    public class Config : DMTModelBase
     {
         #region Constructor
 
@@ -1293,8 +1306,6 @@ namespace DMT.Models.Domains
                     _Begin = value;
                     // Raise event.
                     RaiseChanged("Begin");
-                    RaiseChanged("BeginDateString");
-                    RaiseChanged("BeginTimeString");
                 }
             }
         }
@@ -1311,62 +1322,8 @@ namespace DMT.Models.Domains
                     _End = value;
                     // Raise event.
                     RaiseChanged("End");
-                    RaiseChanged("EndDateString");
-                    RaiseChanged("EndTimeString");
                 }
             }
-        }
-        /// <summary>
-        /// Gets Begin Date String.
-        /// </summary>
-        [JsonIgnore]
-        public string BeginDateString
-        {
-            get
-            {
-                var ret = (this.Begin == DateTime.MinValue) ? "" : this.Begin.ToThaiDateTimeString("yyyy-MM-dd");
-                return ret;
-            }
-            set { }
-        }
-        /// <summary>
-        /// Gets End Date String.
-        /// </summary>
-        [JsonIgnore]
-        public string EndDateString
-        {
-            get
-            {
-                var ret = (this.End == DateTime.MinValue) ? "" : this.End.ToThaiDateTimeString("yyyy-MM-dd");
-                return ret;
-            }
-            set { }
-        }
-        /// <summary>
-        /// Gets Begin Time String.
-        /// </summary>
-        [JsonIgnore]
-        public string BeginTimeString
-        {
-            get
-            {
-                var ret = (this.Begin == DateTime.MinValue) ? "" : this.Begin.ToThaiTimeString();
-                return ret;
-            }
-            set { }
-        }
-        /// <summary>
-        /// Gets End Time String.
-        /// </summary>
-        [JsonIgnore]
-        public string EndTimeString
-        {
-            get
-            {
-                var ret = (this.End == DateTime.MinValue) ? "" : this.End.ToThaiTimeString();
-                return ret;
-            }
-            set { }
         }
 
         #endregion
@@ -1441,8 +1398,15 @@ namespace DMT.Models.Domains
     /// The CollectorShift Data Model Class.
     /// </summary>
     //[Table("CollectorShift")]
-    public class CollectorShift
+    public class CollectorShift : DMTModelBase
     {
+        #region Intenral Variables
+
+        private DateTime _Begin = DateTime.MinValue;
+        private DateTime _End = DateTime.MinValue;
+
+        #endregion
+
         #region Constructor
 
         /// <summary>
@@ -1456,16 +1420,49 @@ namespace DMT.Models.Domains
 
         [PrimaryKey, AutoIncrement]
         public int CollectorShiftId { get; set; }
+        
         [MaxLength(10)]
         public string PlazaId { get; set; }
+        
         [ForeignKey(typeof(User), Name = "UserId"), MaxLength(10)]
         public string CollectorId { get; set; }
+
         [TypeConverter(typeof(ExpandableObjectConverter))]
         [OneToOne(foreignKey: "CollectorId", CascadeOperations = CascadeOperation.All)]
         public User User { get; set; }
 
-        public DateTime Begin { get; set; }
-        public DateTime End { get; set; }
+        /// <summary>
+        /// Gets or sets Begin Date.
+        /// </summary>
+        public DateTime Begin
+        {
+            get { return _Begin; }
+            set
+            {
+                if (_Begin != value)
+                {
+                    _Begin = value;
+                    // Raise event.
+                    RaiseChanged("Begin");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets End Date.
+        /// </summary>
+        public DateTime End
+        {
+            get { return _End; }
+            set
+            {
+                if (_End != value)
+                {
+                    _End = value;
+                    // Raise event.
+                    RaiseChanged("End");
+                }
+            }
+        }
 
         #endregion
 

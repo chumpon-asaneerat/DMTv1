@@ -134,6 +134,10 @@
       <Project>{14bf5c3c-cafe-41cb-b7d0-d3ca0910d8f2}</Project>
       <Name>01.DMT.Object.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\03.Clients\01.DMT.Operations\01.DMT.Operations.csproj">
+      <Project>{0040f19e-4885-4267-9404-61c8dc150f5f}</Project>
+      <Name>01.DMT.Operations</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Page Include="MainWindow.xaml">

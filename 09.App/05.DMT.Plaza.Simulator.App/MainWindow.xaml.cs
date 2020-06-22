@@ -45,5 +45,12 @@ namespace DMT
         }
 
         #endregion
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string result = Services.DMTServiceOperations.Instance.Plaza.BeginJob();
+            //Console.WriteLine(result);
+            MessageBox.Show(result);
+        }
     }
 }

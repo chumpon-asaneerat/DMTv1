@@ -214,13 +214,13 @@ namespace DMT.Services
         [ActionName(RouteConsts.Job.BeginJob.Name)]
         public string BeginJob([FromBody] Collector collector) 
         {
-            return collector.Name + "Begin Job";
+            return collector.Name + " is Begin Job";
         }
         [HttpPost]
         [ActionName(RouteConsts.Job.EndJob.Name)]
         public string EndJob([FromBody] Collector collector)
         {
-            return collector.Name + "End Job";
+            return collector.Name + " is End Job";
         }
     }
 

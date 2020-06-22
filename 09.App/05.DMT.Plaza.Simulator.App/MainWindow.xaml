@@ -52,7 +52,7 @@
             <Fluent:RibbonTabItem Header="Home">
                 <Fluent:RibbonGroupBox Header="Group">
                     <Fluent:Button Header="Green"
-                                   Width="100">
+                                   Width="100" Click="Button_Click">
                         <Fluent:Button.Icon>
                             <Image Source="Images/Green.png" />
                         </Fluent:Button.Icon>

@@ -1,13 +1,16 @@
 --------------------------------------------------------------------------------------------
-Update 2020-06-22 #15
+Update 2020-06-23 #3
 - 
 
-Update 2020-06-22 #14
+Update 2020-06-23 #2
 - 
 
-Update 2020-06-22 #13
-- 
+[commited]
+Update 2020-06-23 #1
+- Add DMT.Core project seperate RouteConst class to new file and update Url, Name to same value.
+- PlzaaOperations class update code for access Local Web Server (TEST PASSED).
 
+--------------------------------------------------------------------------------------------
 [commited]
 Update 2020-06-22 #12
 - Add DMT.Core project add RouteConst class.

@@ -4,7 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
+using System.Net;
 using RestSharp;
+using RestSharp.Authenticators;
+
 using NLib.ServiceProcess;
 
 #endregion
@@ -45,8 +48,21 @@ namespace DMT.Services
     /// </summary>
     public class PlazaOperations
     {
+        static PlazaOperations()
+        {
+            // Required for HTTPS.
+            /*
+            ServicePointManager.SecurityProtocol = 
+                SecurityProtocolType.Tls12 | 
+                SecurityProtocolType.Tls11 | 
+                SecurityProtocolType.Tls |
+                (SecurityProtocolType)768 | (SecurityProtocolType)3072 |
+                SecurityProtocolType.SystemDefault;
+            */
+        }
         #region Public Methods
 
+        /*
         public Models.Objects.Plaza[] GetPlazas()
         {
             Models.Objects.Plaza[] results = new Models.Objects.Plaza[] { };
@@ -56,6 +72,19 @@ namespace DMT.Services
         public void SavePlaza(Models.Objects.Plaza value)
         {
 
+        }
+        */
+        public string BeginJob()
+        {
+            var host = @"http://localhost:9000";
+            var client = new RestClient(host);
+            //client.Authenticator = new HttpBasicAuthenticator(AUTH.PersonalAccessToken, String.Empty);
+            var request = new RestRequest(RouteConsts.Job.BeginJob.Url, Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            request.AddJsonBody(new { Name = "User 1" });
+
+            var response = client.Execute(request);
+            return (null != response) ? response.Content : "No response.";
         }
 
         #endregion

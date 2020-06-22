@@ -53,6 +53,7 @@
     <Compile Include="ExtensionMethods\DateTime.cs" />
     <Compile Include="ExtensionMethods\NJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RouteConsts.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

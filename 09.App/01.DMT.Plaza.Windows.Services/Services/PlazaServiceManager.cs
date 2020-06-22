@@ -146,6 +146,12 @@ namespace DMT.Services
             return plazas.Where(p => string.Equals(p.Category, category,
                     StringComparison.OrdinalIgnoreCase));
         }
+
+        public string Post([FromBody] Plaza value)
+        {
+            Console.WriteLine("Plaza: {0}", value.Name);
+            return "OK!";
+        }
     }
 
     /// <summary>

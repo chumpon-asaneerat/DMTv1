@@ -27,6 +27,9 @@ namespace DMT.Models.Domains
         #region Intenral Variables
 
         private string _TSBId = string.Empty;
+        private string _NetworkId = string.Empty;
+        private string _TSBNameEN = string.Empty;
+        private string _TSBNameTH = string.Empty;
 
         #endregion
 
@@ -46,6 +49,7 @@ namespace DMT.Models.Domains
         /// </summary>
         [PrimaryKey, MaxLength(10)]
         [PeropertyMapName("TSBId")]
+    
         public string TSBId 
         {
             get
@@ -61,15 +65,66 @@ namespace DMT.Models.Domains
                 }
             }
         }
-
+        /// <summary>
+        /// Gets or sets NetworkId.
+        /// </summary>
         [MaxLength(10)]
-        public string NetworkId { get; set; }
-
+        [PeropertyMapName("NetworkId")]
+        public string NetworkId
+        {
+            get
+            {
+                return _NetworkId;
+            }
+            set
+            {
+                if (_NetworkId != value)
+                {
+                    _NetworkId = value;
+                    this.RaiseChanged("NetworkId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets TSBNameEN.
+        /// </summary>
         [MaxLength(100)]
-        public string TSBNameEN { get; set; }
-
+        [PeropertyMapName("TSBNameEN")]
+        public string TSBNameEN
+        {
+            get
+            {
+                return _TSBNameEN;
+            }
+            set
+            {
+                if (_TSBNameEN != value)
+                {
+                    _TSBNameEN = value;
+                    this.RaiseChanged("TSBNameEN");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets TSBNameTH.
+        /// </summary>
         [MaxLength(100)]
-        public string TSBNameTH { get; set; }
+        [PeropertyMapName("TSBNameTH")]
+        public string TSBNameTH
+        {
+            get
+            {
+                return _TSBNameTH;
+            }
+            set
+            {
+                if (_TSBNameTH != value)
+                {
+                    _TSBNameTH = value;
+                    this.RaiseChanged("TSBNameTH");
+                }
+            }
+        }
 
         [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Plaza> Plazas { get; set; }
@@ -240,6 +295,16 @@ namespace DMT.Models.Domains
     //[Table("Plaza")]
     public class Plaza : DMTModelBase
     {
+        #region Intenral Variables
+
+        private string _PlazaId = string.Empty;
+        private string _TSBId = string.Empty;
+        private string _PlazaNameEN = string.Empty;
+        private string _PlazaNameTH = string.Empty;
+        private string _Direction = string.Empty;
+
+        #endregion
+
         #region Constructor
 
         /// <summary>
@@ -250,24 +315,113 @@ namespace DMT.Models.Domains
         #endregion
 
         #region Public Proprties
-
+        /// <summary>
+        /// Gets or sets PlazaId
+        /// </summary>
         [PrimaryKey, MaxLength(10)]
-        public string PlazaId { get; set; }
-
+        [PeropertyMapName("PlazaId")]
+        public string PlazaId
+        {
+            get
+            {
+                return _PlazaId;
+            }
+            set
+            {
+                if (_PlazaId != value)
+                {
+                    _PlazaId = value;
+                    this.RaiseChanged("PlazaId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets TSBId
+        /// </summary>
         [ForeignKey(typeof(TSB)), MaxLength(10)]
-        public string TSBId { get; set; }
+        [PeropertyMapName("TSBId")]
+        public string TSBId
+        {
+            get
+            {
+                return _TSBId;
+            }
+            set
+            {
+                if (_TSBId != value)
+                {
+                    _TSBId = value;
+                    this.RaiseChanged("TSBId");
+                }
+            }
+        }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
         [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead, ReadOnly=true)] 
         public TSB TSB { get; set; }
 
+        /// <summary>
+        /// Gets or sets PlazaNameEN
+        /// </summary>
         [MaxLength(100)]
-        public string PlazaNameEN { get; set; }
-        [MaxLength(100)]
-        public string PlazaNameTH { get; set; }
+        [PeropertyMapName("PlazaNameEN")]
+        public string PlazaNameEN
+        {
+            get
+            {
+                return _PlazaNameEN;
+            }
+            set
+            {
+                if (_PlazaNameEN != value)
+                {
+                    _PlazaNameEN = value;
+                    this.RaiseChanged("PlazaNameEN");
+                }
+            }
+        }
 
+        /// <summary>
+        /// Gets or sets PlazaNameTH
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("PlazaNameTH")]
+        public string PlazaNameTH
+        {
+            get
+            {
+                return _PlazaNameTH;
+            }
+            set
+            {
+                if (_PlazaNameTH != value)
+                {
+                    _PlazaNameTH = value;
+                    this.RaiseChanged("PlazaNameTH");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets Direction
+        /// </summary>
         [MaxLength(10)]
-        public string Direction { get; set; }
+        [PeropertyMapName("Direction")]
+        public string Direction
+        {
+            get
+            {
+                return _Direction;
+            }
+            set
+            {
+                if (_Direction != value)
+                {
+                    _Direction = value;
+                    this.RaiseChanged("Direction");
+                }
+            }
+        }
 
         [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Lane> Lanes { get; set; }
@@ -437,6 +591,16 @@ namespace DMT.Models.Domains
     //[Table("Lane")]
     public class Lane : DMTModelBase
     {
+        #region Intenral Variables
+
+        private int _LanePkId = 0;
+        private int _LaneId = 0;
+        private string _LaneType = string.Empty;
+        private string _LaneAbbr = string.Empty;
+        private string _PlazaId = string.Empty;
+
+        #endregion
+
         #region Constructor
 
         /// <summary>
@@ -447,21 +611,106 @@ namespace DMT.Models.Domains
         #endregion
 
         #region Public Proprties
-
+        /// <summary>
+        /// Gets or sets LanePkId
+        /// </summary>
         [PrimaryKey, AutoIncrement]
-        public int LanePkId { get; set; }
-
+        [PeropertyMapName("LanePkId")]
+        public int LanePkId
+        {
+            get
+            {
+                return _LanePkId;
+            }
+            set
+            {
+                if (_LanePkId != value)
+                {
+                    _LanePkId = value;
+                    this.RaiseChanged("LanePkId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets LaneId
+        /// </summary>
         [MaxLength(10)]
-        public int LaneId { get; set; }
-
+        [PeropertyMapName("LaneId")]
+        public int LaneId
+        {
+            get
+            {
+                return _LaneId;
+            }
+            set
+            {
+                if (_LaneId != value)
+                {
+                    _LaneId = value;
+                    this.RaiseChanged("LaneId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets LaneType
+        /// </summary>
         [MaxLength(10)]
-        public string LaneType { get; set; }
-
+        [PeropertyMapName("LaneType")]
+        public string LaneType
+        {
+            get
+            {
+                return _LaneType;
+            }
+            set
+            {
+                if (_LaneType != value)
+                {
+                    _LaneType = value;
+                    this.RaiseChanged("LaneType");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets LaneAbbr
+        /// </summary>
         [MaxLength(10)]
-        public string LaneAbbr { get; set; }
-
+        [PeropertyMapName("LaneAbbr")]
+        public string LaneAbbr
+        {
+            get
+            {
+                return _LaneAbbr;
+            }
+            set
+            {
+                if (_LaneAbbr != value)
+                {
+                    _LaneAbbr = value;
+                    this.RaiseChanged("LaneAbbr");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets PlazaId
+        /// </summary>
         [ForeignKey(typeof(TSB)), MaxLength(10)]
-        public string PlazaId { get; set; }
+        [PeropertyMapName("PlazaId")]
+        public string PlazaId
+        {
+            get
+            {
+                return _PlazaId;
+            }
+            set
+            {
+                if (_PlazaId != value)
+                {
+                    _PlazaId = value;
+                    this.RaiseChanged("PlazaId");
+                }
+            }
+        }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
         [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead, ReadOnly = true)]
@@ -625,6 +874,13 @@ namespace DMT.Models.Domains
     //[Table("Role")]
     public class Role : DMTModelBase
     {
+        #region Intenral Variables
+
+        private string _RoleId = string.Empty;
+        private string _RoleName = string.Empty;
+
+        #endregion
+
         #region Constructor
 
         /// <summary>
@@ -635,12 +891,47 @@ namespace DMT.Models.Domains
         #endregion
 
         #region Public Proprties
-
+        /// <summary>
+        /// Gets or sets RoleId
+        /// </summary>
         [PrimaryKey, MaxLength(20)]
-        public string RoleId { get; set; }
-
+        [PeropertyMapName("RoleId")]
+        public string RoleId
+        {
+            get
+            {
+                return _RoleId;
+            }
+            set
+            {
+                if (_RoleId != value)
+                {
+                    _RoleId = value;
+                    this.RaiseChanged("RoleId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets RoleName
+        /// </summary>
         [MaxLength(50)]
-        public string RoleName { get; set; }
+        [PeropertyMapName("RoleName")]
+
+        public string RoleName
+        {
+            get
+            {
+                return _RoleName;
+            }
+            set
+            {
+                if (_RoleName != value)
+                {
+                    _RoleName = value;
+                    this.RaiseChanged("RoleName");
+                }
+            }
+        }
 
         [OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<User> Users { get; set; }
@@ -810,6 +1101,18 @@ namespace DMT.Models.Domains
     //[Table("User")]
     public class User : DMTModelBase
     {
+        #region Intenral Variables
+
+        private string _UserId = string.Empty;
+        private string _FullNameEN = string.Empty;
+        private string _FullNameTH = string.Empty;
+        private string _UserName = string.Empty;
+        private string _Password = string.Empty;
+        private string _CardId = string.Empty;
+        private string _RoleId = string.Empty;
+
+        #endregion
+
         #region Constructor
 
         /// <summary>
@@ -820,27 +1123,153 @@ namespace DMT.Models.Domains
         #endregion
 
         #region Public Proprties
-
+        /// <summary>
+        /// Gets or sets UserId
+        /// </summary>
         [PrimaryKey, MaxLength(10)]
-        public string UserId { get; set; }
+        [PeropertyMapName("UserId")]
+        public string UserId
+        {
+            get
+            {
+                return _UserId;
+            }
+            set
+            {
+                if (_UserId != value)
+                {
+                    _UserId = value;
+                    this.RaiseChanged("UserId");
+                }
+            }
+        }
 
+        /// <summary>
+        /// Gets or sets FullNameEN
+        /// </summary>
         [MaxLength(100)]
-        public string FullNameEN { get; set; }
+        [PeropertyMapName("FullNameEN")]
+        public string FullNameEN
+        {
+            get
+            {
+                return _FullNameEN;
+            }
+            set
+            {
+                if (_FullNameEN != value)
+                {
+                    _FullNameEN = value;
+                    this.RaiseChanged("FullNameEN");
+                }
+            }
+        }
 
+        /// <summary>
+        /// Gets or sets FullNameTH
+        /// </summary>
         [MaxLength(100)]
-        public string FullNameTH { get; set; }
+        [PeropertyMapName("FullNameTH")]
+        public string FullNameTH
+        {
+            get
+            {
+                return _FullNameTH;
+            }
+            set
+            {
+                if (_FullNameTH != value)
+                {
+                    _FullNameTH = value;
+                    this.RaiseChanged("FullNameTH");
+                }
+            }
+        }
 
+
+        /// <summary>
+        /// Gets or sets UserName
+        /// </summary>
         [MaxLength(20)]
-        public string UserName { get; set; }
+        [PeropertyMapName("UserName")]
+        public string UserName
+        {
+            get
+            {
+                return _UserName;
+            }
+            set
+            {
+                if (_UserName != value)
+                {
+                    _UserName = value;
+                    this.RaiseChanged("UserName");
+                }
+            }
+        }
 
+        /// <summary>
+        /// Gets or sets Password
+        /// </summary>
         [MaxLength(20)]
-        public string Password { get; set; }
+        [PeropertyMapName("Password")]
+        public string Password
+        {
+            get
+            {
+                return _Password;
+            }
+            set
+            {
+                if (_Password != value)
+                {
+                    _Password = value;
+                    this.RaiseChanged("Password");
+                }
+            }
+        }
 
+        /// <summary>
+        /// Gets or sets CardId
+        /// </summary>
         [MaxLength(10)]
-        public string CardId { get; set; }
+        [PeropertyMapName("CardId")]
+        public string CardId
+        {
+            get
+            {
+                return _CardId;
+            }
+            set
+            {
+                if (_CardId != value)
+                {
+                    _CardId = value;
+                    this.RaiseChanged("CardId");
+                }
+            }
+        }
 
+        /// <summary>
+        /// Gets or sets RoleId
+        /// </summary>
         [ForeignKey(typeof(Role)), MaxLength(10)]
-        public string RoleId { get; set; }
+        [PeropertyMapName("RoleId")]
+        public string RoleId
+        {
+            get
+            {
+                return _RoleId;
+            }
+            set
+            {
+                if (_RoleId != value)
+                {
+                    _RoleId = value;
+                    this.RaiseChanged("RoleId");
+                }
+            }
+        }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
         [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead, ReadOnly = true)]
@@ -1092,6 +1521,13 @@ namespace DMT.Models.Domains
     [Table("Config")]
     public class Config : DMTModelBase
     {
+        #region Intenral Variables
+
+        private string _Key = string.Empty;
+        private string _Value = string.Empty;
+
+        #endregion
+
         #region Constructor
 
         /// <summary>
@@ -1102,12 +1538,47 @@ namespace DMT.Models.Domains
         #endregion
 
         #region Public Properties
-
+        /// <summary>
+        /// Gets or sets Key
+        /// </summary>
         [PrimaryKey, MaxLength(20)]
-        public string Key { get; set; }
+        [PeropertyMapName("Key")]
+        public string Key
+        {
+            get
+            {
+                return _Key;
+            }
+            set
+            {
+                if (_Key != value)
+                {
+                    _Key = value;
+                    this.RaiseChanged("Key");
+                }
+            }
+        }
 
+        /// <summary>
+        /// Gets or sets Value
+        /// </summary>
         [MaxLength(100)]
-        public string Value { get; set; }
+        [PeropertyMapName("Value")]
+        public string Value
+        {
+            get
+            {
+                return _Value;
+            }
+            set
+            {
+                if (_Value != value)
+                {
+                    _Value = value;
+                    this.RaiseChanged("Value");
+                }
+            }
+        }
 
         #endregion
 
@@ -1266,6 +1737,9 @@ namespace DMT.Models.Domains
     {
         #region Intenral Variables
 
+        private int _SupervisorShiftId = 0;
+        private string _PlazaId = string.Empty;
+        private string _SupervisorId = string.Empty;
         private DateTime _Begin = DateTime.MinValue;
         private DateTime _End = DateTime.MinValue;
 
@@ -1281,15 +1755,68 @@ namespace DMT.Models.Domains
         #endregion
 
         #region Public Properties
-
+        /// <summary>
+        /// Gets or sets SupervisorShiftId
+        /// </summary>
         [PrimaryKey, AutoIncrement]
-        public int SupervisorShiftId { get; set; }
+        [PeropertyMapName("SupervisorShiftId")]
+        public int SupervisorShiftId
+        {
+            get
+            {
+                return _SupervisorShiftId;
+            }
+            set
+            {
+                if (_SupervisorShiftId != value)
+                {
+                    _SupervisorShiftId = value;
+                    this.RaiseChanged("SupervisorShiftId");
+                }
+            }
+        }
 
+        /// <summary>
+        /// Gets or sets PlazaId
+        /// </summary>
         [MaxLength(10)]
-        public string PlazaId { get; set; }
+        [PeropertyMapName("PlazaId")]
+        public string PlazaId
+        {
+            get
+            {
+                return _PlazaId;
+            }
+            set
+            {
+                if (_PlazaId != value)
+                {
+                    _PlazaId = value;
+                    this.RaiseChanged("PlazaId");
+                }
+            }
+        }
 
+        /// <summary>
+        /// Gets or sets SupervisorId
+        /// </summary>
         [ForeignKey(typeof(User), Name = "UserId"), MaxLength(10)]
-        public string SupervisorId { get; set; }
+        [PeropertyMapName("SupervisorId")]
+        public string SupervisorId
+        {
+            get
+            {
+                return _SupervisorId;
+            }
+            set
+            {
+                if (_SupervisorId != value)
+                {
+                    _SupervisorId = value;
+                    this.RaiseChanged("SupervisorId");
+                }
+            }
+        }
 
         [TypeConverter(typeof(ExpandableObjectConverter))]
         [OneToOne(foreignKey: "SupervisorId", CascadeOperations = CascadeOperation.All)]        
@@ -1406,6 +1933,9 @@ namespace DMT.Models.Domains
     {
         #region Intenral Variables
 
+        private int _CollectorShiftId = 0;
+        private string _PlazaId = string.Empty;
+        private string _CollectorId = string.Empty;
         private DateTime _Begin = DateTime.MinValue;
         private DateTime _End = DateTime.MinValue;
 
@@ -1421,16 +1951,68 @@ namespace DMT.Models.Domains
         #endregion
 
         #region Public Properties
-
+        /// <summary>
+        /// Gets or sets CollectorShiftId
+        /// </summary>
         [PrimaryKey, AutoIncrement]
-        public int CollectorShiftId { get; set; }
-        
-        [MaxLength(10)]
-        public string PlazaId { get; set; }
-        
-        [ForeignKey(typeof(User), Name = "UserId"), MaxLength(10)]
-        public string CollectorId { get; set; }
+        [PeropertyMapName("CollectorShiftId")]
+        public int CollectorShiftId
+        {
+            get
+            {
+                return _CollectorShiftId;
+            }
+            set
+            {
+                if (_CollectorShiftId != value)
+                {
+                    _CollectorShiftId = value;
+                    this.RaiseChanged("CollectorShiftId");
+                }
+            }
+        }
 
+        /// <summary>
+        /// Gets or sets PlazaId
+        /// </summary>
+        [MaxLength(10)]
+        [PeropertyMapName("PlazaId")]
+        public string PlazaId
+        {
+            get
+            {
+                return _PlazaId;
+            }
+            set
+            {
+                if (_PlazaId != value)
+                {
+                    _PlazaId = value;
+                    this.RaiseChanged("PlazaId");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets CollectorId
+        /// </summary>
+        [ForeignKey(typeof(User), Name = "UserId"), MaxLength(10)]
+        [PeropertyMapName("CollectorId")]
+        public string CollectorId
+        {
+            get
+            {
+                return _CollectorId;
+            }
+            set
+            {
+                if (_CollectorId != value)
+                {
+                    _CollectorId = value;
+                    this.RaiseChanged("CollectorId");
+                }
+            }
+        }
         [TypeConverter(typeof(ExpandableObjectConverter))]
         [OneToOne(foreignKey: "CollectorId", CascadeOperations = CascadeOperation.All)]
         public User User { get; set; }
@@ -1541,8 +2123,19 @@ namespace DMT.Models.Domains
     /// <summary>
     /// The CollectorLane Data Model Class.
     /// </summary>
-    public class CollectorLane
+    public class CollectorLane : DMTModelBase
     {
+        #region Intenral Variables
+
+        private int _CollectorLaneId = 0;
+        private string _PlazaId = string.Empty;
+        private string _CollectorId = string.Empty;
+        private int _LaneId = 0;
+        private DateTime _Begin = DateTime.MinValue;
+        private DateTime _End = DateTime.MinValue;
+
+        #endregion
+
         #region Constructor
 
         /// <summary>
@@ -1553,22 +2146,123 @@ namespace DMT.Models.Domains
         #endregion
 
         #region Public Properties
-
+        /// <summary>
+        /// Gets or sets CollectorShiftId
+        /// </summary>
         [PrimaryKey, AutoIncrement]
-        public int CollectorLaneId { get; set; }
+        [PeropertyMapName("CollectorLaneId")]
+        public int CollectorShiftId
+        {
+            get
+            {
+                return _CollectorLaneId;
+            }
+            set
+            {
+                if (_CollectorLaneId != value)
+                {
+                    _CollectorLaneId = value;
+                    this.RaiseChanged("CollectorLaneId");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets PlazaId
+        /// </summary>
         [MaxLength(10)]
-        public string PlazaId { get; set; }
-        
+        [PeropertyMapName("PlazaId")]
+        public string PlazaId
+        {
+            get
+            {
+                return _PlazaId;
+            }
+            set
+            {
+                if (_PlazaId != value)
+                {
+                    _PlazaId = value;
+                    this.RaiseChanged("PlazaId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets CollectorId
+        /// </summary>
         [ForeignKey(typeof(User), Name = "UserId"), MaxLength(10)]
-        public string CollectorId { get; set; }
+        [PeropertyMapName("CollectorId")]
+        public string CollectorId
+        {
+            get
+            {
+                return _CollectorId;
+            }
+            set
+            {
+                if (_CollectorId != value)
+                {
+                    _CollectorId = value;
+                    this.RaiseChanged("CollectorId");
+                }
+            }
+        }
+
         [TypeConverter(typeof(ExpandableObjectConverter))]
         [OneToOne(foreignKey: "CollectorId", CascadeOperations = CascadeOperation.All)]
         public User User { get; set; }
 
-        public int LaneId { get; set; }
+        [PeropertyMapName("LaneId")]
+        public int LaneId
+        {
+            get
+            {
+                return _LaneId;
+            }
+            set
+            {
+                if (_LaneId != value)
+                {
+                    _LaneId = value;
+                    this.RaiseChanged("LaneId");
+                }
+            }
+        }
 
-        public DateTime Begin { get; set; }
-        public DateTime End { get; set; }
+        /// <summary>
+        /// Gets or sets Begin Date.
+        /// </summary>
+        [PeropertyMapName("Begin")]
+        public DateTime Begin
+        {
+            get { return _Begin; }
+            set
+            {
+                if (_Begin != value)
+                {
+                    _Begin = value;
+                    // Raise event.
+                    RaiseChanged("Begin");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets End Date.
+        /// </summary>
+        [PeropertyMapName("End")]
+        public DateTime End
+        {
+            get { return _End; }
+            set
+            {
+                if (_End != value)
+                {
+                    _End = value;
+                    // Raise event.
+                    RaiseChanged("End");
+                }
+            }
+        }
 
         #endregion
 

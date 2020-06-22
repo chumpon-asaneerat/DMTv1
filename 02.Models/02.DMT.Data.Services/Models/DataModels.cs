@@ -582,6 +582,239 @@ namespace DMT.Models.Domains
 
     #endregion
 
+    #region Shift
+
+    /// <summary>
+    /// The Shift Data Model class.
+    /// </summary>
+    //[Table("Shift")]
+    public class Shift : DMTModelBase
+    {
+        #region Intenral Variables
+
+        private int _ShiftId = 0;
+        private string _NameTH = string.Empty;
+        private string _NameEN = string.Empty;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public Shift() : base() { }
+
+        #endregion
+
+        #region Public Proprties
+
+        /// <summary>
+        /// Gets or sets ShiftId.
+        /// </summary>
+        [PrimaryKey]
+        [PeropertyMapName("ShiftId")]
+        public int ShiftId
+        {
+            get
+            {
+                return _ShiftId;
+            }
+            set
+            {
+                if (_ShiftId != value)
+                {
+                    _ShiftId = value;
+                    this.RaiseChanged("ShiftId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets Name TH.
+        /// </summary>
+        [MaxLength(10)]
+        [PeropertyMapName("NameTH")]
+        public string NameTH
+        {
+            get
+            {
+                return _NameTH;
+            }
+            set
+            {
+                if (_NameTH != value)
+                {
+                    _NameTH = value;
+                    this.RaiseChanged("NameTH");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets Name EN.
+        /// </summary>
+        [MaxLength(10)]
+        [PeropertyMapName("NameEN")]
+        public string NameEN
+        {
+            get
+            {
+                return _NameEN;
+            }
+            set
+            {
+                if (_NameEN != value)
+                {
+                    _NameEN = value;
+                    this.RaiseChanged("NameEN");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Static Methods
+
+        private static object sync = new object();
+
+        /// <summary>
+        /// Create new instance.
+        /// </summary>
+        /// <returns>Returns new instance</returns>
+        public static Shift Create()
+        {
+            return new Shift() { };
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        internal static bool Exists(SQLiteConnection db, Shift value)
+        {
+            lock (sync)
+            {
+                if (null == db || null == value) return false;
+                var item = (from p in db.Table<Shift>()
+                            where p.ShiftId == value.ShiftId
+                            select p).FirstOrDefault();
+                return (null != item);
+            }
+
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to save to database.</param>
+        internal static void Save(SQLiteConnection db, Shift value)
+        {
+            lock (sync)
+            {
+                if (null == db || null == value) return;
+                if (!Exists(db, value))
+                {
+                    db.Insert(value);
+                }
+                else db.Update(value);
+                // udpate
+                db.Update(value);
+            }
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns List of all records</returns>
+        internal static List<Shift> Gets(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return new List<Shift>();
+                return db.Table<Shift>().ToList();
+            }
+        }
+        /// <summary>
+        /// Gets by Id
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="shiftId">The TSBId.</param>
+        /// <returns>Returns found record.</returns>
+        internal static Shift Get(SQLiteConnection db, int shiftId)
+        {
+            lock (sync)
+            {
+                if (null == db) return null;
+                return db.GetAllWithChildren<Shift>(
+                    p => p.ShiftId == shiftId).FirstOrDefault();
+            }
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        internal static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<Shift>();
+            }
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(Shift value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Exists(db, value);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(Shift value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            Save(db, value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <returns>Returns List of all records</returns>
+        public static List<Shift> Gets()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Gets(db);
+        }
+        /// <summary>
+        /// Gets by Id
+        /// </summary>
+        /// <param name="shiftId">The shiftId.</param>
+        /// <returns>Returns found record.</returns>
+        public static Shift Get(int shiftId)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Get(db, shiftId);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return DeleteAll(db);
+        }
+
+        #endregion
+    }
+
+    #endregion
+
     #region Lane
 
     /// <summary>
@@ -1902,6 +2135,275 @@ namespace DMT.Models.Domains
         /// <param name="recursive">True for load related nested children.</param>
         /// <returns>Returns List of all records</returns>
         public static List<SupervisorShift> Gets(bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Gets(db, recursive);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return DeleteAll(db);
+        }
+
+        #endregion
+    }
+
+    #endregion
+
+    #region CollectorJob
+
+    /// <summary>
+    /// The CollectorJob Data Model Class.
+    /// </summary>
+    //[Table("CollectorJob")]
+    public class CollectorJob : DMTModelBase
+    {
+        #region Intenral Variables
+
+        private int _JobId = 0;
+        private int _ShiftId = 0;
+        private string _PlazaId = string.Empty;
+        private string _CollectorId = string.Empty;
+        private DateTime _Begin = DateTime.MinValue;
+        private DateTime _End = DateTime.MinValue;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public CollectorJob() : base() { }
+
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets CollectorShiftId
+        /// </summary>
+        [PrimaryKey, AutoIncrement]
+        [PeropertyMapName("JobId")]
+        public int JobId
+        {
+            get
+            {
+                return _JobId;
+            }
+            set
+            {
+                if (_JobId != value)
+                {
+                    _JobId = value;
+                    this.RaiseChanged("JobId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets ShiftId
+        /// </summary>
+        [PeropertyMapName("ShiftId")]
+        public int ShiftId
+        {
+            get
+            {
+                return _ShiftId;
+            }
+            set
+            {
+                if (_ShiftId != value)
+                {
+                    _ShiftId = value;
+                    this.RaiseChanged("ShiftId");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets PlazaId
+        /// </summary>
+        [MaxLength(10)]
+        [PeropertyMapName("PlazaId")]
+        public string PlazaId
+        {
+            get
+            {
+                return _PlazaId;
+            }
+            set
+            {
+                if (_PlazaId != value)
+                {
+                    _PlazaId = value;
+                    this.RaiseChanged("PlazaId");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets CollectorId
+        /// </summary>
+        [ForeignKey(typeof(User), Name = "UserId"), MaxLength(10)]
+        [PeropertyMapName("CollectorId")]
+        public string CollectorId
+        {
+            get
+            {
+                return _CollectorId;
+            }
+            set
+            {
+                if (_CollectorId != value)
+                {
+                    _CollectorId = value;
+                    this.RaiseChanged("CollectorId");
+                }
+            }
+        }
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [OneToOne(foreignKey: "CollectorId", CascadeOperations = CascadeOperation.All)]
+        public User User { get; set; }
+
+        /// <summary>
+        /// Gets or sets Begin Date.
+        /// </summary>
+        [PeropertyMapName("Begin")]
+        public DateTime Begin
+        {
+            get { return _Begin; }
+            set
+            {
+                if (_Begin != value)
+                {
+                    _Begin = value;
+                    // Raise event.
+                    RaiseChanged("Begin");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets End Date.
+        /// </summary>
+        [PeropertyMapName("End")]
+        public DateTime End
+        {
+            get { return _End; }
+            set
+            {
+                if (_End != value)
+                {
+                    _End = value;
+                    // Raise event.
+                    RaiseChanged("End");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Static Methods
+
+        private static object sync = new object();
+
+        /// <summary>
+        /// Create new instance.
+        /// </summary>
+        /// <returns>Returns new instance</returns>
+        public static CollectorJob Create()
+        {
+            return new CollectorJob() { };
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        internal static bool Exists(SQLiteConnection db, CollectorJob value)
+        {
+            lock (sync)
+            {
+                if (null == db || null == value) return false;
+                var item = (from p in db.Table<CollectorJob>()
+                            where p.JobId == value.JobId
+                            select p).FirstOrDefault();
+                return (null != item);
+            }
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to save to database.</param>
+        internal static void Save(SQLiteConnection db, CollectorJob value)
+        {
+            lock (sync)
+            {
+                if (null == db || null == value) return;
+                if (!Exists(db, value))
+                {
+                    db.Insert(value);
+                }
+                else db.Update(value);
+            }
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        internal static List<CollectorJob> Gets(SQLiteConnection db, bool recursive = false)
+        {
+            lock (sync)
+            {
+                if (null == db) return new List<CollectorJob>();
+                return db.GetAllWithChildren<CollectorJob>(recursive: recursive);
+            }
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        internal static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<CollectorJob>();
+            }
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(CollectorJob value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Exists(db, value);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(CollectorJob value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            Save(db, value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<CollectorJob> Gets(bool recursive = false)
         {
             SQLiteConnection db = LocalDbServer.Instance.Db;
             return Gets(db, recursive);

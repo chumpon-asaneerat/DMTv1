@@ -8,13 +8,11 @@ using NLib.Reflection;
 
 namespace DMT.Models.Objects
 {
-
     #region TSB
 
     /// <summary>
-    /// The TSB Data Model class.
+    /// The TSB Object Model class.
     /// </summary>
-    //[Table("TSB")]
     public class TSB : DMTModelBase
     {
         #region Intenral Variables
@@ -124,9 +122,8 @@ namespace DMT.Models.Objects
     #region Plaza
 
     /// <summary>
-    /// The Plaza Data Model class.
+    /// The Plaza Object Model class.
     /// </summary>
-    //[Table("Plaza")]
     public class Plaza : DMTModelBase
     {
         #region Intenral Variables
@@ -255,12 +252,100 @@ namespace DMT.Models.Objects
 
     #endregion
 
+    #region Shift
+
+    /// <summary>
+    /// The Shift Object Model class.
+    /// </summary>
+    public class Shift : DMTModelBase
+    {
+        #region Intenral Variables
+
+        private int _ShiftId = 0;
+        private string _NameTH = string.Empty;
+        private string _NameEN = string.Empty;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public Shift() : base() { }
+
+        #endregion
+
+        #region Public Proprties
+
+        /// <summary>
+        /// Gets or sets ShiftId.
+        /// </summary>
+        [PeropertyMapName("ShiftId")]
+        public int ShiftId
+        {
+            get
+            {
+                return _ShiftId;
+            }
+            set
+            {
+                if (_ShiftId != value)
+                {
+                    _ShiftId = value;
+                    this.RaiseChanged("ShiftId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets Name TH.
+        /// </summary>
+        [PeropertyMapName("NameTH")]
+        public string NameTH
+        {
+            get
+            {
+                return _NameTH;
+            }
+            set
+            {
+                if (_NameTH != value)
+                {
+                    _NameTH = value;
+                    this.RaiseChanged("NameTH");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets Name EN.
+        /// </summary>
+        [PeropertyMapName("NameEN")]
+        public string NameEN
+        {
+            get
+            {
+                return _NameEN;
+            }
+            set
+            {
+                if (_NameEN != value)
+                {
+                    _NameEN = value;
+                    this.RaiseChanged("NameEN");
+                }
+            }
+        }
+
+        #endregion
+    }
+
+    #endregion
+
     #region Lane
 
     /// <summary>
-    /// The Lane Data Model class.
+    /// The Lane Object Model class.
     /// </summary>
-    //[Table("Lane")]
     public class Lane : DMTModelBase
     {
         #region Intenral Variables
@@ -389,9 +474,8 @@ namespace DMT.Models.Objects
     #region Role
 
     /// <summary>
-    /// The Role Data Model Class.
+    /// The Role Object Model Class.
     /// </summary>
-    //[Table("Role")]
     public class Role : DMTModelBase
     {
         #region Intenral Variables
@@ -460,9 +544,8 @@ namespace DMT.Models.Objects
     #region User
 
     /// <summary>
-    /// The User Data Model Class.
+    /// The User Object Model Class.
     /// </summary>
-    //[Table("User")]
     public class User : DMTModelBase
     {
         #region Intenral Variables
@@ -639,7 +722,7 @@ namespace DMT.Models.Objects
     #region Config
 
     /// <summary>
-    /// The Config Data Model Class.
+    /// The Config Object Model Class.
     /// </summary>
     public class Config : DMTModelBase
     {
@@ -793,6 +876,153 @@ namespace DMT.Models.Objects
                 {
                     _SupervisorId = value;
                     this.RaiseChanged("SupervisorId");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets Begin Date.
+        /// </summary>
+        [PeropertyMapName("Begin")]
+        public DateTime Begin
+        {
+            get { return _Begin; }
+            set
+            {
+                if (_Begin != value)
+                {
+                    _Begin = value;
+                    // Raise event.
+                    RaiseChanged("Begin");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets End Date.
+        /// </summary>
+        [PeropertyMapName("End")]
+        public DateTime End
+        {
+            get { return _End; }
+            set
+            {
+                if (_End != value)
+                {
+                    _End = value;
+                    // Raise event.
+                    RaiseChanged("End");
+                }
+            }
+        }
+
+        #endregion
+    }
+
+    #endregion
+
+    #region CollectorJob
+
+    /// <summary>
+    /// The CollectorJob Data Model Class.
+    /// </summary>
+    public class CollectorJob : DMTModelBase
+    {
+        #region Intenral Variables
+
+        private int _JobId = 0;
+        private int _ShiftId = 0;
+        private string _PlazaId = string.Empty;
+        private string _CollectorId = string.Empty;
+        private DateTime _Begin = DateTime.MinValue;
+        private DateTime _End = DateTime.MinValue;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public CollectorJob() : base() { }
+
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets CollectorShiftId
+        /// </summary>
+        [PeropertyMapName("JobId")]
+        public int JobId
+        {
+            get
+            {
+                return _JobId;
+            }
+            set
+            {
+                if (_JobId != value)
+                {
+                    _JobId = value;
+                    this.RaiseChanged("JobId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets ShiftId
+        /// </summary>
+        public int ShiftId
+        {
+            get
+            {
+                return _ShiftId;
+            }
+            set
+            {
+                if (_ShiftId != value)
+                {
+                    _ShiftId = value;
+                    this.RaiseChanged("ShiftId");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets PlazaId
+        /// </summary>
+        [PeropertyMapName("PlazaId")]
+        public string PlazaId
+        {
+            get
+            {
+                return _PlazaId;
+            }
+            set
+            {
+                if (_PlazaId != value)
+                {
+                    _PlazaId = value;
+                    this.RaiseChanged("PlazaId");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets CollectorId
+        /// </summary>
+        [PeropertyMapName("CollectorId")]
+        public string CollectorId
+        {
+            get
+            {
+                return _CollectorId;
+            }
+            set
+            {
+                if (_CollectorId != value)
+                {
+                    _CollectorId = value;
+                    this.RaiseChanged("CollectorId");
                 }
             }
         }

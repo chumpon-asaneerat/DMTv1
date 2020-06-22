@@ -110,12 +110,14 @@ namespace DMT.Services
             if (null == Db) return;
             Db.CreateTable<TSB>();
             Db.CreateTable<Plaza>();
+            Db.CreateTable<Shift>();
             Db.CreateTable<Lane>();
             Db.CreateTable<Role>();
             Db.CreateTable<User>();
             Db.CreateTable<Config>();
 
             Db.CreateTable<SupervisorShift>();
+            Db.CreateTable<CollectorJob>();
             Db.CreateTable<CollectorShift>();
             Db.CreateTable<CollectorLane>();
 

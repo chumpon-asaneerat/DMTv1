@@ -8,8 +8,10 @@ Update 2020-06-23 #6
 Update 2020-06-23 #5
 - 
 
+[commited]
 Update 2020-06-23 #4
-- 
+- Add RevenueEntry class in Object and Domain Models.
+- RevenueEntry Implements public properties (in Object and Domain Models).
 
 [commited]
 Update 2020-06-23 #3

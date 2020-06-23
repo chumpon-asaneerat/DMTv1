@@ -2988,7 +2988,7 @@ namespace DMT.Models.Domains
         /// <summary>
         /// Gets or sets ShiftId
         /// </summary>
-        [PrimaryKey, AutoIncrement]
+        [ForeignKey(typeof(Shift), Name = "ShiftId")]
         [PeropertyMapName("ShiftId")]
         public int ShiftId
         {
@@ -3005,6 +3005,10 @@ namespace DMT.Models.Domains
                 }
             }
         }
+
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [OneToOne(foreignKey: "ShiftId", CascadeOperations = CascadeOperation.All)]
+        public Shift Shift { get; set; }
 
         /// <summary>
         /// Gets or sets PlazaId

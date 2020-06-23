@@ -5,8 +5,9 @@ Update 2020-06-23 #12
 Update 2020-06-23 #11
 - 
 
+[commited]
 Update 2020-06-23 #10
-- 
+- Reload SL600SmartCardReaderSample project.
 
 [commited]
 Update 2020-06-23 #9

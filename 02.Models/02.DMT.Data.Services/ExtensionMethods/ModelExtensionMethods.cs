@@ -29,7 +29,7 @@ namespace DMT.Models
     #endregion
 
     #region Data Model to/from Report Model Extension Methods
-
+    /*
     /// <summary>
     /// The Data Model to/from Report Model Extension Methods.
     /// </summary>
@@ -47,6 +47,6 @@ namespace DMT.Models
             var result = item.ToReport();
         }
     }
-
+    */
     #endregion
 }

@@ -369,6 +369,9 @@ namespace DMT.Services
 
         public void Start()
         {
+            // Start database server.
+            LocalDbServer.Instance.Start();
+
             if (null == server)
             {
                 server = WebApp.Start<StartUp>(url: baseAddress);
@@ -381,6 +384,9 @@ namespace DMT.Services
                 server.Dispose();
             }
             server = null;
+
+            // Shutdown database server.
+            LocalDbServer.Instance.Shutdown();
         }
     }
 

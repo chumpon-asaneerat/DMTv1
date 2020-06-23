@@ -105,6 +105,23 @@ namespace DMT.Services
 
         #region Private Methods
 
+        /// <summary>
+        /// Gets local json folder path name.
+        /// </summary>
+        private static string LocalFolder
+        {
+            get
+            {
+                string localFilder = Folders.Combine(
+                    Folders.Assemblies.CurrentExecutingAssembly, "data");
+                if (!Folders.Exists(localFilder))
+                {
+                    Folders.Create(localFilder);
+                }
+                return localFilder;
+            }
+        }
+
         private void InitTables()
         {
             if (null == Db) return;
@@ -583,7 +600,7 @@ namespace DMT.Services
             {
                 lock (typeof(LocalDbServer))
                 {
-                    string path = Path.Combine("./", FileName);
+                    string path = Path.Combine(LocalFolder, FileName);
                     Db = new SQLiteConnection(path, 
                         SQLiteOpenFlags.Create |
                         SQLiteOpenFlags.SharedCache |

@@ -14,8 +14,6 @@ using NLib.Reflection;
 
 namespace DMT.Models.Domains
 {
-    #region Objects
-
     #region TSB
 
     /// <summary>
@@ -3673,33 +3671,4 @@ namespace DMT.Models.Domains
 
         #endregion
     }
-
-    #endregion
-
-    #region Reports
-
-    #region Revenue Slip class
-
-    /// <summary>
-    /// The RevenueSlip Data Model class.
-    /// </summary>
-    public class RevenueSlip
-    {
-        #region Constructor
-
-        /// <summary>
-        /// Constructor.
-        /// </summary>
-        public RevenueSlip() : base() { }
-
-        #endregion
-
-        #region Public Proprties
-
-        #endregion
-    }
-
-    #endregion
-
-    #endregion
 }

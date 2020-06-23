@@ -60,6 +60,11 @@ namespace DMT.Models
         {
             _lock = false;
         }
+        /// <summary>
+        /// Checks is notifiy enabled or disable.
+        /// </summary>
+        /// <returns>Returns true if enabled.</returns>
+        public bool Notified() { return _lock; }
 
         #endregion
 

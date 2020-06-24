@@ -11,9 +11,6 @@ using DMT.Services;
 using Newtonsoft.Json;
 using NLib;
 using NLib.Reflection;
-using System.Reflection;
-using System.Linq.Expressions;
-using System.Security.Principal;
 
 namespace DMT.Models.Domains
 {
@@ -4291,16 +4288,6 @@ namespace DMT.Models.Domains
 
 namespace DMT.Models.Domains
 {
-    /*
-    public static class TableQueryExtensionMethods
-    {
-        public static void Where(this TableQuery<T> table)
-        {
-
-        }
-    }
-    */
-
     #region NTable
 
     /// <summary>
@@ -4308,17 +4295,6 @@ namespace DMT.Models.Domains
     /// </summary>
     public abstract class NTable : DMTModelBase
     {
-        #region Abstract Methods
-
-        /// <summary>
-        /// Checks is Primary Key(s) equals.
-        /// </summary>
-        /// <param name="value">The target object to check equals by primary key(s).</param>
-        /// <returns>Returns if all Primary Key(s) equals.</returns>
-        public abstract bool IsPKEquals(object value);
-
-        #endregion
-
         #region Static Variables and Properties
 
         /// <summary>
@@ -4372,11 +4348,15 @@ namespace DMT.Models.Domains
             lock (sync)
             {
                 if (null == db || null == value) return false;
-                // no other way in TableQuery<T> so load all into list.
-                var items = db.Table<T>().ToList();
-                var item = (from p in items
-                            where p.IsPKEquals(value)
-                            select p).FirstOrDefault();
+                var map = db.GetMapping<T>(CreateFlags.None);
+
+                string tableName = map.TableName;
+                string columnName = map.PK.Name;
+                string propertyName = map.PK.PropertyName;
+                object id = PropertyAccess.GetValue(value, propertyName);
+                string cmd = string.Empty;
+                cmd += string.Format("SELECT * FROM {0} WHERE {1} = ?", tableName, columnName);
+                var item = db.Query<T>(cmd, id).FirstOrDefault();
                 return (null != item);
             }
         }
@@ -4501,23 +4481,6 @@ namespace DMT.Models.Domains
 
         #endregion
 
-        #region Override Methods
-
-        /// <summary>
-        /// Checks is Primary Key(s) equals.
-        /// </summary>
-        /// <param name="value">The target object to check equals by primary key(s).</param>
-        /// <returns>Returns if all Primary Key(s) equals.</returns>
-        public override bool IsPKEquals(object value)
-        {
-            if (null == value) return false;
-            var target = (value as TSB3);
-            if (null == target) return false;
-            return (target.TSBId == TSBId);
-        }
-
-        #endregion
-
         #region Public Proprties
 
         /// <summary>
@@ -4623,23 +4586,6 @@ namespace DMT.Models.Domains
         /// Constructor.
         /// </summary>
         public Plaza3() : base() { }
-
-        #endregion
-
-        #region Override Methods
-
-        /// <summary>
-        /// Checks is Primary Key(s) equals.
-        /// </summary>
-        /// <param name="value">The target object to check equals by primary key(s).</param>
-        /// <returns>Returns if all Primary Key(s) equals.</returns>
-        public override bool IsPKEquals(object value)
-        {
-            if (null == value) return false;
-            var target = (value as Plaza3);
-            if (null == target) return false;
-            return (target.PlazaId == PlazaId);
-        }
 
         #endregion
 

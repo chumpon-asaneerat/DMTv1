@@ -869,4 +869,366 @@ namespace DMT.Services
     }
 
     #endregion
+
+    #region LobalDbServer2 Implements
+
+    /// <summary>
+    /// Local Database Server.
+    /// </summary>
+    public class LocalDbServer2
+    {
+        #region Singelton
+
+        private static LocalDbServer2 _instance = null;
+        /// <summary>
+        /// Singelton Access.
+        /// </summary>
+        public static LocalDbServer2 Instance
+        {
+            get
+            {
+                if (null == _instance)
+                {
+                    lock (typeof(LocalDbServer2))
+                    {
+                        _instance = new LocalDbServer2();
+                    }
+                }
+                return _instance;
+            }
+        }
+
+        #endregion
+
+        #region Internal Variables
+
+        #endregion
+
+        #region Constructor and Destructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        private LocalDbServer2() : base()
+        {
+            this.FileName = "TODxTAv2.db";
+        }
+        /// <summary>
+        /// Destructor.
+        /// </summary>
+        ~LocalDbServer2()
+        {
+
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
+        /// Gets local json folder path name.
+        /// </summary>
+        private static string LocalFolder
+        {
+            get
+            {
+                string localFilder = Folders.Combine(
+                    Folders.Assemblies.CurrentExecutingAssembly, "data");
+                if (!Folders.Exists(localFilder))
+                {
+                    Folders.Create(localFilder);
+                }
+                return localFilder;
+            }
+        }
+
+        private void InitTables()
+        {
+            if (null == Db) return;
+            Db.CreateTable<TSB2>();
+            Db.CreateTable<Plaza2>();
+
+            InitDefaults();
+        }
+
+        private void InitDefaults()
+        {
+            InitTSBAndPlazas();
+        }
+
+        private void InitTSBAndPlazas()
+        {
+            if (null == Db) return;
+            TSB2 item;
+            Plaza2 plaza;
+            item = new TSB2();
+            item.NetworkId = "31";
+            item.TSBId = "311";
+            item.TSBNameEN = "DIN DAENG";
+            item.TSBNameTH = "ดินแดง";
+            if (!TSB2.Exists(this.Db, item)) TSB2.Save(this.Db, item);
+
+            plaza = new Plaza2() {
+                PlazaId = "3101",
+                PlazaNameEN = "DIN DAENG 1",
+                PlazaNameTH = "ดินแดง 1",
+                Direction = "IN",
+                TSBId = "311"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+            plaza = new Plaza2()
+            {
+                PlazaId = "3102",
+                PlazaNameEN = "DIN DAENG 2",
+                PlazaNameTH = "ดินแดง 2",
+                Direction = "OUT",
+                TSBId = "311"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+
+            item = new TSB2();
+            item.NetworkId = "31";
+            item.TSBId = "312";
+            item.TSBNameEN = "SUTHISARN";
+            item.TSBNameTH = "สุทธิสาร";
+            if (!TSB2.Exists(this.Db, item)) TSB2.Save(this.Db, item);
+
+            plaza = new Plaza2()
+            {
+                PlazaId = "3103",
+                PlazaNameEN = "SUTHISARN",
+                PlazaNameTH = "สุทธิสาร",
+                Direction = "",
+                TSBId = "312"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+
+            item = new TSB2();
+            item.NetworkId = "31";
+            item.TSBId = "313";
+            item.TSBNameEN = "LAD PRAO";
+            item.TSBNameTH = "ลาดพร้าว";
+            if (!TSB2.Exists(this.Db, item)) TSB2.Save(this.Db, item);
+
+            plaza = new Plaza2() 
+            {
+                PlazaId = "3104",
+                PlazaNameEN = "LAD PRAO INBOUND",
+                PlazaNameTH = "ลาดพร้าว ขาเข้า",
+                Direction = "IN",
+                TSBId = "313"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+            plaza = new Plaza2()
+            {
+                PlazaId = "3105",
+                PlazaNameEN = "LAD PRAO OUTBOUND",
+                PlazaNameTH = "ลาดพร้าว ขาออก",
+                Direction = "OUT",
+                TSBId = "313"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+
+            item = new TSB2();
+            item.NetworkId = "31";
+            item.TSBId = "314";
+            item.TSBNameEN = "RATCHADA PHISEK";
+            item.TSBNameTH = "รัชดาภิเษก";
+            if (!TSB2.Exists(this.Db, item)) TSB2.Save(this.Db, item);
+
+            plaza = new Plaza2()
+            {
+                PlazaId = "3106",
+                PlazaNameEN = "RATCHADA PHISEK 1",
+                PlazaNameTH = "รัชดาภิเษก 1",
+                Direction = "IN",
+                TSBId = "314"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+            plaza = new Plaza2()
+            {
+                PlazaId = "3107",
+                PlazaNameEN = "RATCHADA PHISEK 2",
+                PlazaNameTH = "รัชดาภิเษก 2",
+                Direction = "OUT",
+                TSBId = "314"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+
+            item = new TSB2();
+            item.NetworkId = "31";
+            item.TSBId = "315";
+            item.TSBNameEN = "BANGKHEN";
+            item.TSBNameTH = "บางเขน";
+            if (!TSB2.Exists(this.Db, item)) TSB2.Save(this.Db, item);
+
+            plaza = new Plaza2()
+            {
+                PlazaId = "3108",
+                PlazaNameEN = "BANGKHEN",
+                PlazaNameTH = "บางเขน",
+                Direction = "",
+                TSBId = "315"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+
+            item = new TSB2();
+            item.NetworkId = "31";
+            item.TSBId = "316";
+            item.TSBNameEN = "CHANGEWATTANA";
+            item.TSBNameTH = "แจ้งวัฒนะ";
+            if (!TSB2.Exists(this.Db, item)) TSB2.Save(this.Db, item);
+
+            plaza = new Plaza2()
+            {
+                PlazaId = "3109",
+                PlazaNameEN = "CHANGEWATTANA 1",
+                PlazaNameTH = "แจ้งวัฒนะ 1",
+                Direction = "IN",
+                TSBId = "316"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+            plaza = new Plaza2()
+            {
+                PlazaId = "3110",
+                PlazaNameEN = "CHANGEWATTANA 2",
+                PlazaNameTH = "แจ้งวัฒนะ 2",
+                Direction = "OUT",
+                TSBId = "316"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+
+            item = new TSB2();
+            item.NetworkId = "31";
+            item.TSBId = "317";
+            item.TSBNameEN = "LAKSI";
+            item.TSBNameTH = "หลักสี่";
+            if (!TSB2.Exists(this.Db, item)) TSB2.Save(this.Db, item);
+
+            plaza = new Plaza2()
+            {
+                PlazaId = "3111",
+                PlazaNameEN = "LAKSI INBOUND",
+                PlazaNameTH = "หลักสี่ ขาเข้า",
+                Direction = "IN",
+                TSBId = "317"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+            plaza = new Plaza2()
+            {
+                PlazaId = "3112",
+                PlazaNameEN = "LAKSI OUTBOUND",
+                PlazaNameTH = "หลักสี่ ขาออก",
+                Direction = "OUT",
+                TSBId = "317"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+
+            item = new TSB2();
+            item.NetworkId = "31";
+            item.TSBId = "318";
+            item.TSBNameEN = "DON MUANG";
+            item.TSBNameTH = "ดอนเมือง";
+            if (!TSB2.Exists(this.Db, item)) TSB2.Save(this.Db, item);
+
+            plaza = new Plaza2() 
+            {
+                PlazaId = "3113",
+                PlazaNameEN = "DON MUANG 1",
+                PlazaNameTH = "ดอนเมือง 1",
+                Direction = "IN",
+                TSBId = "318"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+            plaza = new Plaza2()
+            {
+                PlazaId = "3114",
+                PlazaNameEN = "DON MUANG 2",
+                PlazaNameTH = "ดอนเมือง 2",
+                Direction = "OUT",
+                TSBId = "318"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+
+            item = new TSB2();
+            item.NetworkId = "31";
+            item.TSBId = "319";
+            item.TSBNameEN = "ANUSORN SATHAN";
+            item.TSBNameTH = "อนุสรน์สถาน";
+            if (!TSB2.Exists(this.Db, item)) TSB2.Save(this.Db, item);
+
+            plaza = new Plaza2()
+            {
+                PlazaId = "3115",
+                PlazaNameEN = "ANUSORN SATHAN 1",
+                PlazaNameTH = "อนุสรน์สถาน 1",
+                Direction = "IN",
+                TSBId = "319"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+            plaza = new Plaza2()
+            {
+                PlazaId = "3116",
+                PlazaNameEN = "ANUSORN SATHAN 2",
+                PlazaNameTH = "อนุสรน์สถาน 2",
+                Direction = "OUT",
+                TSBId = "319"
+            };
+            if (!Plaza2.Exists(this.Db, plaza)) Plaza2.Save(this.Db, plaza);
+        }
+
+        #endregion
+
+        #region Public Methods (Start/Shutdown)
+
+        /// <summary>
+        /// Start.
+        /// </summary>
+        public void Start()
+        {
+            if (null == Db)
+            {
+                lock (typeof(LocalDbServer))
+                {
+                    string path = Path.Combine(LocalFolder, FileName);
+                    Db = new SQLiteConnection(path,
+                        SQLiteOpenFlags.Create |
+                        SQLiteOpenFlags.SharedCache |
+                        SQLiteOpenFlags.ReadWrite |
+                        SQLiteOpenFlags.FullMutex,
+                        storeDateTimeAsTicks: true);
+                    Db.BusyTimeout = new TimeSpan(0, 0, 5); // set busy timeout.
+                    InitTables();
+                }
+            }
+        }
+        /// <summary>
+        /// Shutdown.
+        /// </summary>
+        public void Shutdown()
+        {
+            if (null != Db)
+            {
+                Db.Dispose();
+            }
+            Db = null;
+        }
+
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets database file name.
+        /// </summary>
+        public string FileName { get; set; }
+        /// <summary>
+        /// Gets SQLite Connection.
+        /// </summary>
+        public SQLiteConnection Db { get; private set; }
+
+        #endregion
+    }
+
+    #endregion
 }

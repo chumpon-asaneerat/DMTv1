@@ -3676,3 +3676,566 @@ namespace DMT.Models.Domains
         #endregion
     }
 }
+
+namespace DMT.Models.Domains
+{
+    // for LocalServer2 only
+
+    #region TSB2
+
+    /// <summary>
+    /// The TSB2 Data Model class.
+    /// </summary>
+    //[Table("TSB2")]
+    public class TSB2 : DMTModelBase
+    {
+        #region Intenral Variables
+
+        private string _TSBId = string.Empty;
+        private string _NetworkId = string.Empty;
+        private string _TSBNameEN = string.Empty;
+        private string _TSBNameTH = string.Empty;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public TSB2() : base() { }
+
+        #endregion
+
+        #region Public Proprties
+
+        /// <summary>
+        /// Gets or sets TSBId.
+        /// </summary>
+        [PrimaryKey, MaxLength(10)]
+        [PeropertyMapName("TSBId")]
+        public string TSBId
+        {
+            get
+            {
+                return _TSBId;
+            }
+            set
+            {
+                if (_TSBId != value)
+                {
+                    _TSBId = value;
+                    this.RaiseChanged("TSBId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets NetworkId.
+        /// </summary>
+        [MaxLength(10)]
+        [PeropertyMapName("NetworkId")]
+        public string NetworkId
+        {
+            get
+            {
+                return _NetworkId;
+            }
+            set
+            {
+                if (_NetworkId != value)
+                {
+                    _NetworkId = value;
+                    this.RaiseChanged("NetworkId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets TSBNameEN.
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("TSBNameEN")]
+        public string TSBNameEN
+        {
+            get
+            {
+                return _TSBNameEN;
+            }
+            set
+            {
+                if (_TSBNameEN != value)
+                {
+                    _TSBNameEN = value;
+                    this.RaiseChanged("TSBNameEN");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets TSBNameTH.
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("TSBNameTH")]
+        public string TSBNameTH
+        {
+            get
+            {
+                return _TSBNameTH;
+            }
+            set
+            {
+                if (_TSBNameTH != value)
+                {
+                    _TSBNameTH = value;
+                    this.RaiseChanged("TSBNameTH");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Static Methods
+
+        private static object sync = new object();
+
+        /// <summary>
+        /// Create new instance.
+        /// </summary>
+        /// <returns>Returns new instance</returns>
+        public static TSB2 Create()
+        {
+            return new TSB2() { };
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        internal static bool Exists(SQLiteConnection db, TSB2 value)
+        {
+            lock (sync)
+            {
+                if (null == db || null == value) return false;
+                var item = (from p in db.Table<TSB2>()
+                            where p.TSBId == value.TSBId
+                            select p).FirstOrDefault();
+                return (null != item);
+            }
+
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to save to database.</param>
+        internal static void Save(SQLiteConnection db, TSB2 value)
+        {
+            lock (sync)
+            {
+                if (null == db || null == value) return;
+                if (!Exists(db, value))
+                {
+                    db.Insert(value);
+                }
+                else db.Update(value);
+            }
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        internal static List<TSB2> Gets(SQLiteConnection db, bool recursive = false)
+        {
+            lock (sync)
+            {
+                if (null == db) return new List<TSB2>();
+                return db.GetAllWithChildren<TSB2>(recursive: recursive);
+            }
+        }
+        /// <summary>
+        /// Gets by Id
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="TSBId">The TSBId.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        internal static TSB2 Get(SQLiteConnection db, string TSBId, bool recursive = false)
+        {
+            lock (sync)
+            {
+                if (null == db) return null;
+                return db.GetAllWithChildren<TSB2>(
+                    p => p.TSBId == TSBId,
+                    recursive: recursive).FirstOrDefault();
+            }
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        internal static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<TSB2>();
+            }
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(TSB2 value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Exists(db, value);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(TSB2 value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            Save(db, value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<TSB2> Gets(bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Gets(db, recursive);
+        }
+        /// <summary>
+        /// Gets by Id
+        /// </summary>
+        /// <param name="TSBId">The TSBId.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static TSB2 Get(string TSBId, bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Get(db, TSBId, recursive);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return DeleteAll(db);
+        }
+
+        #endregion
+    }
+
+    #endregion
+
+    #region Plaza2
+
+    /// <summary>
+    /// The Plaza2 Data Model class.
+    /// </summary>
+    //[Table("Plaza2")]
+    public class Plaza2 : DMTModelBase
+    {
+        #region Intenral Variables
+
+        private string _PlazaId = string.Empty;
+        private string _TSBId = string.Empty;
+        private string _PlazaNameEN = string.Empty;
+        private string _PlazaNameTH = string.Empty;
+        private string _Direction = string.Empty;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public Plaza2() : base() { }
+
+        #endregion
+
+        #region Public Proprties
+        /// <summary>
+        /// Gets or sets PlazaId
+        /// </summary>
+        [PrimaryKey, MaxLength(10)]
+        [PeropertyMapName("PlazaId")]
+        public string PlazaId
+        {
+            get
+            {
+                return _PlazaId;
+            }
+            set
+            {
+                if (_PlazaId != value)
+                {
+                    _PlazaId = value;
+                    this.RaiseChanged("PlazaId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets TSBId
+        /// </summary>
+        //[ForeignKey(typeof(TSB)), MaxLength(10)]
+        [MaxLength(10)]
+        [PeropertyMapName("TSBId")]
+        public string TSBId
+        {
+            get
+            {
+                return _TSBId;
+            }
+            set
+            {
+                if (_TSBId != value)
+                {
+                    _TSBId = value;
+                    this.RaiseChanged("TSBId");
+                }
+            }
+        }
+
+        [Ignore]
+        public string NetworkId { get; set; }
+        [Ignore]
+        public string TSBNameTH { get; set; }
+        [Ignore]
+        public string TSBNameEN { get; set; }
+        
+        /// <summary>
+        /// Gets or sets PlazaNameEN
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("PlazaNameEN")]
+        public string PlazaNameEN
+        {
+            get
+            {
+                return _PlazaNameEN;
+            }
+            set
+            {
+                if (_PlazaNameEN != value)
+                {
+                    _PlazaNameEN = value;
+                    this.RaiseChanged("PlazaNameEN");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets PlazaNameTH
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("PlazaNameTH")]
+        public string PlazaNameTH
+        {
+            get
+            {
+                return _PlazaNameTH;
+            }
+            set
+            {
+                if (_PlazaNameTH != value)
+                {
+                    _PlazaNameTH = value;
+                    this.RaiseChanged("PlazaNameTH");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets Direction
+        /// </summary>
+        [MaxLength(10)]
+        [PeropertyMapName("Direction")]
+        public string Direction
+        {
+            get
+            {
+                return _Direction;
+            }
+            set
+            {
+                if (_Direction != value)
+                {
+                    _Direction = value;
+                    this.RaiseChanged("Direction");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Static Methods
+
+        private static object sync = new object();
+
+        /// <summary>
+        /// Create new instance.
+        /// </summary>
+        /// <returns>Returns new instance</returns>
+        public static Plaza2 Create()
+        {
+            return new Plaza2() { };
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        internal static bool Exists(SQLiteConnection db, Plaza2 value)
+        {
+            lock (sync)
+            {
+                if (null == db || null == value) return false;
+                var item = (from p in db.Table<Plaza2>()
+                            where p.PlazaId == value.PlazaId
+                            select p).FirstOrDefault();
+                return (null != item);
+            }
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to save to database.</param>
+        internal static void Save(SQLiteConnection db, Plaza2 value)
+        {
+            lock (sync)
+            {
+                if (null == db || null == value) return;
+                if (!Exists(db, value))
+                {
+                    db.Insert(value);
+                }
+                else db.Update(value);
+            }
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        internal static List<Plaza2> Gets(SQLiteConnection db, bool recursive = false)
+        {
+            lock (sync)
+            {
+                if (null == db) return new List<Plaza2>();
+                //return db.GetAllWithChildren<Plaza2>(recursive: recursive);
+                string cmd = string.Empty;
+                cmd += "SELECT Plaza2.* ";
+                cmd += "      ,TSB2.NetworkId ";
+                cmd += "      ,TSB2.TSBNameEN ";
+                cmd += "      ,TSB2.TSBNameTH ";
+                cmd += "  FROM Plaza2, TSB2";
+                cmd += " WHERE Plaza2.TSBId = TSB2.TSBId";
+                return db.Query<Plaza2>(cmd);
+            }
+        }
+        /// <summary>
+        /// Gets by Id
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="PlazaId">The PlazaId.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        internal static Plaza2 Get(SQLiteConnection db, string PlazaId, bool recursive = false)
+        {
+            lock (sync)
+            {
+                if (null == db) return null;
+                string cmd = string.Empty;
+                cmd += "SELECT Plaza2.* ";
+                cmd += "      ,TSB2.NetworkId ";
+                cmd += "      ,TSB2.TSBNameEN ";
+                cmd += "      ,TSB2.TSBNameTH ";
+                cmd += "  FROM Plaza2, TSB2";
+                cmd += " WHERE Plaza2.TSBId = TSB2.TSBId ";
+                cmd += "   AND Plaza2.PlazaId = ?";
+                return db.Query<Plaza2>(cmd, PlazaId).FirstOrDefault();
+            }
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        internal static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<Plaza2>();
+            }
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(Plaza2 value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Exists(db, value);
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(Plaza2 value)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            Save(db, value);
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<Plaza2> Gets(bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Gets(db, recursive);
+        }
+        /// <summary>
+        /// Gets by Id
+        /// </summary>
+        /// <param name="PlazaId">The PlazaId.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns found record.</returns>
+        public static Plaza2 Get(string PlazaId, bool recursive = false)
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return Get(db, PlazaId, recursive);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll()
+        {
+            SQLiteConnection db = LocalDbServer.Instance.Db;
+            return DeleteAll(db);
+        }
+
+        #endregion
+    }
+
+    #endregion
+}

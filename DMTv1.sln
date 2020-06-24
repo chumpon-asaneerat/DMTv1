@@ -5,6 +5,7 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{83D6C805-A308-465E-B0C6-1E273F3160E0}"
 	ProjectSection(SolutionItems) = preProject
+		database-design.txt = database-design.txt
 		history.txt = history.txt
 		Kik.history.txt = Kik.history.txt
 		note.to.kik.txt = note.to.kik.txt

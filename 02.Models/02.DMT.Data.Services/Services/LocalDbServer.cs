@@ -1307,9 +1307,20 @@ namespace DMT.Services
         private void InitTables()
         {
             if (null == Db) return;
+
+            // Set Default connection 
+            // (be careful to make sure that we only has single database
+            // for all domain otherwise call static method with user connnection
+            // in each domain class instead omit connection version).
+            NTable.Default = Db;
+
+            // Create/Alter Tables (if not exists or modified).
+            // TSB3
             Db.CreateTable<TSB3>();
+            // Plaza3
             Db.CreateTable<Plaza3>();
 
+            // Init defaults data in tables.
             InitDefaults();
         }
 

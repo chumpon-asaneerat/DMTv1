@@ -11,6 +11,9 @@ using DMT.Services;
 using Newtonsoft.Json;
 using NLib;
 using NLib.Reflection;
+using System.Reflection;
+using System.Linq.Expressions;
+using System.Security.Principal;
 
 namespace DMT.Models.Domains
 {
@@ -4284,4 +4287,469 @@ namespace DMT.Models.Domains
     }
 
     #endregion
+}
+
+namespace DMT.Models.Domains
+{
+    /*
+    public static class TableQueryExtensionMethods
+    {
+        public static void Where(this TableQuery<T> table)
+        {
+
+        }
+    }
+    */
+
+    #region NTable
+
+    /// <summary>
+    /// The NTable abstract class.
+    /// </summary>
+    public abstract class NTable : DMTModelBase
+    {
+        #region Abstract Methods
+
+        /// <summary>
+        /// Checks is Primary Key(s) equals.
+        /// </summary>
+        /// <param name="value">The target object to check equals by primary key(s).</param>
+        /// <returns>Returns if all Primary Key(s) equals.</returns>
+        public abstract bool IsPKEquals(object value);
+
+        #endregion
+
+        #region Static Variables and Properties
+
+        /// <summary>
+        /// sync object used for lock concurrent access.
+        /// </summary>
+        protected static object sync = new object();
+        /// <summary>
+        /// Gets default Connection.
+        /// </summary>
+        protected static SQLiteConnection Default { get { return null; } }
+
+        #endregion
+    }
+
+    #endregion
+
+    #region NTable<T>
+
+    /// <summary>
+    /// The NTable<T> abstract class.
+    /// </summary>
+    /// <typeparam name="T">The Target Class.</typeparam>
+    public abstract class NTable<T> : NTable
+        where T : NTable, new()
+    {
+        #region Static Methods
+
+        /// <summary>
+        /// Gets default Connection.
+        /// </summary>
+        protected static new SQLiteConnection Default
+        { 
+            get { return LocalDbServer3.Instance.Db; }
+        }
+        /// <summary>
+        /// Create new instance.
+        /// </summary>
+        /// <returns>Returns new instance</returns>
+        public static T Create()
+        { 
+            return new T();
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public static bool Exists(SQLiteConnection db, T value)
+        {
+            lock (sync)
+            {
+                if (null == db || null == value) return false;
+                // no other way in TableQuery<T> so load all into list.
+                var items = db.Table<T>().ToList();
+                var item = (from p in items
+                            where p.IsPKEquals(value)
+                            select p).FirstOrDefault();
+                return (null != item);
+            }
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to save to database.</param>
+        public static void Save(SQLiteConnection db, T value)
+        {
+            lock (sync)
+            {
+                if (null == db || null == value) return;
+                if (!Exists(db, value))
+                {
+                    db.Insert(value);
+                }
+                else
+                {
+                    db.Update(value);
+                }
+            }
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<T> Gets(SQLiteConnection db, bool recursive = false)
+        {
+            lock (sync)
+            {
+                if (null == db) return new List<T>();
+                return db.GetAllWithChildren<T>(recursive: recursive);
+            }
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <returns>Returns number of rows deleted.</returns>
+        public static int DeleteAll(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return 0;
+                return db.DeleteAll<T>();
+            }
+        }
+        /// <summary>
+        /// Checks is item is already exists in database.
+        /// </summary>
+        /// <param name="value">The item to checks.</param>
+        /// <returns>Returns true if item is already in database.</returns>
+        public bool Exists(T value)
+        {
+            lock (sync)
+            {
+                SQLiteConnection db = Default;
+                return Exists(db, value);
+            }
+        }
+        /// <summary>
+        /// Save.
+        /// </summary>
+        /// <param name="value">The item to save to database.</param>
+        public void Save(T value)
+        {
+            lock (sync)
+            {
+                SQLiteConnection db = Default;
+                Save(db, value);
+            }
+        }
+        /// <summary>
+        /// Gets All.
+        /// </summary>
+        /// <param name="recursive">True for load related nested children.</param>
+        /// <returns>Returns List of all records</returns>
+        public static List<T> Gets(bool recursive = false)
+        {
+            SQLiteConnection db = Default;
+            return Gets(db, recursive);
+        }
+        /// <summary>
+        /// Delete All.
+        /// </summary>
+        /// <returns>Returns number of rows deleted.</returns>
+        public int DeleteAll()
+        {
+            lock (sync)
+            {
+                SQLiteConnection db = Default;
+                return DeleteAll(db);
+            }
+        }
+
+        #endregion
+    }
+
+    #endregion
+
+    [Table("TSB3")]
+    public class TSB3 : NTable<TSB3>
+    {
+        #region Intenral Variables
+
+        private string _TSBId = string.Empty;
+        private string _NetworkId = string.Empty;
+        private string _TSBNameEN = string.Empty;
+        private string _TSBNameTH = string.Empty;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public TSB3() : base() { }
+
+        #endregion
+
+        #region Override Methods
+
+        /// <summary>
+        /// Checks is Primary Key(s) equals.
+        /// </summary>
+        /// <param name="value">The target object to check equals by primary key(s).</param>
+        /// <returns>Returns if all Primary Key(s) equals.</returns>
+        public override bool IsPKEquals(object value)
+        {
+            if (null == value) return false;
+            var target = (value as TSB3);
+            if (null == target) return false;
+            return (target.TSBId == TSBId);
+        }
+
+        #endregion
+
+        #region Public Proprties
+
+        /// <summary>
+        /// Gets or sets TSBId.
+        /// </summary>
+        [PrimaryKey, MaxLength(10)]
+        [PeropertyMapName("TSBId")]
+        public string TSBId
+        {
+            get
+            {
+                return _TSBId;
+            }
+            set
+            {
+                if (_TSBId != value)
+                {
+                    _TSBId = value;
+                    this.RaiseChanged("TSBId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets NetworkId.
+        /// </summary>
+        [MaxLength(10)]
+        [PeropertyMapName("NetworkId")]
+        public string NetworkId
+        {
+            get
+            {
+                return _NetworkId;
+            }
+            set
+            {
+                if (_NetworkId != value)
+                {
+                    _NetworkId = value;
+                    this.RaiseChanged("NetworkId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets TSBNameEN.
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("TSBNameEN")]
+        public string TSBNameEN
+        {
+            get
+            {
+                return _TSBNameEN;
+            }
+            set
+            {
+                if (_TSBNameEN != value)
+                {
+                    _TSBNameEN = value;
+                    this.RaiseChanged("TSBNameEN");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets TSBNameTH.
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("TSBNameTH")]
+        public string TSBNameTH
+        {
+            get
+            {
+                return _TSBNameTH;
+            }
+            set
+            {
+                if (_TSBNameTH != value)
+                {
+                    _TSBNameTH = value;
+                    this.RaiseChanged("TSBNameTH");
+                }
+            }
+        }
+
+        #endregion
+    }
+
+    [Table("Plaza3")]
+    public class Plaza3 : NTable<Plaza3>
+    {
+        #region Intenral Variables
+
+        private string _PlazaId = string.Empty;
+        private string _TSBId = string.Empty;
+        private string _PlazaNameEN = string.Empty;
+        private string _PlazaNameTH = string.Empty;
+        private string _Direction = string.Empty;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public Plaza3() : base() { }
+
+        #endregion
+
+        #region Override Methods
+
+        /// <summary>
+        /// Checks is Primary Key(s) equals.
+        /// </summary>
+        /// <param name="value">The target object to check equals by primary key(s).</param>
+        /// <returns>Returns if all Primary Key(s) equals.</returns>
+        public override bool IsPKEquals(object value)
+        {
+            if (null == value) return false;
+            var target = (value as Plaza3);
+            if (null == target) return false;
+            return (target.PlazaId == PlazaId);
+        }
+
+        #endregion
+
+        #region Public Proprties
+
+        /// <summary>
+        /// Gets or sets PlazaId
+        /// </summary>
+        [PrimaryKey, MaxLength(10)]
+        [PeropertyMapName("PlazaId")]
+        public string PlazaId
+        {
+            get
+            {
+                return _PlazaId;
+            }
+            set
+            {
+                if (_PlazaId != value)
+                {
+                    _PlazaId = value;
+                    this.RaiseChanged("PlazaId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets TSBId
+        /// </summary>
+        //[ForeignKey(typeof(TSB)), MaxLength(10)]
+        [MaxLength(10)]
+        [PeropertyMapName("TSBId")]
+        public string TSBId
+        {
+            get
+            {
+                return _TSBId;
+            }
+            set
+            {
+                if (_TSBId != value)
+                {
+                    _TSBId = value;
+                    this.RaiseChanged("TSBId");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets PlazaNameEN
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("PlazaNameEN")]
+        public string PlazaNameEN
+        {
+            get
+            {
+                return _PlazaNameEN;
+            }
+            set
+            {
+                if (_PlazaNameEN != value)
+                {
+                    _PlazaNameEN = value;
+                    this.RaiseChanged("PlazaNameEN");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets PlazaNameTH
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("PlazaNameTH")]
+        public string PlazaNameTH
+        {
+            get
+            {
+                return _PlazaNameTH;
+            }
+            set
+            {
+                if (_PlazaNameTH != value)
+                {
+                    _PlazaNameTH = value;
+                    this.RaiseChanged("PlazaNameTH");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets Direction
+        /// </summary>
+        [MaxLength(10)]
+        [PeropertyMapName("Direction")]
+        public string Direction
+        {
+            get
+            {
+                return _Direction;
+            }
+            set
+            {
+                if (_Direction != value)
+                {
+                    _Direction = value;
+                    this.RaiseChanged("Direction");
+                }
+            }
+        }
+
+        #endregion
+    }
 }

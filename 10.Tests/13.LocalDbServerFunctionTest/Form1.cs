@@ -26,12 +26,14 @@ namespace LocalDbServerFunctionTest
         {
             LocalDbServer.Instance.Start();
             LocalDbServer2.Instance.Start();
+            LocalDbServer3.Instance.Start();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             LocalDbServer.Instance.Shutdown();
             LocalDbServer2.Instance.Shutdown();
+            LocalDbServer3.Instance.Shutdown();
         }
 
         private void lstTSB_SelectedIndexChanged(object sender, EventArgs e)
@@ -185,6 +187,23 @@ namespace LocalDbServerFunctionTest
             TSB2.Save(inst);
             // reload
             lstTSB2.DataSource = TSB2.Gets(true);
+        }
+
+        private void lstServer3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            pgServer3.SelectedObject = lstServer3.SelectedItem;
+        }
+
+        private void cmdRefreshTSB3_Click(object sender, EventArgs e)
+        {
+            // reload
+            lstServer3.DataSource = TSB3.Gets(true);
+        }
+
+        private void cmdRefreshPlaza3_Click(object sender, EventArgs e)
+        {
+            // reload
+            lstServer3.DataSource = Plaza3.Gets(true);
         }
     }
 }

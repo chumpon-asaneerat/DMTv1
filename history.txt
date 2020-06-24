@@ -17,8 +17,12 @@ Update 2020-06-24 #5
 Update 2020-06-24 #4
 - 
 
+[commited]
 Update 2020-06-24 #3
-- 
+- Add LocalDbServer3 for test tables without relationship.
+- Create generic NTable to wrap all common static methods #1.
+- Add Domains for LocalDbServer3 (TSB3, Plaza3).
+- Update Database Service test project.
 
 [commited]
 Update 2020-06-24 #2

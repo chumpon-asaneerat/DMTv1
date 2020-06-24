@@ -1231,4 +1231,177 @@ namespace DMT.Services
     }
 
     #endregion
+
+    #region LobalDbServer3 Implements
+
+    /// <summary>
+    /// Local Database Server.
+    /// </summary>
+    public class LocalDbServer3
+    {
+        #region Singelton
+
+        private static LocalDbServer3 _instance = null;
+        /// <summary>
+        /// Singelton Access.
+        /// </summary>
+        public static LocalDbServer3 Instance
+        {
+            get
+            {
+                if (null == _instance)
+                {
+                    lock (typeof(LocalDbServer3))
+                    {
+                        _instance = new LocalDbServer3();
+                    }
+                }
+                return _instance;
+            }
+        }
+
+        #endregion
+
+        #region Internal Variables
+
+        #endregion
+
+        #region Constructor and Destructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        private LocalDbServer3() : base()
+        {
+            this.FileName = "TODxTAv3.db";
+        }
+        /// <summary>
+        /// Destructor.
+        /// </summary>
+        ~LocalDbServer3()
+        {
+
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        /// <summary>
+        /// Gets local json folder path name.
+        /// </summary>
+        private static string LocalFolder
+        {
+            get
+            {
+                string localFilder = Folders.Combine(
+                    Folders.Assemblies.CurrentExecutingAssembly, "data");
+                if (!Folders.Exists(localFilder))
+                {
+                    Folders.Create(localFilder);
+                }
+                return localFilder;
+            }
+        }
+
+        private void InitTables()
+        {
+            if (null == Db) return;
+            Db.CreateTable<TSB3>();
+            Db.CreateTable<Plaza3>();
+
+            InitDefaults();
+        }
+
+        private void InitDefaults()
+        {
+            InitTSBAndPlazas();
+        }
+
+        private void InitTSBAndPlazas()
+        {
+            if (null == Db) return;
+            TSB3 item;
+            Plaza3 plaza;
+            item = new TSB3();
+            item.NetworkId = "31";
+            item.TSBId = "311";
+            item.TSBNameEN = "DIN DAENG";
+            item.TSBNameTH = "ดินแดง";
+            if (!TSB3.Exists(this.Db, item)) TSB3.Save(this.Db, item);
+
+            plaza = new Plaza3()
+            {
+                PlazaId = "3101",
+                PlazaNameEN = "DIN DAENG 1",
+                PlazaNameTH = "ดินแดง 1",
+                Direction = "IN",
+                TSBId = "311"
+            };
+            if (!Plaza3.Exists(this.Db, plaza)) Plaza3.Save(this.Db, plaza);
+            plaza = new Plaza3()
+            {
+                PlazaId = "3102",
+                PlazaNameEN = "DIN DAENG 2",
+                PlazaNameTH = "ดินแดง 2",
+                Direction = "OUT",
+                TSBId = "311"
+            };
+            if (!Plaza3.Exists(this.Db, plaza)) Plaza3.Save(this.Db, plaza);
+        }
+
+        #endregion
+
+        #region Public Methods (Start/Shutdown)
+
+        /// <summary>
+        /// Start.
+        /// </summary>
+        public void Start()
+        {
+            if (null == Db)
+            {
+                lock (typeof(LocalDbServer3))
+                {
+                    string path = Path.Combine(LocalFolder, FileName);
+                    Db = new SQLiteConnection(path,
+                        SQLiteOpenFlags.Create |
+                        SQLiteOpenFlags.SharedCache |
+                        SQLiteOpenFlags.ReadWrite |
+                        SQLiteOpenFlags.FullMutex,
+                        storeDateTimeAsTicks: true);
+                    Db.BusyTimeout = new TimeSpan(0, 0, 5); // set busy timeout.
+                    InitTables();
+                }
+            }
+        }
+        /// <summary>
+        /// Shutdown.
+        /// </summary>
+        public void Shutdown()
+        {
+            if (null != Db)
+            {
+                Db.Dispose();
+            }
+            Db = null;
+        }
+
+        #endregion
+
+        #region Public Properties
+
+        /// <summary>
+        /// Gets or sets database file name.
+        /// </summary>
+        public string FileName { get; set; }
+        /// <summary>
+        /// Gets SQLite Connection.
+        /// </summary>
+        public SQLiteConnection Db { get; private set; }
+
+        #endregion
+    }
+
+    #endregion
 }

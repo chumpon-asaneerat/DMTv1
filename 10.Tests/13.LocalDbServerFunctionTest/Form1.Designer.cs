@@ -49,18 +49,24 @@
             this.cmdRefreshStressTest = new System.Windows.Forms.Button();
             this.cmdAdd300 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.cmdPlaza2Refresh = new System.Windows.Forms.Button();
             this.cmdTSB2Save = new System.Windows.Forms.Button();
             this.cmdTSB2New = new System.Windows.Forms.Button();
             this.pgTSB2 = new System.Windows.Forms.PropertyGrid();
             this.cmdTSB2Refresh = new System.Windows.Forms.Button();
             this.lstTSB2 = new System.Windows.Forms.ListBox();
-            this.cmdPlaza2Refresh = new System.Windows.Forms.Button();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.cmdRefreshPlaza3 = new System.Windows.Forms.Button();
+            this.pgServer3 = new System.Windows.Forms.PropertyGrid();
+            this.cmdRefreshTSB3 = new System.Windows.Forms.Button();
+            this.lstServer3 = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgStressTest)).BeginInit();
             this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -69,6 +75,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -307,6 +314,16 @@
             this.tabPage4.Text = "TSB2 / Plaza2";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // cmdPlaza2Refresh
+            // 
+            this.cmdPlaza2Refresh.Location = new System.Drawing.Point(153, 7);
+            this.cmdPlaza2Refresh.Name = "cmdPlaza2Refresh";
+            this.cmdPlaza2Refresh.Size = new System.Drawing.Size(145, 37);
+            this.cmdPlaza2Refresh.TabIndex = 10;
+            this.cmdPlaza2Refresh.Text = "Refresh (Plaza2)";
+            this.cmdPlaza2Refresh.UseVisualStyleBackColor = true;
+            this.cmdPlaza2Refresh.Click += new System.EventHandler(this.cmdPlaza2Refresh_Click);
+            // 
             // cmdTSB2Save
             // 
             this.cmdTSB2Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -362,15 +379,61 @@
             this.lstTSB2.TabIndex = 5;
             this.lstTSB2.SelectedIndexChanged += new System.EventHandler(this.lstTSB2_SelectedIndexChanged);
             // 
-            // cmdPlaza2Refresh
+            // tabPage5
             // 
-            this.cmdPlaza2Refresh.Location = new System.Drawing.Point(153, 7);
-            this.cmdPlaza2Refresh.Name = "cmdPlaza2Refresh";
-            this.cmdPlaza2Refresh.Size = new System.Drawing.Size(145, 37);
-            this.cmdPlaza2Refresh.TabIndex = 10;
-            this.cmdPlaza2Refresh.Text = "Refresh (Plaza2)";
-            this.cmdPlaza2Refresh.UseVisualStyleBackColor = true;
-            this.cmdPlaza2Refresh.Click += new System.EventHandler(this.cmdPlaza2Refresh_Click);
+            this.tabPage5.Controls.Add(this.cmdRefreshPlaza3);
+            this.tabPage5.Controls.Add(this.pgServer3);
+            this.tabPage5.Controls.Add(this.cmdRefreshTSB3);
+            this.tabPage5.Controls.Add(this.lstServer3);
+            this.tabPage5.Location = new System.Drawing.Point(4, 25);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(926, 576);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "TSB3 / Plaza3";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // cmdRefreshPlaza3
+            // 
+            this.cmdRefreshPlaza3.Location = new System.Drawing.Point(153, 7);
+            this.cmdRefreshPlaza3.Name = "cmdRefreshPlaza3";
+            this.cmdRefreshPlaza3.Size = new System.Drawing.Size(145, 37);
+            this.cmdRefreshPlaza3.TabIndex = 14;
+            this.cmdRefreshPlaza3.Text = "Refresh (Plaza3)";
+            this.cmdRefreshPlaza3.UseVisualStyleBackColor = true;
+            this.cmdRefreshPlaza3.Click += new System.EventHandler(this.cmdRefreshPlaza3_Click);
+            // 
+            // pgServer3
+            // 
+            this.pgServer3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pgServer3.Location = new System.Drawing.Point(452, 50);
+            this.pgServer3.Name = "pgServer3";
+            this.pgServer3.Size = new System.Drawing.Size(466, 519);
+            this.pgServer3.TabIndex = 13;
+            // 
+            // cmdRefreshTSB3
+            // 
+            this.cmdRefreshTSB3.Location = new System.Drawing.Point(8, 7);
+            this.cmdRefreshTSB3.Name = "cmdRefreshTSB3";
+            this.cmdRefreshTSB3.Size = new System.Drawing.Size(139, 37);
+            this.cmdRefreshTSB3.TabIndex = 12;
+            this.cmdRefreshTSB3.Text = "Refresh (TSB3)";
+            this.cmdRefreshTSB3.UseVisualStyleBackColor = true;
+            this.cmdRefreshTSB3.Click += new System.EventHandler(this.cmdRefreshTSB3_Click);
+            // 
+            // lstServer3
+            // 
+            this.lstServer3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstServer3.FormattingEnabled = true;
+            this.lstServer3.IntegralHeight = false;
+            this.lstServer3.ItemHeight = 16;
+            this.lstServer3.Location = new System.Drawing.Point(8, 50);
+            this.lstServer3.Name = "lstServer3";
+            this.lstServer3.Size = new System.Drawing.Size(438, 519);
+            this.lstServer3.TabIndex = 11;
+            this.lstServer3.SelectedIndexChanged += new System.EventHandler(this.lstServer3_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -389,6 +452,7 @@
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgStressTest)).EndInit();
             this.tabPage4.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -422,6 +486,11 @@
         private System.Windows.Forms.Button cmdTSB2Refresh;
         private System.Windows.Forms.ListBox lstTSB2;
         private System.Windows.Forms.Button cmdPlaza2Refresh;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Button cmdRefreshPlaza3;
+        private System.Windows.Forms.PropertyGrid pgServer3;
+        private System.Windows.Forms.Button cmdRefreshTSB3;
+        private System.Windows.Forms.ListBox lstServer3;
     }
 }
 

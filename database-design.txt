@@ -4,7 +4,7 @@
 
 
 Common Data
-- Using json file.
+- Using json file required FileSystemWatcher and some code to detected file opertion completed.
 - Using App.Config file.
 - Use Table that has one row.
 - Use Table with Key/Value pair and can save to and load from json file.

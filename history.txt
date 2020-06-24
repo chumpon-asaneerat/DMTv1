@@ -17,12 +17,13 @@ Update 2020-06-24 #11
 Update 2020-06-24 #10
 - 
 
+[commited]
 Update 2020-06-24 #9
-- 
+- Update database-design.txt file #3.
 
 [commited]
 Update 2020-06-24 #8
-- Update database-design.txt file.
+- Update database-design.txt file #2.
 - Update some note in DataModels.cs.
 
 [commited]

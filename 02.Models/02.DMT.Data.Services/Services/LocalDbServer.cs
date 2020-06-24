@@ -1188,7 +1188,7 @@ namespace DMT.Services
         {
             if (null == Db)
             {
-                lock (typeof(LocalDbServer))
+                lock (typeof(LocalDbServer2))
                 {
                     string path = Path.Combine(LocalFolder, FileName);
                     Db = new SQLiteConnection(path,

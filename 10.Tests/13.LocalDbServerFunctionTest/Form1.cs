@@ -25,11 +25,13 @@ namespace LocalDbServerFunctionTest
         private void Form1_Load(object sender, EventArgs e)
         {
             LocalDbServer.Instance.Start();
+            LocalDbServer2.Instance.Start();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             LocalDbServer.Instance.Shutdown();
+            LocalDbServer2.Instance.Shutdown();
         }
 
         private void lstTSB_SelectedIndexChanged(object sender, EventArgs e)
@@ -53,6 +55,7 @@ namespace LocalDbServerFunctionTest
         {
             TSB inst = pgTSB.SelectedObject as TSB;
 
+            if (null == inst) return;
             //LocalDbServer.Instance.Save(inst);
             TSB.Save(inst);
 
@@ -153,6 +156,35 @@ namespace LocalDbServerFunctionTest
             lbStressTestSum.Text = string.Format("Sum: Amount1 = {0:n0}, Amount2 = {1:n0}", sum2.Sum1, sum2.Sum2);
 
             dgStressTest.DataSource = items;
+        }
+
+        private void lstTSB2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            pgTSB2.SelectedObject = lstTSB2.SelectedItem;
+        }
+
+        private void cmdTSB2Refresh_Click(object sender, EventArgs e)
+        {
+            lstTSB2.DataSource = TSB2.Gets(true);
+        }
+
+        private void cmdPlaza2Refresh_Click(object sender, EventArgs e)
+        {
+            lstTSB2.DataSource = PlazaWithTSB2.Gets();
+        }
+
+        private void cmdTSB2New_Click(object sender, EventArgs e)
+        {
+            TSB2 inst = TSB2.Create();
+            pgTSB2.SelectedObject = inst;
+        }
+
+        private void cmdTSB2Save_Click(object sender, EventArgs e)
+        {
+            TSB2 inst = pgTSB2.SelectedObject as TSB2;
+            TSB2.Save(inst);
+            // reload
+            lstTSB2.DataSource = TSB2.Gets(true);
         }
     }
 }

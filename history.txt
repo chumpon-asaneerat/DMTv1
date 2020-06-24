@@ -20,8 +20,10 @@ Update 2020-06-24 #4
 Update 2020-06-24 #3
 - 
 
+[commited]
 Update 2020-06-24 #2
-- 
+- Create PlazaWithTSB2 class (inherited from Plaza2) class for used in db.Query<T>.
+- Update Database Service test project.
 
 [commited]
 Update 2020-06-24 #1

@@ -48,11 +48,19 @@
             this.dgStressTest = new System.Windows.Forms.DataGridView();
             this.cmdRefreshStressTest = new System.Windows.Forms.Button();
             this.cmdAdd300 = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.cmdTSB2Save = new System.Windows.Forms.Button();
+            this.cmdTSB2New = new System.Windows.Forms.Button();
+            this.pgTSB2 = new System.Windows.Forms.PropertyGrid();
+            this.cmdTSB2Refresh = new System.Windows.Forms.Button();
+            this.lstTSB2 = new System.Windows.Forms.ListBox();
+            this.cmdPlaza2Refresh = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgStressTest)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -60,6 +68,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -117,7 +126,7 @@
             // 
             this.cmdTSBRefresh.Location = new System.Drawing.Point(8, 6);
             this.cmdTSBRefresh.Name = "cmdTSBRefresh";
-            this.cmdTSBRefresh.Size = new System.Drawing.Size(122, 37);
+            this.cmdTSBRefresh.Size = new System.Drawing.Size(129, 37);
             this.cmdTSBRefresh.TabIndex = 1;
             this.cmdTSBRefresh.Text = "Refresh";
             this.cmdTSBRefresh.UseVisualStyleBackColor = true;
@@ -283,6 +292,86 @@
             this.cmdAdd300.UseVisualStyleBackColor = true;
             this.cmdAdd300.Click += new System.EventHandler(this.cmdAdd300_Click);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.cmdPlaza2Refresh);
+            this.tabPage4.Controls.Add(this.cmdTSB2Save);
+            this.tabPage4.Controls.Add(this.cmdTSB2New);
+            this.tabPage4.Controls.Add(this.pgTSB2);
+            this.tabPage4.Controls.Add(this.cmdTSB2Refresh);
+            this.tabPage4.Controls.Add(this.lstTSB2);
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(926, 576);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "TSB2 / Plaza2";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // cmdTSB2Save
+            // 
+            this.cmdTSB2Save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdTSB2Save.Location = new System.Drawing.Point(796, 7);
+            this.cmdTSB2Save.Name = "cmdTSB2Save";
+            this.cmdTSB2Save.Size = new System.Drawing.Size(122, 37);
+            this.cmdTSB2Save.TabIndex = 9;
+            this.cmdTSB2Save.Text = "Save";
+            this.cmdTSB2Save.UseVisualStyleBackColor = true;
+            this.cmdTSB2Save.Click += new System.EventHandler(this.cmdTSB2Save_Click);
+            // 
+            // cmdTSB2New
+            // 
+            this.cmdTSB2New.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdTSB2New.Location = new System.Drawing.Point(452, 7);
+            this.cmdTSB2New.Name = "cmdTSB2New";
+            this.cmdTSB2New.Size = new System.Drawing.Size(122, 37);
+            this.cmdTSB2New.TabIndex = 8;
+            this.cmdTSB2New.Text = "New";
+            this.cmdTSB2New.UseVisualStyleBackColor = true;
+            this.cmdTSB2New.Click += new System.EventHandler(this.cmdTSB2New_Click);
+            // 
+            // pgTSB2
+            // 
+            this.pgTSB2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pgTSB2.Location = new System.Drawing.Point(452, 50);
+            this.pgTSB2.Name = "pgTSB2";
+            this.pgTSB2.Size = new System.Drawing.Size(466, 519);
+            this.pgTSB2.TabIndex = 7;
+            // 
+            // cmdTSB2Refresh
+            // 
+            this.cmdTSB2Refresh.Location = new System.Drawing.Point(8, 7);
+            this.cmdTSB2Refresh.Name = "cmdTSB2Refresh";
+            this.cmdTSB2Refresh.Size = new System.Drawing.Size(139, 37);
+            this.cmdTSB2Refresh.TabIndex = 6;
+            this.cmdTSB2Refresh.Text = "Refresh (TSB2)";
+            this.cmdTSB2Refresh.UseVisualStyleBackColor = true;
+            this.cmdTSB2Refresh.Click += new System.EventHandler(this.cmdTSB2Refresh_Click);
+            // 
+            // lstTSB2
+            // 
+            this.lstTSB2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstTSB2.FormattingEnabled = true;
+            this.lstTSB2.IntegralHeight = false;
+            this.lstTSB2.ItemHeight = 16;
+            this.lstTSB2.Location = new System.Drawing.Point(8, 50);
+            this.lstTSB2.Name = "lstTSB2";
+            this.lstTSB2.Size = new System.Drawing.Size(438, 519);
+            this.lstTSB2.TabIndex = 5;
+            this.lstTSB2.SelectedIndexChanged += new System.EventHandler(this.lstTSB2_SelectedIndexChanged);
+            // 
+            // cmdPlaza2Refresh
+            // 
+            this.cmdPlaza2Refresh.Location = new System.Drawing.Point(153, 7);
+            this.cmdPlaza2Refresh.Name = "cmdPlaza2Refresh";
+            this.cmdPlaza2Refresh.Size = new System.Drawing.Size(145, 37);
+            this.cmdPlaza2Refresh.TabIndex = 10;
+            this.cmdPlaza2Refresh.Text = "Refresh (Plaza2)";
+            this.cmdPlaza2Refresh.UseVisualStyleBackColor = true;
+            this.cmdPlaza2Refresh.Click += new System.EventHandler(this.cmdPlaza2Refresh_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -299,6 +388,7 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgStressTest)).EndInit();
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -325,6 +415,13 @@
         private System.Windows.Forms.Label lbStressTestCount;
         private System.Windows.Forms.Button cmdClearStressTests;
         private System.Windows.Forms.Label lbStressTestSum;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button cmdTSB2Save;
+        private System.Windows.Forms.Button cmdTSB2New;
+        private System.Windows.Forms.PropertyGrid pgTSB2;
+        private System.Windows.Forms.Button cmdTSB2Refresh;
+        private System.Windows.Forms.ListBox lstTSB2;
+        private System.Windows.Forms.Button cmdPlaza2Refresh;
     }
 }
 

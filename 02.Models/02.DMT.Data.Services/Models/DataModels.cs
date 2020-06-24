@@ -4386,6 +4386,19 @@ namespace DMT.Models.Domains
             }
         }
         /// <summary>
+        /// Update relationship with children that assigned with relationship attribute.
+        /// </summary>
+        /// <param name="db">The connection.</param>
+        /// <param name="value">The item to load children.</param>
+        public static void UpdateWithChildren(SQLiteConnection db, T value)
+        {
+            lock (sync)
+            {
+                if (null == db || null == value) return;
+                db.UpdateWithChildren(value);
+            }
+        }
+        /// <summary>
         /// Gets All.
         /// </summary>
         /// <param name="db">The connection.</param>
@@ -4469,7 +4482,7 @@ namespace DMT.Models.Domains
         /// </summary>
         /// <param name="value">The item to checks.</param>
         /// <returns>Returns true if item is already in database.</returns>
-        public bool Exists(T value)
+        public static bool Exists(T value)
         {
             lock (sync)
             {
@@ -4481,12 +4494,24 @@ namespace DMT.Models.Domains
         /// Save.
         /// </summary>
         /// <param name="value">The item to save to database.</param>
-        public void Save(T value)
+        public static void Save(T value)
         {
             lock (sync)
             {
                 SQLiteConnection db = Default;
                 Save(db, value);
+            }
+        }
+        /// <summary>
+        /// Update relationship with children that assigned with relationship attribute.
+        /// </summary>
+        /// <param name="value">The item to load children.</param>
+        public static void UpdateWithChildren(T value)
+        {
+            lock (sync)
+            {
+                SQLiteConnection db = Default;
+                UpdateWithChildren(db, value);
             }
         }
         /// <summary>
@@ -4517,7 +4542,7 @@ namespace DMT.Models.Domains
         /// Delete All.
         /// </summary>
         /// <returns>Returns number of rows deleted.</returns>
-        public int DeleteAll()
+        public static int DeleteAll()
         {
             lock (sync)
             {
@@ -4563,7 +4588,10 @@ namespace DMT.Models.Domains
         /// <summary>
         /// Constructor.
         /// </summary>
-        public TSB3() : base() { }
+        public TSB3() : base()
+        {
+            Plazas = new List<Plaza3>();
+        }
 
         #endregion
 
@@ -4650,6 +4678,9 @@ namespace DMT.Models.Domains
             }
         }
 
+        [OneToMany(CascadeOperations = CascadeOperation.All)]
+        public List<Plaza3> Plazas { get; set; }
+
         #endregion
     }
 
@@ -4700,8 +4731,7 @@ namespace DMT.Models.Domains
         /// <summary>
         /// Gets or sets TSBId
         /// </summary>
-        //[ForeignKey(typeof(TSB)), MaxLength(10)]
-        [MaxLength(10)]
+        [ForeignKey(typeof(TSB3)), MaxLength(10)]
         [PeropertyMapName("TSBId")]
         public string TSBId
         {
@@ -4718,6 +4748,10 @@ namespace DMT.Models.Domains
                 }
             }
         }
+
+        [TypeConverter(typeof(ExpandableObjectConverter))]
+        [ManyToOne(CascadeOperations = CascadeOperation.CascadeRead, ReadOnly = true)]
+        public TSB3 TSB { get; set; }
 
         /// <summary>
         /// Gets or sets PlazaNameEN

@@ -8,12 +8,13 @@ Update 2020-06-24 #8
 Update 2020-06-24 #7
 - 
 
+[commited]
 Update 2020-06-24 #6
-- 
+- Update generic NTable to wrap all common static methods #4 add relation update methods.
 
 [commited]
 Update 2020-06-24 #5
-- Update generic NTable to wrap all common static methods #3.
+- Update generic NTable to wrap all common static methods #3 add Get and Delete by id methods.
 
 [commited]
 Update 2020-06-24 #4

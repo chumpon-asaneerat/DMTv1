@@ -1333,32 +1333,33 @@ namespace DMT.Services
         {
             if (null == Db) return;
             TSB3 item;
-            Plaza3 plaza;
-            item = new TSB3();
-            item.NetworkId = "31";
-            item.TSBId = "311";
-            item.TSBNameEN = "DIN DAENG";
-            item.TSBNameTH = "ดินแดง";
-            if (!TSB3.Exists(this.Db, item)) TSB3.Save(this.Db, item);
-
-            plaza = new Plaza3()
+            item = new TSB3()
             {
-                PlazaId = "3101",
-                PlazaNameEN = "DIN DAENG 1",
-                PlazaNameTH = "ดินแดง 1",
-                Direction = "IN",
-                TSBId = "311"
+                NetworkId = "31",
+                TSBId = "311",
+                TSBNameEN = "DIN DAENG",
+                TSBNameTH = "ดินแดง",
+                Plazas = new List<Plaza3>()
+                {
+                    new Plaza3()
+                    {
+                        PlazaId = "3101",
+                        PlazaNameEN = "DIN DAENG 1",
+                        PlazaNameTH = "ดินแดง 1",
+                        Direction = "IN",
+                    },
+                    new Plaza3()
+                    {
+                        PlazaId = "3102",
+                        PlazaNameEN = "DIN DAENG 2",
+                        PlazaNameTH = "ดินแดง 2",
+                        Direction = "OUT",
+                    }
+                }
             };
-            if (!Plaza3.Exists(this.Db, plaza)) Plaza3.Save(this.Db, plaza);
-            plaza = new Plaza3()
-            {
-                PlazaId = "3102",
-                PlazaNameEN = "DIN DAENG 2",
-                PlazaNameTH = "ดินแดง 2",
-                Direction = "OUT",
-                TSBId = "311"
-            };
-            if (!Plaza3.Exists(this.Db, plaza)) Plaza3.Save(this.Db, plaza);
+            if (!TSB3.Exists(item)) TSB3.Save(item);
+            item.Plazas.ForEach(plaza => Plaza3.Save(plaza) );
+            TSB3.UpdateWithChildren(item);
         }
 
         #endregion

@@ -3,3 +3,29 @@
 เวลาออกตู้ - Depart (Lane)
 
 
+Common Data
+- Using json file.
+- Using App.Config file.
+- Use Table that has one row.
+- Use Table with Key/Value pair and can save to and load from json file.
+
+
+Process:
+  TOD:
+    Change Shift:
+    Job:
+      BeginJob:
+      EndJob:
+      View:
+       LaneActivity:
+  TA:
+    Credit:
+      Plaza:
+        Init:
+        Received:
+        Exchange:
+      Collector:
+        Borrow:
+        Return:
+  Config:
+  Simulator:

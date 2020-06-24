@@ -4291,7 +4291,7 @@ namespace DMT.Models.Domains
     // Note:
     // - The Default connection should seperate by Domain class but can initialize with
     //   value assigned in NTable class.
-    // - Query static methods required for custom search/filter.
+    // - Query static methods (in NTable<T> class) required for custom search/filter.
 
 
     #region NTable

@@ -1,4 +1,6 @@
-﻿using System;
+﻿#region Using
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -11,6 +13,8 @@ using DMT.Services;
 using Newtonsoft.Json;
 using NLib;
 using NLib.Reflection;
+
+#endregion
 
 namespace DMT.Models.Domains
 {

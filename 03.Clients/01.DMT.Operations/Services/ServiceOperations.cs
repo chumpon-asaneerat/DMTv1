@@ -74,14 +74,35 @@ namespace DMT.Services
 
         }
         */
+
+        /*
+        public Models.Objects.User GetUser(Models.Objects.User user)
+        {
+
+        }
+        */
+
         public string BeginJob()
         {
             var host = @"http://localhost:9000";
             var client = new RestClient(host);
             //client.Authenticator = new HttpBasicAuthenticator(AUTH.PersonalAccessToken, String.Empty);
             var request = new RestRequest(RouteConsts.Job.BeginJob.Url, Method.POST);
+            request.RequestFormat = DataFormat.Json;            
+            request.AddJsonBody(new { Name = "User 1 end job" });
+
+            var response = client.Execute(request);
+            return (null != response) ? response.Content : "No response.";
+        }
+
+        public string EndJob()
+        {
+            var host = @"http://localhost:9000";
+            var client = new RestClient(host);
+            //client.Authenticator = new HttpBasicAuthenticator(AUTH.PersonalAccessToken, String.Empty);
+            var request = new RestRequest(RouteConsts.Job.BeginJob.Url, Method.POST);
             request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(new { Name = "User 1" });
+            request.AddJsonBody(new { Name = "User 1 end job" });
 
             var response = client.Execute(request);
             return (null != response) ? response.Content : "No response.";

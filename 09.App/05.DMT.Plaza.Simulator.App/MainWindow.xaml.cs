@@ -48,6 +48,7 @@ namespace DMT
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Models.Objects.User user = new Models.Objects.User();
             string result = Services.DMTServiceOperations.Instance.Plaza.BeginJob();
             //Console.WriteLine(result);
             MessageBox.Show(result);

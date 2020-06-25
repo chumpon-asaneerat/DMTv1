@@ -11,6 +11,12 @@ namespace DMT
         {
             public const string Url = RouteConsts.Url + @"/Job";
 
+            public static class GetUser
+            {
+                public const string Name = "GetUser";
+                public const string Url = Job.Url + @"/" + Name;
+            }
+
             public static class BeginJob
             {
                 public const string Name = "BeginJob";

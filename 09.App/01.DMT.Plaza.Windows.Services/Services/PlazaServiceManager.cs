@@ -211,6 +211,20 @@ namespace DMT.Services
     public class JobController : ApiController
     {
         [HttpPost]
+        [ActionName(RouteConsts.Job.GetUser.Name)]
+        public Models.Objects.User GetUser([FromBody] Models.Objects.User user)
+        {
+            Models.Objects.User oUser = null;
+            var dUser = Models.Domains.User.Get(user.UserId);
+            if (null != dUser)
+            {
+                oUser = new Models.Objects.User();
+                dUser.AssignTo(oUser);
+            }
+            return oUser;
+        }
+
+        [HttpPost]
         [ActionName(RouteConsts.Job.BeginJob.Name)]
         public string BeginJob([FromBody] Collector collector) 
         {

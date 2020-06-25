@@ -47,7 +47,7 @@ namespace DMT
             T result = default(T);
             try
             {
-                JsonConvert.DeserializeObject<T>(value);
+                result = JsonConvert.DeserializeObject<T>(value);
             }
             catch (Exception ex)
             {

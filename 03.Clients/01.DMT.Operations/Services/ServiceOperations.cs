@@ -10,8 +10,6 @@ using RestSharp.Authenticators;
 
 using NLib.ServiceProcess;
 
-using Newtonsoft.Json; // required for Serialze/Deserialize.
-
 #endregion
 
 namespace DMT.Services
@@ -92,7 +90,7 @@ namespace DMT.Services
             var response = client.Execute(request);
             if (null != response && null != response.Content)
             {
-                ret = JsonConvert.DeserializeObject<Models.Objects.User>(response.Content);
+                ret = response.Content.FromJson<Models.Objects.User>();
             }
 
             return ret;

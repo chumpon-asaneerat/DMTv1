@@ -78,21 +78,9 @@ namespace DMT.Services
 
         public Models.Objects.User GetUser(Models.Objects.User user)
         {
-            var host = @"http://localhost:9000";
-            var client = new RestClient(host);
-            //client.Authenticator = new HttpBasicAuthenticator(AUTH.PersonalAccessToken, String.Empty);
-            var request = new RestRequest(RouteConsts.Job.GetUser.Url, Method.POST);
-            request.RequestFormat = DataFormat.Json;
-            //var data = user.ToJson();
-            request.AddJsonBody(user);
-
-            Models.Objects.User ret = null;
-            var response = client.Execute(request);
-            if (null != response && null != response.Content)
-            {
-                ret = response.Content.FromJson<Models.Objects.User>();
-            }
-
+            NRestClient client = new NRestClient(port: 9000);
+            var ret = client.Execute<Models.Objects.User>(
+                RouteConsts.Job.GetUser.Url, user);
             return ret;
         }
 

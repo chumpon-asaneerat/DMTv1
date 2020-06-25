@@ -8,7 +8,9 @@ using RestSharp;
 
 namespace DMT.Services
 {
-
+    /// <summary>
+    /// The NRestClient (RestSharp) wrapper class.
+    /// </summary>
     public class NRestClient
     {
         #region Enums
@@ -58,14 +60,26 @@ namespace DMT.Services
 
         #region Public Methods
 
-        public TReturn Execute<TReturn, TPara>(string apiUrl,
-            TPara value)
+        /// <summary>
+        /// Execute (POST).
+        /// </summary>
+        /// <typeparam name="TReturn">The Returns object type.</typeparam>
+        /// <param name="apiUrl">The action api url.</param>
+        /// <param name="pObj">The parameter.</param>
+        /// <returns>
+        /// Returns instance of TReturn object if success. Otherwise return null.
+        /// </returns>
+        public TReturn Execute<TReturn>(string apiUrl,
+            object pObj)
         {
             string actionUrl = (!apiUrl.StartsWith("/")) ? @"/" + apiUrl : apiUrl;
             var client = new RestClient(BaseUrl);
             var request = new RestRequest(actionUrl, Method.POST);
             request.RequestFormat = DataFormat.Json;
-            request.AddJsonBody(value);
+            if (null != pObj)
+            {
+                request.AddJsonBody(pObj);
+            }
 
             TReturn ret = default;
             var response = client.Execute(request);
@@ -73,8 +87,6 @@ namespace DMT.Services
             {
                 ret = response.Content.FromJson<TReturn>();
             }
-
-            client = null;
 
             return ret;
         }

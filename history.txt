@@ -18,8 +18,10 @@ Update 2020-06-26 #1
 Update 2020-06-25 #15
 - 
 
+[commited]
 Update 2020-06-25 #14
-- 
+- Implements NRestClient class #2.
+- PlazaOperations -> Update code to use NRestClient class.
 
 [commited]
 Update 2020-06-25 #13

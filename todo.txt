@@ -94,7 +94,7 @@
 [X] 0094 - Test Sample Web API action controller.
 [X] 0095 - Test Sample RestSharp client to all Web API.
 [X] 0096 - Implements CloneTo<T> Extension Methods.
-[ ] 0097 - Implements NRestClient Class (RestSharp client) with Execute methods.
+[X] 0097 - Implements NRestClient Class (RestSharp client) with Execute methods.
 [ ] 0098 - 
 [ ] 0099 - 
 [ ] 0100 - 

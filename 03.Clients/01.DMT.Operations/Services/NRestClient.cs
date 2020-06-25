@@ -8,6 +8,8 @@ using RestSharp;
 
 namespace DMT.Services
 {
+    #region NRestClient
+
     /// <summary>
     /// The NRestClient (RestSharp) wrapper class.
     /// </summary>
@@ -145,5 +147,24 @@ namespace DMT.Services
         }
 
         #endregion
+
+        #region Static Methods
+
+        /// <summary>
+        /// Create new instance of NRestClient.
+        /// </summary>
+        /// <param name="protocol">The web protocol (http, https).</param>
+        /// <param name="host">The host name or IP address.</param>
+        /// <param name="port">The port number.</param>
+        /// <returns>Returns new instance of NRestClient.</returns>
+        public static NRestClient Create(WebProtocol protocol = WebProtocol.http,
+            string host = "localhost", int port = 9000)
+        {
+            return new NRestClient(protocol, host, port);
+        }
+
+        #endregion
     }
+
+    #endregion
 }

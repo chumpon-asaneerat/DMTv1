@@ -78,8 +78,7 @@ namespace DMT.Services
 
         public Models.Objects.User GetUser(Models.Objects.User user)
         {
-            NRestClient client = new NRestClient(port: 9000);
-            var ret = client.Execute<Models.Objects.User>(
+            var ret = NRestClient.Create(port: 9000).Execute<Models.Objects.User>(
                 RouteConsts.Job.GetUser.Url, user);
             return ret;
         }

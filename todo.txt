@@ -84,11 +84,11 @@
 [X] 0084 - Implements ServiceOperations for scan method (check service installation).
 [X] 0085 - Implements Plaza/TA/TOD local service (loca web service).
 [X] 0086 - Change all fundXXX controls/pages to creditXXX controls/pages.
-[ ] 0087 - Implements ImageButton control (WPF).
+[X] 0087 - Implements ImageButton control (WPF) - not work! so cancel this issue.
 [ ] 0088 - Implements Status bar for all application.
-[ ] 0089 - Implements Plaza/TA/TOD service install (start)/uninstall (stop) page.
-[ ] 0090 - Implements TOD MainMenu page.
-[ ] 0091 - Implements TA MainMenu page.
+[X] 0089 - Implements Plaza/TA/TOD service install (start)/uninstall (stop) page/button.
+[X] 0090 - Implements TOD MainMenu page.
+[X] 0091 - Implements TA MainMenu page.
 [ ] 0092 - 
 [ ] 0093 - 
 [ ] 0094 - Implements Data Model (Plaza).

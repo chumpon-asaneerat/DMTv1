@@ -1,5 +1,5 @@
-[ ] Update NJson extension methods class fixed bug in FromJson method.
-[ ] Update DMTModelBase class (lock event raise).
+[X] Update NJson extension methods class fixed bug in FromJson method.
+[X] Update DMTModelBase class (lock event raise).
 [ ] Ported NTable/NTable<T> class.
 [ ] Ported LocalDbServer class (see LocalDbServer3).
 [ ] Update Nlib PeropertyMapNameExtensionMethods class update AssignTo method (change type checking).

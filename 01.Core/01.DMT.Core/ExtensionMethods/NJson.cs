@@ -44,7 +44,7 @@ namespace DMT
         /// <returns>Returns json string.</returns>
         public static T FromJson<T>(this string value)
         {
-            T result = default(T);
+            T result = default;
             try
             {
                 result = JsonConvert.DeserializeObject<T>(value);

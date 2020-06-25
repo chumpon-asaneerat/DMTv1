@@ -1,10 +1,7 @@
 ﻿#region Using
 
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using NLib;
-using DMT;
 
 // required for JsonIgnore attribute.
 using Newtonsoft.Json;

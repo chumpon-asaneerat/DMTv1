@@ -15,6 +15,21 @@ Update 2020-06-26 #1
 - 
 
 --------------------------------------------------------------------------------------------
+Update 2020-06-25 #19
+- 
+
+Update 2020-06-25 #18
+- 
+
+Update 2020-06-25 #17
+- 
+
+[commited]
+Update 2020-06-25 #16
+- Rmove unused using DMTModelBase.cs
+- Update NJson extension methods - FromJson method set default(T) to default.
+- Update port.to.v2.list.txt #3.
+
 [commited]
 Update 2020-06-25 #15
 - Implements NRestClient class #3. 
@@ -48,7 +63,7 @@ Update 2020-06-25 #10
 
 [commited]
 Update 2020-06-25 #9
-- Update port.to.v2.list.txt file.
+- Update port.to.v2.list.txt #2.
 
 [commited]
 Update 2020-06-25 #8

@@ -21,8 +21,10 @@ Update 2020-06-25 #19
 Update 2020-06-25 #18
 - 
 
+[commited]
 Update 2020-06-25 #17
-- 
+- Ported Nlib PeropertyMapNameExtensionMethods update code to v2.
+- Update port.to.v2.list.txt #4.
 
 [commited]
 Update 2020-06-25 #16

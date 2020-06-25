@@ -2,8 +2,8 @@
 [ ] Update DMTModelBase class (lock event raise).
 [ ] Ported NTable/NTable<T> class.
 [ ] Ported LocalDbServer class (see LocalDbServer3).
-[ ] 
-[ ] 
+[ ] Update Nlib PeropertyMapNameExtensionMethods class update AssignTo method (change type checking).
+[ ] Update Nlib PeropertyMapNameExtensionMethods class add CloneTo method.
 [ ] 
 [ ] 
 [ ] 

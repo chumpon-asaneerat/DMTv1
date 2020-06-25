@@ -236,8 +236,6 @@ namespace NLib.Reflection
 
     #endregion
 
-    //Update Nlib PeropertyMapNameExtensionMethods class update AssignTo method (change type checking).
-    //Update Nlib PeropertyMapNameExtensionMethods class add CloneTo method.
     #region PeropertyMapNameExtensionMethods
 
     /// <summary>

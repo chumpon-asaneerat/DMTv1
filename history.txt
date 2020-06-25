@@ -18,12 +18,13 @@ Update 2020-06-26 #1
 Update 2020-06-25 #7
 - 
 
+[commited]
 Update 2020-06-25 #6
-- 
+- Update todo.txt #3.
 
 [commited]
 Update 2020-06-25 #5
-- prepare history.txt
+- prepare history.txt.
 
 [commited]
 Update 2020-06-25 #4

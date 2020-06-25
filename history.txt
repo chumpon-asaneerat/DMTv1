@@ -30,8 +30,11 @@ Update 2020-06-25 #12
 Update 2020-06-25 #11
 - 
 
+[commited]
 Update 2020-06-25 #10
-- 
+- NLib project update PeropertyMapNameExtensionMethods - Update AssignTo method (fixed type checking).
+- NLib project update PeropertyMapNameExtensionMethods - Add CloneTo method.
+- Update todo.txt #4.
 
 [commited]
 Update 2020-06-25 #9

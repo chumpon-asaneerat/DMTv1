@@ -95,7 +95,7 @@
 [X] 0095 - Test Sample RestSharp client to all Web API.
 [ ] 0096 - Implements CloneTo<T> Extension Methods.
 [ ] 0097 - Implements ToObject<T>(this string json) Extension Methods.
-[ ] 0098 - 
+[ ] 0098 - Implements NRestApi Class (RestSharp client) with Execute methods.
 [ ] 0099 - 
 [ ] 0100 - 
 [ ] 0101 - 

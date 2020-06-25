@@ -218,8 +218,7 @@ namespace DMT.Services
             var dUser = Models.Domains.User.Get(user.UserId);
             if (null != dUser)
             {
-                oUser = new Models.Objects.User();
-                dUser.AssignTo(oUser);
+                oUser = dUser.CloneTo<Models.Objects.User>();
             }
             return oUser;
         }

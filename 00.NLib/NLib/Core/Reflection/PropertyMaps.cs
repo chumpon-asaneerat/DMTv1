@@ -236,6 +236,8 @@ namespace NLib.Reflection
 
     #endregion
 
+    //Update Nlib PeropertyMapNameExtensionMethods class update AssignTo method (change type checking).
+    //Update Nlib PeropertyMapNameExtensionMethods class add CloneTo method.
     #region PeropertyMapNameExtensionMethods
 
     /// <summary>
@@ -252,7 +254,8 @@ namespace NLib.Reflection
         #region Public Static Methods
 
         /// <summary>
-        /// Assign.
+        /// Assign from source object to target object that match all 
+        /// property name attributes.
         /// </summary>
         /// <typeparam name="TSource">The source type.</typeparam>
         /// <typeparam name="TTarget">The target type.</typeparam>
@@ -261,8 +264,8 @@ namespace NLib.Reflection
         public static void AssignTo<TSource, TTarget>(this TSource source, TTarget target)
         {
             if (null == source || null == target) return;
-            Type scrType = typeof(TSource);
-            Type dstType = typeof(TTarget);
+            Type scrType = source.GetType();
+            Type dstType = target.GetType();
             PeropertyMapName scrProp = _caches[scrType];
             PeropertyMapName dstProp = _caches[dstType];
             foreach (string name in scrProp.MapNames)
@@ -272,6 +275,24 @@ namespace NLib.Reflection
                 var val = PropertyAccess.GetValue(source, scrProp[name].Name);
                 PropertyAccess.SetValue(target, dstProp[name].Name, val);
             }
+        }
+        /// <summary>
+        /// Clone source object to new target object that match all 
+        /// property name attributes.
+        /// </summary>
+        /// <typeparam name="TTarget">The target type.</typeparam>
+        /// <param name="source">The source instance.</param>
+        /// <returns>
+        /// Returns new instance of TTarget with assigned all 
+        /// properties that match all property name attributes.
+        /// </returns>
+        public static TTarget CloneTo<TTarget>(this object source)
+            where TTarget: new()
+        {
+            if (null == source) return default;
+            TTarget target = new TTarget();
+            source.AssignTo(target);
+            return target;
         }
 
         #endregion

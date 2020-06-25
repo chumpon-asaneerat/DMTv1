@@ -2,6 +2,13 @@
 #if HISTORY_COMMENT
 
 // <[History]> 
+Update 2020-06-25
+=================
+- Reflection library updated.
+  - Update Nlib PeropertyMapNameExtensionMethods class update AssignTo method (change type checking).
+  - Update Nlib PeropertyMapNameExtensionMethods class add CloneTo method.
+
+======================================================================================================================
 Update 2020-06-19
 =================
 - Add code for PropertyMapName and related classes.

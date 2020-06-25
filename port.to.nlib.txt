@@ -1,2 +1,2 @@
-[ ] Update Nlib PeropertyMapNameExtensionMethods class update AssignTo method (change type checking).
-[ ] Update Nlib PeropertyMapNameExtensionMethods class add CloneTo method.
+[X] Update Nlib PeropertyMapNameExtensionMethods class update AssignTo method (change type checking).
+[X] Update Nlib PeropertyMapNameExtensionMethods class add CloneTo method.

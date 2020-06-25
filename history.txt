@@ -24,8 +24,10 @@ Update 2020-06-25 #14
 Update 2020-06-25 #13
 - 
 
+[commited]
 Update 2020-06-25 #12
-- 
+- Update todo.txt #6.
+- Update port.to.nlib.txt #2.
 
 [commited]
 Update 2020-06-25 #11

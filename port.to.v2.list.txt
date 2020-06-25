@@ -4,7 +4,7 @@
 [ ] Ported LocalDbServer class (see LocalDbServer3).
 [X] Update Nlib PeropertyMapNameExtensionMethods class update AssignTo method (change type checking).
 [X] Update Nlib PeropertyMapNameExtensionMethods class add CloneTo method.
-[ ] Ported NRestClient class.
+[X] Ported NRestClient class.
 [ ] Update ServiceOperations class to used NRestClient to call Web API.
 [ ] 
 [ ] 

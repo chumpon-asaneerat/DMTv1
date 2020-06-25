@@ -10,6 +10,8 @@ using RestSharp.Authenticators;
 
 using NLib.ServiceProcess;
 
+using Newtonsoft.Json; // required for Serialze/Deserialize.
+
 #endregion
 
 namespace DMT.Services
@@ -60,6 +62,7 @@ namespace DMT.Services
                 SecurityProtocolType.SystemDefault;
             */
         }
+        
         #region Public Methods
 
         /*
@@ -75,12 +78,25 @@ namespace DMT.Services
         }
         */
 
-        /*
         public Models.Objects.User GetUser(Models.Objects.User user)
         {
+            var host = @"http://localhost:9000";
+            var client = new RestClient(host);
+            //client.Authenticator = new HttpBasicAuthenticator(AUTH.PersonalAccessToken, String.Empty);
+            var request = new RestRequest(RouteConsts.Job.GetUser.Url, Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            //var data = user.ToJson();
+            request.AddJsonBody(user);
 
+            Models.Objects.User ret = null;
+            var response = client.Execute(request);
+            if (null != response && null != response.Content)
+            {
+                ret = JsonConvert.DeserializeObject<Models.Objects.User>(response.Content);
+            }
+
+            return ret;
         }
-        */
 
         public string BeginJob()
         {

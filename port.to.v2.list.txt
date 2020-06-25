@@ -1,11 +1,11 @@
 [X] Update NJson extension methods class fixed bug in FromJson method.
 [X] Update DMTModelBase class (lock event raise).
 [X] Ported NTable/NTable<T> class.
-[ ] Ported LocalDbServer class (see LocalDbServer3).
 [X] Update Nlib PeropertyMapNameExtensionMethods class update AssignTo method (change type checking).
 [X] Update Nlib PeropertyMapNameExtensionMethods class add CloneTo method.
 [X] Ported NRestClient class.
-[ ] Update ServiceOperations class to used NRestClient to call Web API.
+[X] Update ServiceOperations class to used NRestClient to call Web API.
+[X] Ported LocalDbServer class (see LocalDbServer3).
 [ ] 
 [ ] 
 [ ] 

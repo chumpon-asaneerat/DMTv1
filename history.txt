@@ -16,6 +16,14 @@ Update 2020-06-26 #1
 
 --------------------------------------------------------------------------------------------
 [commited]
+Update 2020-06-25 #21
+- Update port.to.v2.list.txt #8. 
+
+[commited]
+Update 2020-06-25 #20
+- Update port.to.v2.list.txt #7. 
+
+[commited]
 Update 2020-06-25 #19
 - Update port.to.v2.list.txt #6. 
 

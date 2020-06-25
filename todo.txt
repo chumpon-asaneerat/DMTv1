@@ -85,60 +85,60 @@
 [X] 0085 - Implements Plaza/TA/TOD local service (loca web service).
 [X] 0086 - Change all fundXXX controls/pages to creditXXX controls/pages.
 [X] 0087 - Implements ImageButton control (WPF) - not work! so cancel this issue.
-[ ] 0088 - Implements Status bar for all application.
-[X] 0089 - Implements Plaza/TA/TOD service install (start)/uninstall (stop) page/button.
-[X] 0090 - Implements TOD MainMenu page.
-[X] 0091 - Implements TA MainMenu page.
-[ ] 0092 - 
-[ ] 0093 - 
-[ ] 0094 - Implements Data Model (Plaza).
-[ ] 0095 - Implements Object Model (Plaza).
-[ ] 0096 - Implements local service (Plaza) -> add/edit/get plaza(s).
+[X] 0088 - Implements Plaza/TA/TOD service install (start)/uninstall (stop) page/button.
+[X] 0089 - Implements TOD/TA WebServer.
+[X] 0090 - Implements NTable, NTable<T> for common connection in all Domain classes.
+[X] 0091 - Implements NTable, NTable<T> for Create/Save/Exists/Gets/Get in all Domain classes.
+[X] 0092 - Implements LocalDatabasServer.
+[X] 0093 - Implements AssignTo Extension Metods.
+[X] 0094 - Test Sample Web API action controller.
+[X] 0095 - Test Sample RestSharp client to all Web API.
+[ ] 0096 - 
 [ ] 0097 - 
-[ ] 0098 - Implements Data Model (User).
-[ ] 0099 - Implements Object Model (User).
-[ ] 0100 - Implements local service (User) -> add/edit/get user(s).
+[ ] 0098 - 
+[ ] 0099 - 
+[ ] 0100 - 
 [ ] 0101 - 
-[ ] 0102 - Implements Data Model (Lane).
-[ ] 0103 - Implements Object Model (Lane).
-[ ] 0104 - Implements local service (Lane) -> add/edit/get lane(s).
+[ ] 0102 - 
+[ ] 0103 - 
+[ ] 0104 - 
 [ ] 0105 - 
 [ ] 0106 - 
-[ ] 0107 - Implements Data Model (Supervisor Shift).
-[ ] 0108 - Implements Object Model (Supervisor Shift).
-[ ] 0109 - Implements local service (Supervisor Shift) -> add/edit/get RevenueShift(s).
+[ ] 0107 - 
+[ ] 0108 - 
+[ ] 0109 - 
 [ ] 0110 - 
 [ ] 0111 - 
-[ ] 0112 - Implements Data Model (Collector Job).
-[ ] 0113 - Implements Object Model (Collector Job).
-[ ] 0114 - Implements local service (Collector Job) -> add/edit/get CollectorJob(s).
+[ ] 0112 - 
+[ ] 0113 - 
+[ ] 0114 - 
 [ ] 0115 - 
 [ ] 0116 - 
-[ ] 0117 - Implements Data Model (Revenue Entry).
-[ ] 0118 - Implements Object Model (Revenue Entry).
-[ ] 0119 - Implements Report Model (Revenue Entry).
-[ ] 0120 - Implements local service (Revenue Entry) -> save/get RevenueEntry(s).
+[ ] 0117 - 
+[ ] 0118 - 
+[ ] 0119 - 
+[ ] 0120 - 
 [ ] 0121 - 
 [ ] 0122 - 
 [ ] 0123 - 
 [ ] 0124 - 
 [ ] 0125 - 
-[ ] 0126 - Implements Plaza config setting for Plaza/TA/TOD.
+[ ] 0126 - 
 [ ] 0127 - 
-[ ] 0128 - Implements local service (TOD) -> change shift.
+[ ] 0128 - 
 [ ] 0129 - 
 [ ] 0130 - 
 [ ] 0131 - 
 [ ] 0132 - 
-[ ] 0133 - Implements local service (TOD/TA) -> lane user signin (for simulator).
+[ ] 0133 - 
 [ ] 0134 - 
-[ ] 0135 - Implements local service (TA) -> plaza fund/coupon (init/received).
+[ ] 0135 - 
 [ ] 0136 - 
 [ ] 0137 - 
 [ ] 0138 - 
-[ ] 0139 - Implements Plaza/TA/TOD local service health (heartbeat) check.
-[ ] 0140 - Implements ServiceOperations for check service health.
-[ ] 0141 - Implements Plaza/TA/TOD Web Service (server) health (heartbeat) check.
+[ ] 0139 - 
+[ ] 0140 - 
+[ ] 0141 - 
 [ ] 0142 - 
 [ ] 0143 - 
 [ ] 0144 - 

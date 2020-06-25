@@ -2,8 +2,9 @@
 Update 2020-06-25 #5
 - 
 
+[commited]
 Update 2020-06-25 #4
-- 
+- Update todo.txt #2 (remove all list that need to redesigned).
 
 [commited]
 Update 2020-06-25 #3

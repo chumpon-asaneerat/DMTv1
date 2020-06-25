@@ -21,8 +21,9 @@ Update 2020-06-25 #15
 Update 2020-06-25 #14
 - 
 
+[commited]
 Update 2020-06-25 #13
-- 
+- Implements NRestClient class #1.
 
 [commited]
 Update 2020-06-25 #12

@@ -32,29 +32,29 @@ Process:
 
 TABLES
 - TSB
-  - TSBId
-  - <CODE>
-  - NetworkId
-  - NameEN
-  - NameTH
+  - TSBId (string MaxLength(10))
+  - NetworkId (string MaxLength(10))
+  - NameEN (string MaxLength(100))
+  - NameTH (string MaxLength(100))
 - Plaza
-  - PlazaId
-  - <CODE>
-  - TSBId
-  - NameEN
-  - NameTH
-  - Direction
+  - PlazaId (string MaxLength(10))
+  - TSBId (string MaxLength(10))
+  - NameEN (string MaxLength(100))
+  - NameTH (string MaxLength(100))
+  - Direction (string MaxLength(10))
 - Lane
-  - LandId
-  - PlazaId
-  - <CODE>
-  - Abbr
-  - Type (MTC/etc..)
+  - LanePkId (int auto)
+  - LandId (string MaxLength(10))
+  - PlazaId (string MaxLength(10))
+  - LaneType (string MaxLength(10)) -> (MTC/etc..)
+  - LaneAbbr (string MaxLength(10))
 - Shift
-  - ShiftId
-  - NameEN
-  - NameTH
+  - ShiftId (int)
+  - NameEN (string MaxLength(50))
+  - NameTH (string MaxLength(50))
 
+- Role
+  - RoleId (string)
 
 
 Controllers:

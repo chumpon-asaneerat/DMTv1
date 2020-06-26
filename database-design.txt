@@ -29,3 +29,34 @@ Process:
         Return:
   Config:
   Simulator:
+
+TABLES
+- TSB
+  - TSBId
+  - <CODE>
+  - NetworkId
+  - NameEN
+  - NameTH
+- Plaza
+  - PlazaId
+  - <CODE>
+  - TSBId
+  - NameEN
+  - NameTH
+  - Direction
+- Lane
+  - LandId
+  - PlazaId
+  - <CODE>
+  - Abbr
+  - Type (MTC/etc..)
+- Shift
+  - ShiftId
+  - NameEN
+  - NameTH
+
+
+
+Controllers:
+- TSBController
+  - GetCurrent() => returns Current TSB

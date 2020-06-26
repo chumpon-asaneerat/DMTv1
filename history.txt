@@ -17,8 +17,9 @@ Update 2020-06-26 #11
 Update 2020-06-26 #10
 - 
 
+[commited]
 Update 2020-06-26 #9
-- 
+- Update database-design.txt #9.
 
 [commited]
 Update 2020-06-26 #8

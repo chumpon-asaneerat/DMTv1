@@ -124,13 +124,21 @@ LaneAttendance
   - RequestDate (Date)
 
 - RevenueEntry
-  - PkId [PK] (string MaxLength(30), Guid.NewID)
+  - RevPkId [PK] (string MaxLength(30), Guid.NewID)
   - EntryDate (Date)
   - RevenueDate (Date)
   - TSBId (string MaxLength(10))
   - ShiftId (int)
   - UserId (string MaxLength(10))
 
+- RevenueGroup
+  - 
+
+- RevenueGroupItem
+  - RevPkId [PK] (string MaxLength(30), Guid.NewID)
+  - SeqId (int) ???
+  - Category (string MaxLength(20)) => Traffic/Other/CouponUsage/CouponSold
+  - 
 
 ---------------------------------------------------------------------------------------------
 Controllers:

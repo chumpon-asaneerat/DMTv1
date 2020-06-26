@@ -10,7 +10,9 @@ Common Data
 - Use Table with Key/Value pair and can save to and load from json file.
 
 
+---------------------------------------------------------------------------------------------
 Process:
+--------
   TOD:
     Change Shift:
     Job:
@@ -30,18 +32,22 @@ Process:
   Config:
   Simulator:
 
+---------------------------------------------------------------------------------------------
 TABLES
+------
 - TSB
   - TSBId [PK] (string MaxLength(10))
   - NetworkId (string MaxLength(10))
   - NameEN (string MaxLength(100))
   - NameTH (string MaxLength(100))
+
 - Plaza
   - PlazaId [PK] (string MaxLength(10))
   - TSBId (string MaxLength(10))
   - NameEN (string MaxLength(100))
   - NameTH (string MaxLength(100))
   - Direction (string MaxLength(10))
+
 - Lane
   - PkId [PK] (string MaxLength(30), Guid.NewID)
   - LandId (string MaxLength(10))
@@ -49,6 +55,7 @@ TABLES
   - TSBId (string MaxLength(10))
   - LaneType (string MaxLength(10)) -> (MTC/etc..)
   - LaneAbbr (string MaxLength(10))
+
 - Shift
   - ShiftId [PK] (int)
   - NameEN (string MaxLength(50))
@@ -77,6 +84,7 @@ SupervisorShift
   - UserId (string MaxLength(10))
   - Begin (DateTime)
   - End (DateTime)
+  - LastUpdate (DateTime) -> last time sync from DC
 
 CollectorShift
   - PkId [PK] (string MaxLength(30), Guid.NewID)
@@ -85,6 +93,7 @@ CollectorShift
   - UserId (string MaxLength(10))
   - Begin (DateTime)
   - End (DateTime)
+  - LastUpdate (DateTime) -> last time sync from DC
 
 LaneAttendance
   - PkId [PK] (string MaxLength(30), Guid.NewID)
@@ -97,13 +106,29 @@ LaneAttendance
   - End (DateTime)
   - LastUpdate (DateTime) -> last time sync from DC
 
+---------------------------------------------------------------------------------------------
 Controllers:
+------------
 - TSBController
   - GetCurrent() => returns Current TSB.
   - GetLanes() => returns all lanes in current TSB (All plazas (IN/OUT)).
   - ChangeShift(TSBId, ShiftId, UserId) -> Supervisor Only.
 
+- UserController
+  - GetUsers() => returns List<User>.
+  - GetUserByUserId(UserId) => returns User.
+  - GetUserByLogIn(UserName, Password) => returns User.
+  - GetUserByCardId(CardId) => returns User.
+  - SaveUser(User)
+  - ChangePassword(UserId, newPassWord)
+  - GetSupervisors() => returns List<User> with rule Supervisor
+  - GetCollectors() => returns List<User> with rule Collector
+
 - CollectorController
-  - BeginShift(TSBId, ShiftId, UserId) -> Collector Only.
-  - EndShift(TSBId, ShiftId, UserId) -> Collector Only.
-  - GetAttendance(TSBId, UserId, Begin, End) -> Find Lane Attendances between begin/end time.
+  - BeginShift(TSBId, ShiftId, UserId) -> For Collector Only.
+  - EndShift(TSBId, ShiftId, UserId) -> For Collector Only.
+  - GetAttendance(TSBId, UserId, Begin, End) => returns List<LaneAttendance> -> Find Lane Attendances between begin/end time.
+
+- RevenueController
+  - Save(TSBId, RevenueEntry)
+  - Search(TSBId, UserId, Date) returns RevenueEntry.

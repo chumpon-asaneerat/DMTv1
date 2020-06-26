@@ -32,30 +32,42 @@ Process:
 
 TABLES
 - TSB
-  - TSBId (string MaxLength(10))
+  - TSBId [PK] (string MaxLength(10))
   - NetworkId (string MaxLength(10))
   - NameEN (string MaxLength(100))
   - NameTH (string MaxLength(100))
 - Plaza
-  - PlazaId (string MaxLength(10))
+  - PlazaId [PK] (string MaxLength(10))
   - TSBId (string MaxLength(10))
   - NameEN (string MaxLength(100))
   - NameTH (string MaxLength(100))
   - Direction (string MaxLength(10))
 - Lane
-  - LanePkId (int auto)
+  - LanePkId [PK] (int auto)
   - LandId (string MaxLength(10))
   - PlazaId (string MaxLength(10))
   - LaneType (string MaxLength(10)) -> (MTC/etc..)
   - LaneAbbr (string MaxLength(10))
 - Shift
-  - ShiftId (int)
+  - ShiftId [PK] (int)
   - NameEN (string MaxLength(50))
   - NameTH (string MaxLength(50))
 
 - Role
-  - RoleId (string)
+  - RoleId [PK] (string MaxLength(20))
+  - NameEN (string MaxLength(50))
+  - NameTH (string MaxLength(50))
 
+- User
+  - UserId [PK] (string MaxLength(10))
+  - RoleId (string MaxLength(20))
+  - NameEN (string MaxLength(100))
+  - NameTH (string MaxLength(100))
+  - UserName (string MaxLength(20))
+  - Password (string MaxLength(20))
+  - CardId (string MaxLength(20))
+  - Status int -> (Active = 1/Inactive = 0/etc..)
+  - LastUpdate (DateTime) -> last time sync from DC
 
 Controllers:
 - TSBController

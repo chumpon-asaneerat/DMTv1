@@ -43,7 +43,7 @@ TABLES
   - NameTH (string MaxLength(100))
   - Direction (string MaxLength(10))
 - Lane
-  - LanePkId [PK] (int auto)
+  - PkId [PK] (string MaxLength(30), Guid.NewID)
   - LandId (string MaxLength(10))
   - PlazaId (string MaxLength(10))
   - LaneType (string MaxLength(10)) -> (MTC/etc..)
@@ -67,6 +67,30 @@ TABLES
   - Password (string MaxLength(20))
   - CardId (string MaxLength(20))
   - Status int -> (Active = 1/Inactive = 0/etc..)
+  - LastUpdate (DateTime) -> last time sync from DC
+
+SupervisorShift
+  - PkId [PK] (string MaxLength(30), Guid.NewID)
+  - ShiftId (int)
+  - UserId (string MaxLength(10))
+  - Begin (DateTime)
+  - End (DateTime)
+
+CollectorShift
+  - PkId [PK] (string MaxLength(30), Guid.NewID)
+  - ShiftId (int)
+  - UserId (string MaxLength(10))
+  - Begin (DateTime)
+  - End (DateTime)
+
+LaneAttendance
+  - PkId [PK] (string MaxLength(30), Guid.NewID)
+  - PlazaId [PK] (string MaxLength(10))
+  - LaneId (string MaxLength(10))
+  - JobId (string MaxLength(10))
+  - UserId (string MaxLength(10))
+  - Begin (DateTime)
+  - End (DateTime)
   - LastUpdate (DateTime) -> last time sync from DC
 
 Controllers:

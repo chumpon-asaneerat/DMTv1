@@ -46,6 +46,7 @@ TABLES
   - PkId [PK] (string MaxLength(30), Guid.NewID)
   - LandId (string MaxLength(10))
   - PlazaId (string MaxLength(10))
+  - TSBId (string MaxLength(10))
   - LaneType (string MaxLength(10)) -> (MTC/etc..)
   - LaneAbbr (string MaxLength(10))
 - Shift
@@ -71,6 +72,7 @@ TABLES
 
 SupervisorShift
   - PkId [PK] (string MaxLength(30), Guid.NewID)
+  - TSBId (string MaxLength(10))
   - ShiftId (int)
   - UserId (string MaxLength(10))
   - Begin (DateTime)
@@ -78,6 +80,7 @@ SupervisorShift
 
 CollectorShift
   - PkId [PK] (string MaxLength(30), Guid.NewID)
+  - TSBId (string MaxLength(10))
   - ShiftId (int)
   - UserId (string MaxLength(10))
   - Begin (DateTime)
@@ -85,7 +88,8 @@ CollectorShift
 
 LaneAttendance
   - PkId [PK] (string MaxLength(30), Guid.NewID)
-  - PlazaId [PK] (string MaxLength(10))
+  - PlazaId (string MaxLength(10))
+  - TSBId (string MaxLength(10))
   - LaneId (string MaxLength(10))
   - JobId (string MaxLength(10))
   - UserId (string MaxLength(10))
@@ -95,4 +99,11 @@ LaneAttendance
 
 Controllers:
 - TSBController
-  - GetCurrent() => returns Current TSB
+  - GetCurrent() => returns Current TSB.
+  - GetLanes() => returns all lanes in current TSB (All plazas (IN/OUT)).
+  - ChangeShift(TSBId, ShiftId, UserId) -> Supervisor Only.
+
+- CollectorController
+  - BeginShift(TSBId, ShiftId, UserId) -> Collector Only.
+  - EndShift(TSBId, ShiftId, UserId) -> Collector Only.
+  - GetAttendance(TSBId, UserId, Begin, End) -> Find Lane Attendances between begin/end time.

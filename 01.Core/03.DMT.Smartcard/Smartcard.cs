@@ -459,6 +459,10 @@ namespace DMT.Smartcard
         [UnmanagedFunctionName("rf_M1_read")]
         [UnmanagedFunctionPointer(DelegatesCallingConversion)]
         public delegate int rf_M1_read(ushort icdev, byte adr, /*byte*/IntPtr pData, /*byte*/IntPtr pLen);
+
+        [UnmanagedFunctionName("rf_light")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_light(ushort icdev, byte color);
     }
 
     #region SmartcardService

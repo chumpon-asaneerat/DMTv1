@@ -467,6 +467,10 @@ namespace DMT.Smartcard
         [UnmanagedFunctionName("rf_free")]
         [UnmanagedFunctionPointer(DelegatesCallingConversion)]
         public delegate void rf_free(/*void*/IntPtr pData);
+
+        [UnmanagedFunctionName("rf_ClosePort")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_ClosePort(IntPtr m_hFileHandle);
     }
 
     #region SmartcardService

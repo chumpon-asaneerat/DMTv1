@@ -443,6 +443,10 @@ namespace DMT.Smartcard
         [UnmanagedFunctionName("rf_init_type")]
         [UnmanagedFunctionPointer(DelegatesCallingConversion)]
         public delegate int rf_init_type(ushort icdev, byte type);
+
+        [UnmanagedFunctionName("rf_antenna_sta")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_antenna_sta(ushort icdev, byte mode);
     }
 
     #region SmartcardService

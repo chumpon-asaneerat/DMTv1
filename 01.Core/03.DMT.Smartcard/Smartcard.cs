@@ -431,6 +431,10 @@ namespace DMT.Smartcard
         [UnmanagedFunctionName("rf_get_device_number")]
         [UnmanagedFunctionPointer(DelegatesCallingConversion)]
         public delegate int rf_get_device_number(/*int*/IntPtr Icdev);
+
+        [UnmanagedFunctionName("rf_get_model")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_get_model(ushort icdev, /*byte*/IntPtr pVersion, /*byte*/IntPtr pLen);
     }
 
     #region SmartcardService

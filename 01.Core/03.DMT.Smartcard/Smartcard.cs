@@ -415,6 +415,10 @@ namespace DMT.Smartcard
         [UnmanagedFunctionName("lib_ver")]
         [UnmanagedFunctionPointer(DelegatesCallingConversion)]
         public delegate int LibVer(/*uint*/IntPtr Ver);
+
+        [UnmanagedFunctionName("rf_init_usb")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate IntPtr rf_init_usb(int HIDNum);
     }
 
     #region SmartcardService

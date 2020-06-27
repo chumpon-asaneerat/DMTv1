@@ -471,6 +471,10 @@ namespace DMT.Smartcard
         [UnmanagedFunctionName("rf_ClosePort")]
         [UnmanagedFunctionPointer(DelegatesCallingConversion)]
         public delegate int rf_ClosePort(IntPtr m_hFileHandle);
+
+        [UnmanagedFunctionName("rf_GetErrorMessage")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_GetErrorMessage();
     }
 
     #region SmartcardService

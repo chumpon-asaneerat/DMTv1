@@ -26,8 +26,9 @@ Update 2020-06-27 #8
 Update 2020-06-27 #7
 - 
 
+[commited]
 Update 2020-06-27 #6
-- 
+- Update SL600USBApi class #6.
 
 [commited]
 Update 2020-06-27 #5

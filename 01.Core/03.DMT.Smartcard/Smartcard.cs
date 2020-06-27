@@ -412,7 +412,9 @@ namespace DMT.Smartcard
         }
         private const CallingConvention DelegatesCallingConversion = CallingConvention.StdCall;
 
-        
+        [UnmanagedFunctionName("lib_ver")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int LibVer(/*uint*/IntPtr Ver);
     }
 
     #region SmartcardService

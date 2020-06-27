@@ -439,6 +439,10 @@ namespace DMT.Smartcard
         [UnmanagedFunctionName("rf_beep")]
         [UnmanagedFunctionPointer(DelegatesCallingConversion)]
         public delegate int rf_beep(ushort icdev, byte msec);
+
+        [UnmanagedFunctionName("rf_init_type")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_init_type(ushort icdev, byte type);
     }
 
     #region SmartcardService

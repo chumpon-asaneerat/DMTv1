@@ -447,6 +447,10 @@ namespace DMT.Smartcard
         [UnmanagedFunctionName("rf_antenna_sta")]
         [UnmanagedFunctionPointer(DelegatesCallingConversion)]
         public delegate int rf_antenna_sta(ushort icdev, byte mode);
+
+        [UnmanagedFunctionName("rf_select")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_select(ushort icdev, /*byte*/IntPtr pSnr, byte srcLen, /*byte*/IntPtr Size);
     }
 
     #region SmartcardService

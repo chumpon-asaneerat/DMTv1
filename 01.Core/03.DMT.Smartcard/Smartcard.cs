@@ -397,6 +397,14 @@ namespace DMT.Smartcard
 
     #endregion
 
+    /// <summary>
+    /// The SL600 USB unmanaged dll api class.
+    /// </summary>
+    public class SL600USBApi
+    {
+
+    }
+
     #region SmartcardService
 
     /// <summary>

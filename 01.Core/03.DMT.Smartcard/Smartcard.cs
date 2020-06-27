@@ -451,6 +451,10 @@ namespace DMT.Smartcard
         [UnmanagedFunctionName("rf_select")]
         [UnmanagedFunctionPointer(DelegatesCallingConversion)]
         public delegate int rf_select(ushort icdev, /*byte*/IntPtr pSnr, byte srcLen, /*byte*/IntPtr Size);
+
+        [UnmanagedFunctionName("rf_M1_authentication2")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_M1_authentication2(ushort icdev, byte mode, byte secnr, /*byte*/IntPtr key);
     }
 
     #region SmartcardService

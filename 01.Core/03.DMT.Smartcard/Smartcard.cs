@@ -402,7 +402,17 @@ namespace DMT.Smartcard
     /// </summary>
     public class SL600USBApi
     {
+        internal class UnmanagedFunctionNameAttribute : Attribute
+        {
+            public string Name { get; private set; }
+            public UnmanagedFunctionNameAttribute(string name)
+            {
+                Name = name;
+            }
+        }
+        private const CallingConvention DelegatesCallingConversion = CallingConvention.StdCall;
 
+        
     }
 
     #region SmartcardService

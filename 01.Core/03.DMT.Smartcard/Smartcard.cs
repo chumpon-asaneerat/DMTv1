@@ -419,6 +419,10 @@ namespace DMT.Smartcard
         [UnmanagedFunctionName("rf_init_usb")]
         [UnmanagedFunctionPointer(DelegatesCallingConversion)]
         public delegate IntPtr rf_init_usb(int HIDNum);
+
+        [UnmanagedFunctionName("rf_get_device_name")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_get_device_name(int HIDNum, /*char*/IntPtr buf, int sz);
     }
 
     #region SmartcardService

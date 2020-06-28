@@ -4324,7 +4324,7 @@ namespace DMT.Models.Domains
     #region NTable<T>
 
     /// <summary>
-    /// The NTable(Generic) abstract class.
+    /// The NTable (Generic) abstract class.
     /// </summary>
     /// <typeparam name="T">The Target Class.</typeparam>
     public abstract class NTable<T> : NTable
@@ -4599,7 +4599,7 @@ namespace DMT.Models.Domains
     #region NQuery<T>
 
     /// <summary>
-    /// The NQuery(Generic) abstract class.
+    /// The NQuery (Generic) abstract class.
     /// </summary>
     /// <typeparam name="T">The Target Class.</typeparam>
     public abstract class NQuery<T>

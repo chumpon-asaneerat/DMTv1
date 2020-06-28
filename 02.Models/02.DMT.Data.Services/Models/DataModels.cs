@@ -4324,7 +4324,7 @@ namespace DMT.Models.Domains
     #region NTable<T>
 
     /// <summary>
-    /// The NTable<T> abstract class.
+    /// The NTable(Generic) abstract class.
     /// </summary>
     /// <typeparam name="T">The Target Class.</typeparam>
     public abstract class NTable<T> : NTable
@@ -4580,6 +4580,37 @@ namespace DMT.Models.Domains
     }
 
     #endregion
+
+
+    #region NQuery
+
+    /// <summary>
+    /// The NQuery abstract class.
+    /// </summary>
+    public abstract class NQuery
+    {
+        #region Static Methods
+
+        #endregion
+    }
+
+    #endregion
+
+    #region NQuery<T>
+
+    /// <summary>
+    /// The NQuery(Generic) abstract class.
+    /// </summary>
+    /// <typeparam name="T">The Target Class.</typeparam>
+    public abstract class NQuery<T>
+    {
+        #region Static Methods
+
+        #endregion
+    }
+
+    #endregion
+
 
     [Table("TSB3")]
     public class TSB3 : NTable<TSB3>

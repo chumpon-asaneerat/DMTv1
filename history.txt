@@ -11,8 +11,9 @@ Update 2020-06-29 #9
 Update 2020-06-29 #8
 - 
 
+[commited]
 Update 2020-06-29 #7
-- 
+- Update NQuery remove type parameter from Execute static methods.
 
 [commited]
 Update 2020-06-29 #6

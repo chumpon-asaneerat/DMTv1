@@ -92,6 +92,28 @@ namespace DMT.Services
 
             return ret;
         }
+        /// <summary>
+        /// Execute (POST).
+        /// </summary>
+        /// <param name="apiUrl">The action api url.</param>
+        /// <param name="pObj">The parameter.</param>
+        public void Execute(string apiUrl,
+            object pObj)
+        {
+            string actionUrl = (!apiUrl.StartsWith("/")) ? @"/" + apiUrl : apiUrl;
+            var client = new RestClient(BaseUrl);
+            var request = new RestRequest(actionUrl, Method.POST);
+            request.RequestFormat = DataFormat.Json;
+            if (null != pObj)
+            {
+                request.AddJsonBody(pObj);
+            }
+
+            var response = client.Execute(request);
+            if (null != response && null != response.Content)
+            {
+            }
+        }
 
         #endregion
 

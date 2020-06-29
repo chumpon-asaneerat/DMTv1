@@ -34,13 +34,13 @@
                 </Fluent:RibbonGroupBox>
                 <!-- Group - Master -->
                 <Fluent:RibbonGroupBox Header="Master Data">
-                    <Fluent:Button Header="Plaza Manage"
+                    <Fluent:Button Header="TSB View"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/Networks/plaza_network1.png" />
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
-                    <Fluent:Button Header="Staff Manage"
+                    <Fluent:Button Header="Staff View"
                                    Width="75">
                         <Fluent:Button.LargeIcon>
                             <Image Source="Images/users/users.ico" />

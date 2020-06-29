@@ -4634,6 +4634,41 @@ namespace DMT.Models.Domains
                 return Query<T>(db, query, args);
             }
         }
+        /// <summary>
+        /// Execute Non Query.
+        /// </summary>
+        /// <typeparam name="T">The Target Class.</typeparam>
+        /// <param name="db">The connection.</param>
+        /// <param name="query">The query string.</param>
+        /// <param name="args">The query arguments.</param>
+        /// <returns>Returns effected row(s) count.</returns>
+        public static int Execute<T>(SQLiteConnection db, string query, params object[] args)
+            where T : new()
+        {
+            lock (sync)
+            {
+                int result = 0;
+                if (null == db || string.IsNullOrEmpty(query)) return result;
+                // execute query.
+                result = db.Execute(query, args);
+                return result;
+            }
+        }
+        /// <summary>
+        /// Execute Non Query.
+        /// </summary>
+        /// <typeparam name="T">The Target Class.</typeparam>
+        /// <param name="query">The query string.</param>
+        /// <param name="args">The query arguments.</param>
+        /// <returns>Returns effected row(s) count.</returns>
+        public static int Execute(string query, params object[] args)
+        {
+            lock (sync)
+            {
+                SQLiteConnection db = Default;
+                return Execute<T>(db, query, args);
+            }
+        }
 
         #endregion
     }

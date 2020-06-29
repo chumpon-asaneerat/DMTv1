@@ -14,8 +14,9 @@ Update 2020-06-29 #8
 Update 2020-06-29 #7
 - 
 
+[commited]
 Update 2020-06-29 #6
-- 
+- Update NQuery add Execute static methods.
 
 [commited]
 Update 2020-06-29 #5

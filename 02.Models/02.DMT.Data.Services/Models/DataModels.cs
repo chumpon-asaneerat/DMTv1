@@ -4631,7 +4631,7 @@ namespace DMT.Models.Domains
             lock (sync)
             {
                 SQLiteConnection db = Default;
-                return Query<T>(query, args);
+                return Query<T>(db, query, args);
             }
         }
 

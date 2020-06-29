@@ -4584,9 +4584,9 @@ namespace DMT.Models.Domains
     #region NQuery
 
     /// <summary>
-    /// The NQuery abstract class.
+    /// The NQuery class.
     /// </summary>
-    public abstract class NQuery : DMTModelBase
+    public class NQuery : DMTModelBase
     {
         #region Static Variables and Properties
 
@@ -4598,31 +4598,16 @@ namespace DMT.Models.Domains
         /// Gets default Connection.
         /// </summary>
         public static SQLiteConnection Default { get; set; }
-
-        #endregion
-    }
-
-    #endregion
-
-    #region NQuery<T>
-
-    /// <summary>
-    /// The NQuery (Generic) abstract class.
-    /// </summary>
-    /// <typeparam name="T">The Target Class.</typeparam>
-    public abstract class NQuery<T> : NQuery
-        where T : NQuery, new()
-    {
-        #region Static Methods
-
         /// <summary>
         /// Query.
         /// </summary>
+        /// <typeparam name="T">The Target Class.</typeparam>
         /// <param name="db">The connection.</param>
         /// <param name="query">The query string.</param>
         /// <param name="args">The query arguments.</param>
         /// <returns>Returns query result in List.</returns>
-        public static List<T> Query(SQLiteConnection db, string query, params object[] args)
+        public static List<T> Query<T>(SQLiteConnection db, string query, params object[] args)
+            where T : new()
         {
             lock (sync)
             {
@@ -4636,15 +4621,17 @@ namespace DMT.Models.Domains
         /// <summary>
         /// Query.
         /// </summary>
+        /// <typeparam name="T">The Target Class.</typeparam>
         /// <param name="query">The query string.</param>
         /// <param name="args">The query arguments.</param>
         /// <returns>Returns query result in List.</returns>
-        public static List<T> Query(string query, params object[] args)
+        public static List<T> Query<T>(string query, params object[] args)
+            where T : new()
         {
             lock (sync)
             {
                 SQLiteConnection db = Default;
-                return Query(query, args);
+                return Query<T>(query, args);
             }
         }
 
@@ -4652,7 +4639,6 @@ namespace DMT.Models.Domains
     }
 
     #endregion
-
 
     [Table("TSB3")]
     public class TSB3 : NTable<TSB3>

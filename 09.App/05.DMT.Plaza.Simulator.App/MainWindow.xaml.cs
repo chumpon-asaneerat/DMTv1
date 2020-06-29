@@ -61,5 +61,11 @@ namespace DMT
                 MessageBox.Show("Found :" + ret.UserName);
             else MessageBox.Show("User not Found");
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Models.Objects.User user = new Models.Objects.User();
+            pgrid.SelectedObject = user;
+        }
     }
 }

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Fluent="urn:fluent-ribbon"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="DMT Plaza Simulator" 
         Icon="app.ico"
@@ -61,7 +62,7 @@
                         </Fluent:Button.LargeIcon>
                     </Fluent:Button>
                     <Fluent:Button Header="Grey"
-                                   Width="100">
+                                   Width="100" Click="Button_Click_1">
                         <Fluent:Button.Icon>
                             <Image Source="Images/Gray.png"/>
                         </Fluent:Button.Icon>
@@ -74,6 +75,7 @@
         </Fluent:Ribbon>
         <Grid>
             <!-- Main Content -->
+            <xctk:PropertyGrid x:Name="pgrid" Margin="90,180,768.6,-495.2" />
         </Grid>
     </Grid>
 </Fluent:RibbonWindow>

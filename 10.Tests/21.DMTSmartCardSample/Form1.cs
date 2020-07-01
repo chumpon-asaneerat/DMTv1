@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -41,7 +42,21 @@ namespace DMTSmartCardSample
             {
                 using (var reader = new Sl600SmartCardReader(sdk, 0) { IsEmv = false })
                 {
+                    while (_running)
+                    {
+                        if (reader.IsCardExist())
+                        {
+                            lbCardExist.Text = "Card dected.";
+                            lbCardExist.ForeColor = Color.ForestGreen;
+                        }
+                        else
+                        {
+                            lbCardExist.Text = "No card.";
+                            lbCardExist.ForeColor = Color.Red;
+                        }
 
+                        Thread.Sleep(500);
+                    }
                 }
             }
         }

@@ -2407,6 +2407,98 @@ namespace DMT.Smartcard
     #endregion
 
     #endregion
+
+    #region Sl600SmartCardReader
+
+    public class Sl600SmartCardReader : SmartCardReader, IDisposable
+    {
+        public SL600SDK SDK { get; private set; }
+        public ushort ICDev { get; private set; }
+
+        public IntPtr Handle { get; private set; }
+
+        public Sl600SmartCardReader(SL600SDK sdk, int icdev)
+        {
+            SDK = sdk;
+            ICDev = (ushort)icdev;
+
+            Handle = SDK.RFInitUSB(icdev);
+        }
+        public override byte[] Reset()
+        {
+            SDK.RFSetAntennaMode(ICDev, false);
+            Thread.Sleep(50);
+            SDK.RFInitType(ICDev, (byte)'A');
+            Thread.Sleep(50);
+            SDK.RFSetAntennaMode(ICDev, true);
+            Thread.Sleep(50);
+            return SDK.RFResetTypeA(ICDev, 0);
+        }
+
+        protected override byte[] SendCommand(byte[] command)
+        {
+            return SDK.RFCOSCommand(ICDev, command);
+        }
+        public override bool IsCardExist()
+        {
+            try
+            {
+                return 0 == SDK._thread.Invoke(() =>
+                {
+                    var dataPtr = Marshal.AllocHGlobal(SL600SDK.MAX_RF_BUFFER);
+                    // .NET 4.5.1
+                    //var lenPtr = Marshal.AllocHGlobal(Marshal.SizeOf<int>());
+                    //Marshal.Copy(new byte[] { 0, 0, 0, 0 }, 0, lenPtr, Marshal.SizeOf<int>());
+                    // .NET 4.5
+                    var lenPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(int)));
+                    Marshal.Copy(new byte[] { 0, 0, 0, 0 }, 0, lenPtr, Marshal.SizeOf(typeof(int)));
+
+                    try
+                    {
+                        return SDK._functions.GetFunctionDelegate<SDKDelegates.rf_typea_rst>()(ICDev, 0, dataPtr, lenPtr);
+                    }
+                    finally
+                    {
+                        Marshal.FreeHGlobal(dataPtr);
+                        Marshal.FreeHGlobal(lenPtr);
+                    }
+                });
+            }
+            catch (SL600Exception)
+            {
+                return false;
+            }
+        }
+
+        #region IDisposable Support
+
+        private bool disposedValue = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    SDK.Dispose();
+                }
+
+                SDK = null;
+
+                disposedValue = true;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            // GC.SuppressFinalize(this);
+        }
+
+        #endregion
+    }
+
+    #endregion
 }
 
 namespace DMT.Smartcard

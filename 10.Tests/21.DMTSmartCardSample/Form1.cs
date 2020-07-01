@@ -8,9 +8,12 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Threading;
 
 using System.IO;
 using DMT.Smartcard;
+using System.Net.Http.Headers;
+
 
 namespace DMTSmartCardSample
 {
@@ -21,44 +24,57 @@ namespace DMTSmartCardSample
             InitializeComponent();
         }
 
-        private bool _running = false;
+        private SL600SDK sdk = null;
+        private Sl600SmartCardReader reader = null;
+        private DispatcherTimer timer = null;
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-            _running = true;
-        }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            _running = false;
-        }
-
-        private void Run()
         {
             var factory = SL600SDKFactory.CreateFactory(
                 Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MasterRD.dll"));
             //var resolver = CreateResolver();
-            using (var sdk = factory.CreateInstance())
-            {
-                using (var reader = new Sl600SmartCardReader(sdk, 0) { IsEmv = false })
-                {
-                    while (_running)
-                    {
-                        if (reader.IsCardExist())
-                        {
-                            lbCardExist.Text = "Card dected.";
-                            lbCardExist.ForeColor = Color.ForestGreen;
-                        }
-                        else
-                        {
-                            lbCardExist.Text = "No card.";
-                            lbCardExist.ForeColor = Color.Red;
-                        }
+            sdk = factory.CreateInstance();
+            reader = new Sl600SmartCardReader(sdk, 0) { IsEmv = false };
 
-                        Thread.Sleep(500);
-                    }
-                }
+            timer = new DispatcherTimer();
+            timer.Tick += Timer_Tick;
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Start();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (null != timer)
+            {
+                timer.Stop();
+                timer.Tick -= Timer_Tick;
             }
+            timer = null;
+
+            if (null != reader) reader.Dispose();
+            reader = null;
+
+            if (null != sdk) sdk.Dispose();
+            sdk = null;
+        }
+
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (null == reader) return;
+
+            if (reader.IsCardExist())
+            {
+                lbCardExist.Text = "Card dected.";
+                lbCardExist.ForeColor = Color.ForestGreen;
+            }
+            else
+            {
+                lbCardExist.Text = "No card.";
+                lbCardExist.ForeColor = Color.Red;
+            }
+
+            Application.DoEvents();
         }
     }
 }

@@ -2439,6 +2439,7 @@ namespace DMT.Smartcard
         {
             return SDK.RFCOSCommand(ICDev, command);
         }
+
         public override bool IsCardExist()
         {
             try

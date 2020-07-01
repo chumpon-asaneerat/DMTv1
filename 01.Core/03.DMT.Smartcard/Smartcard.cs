@@ -9,6 +9,221 @@ using System.Windows.Threading;
 
 #endregion
 
+namespace DMT.Old1
+{
+    #region SDK
+
+    /// <summary>
+    /// The SL600 SDK wrapper class.
+    /// </summary>
+    public class SDK
+    {
+        internal class UnmanagedFunctionNameAttribute : Attribute
+        {
+            public string Name { get; private set; }
+            public UnmanagedFunctionNameAttribute(string name)
+            {
+                Name = name;
+            }
+        }
+
+        internal unsafe class SDKDelegates
+        {
+            private const CallingConvention DelegatesCallingConversion = CallingConvention.StdCall;
+
+            [UnmanagedFunctionName("lib_ver")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int LibVer(/*uint*/IntPtr Ver);
+
+
+            [UnmanagedFunctionName("rf_init_usb")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate IntPtr rf_init_usb(int HIDNum);
+
+            [UnmanagedFunctionName("rf_get_device_name")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_get_device_name(int HIDNum, /*char*/IntPtr buf, int sz);
+
+            [UnmanagedFunctionName("rf_init_device_number")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_init_device_number(ushort icdev);
+
+            [UnmanagedFunctionName("rf_get_device_number")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_get_device_number(/*int*/IntPtr Icdev);
+
+            [UnmanagedFunctionName("rf_get_model")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_get_model(ushort icdev, /*byte*/IntPtr pVersion, /*byte*/IntPtr pLen);
+
+            [UnmanagedFunctionName("rf_get_snr")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_get_snr(ushort icdev, /*byte*/IntPtr Snr);
+
+            [UnmanagedFunctionName("rf_beep")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_beep(ushort icdev, byte msec);
+
+            [UnmanagedFunctionName("rf_antenna_sta")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_antenna_sta(ushort icdev, byte mode);
+
+            [UnmanagedFunctionName("rf_request")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_request(ushort icdev, byte mode, /*ushort*/IntPtr TagType);
+
+            [UnmanagedFunctionName("rf_anticoll")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_anticoll(ushort icdev, byte bcnt, /*byte*/IntPtr pSnr, /*byte*/IntPtr pRLength);
+
+            [UnmanagedFunctionName("rf_select")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_select(ushort icdev, /*byte*/IntPtr pSnr, byte srcLen, /*byte*/IntPtr Size);
+
+            [UnmanagedFunctionName("rf_M1_authentication1")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_M1_authentication1(ushort icdev, byte mode, byte secnr);
+
+            [UnmanagedFunctionName("rf_M1_authentication2")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_M1_authentication2(ushort icdev, byte mode, byte secnr, /*byte*/IntPtr key);
+
+            [UnmanagedFunctionName("rf_M1_read")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_M1_read(ushort icdev, byte adr, /*byte*/IntPtr pData, /*byte*/IntPtr pLen);
+
+            [UnmanagedFunctionName("rf_light")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_light(ushort icdev, byte color);
+
+            [UnmanagedFunctionName("rf_cl_deselect")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_cl_deselect(ushort icdev);
+
+            [UnmanagedFunctionName("rf_free")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate void rf_free(/*void*/IntPtr pData);
+
+            [UnmanagedFunctionName("rf_ClosePort")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_ClosePort(IntPtr m_hFileHandle);
+
+            [UnmanagedFunctionName("rf_GetErrorMessage")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int rf_GetErrorMessage();
+
+            [UnmanagedFunctionName("ReadTime")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int ReadTime(ushort icdev, /*byte*/IntPtr pData, /*byte*/IntPtr pLen);
+
+            [UnmanagedFunctionName("WriteTime")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int WriteTime(ushort icdev, /*byte*/IntPtr pData);
+
+            [UnmanagedFunctionName("DisPlayTime")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int DisPlayTime(ushort icdev, byte bShowFlag);
+
+            [UnmanagedFunctionName("DisPlayString")]
+            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+            public delegate int DisPlayString(ushort icdev, /*byte*/IntPtr pData, byte Len);
+        }
+    }
+
+    #endregion
+}
+
+namespace DMT.Old2
+{
+    #region SL600USBApi
+
+    /// <summary>
+    /// The SL600 USB unmanaged dll api class.
+    /// </summary>
+    public class SL600USBApi
+    {
+        internal class UnmanagedFunctionNameAttribute : Attribute
+        {
+            public string Name { get; private set; }
+            public UnmanagedFunctionNameAttribute(string name)
+            {
+                Name = name;
+            }
+        }
+        private const CallingConvention DelegatesCallingConversion = CallingConvention.StdCall;
+
+        [UnmanagedFunctionName("lib_ver")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int LibVer(/*uint*/IntPtr Ver);
+
+        [UnmanagedFunctionName("rf_init_usb")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate IntPtr rf_init_usb(int HIDNum);
+
+        [UnmanagedFunctionName("rf_get_device_name")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_get_device_name(int HIDNum, /*char*/IntPtr buf, int sz);
+
+        [UnmanagedFunctionName("rf_init_device_number")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_init_device_number(ushort icdev);
+
+        [UnmanagedFunctionName("rf_get_device_number")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_get_device_number(/*int*/IntPtr Icdev);
+
+        [UnmanagedFunctionName("rf_get_model")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_get_model(ushort icdev, /*byte*/IntPtr pVersion, /*byte*/IntPtr pLen);
+
+        [UnmanagedFunctionName("rf_beep")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_beep(ushort icdev, byte msec);
+
+        [UnmanagedFunctionName("rf_init_type")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_init_type(ushort icdev, byte type);
+
+        [UnmanagedFunctionName("rf_antenna_sta")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_antenna_sta(ushort icdev, byte mode);
+
+        [UnmanagedFunctionName("rf_select")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_select(ushort icdev, /*byte*/IntPtr pSnr, byte srcLen, /*byte*/IntPtr Size);
+
+        [UnmanagedFunctionName("rf_M1_authentication2")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_M1_authentication2(ushort icdev, byte mode, byte secnr, /*byte*/IntPtr key);
+
+        [UnmanagedFunctionName("rf_M1_read")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_M1_read(ushort icdev, byte adr, /*byte*/IntPtr pData, /*byte*/IntPtr pLen);
+
+        [UnmanagedFunctionName("rf_light")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_light(ushort icdev, byte color);
+
+        [UnmanagedFunctionName("rf_free")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate void rf_free(/*void*/IntPtr pData);
+
+        [UnmanagedFunctionName("rf_ClosePort")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_ClosePort(IntPtr m_hFileHandle);
+
+        [UnmanagedFunctionName("rf_GetErrorMessage")]
+        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
+        public delegate int rf_GetErrorMessage();
+    }
+
+    #endregion
+}
+
+namespace DMT.Smartcard
+{
+}
+
 namespace DMT.Smartcard
 {
     #region DelegateExtensionMethods
@@ -275,207 +490,6 @@ namespace DMT.Smartcard
     }
 
     #endregion
-
-    #region SDK
-
-    /// <summary>
-    /// The SL600 SDK wrapper class.
-    /// </summary>
-    public class SDK
-    {
-        internal class UnmanagedFunctionNameAttribute : Attribute
-        {
-            public string Name { get; private set; }
-            public UnmanagedFunctionNameAttribute(string name)
-            {
-                Name = name;
-            }
-        }
-
-        internal unsafe class SDKDelegates
-        {
-            private const CallingConvention DelegatesCallingConversion = CallingConvention.StdCall;
-
-            [UnmanagedFunctionName("lib_ver")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int LibVer(/*uint*/IntPtr Ver);
-
-
-            [UnmanagedFunctionName("rf_init_usb")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate IntPtr rf_init_usb(int HIDNum);
-
-            [UnmanagedFunctionName("rf_get_device_name")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_get_device_name(int HIDNum, /*char*/IntPtr buf, int sz);
-
-            [UnmanagedFunctionName("rf_init_device_number")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_init_device_number(ushort icdev);
-
-            [UnmanagedFunctionName("rf_get_device_number")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_get_device_number(/*int*/IntPtr Icdev);
-
-            [UnmanagedFunctionName("rf_get_model")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_get_model(ushort icdev, /*byte*/IntPtr pVersion, /*byte*/IntPtr pLen);
-
-            [UnmanagedFunctionName("rf_get_snr")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_get_snr(ushort icdev, /*byte*/IntPtr Snr);
-
-            [UnmanagedFunctionName("rf_beep")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_beep(ushort icdev, byte msec);
-
-            [UnmanagedFunctionName("rf_antenna_sta")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_antenna_sta(ushort icdev, byte mode);
-
-            [UnmanagedFunctionName("rf_request")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_request(ushort icdev, byte mode, /*ushort*/IntPtr TagType);
-
-            [UnmanagedFunctionName("rf_anticoll")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_anticoll(ushort icdev, byte bcnt, /*byte*/IntPtr pSnr, /*byte*/IntPtr pRLength);
-
-            [UnmanagedFunctionName("rf_select")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_select(ushort icdev, /*byte*/IntPtr pSnr, byte srcLen, /*byte*/IntPtr Size);
-
-            [UnmanagedFunctionName("rf_M1_authentication1")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_M1_authentication1(ushort icdev, byte mode, byte secnr);
-
-            [UnmanagedFunctionName("rf_M1_authentication2")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_M1_authentication2(ushort icdev, byte mode, byte secnr, /*byte*/IntPtr key);
-
-            [UnmanagedFunctionName("rf_M1_read")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_M1_read(ushort icdev, byte adr, /*byte*/IntPtr pData, /*byte*/IntPtr pLen);
-
-            [UnmanagedFunctionName("rf_light")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_light(ushort icdev, byte color);
-
-            [UnmanagedFunctionName("rf_cl_deselect")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_cl_deselect(ushort icdev);
-
-            [UnmanagedFunctionName("rf_free")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate void rf_free(/*void*/IntPtr pData);
-
-            [UnmanagedFunctionName("rf_ClosePort")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_ClosePort(IntPtr m_hFileHandle);
-
-            [UnmanagedFunctionName("rf_GetErrorMessage")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int rf_GetErrorMessage();
-
-            [UnmanagedFunctionName("ReadTime")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int ReadTime(ushort icdev, /*byte*/IntPtr pData, /*byte*/IntPtr pLen);
-
-            [UnmanagedFunctionName("WriteTime")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int WriteTime(ushort icdev, /*byte*/IntPtr pData);
-
-            [UnmanagedFunctionName("DisPlayTime")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int DisPlayTime(ushort icdev, byte bShowFlag);
-
-            [UnmanagedFunctionName("DisPlayString")]
-            [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-            public delegate int DisPlayString(ushort icdev, /*byte*/IntPtr pData, byte Len);
-        }
-    }
-
-    #endregion
-
-    /// <summary>
-    /// The SL600 USB unmanaged dll api class.
-    /// </summary>
-    public class SL600USBApi
-    {
-        internal class UnmanagedFunctionNameAttribute : Attribute
-        {
-            public string Name { get; private set; }
-            public UnmanagedFunctionNameAttribute(string name)
-            {
-                Name = name;
-            }
-        }
-        private const CallingConvention DelegatesCallingConversion = CallingConvention.StdCall;
-
-        [UnmanagedFunctionName("lib_ver")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate int LibVer(/*uint*/IntPtr Ver);
-
-        [UnmanagedFunctionName("rf_init_usb")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate IntPtr rf_init_usb(int HIDNum);
-
-        [UnmanagedFunctionName("rf_get_device_name")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate int rf_get_device_name(int HIDNum, /*char*/IntPtr buf, int sz);
-
-        [UnmanagedFunctionName("rf_init_device_number")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate int rf_init_device_number(ushort icdev);
-
-        [UnmanagedFunctionName("rf_get_device_number")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate int rf_get_device_number(/*int*/IntPtr Icdev);
-
-        [UnmanagedFunctionName("rf_get_model")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate int rf_get_model(ushort icdev, /*byte*/IntPtr pVersion, /*byte*/IntPtr pLen);
-
-        [UnmanagedFunctionName("rf_beep")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate int rf_beep(ushort icdev, byte msec);
-
-        [UnmanagedFunctionName("rf_init_type")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate int rf_init_type(ushort icdev, byte type);
-
-        [UnmanagedFunctionName("rf_antenna_sta")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate int rf_antenna_sta(ushort icdev, byte mode);
-
-        [UnmanagedFunctionName("rf_select")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate int rf_select(ushort icdev, /*byte*/IntPtr pSnr, byte srcLen, /*byte*/IntPtr Size);
-
-        [UnmanagedFunctionName("rf_M1_authentication2")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate int rf_M1_authentication2(ushort icdev, byte mode, byte secnr, /*byte*/IntPtr key);
-
-        [UnmanagedFunctionName("rf_M1_read")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate int rf_M1_read(ushort icdev, byte adr, /*byte*/IntPtr pData, /*byte*/IntPtr pLen);
-
-        [UnmanagedFunctionName("rf_light")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate int rf_light(ushort icdev, byte color);
-
-        [UnmanagedFunctionName("rf_free")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate void rf_free(/*void*/IntPtr pData);
-
-        [UnmanagedFunctionName("rf_ClosePort")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate int rf_ClosePort(IntPtr m_hFileHandle);
-
-        [UnmanagedFunctionName("rf_GetErrorMessage")]
-        [UnmanagedFunctionPointer(DelegatesCallingConversion)]
-        public delegate int rf_GetErrorMessage();
-    }
 
     #region SmartcardService
 

@@ -2,8 +2,9 @@
 Update 2020-07-01 #2
 - 
 
+[commited]
 Update 2020-07-01 #1
-- 
+- Backup Smartcard API to Old1 and Old2 namespace.
 
 --------------------------------------------------------------------------------------------
 [commited]

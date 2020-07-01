@@ -8,8 +8,9 @@ Update 2020-07-02 #4
 Update 2020-07-02 #3
 - 
 
+[commited]
 Update 2020-07-02 #2
-- 
+- Smartcard API reimplements #6 - The smartcard project required to compile as x86.
 
 [commited]
 Update 2020-07-02 #1

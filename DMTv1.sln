@@ -128,6 +128,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "21.DMTSmartCardSample", "10
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "22.FileSystemWatcherSample", "10.Tests\22.FileSystemWatcherSample\22.FileSystemWatcherSample.csproj", "{96706A3A-07CB-4833-95B4-46B5CA5092FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23.SQLite.Net.Wpf.Sample", "10.Tests\23.SQLite.Net.Wpf.Sample\23.SQLite.Net.Wpf.Sample.csproj", "{EC7E4CDF-4B08-4CA2-9F67-0AAA316D75E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -290,6 +292,10 @@ Global
 		{96706A3A-07CB-4833-95B4-46B5CA5092FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96706A3A-07CB-4833-95B4-46B5CA5092FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96706A3A-07CB-4833-95B4-46B5CA5092FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC7E4CDF-4B08-4CA2-9F67-0AAA316D75E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC7E4CDF-4B08-4CA2-9F67-0AAA316D75E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC7E4CDF-4B08-4CA2-9F67-0AAA316D75E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC7E4CDF-4B08-4CA2-9F67-0AAA316D75E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -337,6 +343,7 @@ Global
 		{562B2B64-B39A-4FAB-838D-2D2AA4103452} = {BA63F3CC-5F62-4368-BDEC-729AFBE8C309}
 		{8AAA36ED-710E-4661-BF24-4BB6D22E7AED} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 		{96706A3A-07CB-4833-95B4-46B5CA5092FC} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
+		{EC7E4CDF-4B08-4CA2-9F67-0AAA316D75E4} = {FA4FB3D9-C3CF-459E-8EBA-1041B10372C3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E649CF5-EC41-479A-BECB-ADF883B25263}

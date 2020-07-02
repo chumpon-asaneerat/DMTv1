@@ -8,8 +8,9 @@ Update 2020-07-03 #4
 Update 2020-07-03 #3
 - 
 
+[commited]
 Update 2020-07-03 #2
-- 
+- Add SQLite.Net.Wpf.Sample project.
 
 [commited]
 Update 2020-07-03 #1

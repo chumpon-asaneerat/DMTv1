@@ -2,8 +2,9 @@
 Update 2020-07-02 #5
 - 
 
+[commited]
 Update 2020-07-02 #4
-- 
+- Smartcard API reimplements #8.
 
 [commited]
 Update 2020-07-02 #3

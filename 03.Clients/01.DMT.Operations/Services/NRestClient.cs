@@ -3,6 +3,7 @@
 //using System.Net;
 using RestSharp;
 //using RestSharp.Authenticators;
+using RestSharp.Serializers.NewtonsoftJson;
 
 #endregion
 
@@ -76,6 +77,7 @@ namespace DMT.Services
         {
             string actionUrl = (!apiUrl.StartsWith("/")) ? @"/" + apiUrl : apiUrl;
             var client = new RestClient(BaseUrl);
+            client.UseNewtonsoftJson();
             var request = new RestRequest(actionUrl, Method.POST);
             request.RequestFormat = DataFormat.Json;
             if (null != pObj)
@@ -102,6 +104,7 @@ namespace DMT.Services
         {
             string actionUrl = (!apiUrl.StartsWith("/")) ? @"/" + apiUrl : apiUrl;
             var client = new RestClient(BaseUrl);
+            client.UseNewtonsoftJson();
             var request = new RestRequest(actionUrl, Method.POST);
             request.RequestFormat = DataFormat.Json;
             if (null != pObj)

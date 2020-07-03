@@ -2,8 +2,10 @@
 Update 2020-07-03 #5
 - 
 
+[commited]
 Update 2020-07-03 #4
-- 
+- Update RestSharp new version.
+- Add RestSharp.Serializers.NewtonsoftJson package.
 
 [commited]
 Update 2020-07-03 #3

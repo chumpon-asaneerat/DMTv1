@@ -4,14 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using NLib.Reflection;
+
 namespace CSharpMethodOverrideAndNewSample
 {
     class Program
     {
         static void Main(string[] args)
         {
-            TestCars1();
-            TesStatic1();
+            //TestCars1();
+            //TesStatic1();
+            TesNLibDynamic1();
 
             Console.WriteLine("Press any key to exit.");
             Console.ReadKey();
@@ -43,6 +46,13 @@ namespace CSharpMethodOverrideAndNewSample
             System.Console.WriteLine("\nStatic method new keyword");
             A.Print();
             B.Print();
+        }
+
+        public static void TesNLibDynamic1()
+        {
+            System.Console.WriteLine("\nNLib Dynamic<T> Static method call");
+            AClass.ShowText();
+            BClass.ShowText();
         }
     }
 
@@ -101,5 +111,39 @@ namespace CSharpMethodOverrideAndNewSample
             A.Print();  // Will call hidden static method on parent
         }
         */
+    }
+
+    public class Base
+    {
+        public static string GetText()
+        {
+            return "Base: ShowText";
+        }
+    }
+
+    public abstract class Base<T> : Base 
+        where T: Base
+    { 
+        public static void ShowText()
+        {
+            var text = (string)DynamicAccess<T>.CallStatic("GetText");
+            Console.WriteLine(text);
+        }
+    }
+
+    public class AClass : Base<AClass>
+    {
+        public new static string GetText()
+        {
+            return "AClass: ShowText";
+        }
+    }
+
+    public class BClass : Base<BClass>
+    {
+        public new static string GetText()
+        {
+            return "BClass: ShowText";
+        }
     }
 }

@@ -14,8 +14,9 @@ Update 2020-07-04 #7
 Update 2020-07-04 #6
 - 
 
+[commited]
 Update 2020-07-04 #5
-- 
+- Update CSharpMethodOverrideAndNewSample project #2.
 
 [commited]
 Update 2020-07-04 #4

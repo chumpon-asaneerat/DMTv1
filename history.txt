@@ -20,8 +20,10 @@ Update 2020-07-04 #5
 Update 2020-07-04 #4
 - 
 
+[commited]
 Update 2020-07-04 #3
-- 
+- SmartCard implements M1 read process #3.
+  - remove unused code (in Form1) #2.
 
 [commited]
 Update 2020-07-04 #2

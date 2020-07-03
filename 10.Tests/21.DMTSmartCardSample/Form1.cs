@@ -154,5 +154,3 @@ namespace DMTSmartCardSample
     }
 }
 
-#endregion
-

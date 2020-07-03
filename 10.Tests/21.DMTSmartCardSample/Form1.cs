@@ -77,6 +77,8 @@ namespace DMTSmartCardSample
                 {
                     lbCardExist.Text = "Card dected.";
                     lbCardExist.ForeColor = Color.ForestGreen;
+
+                    reader.ReadCard();///// implements here now.
                 }
                 else
                 {

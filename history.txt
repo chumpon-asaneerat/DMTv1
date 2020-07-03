@@ -26,8 +26,11 @@ Update 2020-07-04 #3
 Update 2020-07-04 #2
 - 
 
+[commited]
 Update 2020-07-04 #1
-- 
+- SmartCard implements M1 read process #1.
+  - Can read card information correctly (debug with Console.WriteLine).
+  - Required to refactor code and update all parameters comments.
 
 --------------------------------------------------------------------------------------------
 [commited]

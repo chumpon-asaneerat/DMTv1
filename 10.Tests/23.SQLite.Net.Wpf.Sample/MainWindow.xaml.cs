@@ -74,7 +74,39 @@ namespace SQLite.Net.Wpf.Sample
         {
             string databasePath = "./wpf-db-sample.db";
             db = new SQLiteConnection(databasePath, true);
+
+            NTable.Default = db;
+            NQuery.Default = db;
+
             db.CreateTable<Stock>();
+            db.CreateTable<TSB>();
+
+            if (db.Table<TSB>().Count() == 0)
+            {
+                TSB item;
+                item = new TSB();
+                item.NetworkId = "31";
+                item.TSBId = "311";
+                item.TSBNameEN = "DIN DAENG";
+                item.TSBNameTH = "ดินแดง";
+                item.Active = true;
+                if (!TSB.Exists(item)) TSB.Save(item);
+
+                item = new TSB();
+                item.NetworkId = "31";
+                item.TSBId = "312";
+                item.TSBNameEN = "SUTHISARN";
+                item.TSBNameTH = "สุทธิสาร";
+                item.Active = false;
+                if (!TSB.Exists(item)) TSB.Save(item);
+            }
+            /*
+            if (db.Table<TSB>().Count() == 0) ;
+            {
+
+            }
+            */
+
             LoadData();
         }
 
@@ -640,6 +672,313 @@ namespace DMT.Models
         */
 
         public event PropertyChangedEventHandler PropertyChanged;
+    }
+
+    #endregion
+
+    #region TSB
+
+    /// <summary>
+    /// The TSB Data Model class.
+    /// </summary>
+    //[Table("TSB")]
+    public class TSB : NTable<TSB>
+    {
+        #region Intenral Variables
+
+        private string _TSBId = string.Empty;
+        private string _TSBNameEN = string.Empty;
+        private string _TSBNameTH = string.Empty;
+        private string _NetworkId = string.Empty;
+        private bool _Active = false;
+
+        private int _Status = 0;
+        private DateTime _LastUpdate = DateTime.MinValue;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public TSB() : base() { }
+
+        #endregion
+
+        #region Public Proprties
+
+        /// <summary>
+        /// Gets or sets TSBId.
+        /// </summary>
+        [PrimaryKey, MaxLength(10)]
+        [PeropertyMapName("TSBId")]
+        public string TSBId
+        {
+            get
+            {
+                return _TSBId;
+            }
+            set
+            {
+                if (_TSBId != value)
+                {
+                    _TSBId = value;
+                    this.RaiseChanged("TSBId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets NetworkId.
+        /// </summary>
+        [MaxLength(10)]
+        [PeropertyMapName("NetworkId")]
+        public string NetworkId
+        {
+            get
+            {
+                return _NetworkId;
+            }
+            set
+            {
+                if (_NetworkId != value)
+                {
+                    _NetworkId = value;
+                    this.RaiseChanged("NetworkId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets TSBNameEN.
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("TSBNameEN")]
+        public string TSBNameEN
+        {
+            get
+            {
+                return _TSBNameEN;
+            }
+            set
+            {
+                if (_TSBNameEN != value)
+                {
+                    _TSBNameEN = value;
+                    this.RaiseChanged("TSBNameEN");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets TSBNameTH.
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("TSBNameTH")]
+        public string TSBNameTH
+        {
+            get
+            {
+                return _TSBNameTH;
+            }
+            set
+            {
+                if (_TSBNameTH != value)
+                {
+                    _TSBNameTH = value;
+                    this.RaiseChanged("TSBNameTH");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets is active TSB.
+        /// </summary>
+        [PeropertyMapName("Active")]
+        public bool Active
+        {
+            get
+            {
+                return _Active;
+            }
+            set
+            {
+                if (_Active != value)
+                {
+                    _Active = value;
+                    this.RaiseChanged("Active");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets Status (1 = Sync, 0 = Unsync, etc..)
+        /// </summary>
+        [PeropertyMapName("Status")]
+        public int Status
+        {
+            get
+            {
+                return _Status;
+            }
+            set
+            {
+                if (_Status != value)
+                {
+                    _Status = value;
+                    this.RaiseChanged("Status");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets LastUpdated (Sync to DC).
+        /// </summary>
+        [PeropertyMapName("LastUpdate")]
+        public DateTime LastUpdate
+        {
+            get { return _LastUpdate; }
+            set
+            {
+                if (_LastUpdate != value)
+                {
+                    _LastUpdate = value;
+                    this.RaiseChanged("LastUpdate");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Static Methods
+
+        public static void SetActive(string tsbId)
+        {
+            lock (sync)
+            {
+                // inactive all TSBs
+                string cmd = string.Empty;
+                cmd += "UPDATE TSB ";
+                cmd += "   SET Active = 0";
+                NQuery.Execute(cmd);
+                // Set active TSB
+                cmd = string.Empty;
+                cmd += "UPDATE TSB ";
+                cmd += "   SET Active = 1 ";
+                cmd += " WHERE TSBId = ? ";
+                NQuery.Execute(cmd, tsbId);
+            }
+        }
+
+        public static TSB GetCurrent()
+        {
+            lock (sync)
+            {
+                // inactive all TSBs
+                string cmd = string.Empty;
+                cmd += "SELECT * FROM TSB ";
+                cmd += " WHERE Active = 1 ";
+                var results = NQuery.Query<TSB>(cmd, true);
+                return (null != results) ? results.FirstOrDefault() : null;
+            }
+        }
+
+        #endregion
+    }
+
+    #endregion
+
+    #region TSBBase<T>
+
+    /// <summary>
+    /// The TSB Base Data Model abstract class.
+    /// </summary>
+    /// <typeparam name="T">The target class type.</typeparam>
+    public abstract class TSBBase<T> : NTable<T>
+        where T : NTable, new()
+    {
+        #region Intenral Variables
+
+        private string _TSBId = string.Empty;
+        //private string _TSBNameEN = string.Empty;
+        //private string _TSBNameTH = string.Empty;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public TSBBase() : base() { }
+
+        #endregion
+
+        #region Public Proprties
+
+        /// <summary>
+        /// Gets or sets TSBId.
+        /// </summary>
+        [MaxLength(10)]
+        [PeropertyMapName("TSBId")]
+        public string TSBId
+        {
+            get
+            {
+                return _TSBId;
+            }
+            set
+            {
+                if (_TSBId != value)
+                {
+                    _TSBId = value;
+                    this.RaiseChanged("TSBId");
+                }
+            }
+        }
+        /*
+        /// <summary>
+        /// Gets or sets TSBNameEN.
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("TSBNameEN")]
+        public string TSBNameEN
+        {
+            get
+            {
+                return _TSBNameEN;
+            }
+            set
+            {
+                if (_TSBNameEN != value)
+                {
+                    _TSBNameEN = value;
+                    this.RaiseChanged("TSBNameEN");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets TSBNameTH.
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("TSBNameTH")]
+        public string TSBNameTH
+        {
+            get
+            {
+                return _TSBNameTH;
+            }
+            set
+            {
+                if (_TSBNameTH != value)
+                {
+                    _TSBNameTH = value;
+                    this.RaiseChanged("TSBNameTH");
+                }
+            }
+        }
+        */
+
+        #endregion
+
+        #region Static Methods
+
+        #endregion
     }
 
     #endregion

@@ -10,6 +10,8 @@ using NLib;
 using NLib.Reflection;
 using SQLiteNetExtensions.Extensions;
 
+using DMT.Models;
+
 namespace SQLite.Net.Wpf.Sample
 {
     /// <summary>
@@ -70,7 +72,7 @@ namespace SQLite.Net.Wpf.Sample
 
         private void InitDatabase()
         {
-            string databasePath = "./stock.db";
+            string databasePath = "./wpf-db-sample.db";
             db = new SQLiteConnection(databasePath, true);
             db.CreateTable<Stock>();
             LoadData();
@@ -129,66 +131,6 @@ namespace SQLite.Net.Wpf.Sample
                 item.Raise("Time2");
                 item.Raise("STime2");
             }
-        }
-
-        public class Stock : INotifyPropertyChanged
-        {
-            [PrimaryKey, AutoIncrement]
-            public int Id { get; set; }
-            public string Name { get; set; }
-            // Update Time.
-            public DateTime Time { get; set; }
-
-            public void Raise(string propertyName)
-            {
-                if (null != PropertyChanged)
-                {
-                    PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-                }
-            }
-
-            // Show time in string.
-            [Ignore]
-            public string STime
-            {
-                get
-                {
-                    return (this.Time != DateTime.MinValue) ?
-                        this.Time.ToString("yyyy-MM-dd HH:mm:ss.fff") : string.Empty;
-                }
-                set { }
-            }
-
-            public DateTime Time2 { get; set; }
-            [Ignore]
-            public string STime2
-            {
-                get
-                {
-                    return (this.Time2 != DateTime.MinValue) ?
-                        this.Time2.ToString("yyyy-MM-dd HH:mm:ss.fff") : string.Empty;
-                }
-                set { }
-            }
-            /*
-            //[DateTimeOffsetSerialize]
-            [DateTimeOffsetSerialize("yyyy-MM-dd HH:mm:ss.fff zzzz")]
-            //[DateTimeOffsetSerialize("yyyy-MM-dd HH:mm:ss.fff zzzz", true)]
-            public System.DateTimeOffset LocalTime { get; set; }
-            
-            [Ignore]
-            public string SLocalTime
-            {
-                get
-                {
-                    return (this.LocalTime != System.DateTimeOffset.MinValue) ?
-                        this.LocalTime.ToString("yyyy-MM-dd HH:mm:ss.fff") : string.Empty;
-                }
-                set { }
-            }
-            */
-
-            public event PropertyChangedEventHandler PropertyChanged;
         }
     }
 }
@@ -634,6 +576,70 @@ namespace DMT.Models
         }
 
         #endregion
+    }
+
+    #endregion
+
+    #region Stock
+
+    public class Stock : INotifyPropertyChanged
+    {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
+        public string Name { get; set; }
+        // Update Time.
+        public DateTime Time { get; set; }
+
+        public void Raise(string propertyName)
+        {
+            if (null != PropertyChanged)
+            {
+                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        // Show time in string.
+        [Ignore]
+        public string STime
+        {
+            get
+            {
+                return (this.Time != DateTime.MinValue) ?
+                    this.Time.ToString("yyyy-MM-dd HH:mm:ss.fff") : string.Empty;
+            }
+            set { }
+        }
+
+        public DateTime Time2 { get; set; }
+        [Ignore]
+        public string STime2
+        {
+            get
+            {
+                return (this.Time2 != DateTime.MinValue) ?
+                    this.Time2.ToString("yyyy-MM-dd HH:mm:ss.fff") : string.Empty;
+            }
+            set { }
+        }
+        /*
+        //[DateTimeOffsetSerialize]
+        [DateTimeOffsetSerialize("yyyy-MM-dd HH:mm:ss.fff zzzz")]
+        //[DateTimeOffsetSerialize("yyyy-MM-dd HH:mm:ss.fff zzzz", true)]
+        public System.DateTimeOffset LocalTime { get; set; }
+
+        [Ignore]
+        public string SLocalTime
+        {
+            get
+            {
+                return (this.LocalTime != System.DateTimeOffset.MinValue) ?
+                    this.LocalTime.ToString("yyyy-MM-dd HH:mm:ss.fff") : string.Empty;
+            }
+            set { }
+        }
+        */
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 
     #endregion

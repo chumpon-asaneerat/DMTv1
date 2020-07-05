@@ -101,7 +101,7 @@ namespace SQLite.Net.Wpf.Sample
                 item.Active = false;
                 if (!TSB.Exists(item)) TSB.Save(item);
             }
-            if (db.Table<Plaza>().Count() == 0) ;
+            if (db.Table<Plaza>().Count() == 0)
             {
                 Plaza plaza;
                 plaza = new Plaza()

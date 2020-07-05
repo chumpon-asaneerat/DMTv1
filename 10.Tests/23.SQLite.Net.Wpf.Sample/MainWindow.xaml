@@ -4,44 +4,85 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:xceed="http://schemas.xceed.com/wpf/xaml/toolkit"
-        mc:Ignorable="d"
-        Title="MainWindow" 
-        Height="450" 
+        Title="MainWindow"
         Width="800"
+        Height="450"
         Loaded="Window_Loaded"
-        Unloaded="Window_Unloaded">
-    <DockPanel LastChildFill="True">
-        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
-            <StackPanel Orientation="Vertical" Margin="2"
-                        Width="200">
-                <TextBlock Text="Name:" Margin="3"/>
-                <TextBox x:Name="txtName" Margin="3"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Margin="2"
-                        Width="200">
-                <TextBlock Text="Date:" Margin="3"/>
-                <xceed:DateTimePicker x:Name="dt" Margin="3"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Margin="2"
-                        Width="100">
-                <TextBlock Text="" Margin="3"/>
-                <Button x:Name="cmdAdd" Content="Add" Margin="3"
-                        Click="cmdAdd_Click"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Margin="2"
-                        Width="100">
-                <TextBlock Text="" Margin="3"/>
-                <Button x:Name="cmdUpdate" Content="Update" Margin="3"
-                        Click="cmdUpdate_Click"/>
-            </StackPanel>
-            <StackPanel Orientation="Vertical" Margin="2"
-                        Width="100">
-                <TextBlock Text="" Margin="3"/>
-                <Button x:Name="cmdClear" Content="Clear" Margin="3"
-                        Click="cmdClear_Click"/>
-            </StackPanel>
-        </StackPanel>
-        <DataGrid x:Name="grid" AutoGenerateColumns="True" 
-                  ColumnWidth="150"/>
-    </DockPanel>
+        Unloaded="Window_Unloaded"
+        mc:Ignorable="d">
+    <TabControl>
+        <TabItem Header="Test Date">
+            <DockPanel LastChildFill="True">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                    <StackPanel Width="200"
+                                Margin="2"
+                                Orientation="Vertical">
+                        <TextBlock Margin="3" Text="Name:" />
+                        <TextBox x:Name="txtName" Margin="3" />
+                    </StackPanel>
+                    <StackPanel Width="200"
+                                Margin="2"
+                                Orientation="Vertical">
+                        <TextBlock Margin="3" Text="Date:" />
+                        <xceed:DateTimePicker x:Name="dt" Margin="3" />
+                    </StackPanel>
+                    <StackPanel Width="100"
+                                Margin="2"
+                                Orientation="Vertical">
+                        <TextBlock Margin="3" Text="" />
+                        <Button x:Name="cmdAdd"
+                                Margin="3"
+                                Content="Add"
+                                Click="cmdAdd_Click" />
+                    </StackPanel>
+                    <StackPanel Width="100"
+                                Margin="2"
+                                Orientation="Vertical">
+                        <TextBlock Margin="3" Text="" />
+                        <Button x:Name="cmdUpdate"
+                                Margin="3"
+                                Content="Update"
+                                Click="cmdUpdate_Click" />
+                    </StackPanel>
+                    <StackPanel Width="100"
+                                Margin="2"
+                                Orientation="Vertical">
+                        <TextBlock Margin="3" Text="" />
+                        <Button x:Name="cmdClear"
+                                Margin="3"
+                                Content="Clear"
+                                Click="cmdClear_Click" />
+                    </StackPanel>
+                </StackPanel>
+                <DataGrid x:Name="grid"
+                          AutoGenerateColumns="True"
+                          ColumnWidth="150" />
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="Test Model Base class">
+            <DockPanel LastChildFill="True">
+                <StackPanel  Orientation="Horizontal" DockPanel.Dock="Top">
+                    <StackPanel Width="100"
+                                Margin="2"
+                                Orientation="Vertical">
+                        <TextBlock Margin="3" Text="" />
+                        <Button x:Name="cmdGetTSB"
+                                Margin="3"
+                                Content="Get TSB"/>
+                    </StackPanel>
+                    <StackPanel Width="100"
+                                Margin="2"
+                                Orientation="Vertical">
+                        <TextBlock Margin="3" Text="" />
+                        <Button x:Name="cmdGetPlaze"
+                                Margin="3"
+                                Content="Get Plaza" />
+                    </StackPanel>
+                    <DataGrid x:Name="grid2"
+                          AutoGenerateColumns="True"
+                          ColumnWidth="150" />
+                </StackPanel>
+            </DockPanel>
+        </TabItem>
+    </TabControl>
 </Window>

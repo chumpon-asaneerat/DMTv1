@@ -14,12 +14,13 @@ Update 2020-07-05 #7
 Update 2020-07-05 #6
 - 
 
+[commited]
 Update 2020-07-05 #5
-- 
+- Update SQLite.Net.Wpf.Sample #8
 
 [commited]
 Update 2020-07-05 #4
-- Update SQLite.Net.Wpf.Sample #6 - warning fixed.
+- Update SQLite.Net.Wpf.Sample #7 - warning fixed.
 
 [commited]
 Update 2020-07-05 #3

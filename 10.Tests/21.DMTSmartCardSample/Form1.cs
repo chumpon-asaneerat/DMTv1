@@ -24,72 +24,39 @@ namespace DMTSmartCardSample
             InitializeComponent();
         }
 
-        SL600SDKFactory factory = null;
-        private SL600SDK sdk = null;
-
-        private Sl600SmartCardReader reader = null;
-        private DispatcherTimer timer = null;
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            factory = SL600SDKFactory.CreateFactory(
-                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MasterRD.dll"));
-            //var resolver = CreateResolver();
-            sdk = factory.CreateInstance();
-            reader = new Sl600SmartCardReader(sdk, 0) { IsEmv = false };
-
-            timer = new DispatcherTimer();
-            timer.Tick += Timer_Tick;
-            timer.Interval = TimeSpan.FromMilliseconds(200);
-            timer.Start();
-
-            //backgroundWorker1.RunWorkerAsync();
-            Scan();
+            SmartcardService.SecureKey = SL600SDK.DefaultKey;
+            SmartcardService.OnIdle += SmartcardService_OnIdle;
+            SmartcardService.OnCardRead += SmartcardService_OnCardRead;
+            SmartcardService.Start();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (null != timer)
-            {
-                timer.Stop();
-                timer.Tick -= Timer_Tick;
-            }
-            timer = null;
-
-            if (null != reader) reader.Dispose();
-            reader = null;
-
-            if (null != sdk) sdk.Dispose();
-            sdk = null;
+            SmartcardService.OnCardRead -= SmartcardService_OnCardRead;
+            SmartcardService.OnIdle -= SmartcardService_OnIdle;
+            SmartcardService.Shutdown();
         }
 
-        private bool onScanning = false;
-
-        private void Timer_Tick(object sender, EventArgs e)
+        private void SmartcardService_OnIdle(object sender, EventArgs e)
         {
-            if (onScanning) return;
+            lbCardExist.ForeColor = Color.Red;
+            lbCardExist.Text = "Card not avaliable.";
+            lbBlock0.Text = "Block 0: ";
+            lbBlock1.Text = "Block 1: ";
+            lbBlock2.Text = "Block 2: ";
+            lbBlock3.Text = "Block 3: ";
+        }
 
-            onScanning = true;
-
-            if (null != reader)
-            {
-                if (reader.IsCardExist())
-                {
-                    lbCardExist.Text = "Card dected.";
-                    lbCardExist.ForeColor = Color.ForestGreen;
-
-                    reader.ReadCard();///// implements here now.
-                }
-                else
-                {
-                    lbCardExist.Text = "No card.";
-                    lbCardExist.ForeColor = Color.Red;
-                }
-
-                Application.DoEvents();
-            }
-
-            onScanning = false;
+        private void SmartcardService_OnCardRead(object sender, M1CardReadEventArgs e)
+        {
+            lbCardExist.ForeColor = Color.Green;
+            lbCardExist.Text = "Card avaliable.";
+            lbBlock0.Text = "Block 0: " + e.Block0;
+            lbBlock1.Text = "Block 1: " + e.Block1;
+            lbBlock2.Text = "Block 2: " + e.Block2;
+            lbBlock3.Text = "Block 3: " + e.Block3;
         }
 
         /*

@@ -10,7 +10,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Navigation;
 using System.Windows.Threading;
 
 #endregion
@@ -1025,6 +1024,8 @@ namespace DMT.Smartcard
         internal const int MAX_RF_BUFFER = 1024;
         internal const int MAX_RF_STR_SIZE = 255;
 
+        public static readonly byte[] DefaultKey = new byte[] { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+
         internal DispathcedThread _thread;
         internal FunctionPointersContainer _functions;
         internal SL600SDK(DispathcedThread thread, FunctionPointersContainer functions)
@@ -1560,10 +1561,10 @@ namespace DMT.Smartcard
             return _thread.InvokeAsync(() => RFResetTypeAInternal(icdev, model));
         }
 
+        // mode: 0x26 - READ_STD (false)
+        // mode: 0x52 - READ_ALL (true)
         public int RFRequest(ushort icdev, bool mode, IntPtr type)
         {
-            // mode: 0x26 - READ_STD
-            // mode: 0x52 - READ_ALL
             ThrowIfDisposed();
             return _thread.Invoke(() =>
                 _functions.GetFunctionDelegate<SDKDelegates.rf_request>()
@@ -2330,111 +2331,225 @@ namespace DMT.Smartcard
             }
         }
 
-        public void ReadCard()
+        private int RFRequest(bool STDMode = false)
         {
+            int status = 0;
+
+            // tagType(mode): 0x26 - READ_STD (false)
+            // tagType(mode): 0x52 - READ_ALL (true)
+            var tagType = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(ushort)));
+
+            if (STDMode)
+                Marshal.Copy(new byte[] { 0, 0, 0, 0x26 }, 0, tagType, Marshal.SizeOf(typeof(ushort)));
+            else Marshal.Copy(new byte[] { 0, 0, 0, 0x52 }, 0, tagType, Marshal.SizeOf(typeof(ushort)));
             try
             {
-                var tagType = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(ushort)));
-                Marshal.Copy(new byte[] { 0, 0, 0, 0 }, 0, tagType, Marshal.SizeOf(typeof(ushort)));
+                status = SDK.RFRequest(ICDev, false, tagType);
+                if (status != 0)
+                {
+                    //Console.WriteLine("RFRequest failed.");
+                }
+                Thread.Sleep(50);
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(tagType);
+            }
+            return status;
+        }
 
-                var snrPtr = Marshal.AllocHGlobal(SL600SDK.MAX_RF_BUFFER);
-                
-                var snrLenPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(byte)));
-                Marshal.Copy(new byte[] { 0 }, 0, snrLenPtr, Marshal.SizeOf(typeof(byte)));
+        private int RFAntiCollAndSelect()
+        {
+            int status = 0;
+            // for RFAntiColl/RFSelect
+            var serialNoPtr = Marshal.AllocHGlobal(SL600SDK.MAX_RF_BUFFER);
+            var serialNoLenPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(byte)));
+            Marshal.Copy(new byte[] { 0 }, 0, serialNoLenPtr, Marshal.SizeOf(typeof(byte)));
+            // for RFSelect
+            var psizePtr = Marshal.AllocHGlobal(SL600SDK.MAX_RF_BUFFER);
+            try
+            {
+                status = SDK.RFAntiColl(ICDev, serialNoPtr, serialNoLenPtr);
+                if (status != 0)
+                {
+                    //Console.WriteLine("RFAntiColl failed.");
+                }
+                Thread.Sleep(50);
+                if (status == 0)
+                {
+                    // adjust size to actual size.
+                    byte snrSize = Marshal.ReadByte(serialNoLenPtr, 0);
+                    status = SDK.RFSelect(ICDev, serialNoPtr, snrSize, psizePtr);
+                    if (status != 0)
+                    {
+                        //Console.WriteLine("RFSelect failed.");
+                    }
+                    Thread.Sleep(50);
+                }
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(psizePtr);
+                Marshal.FreeHGlobal(serialNoPtr);
+                Marshal.FreeHGlobal(serialNoLenPtr);
+            }
+            return status;
+        }
 
-                var psizePtr = Marshal.AllocHGlobal(SL600SDK.MAX_RF_BUFFER);
+        private int RFM1Authentication2(byte[] key, byte mode = 0x61)
+        {
+            int status = 0;
+            int keySize = 6; // key size = 6 byte.
 
-                byte mode = 0x61; // KeyA
-                //byte mode = 0x62; // KeyN
-                byte block_abs = 0;
+            if (null == key || key.Length != keySize)
+            {
+                //Console.WriteLine("Invalid Key Length.");
+                return -1;
+            }
+            //byte mode = 0x61; // KeyA
+            //byte mode = 0x62; // KeyB
+            byte block_abs = 0;
+            var secureKeyPtr = Marshal.AllocHGlobal(keySize);
+            Marshal.Copy(key, 0, secureKeyPtr, keySize);
 
-                int keySize = 6; // key size = 6 byte.
-                var secureKeyPtr = Marshal.AllocHGlobal(keySize);
-                var key = new byte[] { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
-                Marshal.Copy(key, 0, secureKeyPtr, keySize);
+            try
+            {
+                status = SDK.RFM1Authentication2(ICDev, mode, block_abs, secureKeyPtr);
+                if (status != 0)
+                {
+                    Console.WriteLine("RFM1Authentication2 failed.");
+                }
+                Thread.Sleep(50);
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(secureKeyPtr);
+            }
+            return status;
+        }
 
-                var dataPtr = Marshal.AllocHGlobal(SL600SDK.MAX_RF_BUFFER);
-                var dataLenPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(byte)));
-                Marshal.Copy(new byte[] { 0 }, 0, dataLenPtr, Marshal.SizeOf(typeof(byte)));
+        private int RFM1Read(out byte[] buffers, byte blockNo = 0)
+        {
+            int status = 0;
 
-                byte read_block_addr = 0;
+            var dataPtr = Marshal.AllocHGlobal(SL600SDK.MAX_RF_BUFFER);
+            var dataLenPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(byte)));
+            Marshal.Copy(new byte[] { 0xFF }, 0, dataLenPtr, Marshal.SizeOf(typeof(byte)));
 
+            try
+            {
+                status = SDK.RFM1Read(ICDev, blockNo, dataPtr, dataLenPtr);
+                Thread.Sleep(50);
+                if (status != 0)
+                {
+                    //Console.WriteLine("RFM1Read failed.");
+                    buffers = null;
+                }
+                else
+                {
+                    byte dataSize = Marshal.ReadByte(dataLenPtr, 0);
+                    //Console.WriteLine("Data Size: {0}", dataSize);
+                    buffers = new byte[dataSize];
+                    Marshal.Copy(dataPtr, buffers, 0, dataSize);
+                }
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(dataLenPtr);
+                Marshal.FreeHGlobal(dataPtr);
+            }
+            return status;
+        }
+
+        private string BufferToString(byte[] buffers)
+        {
+            string result = string.Empty;
+            if (null == buffers || buffers.Length <= 0) return result;
+            try
+            {
+                StringBuilder sb = new StringBuilder(buffers.Length * 2);
+                foreach (byte b in buffers)
+                {
+                    sb.AppendFormat("{0:X2} ", b);
+                }
+                result = sb.ToString().Trim();
+            }
+            finally
+            {
+            }
+            return result;
+        }
+
+        public class ReadCardResult
+        {
+            public int status { get; set; }
+            public byte[] RawBlock0 { get; set; }
+            public string Block0 { get; set; }
+            public byte[] RawBlock1 { get; set; }
+            public string Block1 { get; set; }
+            public byte[] RawBlock2 { get; set; }
+            public string Block2 { get; set; }
+            public byte[] RawBlock3 { get; set; }
+            public string Block3 { get; set; }
+        }
+
+        public ReadCardResult ReadCard(byte[] key, bool STDMode = true, bool KeyA = true)
+        {
+            ReadCardResult result = new ReadCardResult();
+            try
+            {
                 int status = 0;
                 try
                 {
                     SDK.RFSetAntennaMode(ICDev, false);
                     Thread.Sleep(50);
-
                     SDK.RFInitType(ICDev, (byte)'A');
                     Thread.Sleep(50);
-
                     SDK.RFSetAntennaMode(ICDev, true);
                     Thread.Sleep(50);
-
-                    status = SDK.RFRequest(ICDev, false, tagType);
-                    if (status != 0)
+                    status = RFRequest(STDMode);
+                    if (status == 0) status = RFAntiCollAndSelect();
+                    // mode = 0x61 (KeyA), mode = 0x62 (KeyB)
+                    byte mode = (KeyA) ? (byte)0x61 : (byte)0x62;
+                    if (status == 0) status = RFM1Authentication2(key, mode);
+                    byte[] buffers = null;
+                    if (status == 0)
                     {
-                        Console.WriteLine("RFRequest Failed");
+                        status = RFM1Read(out buffers, 0);
+                        result.RawBlock0 = buffers;
+                        result.Block0 = BufferToString(buffers);
                     }
-                    Thread.Sleep(50);
-
-                    status = SDK.RFAntiColl(ICDev, snrPtr, snrLenPtr);
-                    if (status != 0)
+                    if (status == 0)
                     {
-                        Console.WriteLine("RFAntiColl Failed");
-                    }                    
-                    Thread.Sleep(50);
-
-                    byte snrSize = Marshal.ReadByte(snrLenPtr, 0);
-                    status = SDK.RFSelect(ICDev, snrPtr, snrSize, psizePtr);
-                    if (status != 0)
-                    {
-                        Console.WriteLine("RFSelect Failed");
+                        status = RFM1Read(out buffers, 1);
+                        result.RawBlock1 = buffers;
+                        result.Block1 = BufferToString(buffers);
                     }
-                    Thread.Sleep(50);
-                    
-                    status = SDK.RFM1Authentication2(ICDev, mode, block_abs, secureKeyPtr);
-                    if (status != 0)
+                    if (status == 0)
                     {
-                        Console.WriteLine("RFM1Authentication2 Failed");
+                        status = RFM1Read(out buffers, 2);
+                        result.RawBlock2 = buffers;
+                        result.Block2 = BufferToString(buffers);
                     }
-                    Thread.Sleep(50);
-
-                    status = SDK.RFM1Read(ICDev, read_block_addr, dataPtr, dataLenPtr);
-                    if (status != 0)
+                    if (status == 0)
                     {
-                        Console.WriteLine("RFM1Read Failed");
+                        status = RFM1Read(out buffers, 3);
+                        result.RawBlock3 = buffers;
+                        result.Block3 = BufferToString(buffers);
                     }
-                    else
-                    {
-                        byte dataSize = Marshal.ReadByte(dataLenPtr, 0);
-                        Console.WriteLine("Data Size: {0}", dataSize);
 
-                        byte[] buffers = new byte[dataSize];
-                        Marshal.Copy(dataPtr, buffers, 0, dataSize);
-
-                        StringBuilder sb = new StringBuilder(buffers.Length * 2);
-                        foreach (byte b in buffers)
-                        {
-                            sb.AppendFormat("{0:X2} ", b);
-                        }
-                        var str = sb.ToString().Trim();
-
-                        Console.WriteLine("Data Array: {0}", str);
-                    }
+                    result.status = status;
                 }
                 finally
                 {
-                    Marshal.FreeHGlobal(secureKeyPtr);
-                    Marshal.FreeHGlobal(psizePtr);
-                    Marshal.FreeHGlobal(snrPtr);
-                    Marshal.FreeHGlobal(snrLenPtr);
-                    Marshal.FreeHGlobal(tagType);
+                    
                 }
             }
             catch (SL600Exception)
             {
+                result.status = -1;
             }
+            return result;
         }
 
         #region IDisposable Support
@@ -2737,46 +2852,119 @@ namespace DMT.Smartcard
 
     #region SmartcardService
 
+    public delegate void M1CardReadEventHandler(object sender, M1CardReadEventArgs e);
+
+    public class M1CardReadEventArgs
+    {
+        #region Constructor
+
+        internal M1CardReadEventArgs(Sl600SmartCardReader.ReadCardResult value) : base()
+        {
+            status = value.status;
+            RawBlock0 = value.RawBlock0;
+            Block0 = value.Block0;
+            RawBlock1 = value.RawBlock1;
+            Block1 = value.Block1;
+            RawBlock2 = value.RawBlock2;
+            Block2 = value.Block2;
+            RawBlock3 = value.RawBlock3;
+            Block3 = value.Block3;
+        }
+
+        #endregion
+
+        #region Public Properties
+
+        public int status { get; set; }
+        public byte[] RawBlock0 { get; set; }
+        public string Block0 { get; set; }
+        public byte[] RawBlock1 { get; set; }
+        public string Block1 { get; set; }
+        public byte[] RawBlock2 { get; set; }
+        public string Block2 { get; set; }
+        public byte[] RawBlock3 { get; set; }
+        public string Block3 { get; set; }
+
+        #endregion
+    }
+
     /// <summary>
     /// The Smartcard Service class.
     /// </summary>
-    public class SmartcardService : NTheadSingelton<SmartcardService>
+    public static class SmartcardService
     {
         #region Internal Variables
 
-        private DateTime _lastUpdate = DateTime.MinValue;
-        private string _cardSN = string.Empty;
+        private static bool onScanning = false;
+
+        private static SL600SDKFactory factory = null;
+        private static SL600SDK sdk = null;
+
+        private static Sl600SmartCardReader reader = null;
+        private static DispatcherTimer timer = null;
+
+        private static Sl600SmartCardReader.ReadCardResult _last = null;
 
         #endregion
 
         #region Constructor
 
         /// <summary>
-        /// Constructor.
+        /// Constructor (static)
         /// </summary>
-        protected SmartcardService() : base()
+        static SmartcardService()
         {
-            this.ThreadName = "Smartcard service thread";
+            // load factory.
+            factory = SL600SDKFactory.CreateFactory(
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MasterRD.dll"));
         }
 
         #endregion
 
-        #region Override methods
+        #region Private Methods
 
-        /// <summary>
-        /// OnProcessing override.
-        /// </summary>
-        protected override void OnProcessing()
+        private static void Timer_Tick(object sender, EventArgs e)
         {
-            TimeSpan ts = DateTime.Now - _lastUpdate;
-            if (ts.TotalMilliseconds > 250)
-            {
-                // TODO: Read card from device.
+            if (onScanning) return;
 
-                // raise event.
-                OnTick.Raise(this, EventArgs.Empty);
-                _lastUpdate = DateTime.Now;
+            onScanning = true;
+
+            if (null != reader)
+            {
+                if (reader.IsCardExist())
+                {
+                    //SL600SDK.DefaultKey
+                    var result = reader.ReadCard(SecureKey);
+                    if (null != result && result.status == 0)
+                    {
+                        if (null == _last ||
+                            (null != _last && 
+                            _last.Block0 != result.Block0 &&
+                            _last.Block1 != result.Block1 &&
+                            _last.Block2 != result.Block2 &&
+                            _last.Block3 != result.Block3))
+                        {
+                            // Raise event if last read value is not same card.
+                            if (null != OnCardRead)
+                            {
+                                OnCardRead.Invoke(null, new M1CardReadEventArgs(result));
+                            }
+                            _last = result;
+                        }
+                    }
+                }
+                else
+                {
+                    // reset last read card.
+                    if (null != OnIdle)
+                    {
+                        OnIdle.Invoke(null, EventArgs.Empty);
+                    }
+                    _last = null;
+                }
             }
+
+            onScanning = false;
         }
 
         #endregion
@@ -2784,21 +2972,39 @@ namespace DMT.Smartcard
         #region Public Methods
 
         /// <summary>
-        /// Update Card Serial Number.
+        /// Start listen USB port.
         /// </summary>
-        /// <param name="cardSN">The card serial number.</param>
-        public void Update(string cardSN)
+        public static void Start()
         {
-            _cardSN = cardSN;
-            // raise event.
-            OnCardRead.Raise(this, EventArgs.Empty);
+            if (null != sdk) return; // already start.
+
+            //var resolver = CreateResolver();
+            sdk = factory.CreateInstance();
+
+            reader = new Sl600SmartCardReader(sdk, 0) { IsEmv = false };
+
+            timer = new DispatcherTimer();
+            timer.Tick += Timer_Tick;
+            timer.Interval = TimeSpan.FromMilliseconds(150);
+            timer.Start();
         }
         /// <summary>
-        /// Clear card serial number.
+        /// Shutdown and free resources.
         /// </summary>
-        public void Clear()
+        public static void Shutdown()
         {
-            _cardSN = string.Empty;
+            if (null != timer)
+            {
+                timer.Stop();
+                timer.Tick -= Timer_Tick;
+            }
+            timer = null;
+
+            if (null != reader) reader.Dispose();
+            reader = null;
+
+            if (null != sdk) sdk.Dispose();
+            sdk = null;
         }
 
         #endregion
@@ -2806,22 +3012,22 @@ namespace DMT.Smartcard
         #region Public Properties
 
         /// <summary>
-        /// Gets the last card serial number (4 bytes) in string.
+        /// Gets or sets Secure Key.
         /// </summary>
-        public string CardSN { get { return _cardSN; } }
+        public static byte[] SecureKey { get; set; }
 
         #endregion
 
         #region Public events
 
         /// <summary>
-        /// OnTick EventHandler.
+        /// OnCardRead Event Handler.
         /// </summary>
-        public event EventHandler OnTick;
+        public static event M1CardReadEventHandler OnCardRead;
         /// <summary>
-        /// OnCardRead EventHandler.
+        /// OnIdle Event Handler
         /// </summary>
-        public event EventHandler OnCardRead;
+        public static event EventHandler OnIdle;
 
         #endregion
     }

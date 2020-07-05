@@ -20,8 +20,10 @@ Update 2020-07-05 #5
 Update 2020-07-05 #4
 - 
 
+[commited]
 Update 2020-07-05 #3
-- 
+- Update SQLite.Net.Wpf.Sample #6
+  - Summary individual class required to implement dependency to reduce complex nested class.
 
 [commited]
 Update 2020-07-05 #2

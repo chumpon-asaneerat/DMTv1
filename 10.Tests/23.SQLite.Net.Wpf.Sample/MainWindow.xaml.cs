@@ -80,6 +80,7 @@ namespace SQLite.Net.Wpf.Sample
 
             db.CreateTable<Stock>();
             db.CreateTable<TSB>();
+            db.CreateTable<Plaza>();
 
             if (db.Table<TSB>().Count() == 0)
             {
@@ -100,12 +101,38 @@ namespace SQLite.Net.Wpf.Sample
                 item.Active = false;
                 if (!TSB.Exists(item)) TSB.Save(item);
             }
-            /*
-            if (db.Table<TSB>().Count() == 0) ;
+            if (db.Table<Plaza>().Count() == 0) ;
             {
+                Plaza plaza;
+                plaza = new Plaza()
+                {
+                    PlazaId = "3101",
+                    PlazaNameEN = "DIN DAENG 1",
+                    PlazaNameTH = "ดินแดง 1",
+                    Direction = "IN",
+                    TSBId = "311"
+                };
+                if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
+                plaza = new Plaza()
+                {
+                    PlazaId = "3102",
+                    PlazaNameEN = "DIN DAENG 2",
+                    PlazaNameTH = "ดินแดง 2",
+                    Direction = "OUT",
+                    TSBId = "311"
+                };
+                if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
 
+                plaza = new Plaza()
+                {
+                    PlazaId = "3103",
+                    PlazaNameEN = "SUTHISARN",
+                    PlazaNameTH = "สุทธิสาร",
+                    Direction = "IN/OUT",
+                    TSBId = "312"
+                };
+                if (!Plaza.Exists(plaza)) Plaza.Save(plaza);
             }
-            */
 
             LoadData();
         }
@@ -163,6 +190,20 @@ namespace SQLite.Net.Wpf.Sample
                 item.Raise("Time2");
                 item.Raise("STime2");
             }
+        }
+
+        private void cmdGetTSB_Click(object sender, RoutedEventArgs e)
+        {
+            if (null == db) return;
+            var datasource = TSB.GetAllWithChildren();
+            grid2.ItemsSource = datasource;
+        }
+
+        private void cmdGetPlaze_Click(object sender, RoutedEventArgs e)
+        {
+            if (null == db) return;
+            var datasource = Plaza.Gets();
+            grid2.ItemsSource = datasource;
         }
     }
 }
@@ -883,20 +924,20 @@ namespace DMT.Models
 
     #endregion
 
-    #region TSBBase<T>
+    #region TSBBaseDB<T>
 
     /// <summary>
-    /// The TSB Base Data Model abstract class.
+    /// The TSB Base (DB) Data Model abstract class.
     /// </summary>
     /// <typeparam name="T">The target class type.</typeparam>
-    public abstract class TSBBase<T> : NTable<T>
+    public class TSBBaseDB<T> : NTable<T>
         where T : NTable, new()
     {
         #region Intenral Variables
 
         private string _TSBId = string.Empty;
-        //private string _TSBNameEN = string.Empty;
-        //private string _TSBNameTH = string.Empty;
+        private string _TSBNameEN = string.Empty;
+        private string _TSBNameTH = string.Empty;
 
         #endregion
 
@@ -905,7 +946,7 @@ namespace DMT.Models
         /// <summary>
         /// Constructor.
         /// </summary>
-        public TSBBase() : base() { }
+        public TSBBaseDB() : base() { }
 
         #endregion
 
@@ -931,13 +972,12 @@ namespace DMT.Models
                 }
             }
         }
-        /*
         /// <summary>
         /// Gets or sets TSBNameEN.
         /// </summary>
         [MaxLength(100)]
         [PeropertyMapName("TSBNameEN")]
-        public string TSBNameEN
+        public virtual string TSBNameEN
         {
             get
             {
@@ -957,7 +997,7 @@ namespace DMT.Models
         /// </summary>
         [MaxLength(100)]
         [PeropertyMapName("TSBNameTH")]
-        public string TSBNameTH
+        public virtual string TSBNameTH
         {
             get
             {
@@ -972,11 +1012,245 @@ namespace DMT.Models
                 }
             }
         }
-        */
+
+        #endregion
+    }
+
+    #endregion
+
+    #region TSBBase<T>
+
+    /// <summary>
+    /// The TSB Base Data Model abstract class.
+    /// </summary>
+    /// <typeparam name="T">The target class type.</typeparam>
+    public class TSBBase<T> : TSBBaseDB<T>
+        where T : NTable, new()
+    {
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public TSBBase() : base() { }
+
+        #endregion
+
+        #region Public Proprties
+
+        /// <summary>
+        /// Gets or sets TSBNameEN.
+        /// </summary>
+        [Ignore]
+        [PeropertyMapName("TSBNameEN")]
+        public override string TSBNameEN
+        {
+            get { return base.TSBNameEN; }
+            set { base.TSBNameEN = value; }
+        }
+        /// <summary>
+        /// Gets or sets TSBNameTH.
+        /// </summary>
+        [Ignore]
+        [PeropertyMapName("TSBNameTH")]
+        public override string TSBNameTH
+        {
+            get { return base.TSBNameTH; }
+            set { base.TSBNameTH = value; }
+        }
 
         #endregion
 
         #region Static Methods
+
+        public static List<T> Gets(SQLiteConnection db)
+        {
+            lock (sync)
+            {
+                if (null == db) return null;
+                // read mapping information.
+                var map = db.GetMapping<T>(CreateFlags.None);
+                if (null == map) return null;
+                string tableName = map.TableName;
+
+                // init query string.
+                string cmd = string.Empty;
+                cmd += "SELECT {0}.* , TSB.TSBNameEN, TSB.TSBNameTH ";
+                cmd += " FROM {0}, TSB ";
+                cmd += " WHERE {0}.TSBId = TSB.TSBId ";
+                // execute query.
+                List<TSBBaseDB<T>> baseItems = db.Query<TSBBaseDB<T>>(string.Format(cmd, tableName)).ToList();
+                List<T> items = new List<T>();
+                if (null != baseItems)
+                {
+                    T inst = new T();
+                    baseItems.ForEach(baseIten =>
+                    {
+                        baseIten.AssignTo(inst);
+                        items.Add(inst);
+                    });
+                }
+                return items;
+            }
+        }
+
+        public static List<T> Gets()
+        {
+            lock (sync)
+            {
+                SQLiteConnection db = Default;
+                return Gets(db);
+            }
+        }
+
+        #endregion
+    }
+
+    #endregion
+
+    #region Plaza
+
+    public class Plaza : TSBBase<Plaza>
+    {
+        #region Intenral Variables
+
+        private string _PlazaId = string.Empty;
+
+        private string _PlazaNameEN = string.Empty;
+        private string _PlazaNameTH = string.Empty;
+        private string _Direction = string.Empty;
+
+        private int _Status = 0;
+        private DateTime _LastUpdate = DateTime.MinValue;
+
+        #endregion
+
+        #region Constructor
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public Plaza() : base() { }
+
+        #endregion
+
+        #region Public Proprties
+
+        /// <summary>
+        /// Gets or sets PlazaId
+        /// </summary>
+        [PrimaryKey, MaxLength(10)]
+        [PeropertyMapName("PlazaId")]
+        public string PlazaId
+        {
+            get
+            {
+                return _PlazaId;
+            }
+            set
+            {
+                if (_PlazaId != value)
+                {
+                    _PlazaId = value;
+                    this.RaiseChanged("PlazaId");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets PlazaNameEN
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("PlazaNameEN")]
+        public string PlazaNameEN
+        {
+            get
+            {
+                return _PlazaNameEN;
+            }
+            set
+            {
+                if (_PlazaNameEN != value)
+                {
+                    _PlazaNameEN = value;
+                    this.RaiseChanged("PlazaNameEN");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets PlazaNameTH
+        /// </summary>
+        [MaxLength(100)]
+        [PeropertyMapName("PlazaNameTH")]
+        public string PlazaNameTH
+        {
+            get
+            {
+                return _PlazaNameTH;
+            }
+            set
+            {
+                if (_PlazaNameTH != value)
+                {
+                    _PlazaNameTH = value;
+                    this.RaiseChanged("PlazaNameTH");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets Direction
+        /// </summary>
+        [MaxLength(10)]
+        [PeropertyMapName("Direction")]
+        public string Direction
+        {
+            get
+            {
+                return _Direction;
+            }
+            set
+            {
+                if (_Direction != value)
+                {
+                    _Direction = value;
+                    this.RaiseChanged("Direction");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets Status (1 = Sync, 0 = Unsync, etc..)
+        /// </summary>
+        [PeropertyMapName("Status")]
+        public int Status
+        {
+            get
+            {
+                return _Status;
+            }
+            set
+            {
+                if (_Status != value)
+                {
+                    _Status = value;
+                    this.RaiseChanged("Status");
+                }
+            }
+        }
+        /// <summary>
+        /// Gets or sets LastUpdated (Sync to DC).
+        /// </summary>
+        [PeropertyMapName("LastUpdate")]
+        public DateTime LastUpdate
+        {
+            get { return _LastUpdate; }
+            set
+            {
+                if (_LastUpdate != value)
+                {
+                    _LastUpdate = value;
+                    this.RaiseChanged("LastUpdate");
+                }
+            }
+        }
 
         #endregion
     }

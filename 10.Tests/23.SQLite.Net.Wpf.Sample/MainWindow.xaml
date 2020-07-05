@@ -61,14 +61,15 @@
         </TabItem>
         <TabItem Header="Test Model Base class">
             <DockPanel LastChildFill="True">
-                <StackPanel  Orientation="Horizontal" DockPanel.Dock="Top">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
                     <StackPanel Width="100"
                                 Margin="2"
                                 Orientation="Vertical">
                         <TextBlock Margin="3" Text="" />
                         <Button x:Name="cmdGetTSB"
                                 Margin="3"
-                                Content="Get TSB"/>
+                                Content="Get TSB"
+                                Click="cmdGetTSB_Click"/>
                     </StackPanel>
                     <StackPanel Width="100"
                                 Margin="2"
@@ -76,12 +77,13 @@
                         <TextBlock Margin="3" Text="" />
                         <Button x:Name="cmdGetPlaze"
                                 Margin="3"
-                                Content="Get Plaza" />
+                                Content="Get Plaza" 
+                                Click="cmdGetPlaze_Click"/>
                     </StackPanel>
-                    <DataGrid x:Name="grid2"
+                </StackPanel>
+                <DataGrid x:Name="grid2"
                           AutoGenerateColumns="True"
                           ColumnWidth="150" />
-                </StackPanel>
             </DockPanel>
         </TabItem>
     </TabControl>

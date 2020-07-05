@@ -1215,7 +1215,6 @@ namespace DMT.Models
 
     #region PlazaView
 
-    [Table("Plaza")]
     public class PlazaView : NTable<PlazaView>
     {
         #region Internal Variables
@@ -1432,17 +1431,23 @@ namespace DMT.Models
             {
                 if (null == db) return null;
                 // read mapping information.
+                /*
                 var map = db.GetMapping<PlazaView>(CreateFlags.None);
                 if (null == map) return null;
                 string tableName = map.TableName;
-
+                */
+                string tableName = "Plaza";
                 // init query string.
                 string cmd = string.Empty;
                 cmd += "SELECT {0}.* , TSB.TSBNameEN, TSB.TSBNameTH ";
                 cmd += " FROM {0}, TSB ";
                 cmd += " WHERE {0}.TSBId = TSB.TSBId ";
+                var parameters = new object[] 
+                {
+                    tableName
+                };
                 // execute query.
-                List<PlazaView> items = db.Query<PlazaView>(string.Format(cmd, tableName)).ToList();
+                List<PlazaView> items = db.Query<PlazaView>(string.Format(cmd, parameters)).ToList();
                 return items;
             }
         }

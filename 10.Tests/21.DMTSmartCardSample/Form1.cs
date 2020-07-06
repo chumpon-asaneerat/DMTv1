@@ -26,16 +26,20 @@ namespace DMTSmartCardSample
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SmartcardService.ReadSerialNoOnly = true;
+            // Read both serial and block.
+            SmartcardService.ReadSerialNoOnly = false;
+
             SmartcardService.SecureKey = SL600SDK.DefaultKey;
             SmartcardService.OnIdle += SmartcardService_OnIdle;
-            SmartcardService.OnCardRead += SmartcardService_OnCardRead;
+            SmartcardService.OnCardReadSerial += SmartcardService_OnCardReadSerial;
+            SmartcardService.OnCardReadBlock += SmartcardService_OnCardReadBlock;
             SmartcardService.Start();
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            SmartcardService.OnCardRead -= SmartcardService_OnCardRead;
+            SmartcardService.OnCardReadBlock -= SmartcardService_OnCardReadBlock;
+            SmartcardService.OnCardReadSerial -= SmartcardService_OnCardReadSerial;
             SmartcardService.OnIdle -= SmartcardService_OnIdle;
             SmartcardService.Shutdown();
         }
@@ -51,15 +55,23 @@ namespace DMTSmartCardSample
             lbBlock3.Text = "Block 3: ";
         }
 
-        private void SmartcardService_OnCardRead(object sender, M1CardReadEventArgs e)
+        private void SmartcardService_OnCardReadSerial(object sender, M1CardReadSerialEventArgs e)
         {
             lbCardExist.ForeColor = Color.Green;
             lbCardExist.Text = "Card avaliable.";
             lbSN.Text = e.SerialNo;
+        }
+
+        private void SmartcardService_OnCardReadBlock(object sender, M1CardReadBlockEventArgs e)
+        {
             lbBlock0.Text = "Block 0: " + e.Block0;
             lbBlock1.Text = "Block 1: " + e.Block1;
             lbBlock2.Text = "Block 2: " + e.Block2;
             lbBlock3.Text = "Block 3: " + e.Block3;
+        }
+
+        private void SmartcardService_OnCardRead(object sender, M1CardReadBlockEventArgs e)
+        {
         }
 
         /*

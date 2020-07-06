@@ -8,8 +8,9 @@ Update 2020-07-07 #4
 Update 2020-07-07 #3
 - 
 
+[commited]
 Update 2020-07-07 #2
-- 
+- Smartcard lib supports serial number (refactored) with remove Thread.Sleep (better performance).
 
 [commited]
 Update 2020-07-07 #1

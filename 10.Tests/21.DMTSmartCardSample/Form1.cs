@@ -70,10 +70,6 @@ namespace DMTSmartCardSample
             lbBlock3.Text = "Block 3: " + e.Block3;
         }
 
-        private void SmartcardService_OnCardRead(object sender, M1CardReadBlockEventArgs e)
-        {
-        }
-
         /*
         private void DeviceInsertedEvent(object sender, EventArrivedEventArgs e)
         {

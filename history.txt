@@ -11,8 +11,9 @@ Update 2020-07-07 #3
 Update 2020-07-07 #2
 - 
 
+[commited]
 Update 2020-07-07 #1
-- 
+- Smartcard lib add supports readonly serial nuber of card (refactor required).
 
 --------------------------------------------------------------------------------------------
 [commited]

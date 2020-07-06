@@ -38,12 +38,14 @@
             this.lbBlock1 = new System.Windows.Forms.Label();
             this.lbBlock2 = new System.Windows.Forms.Label();
             this.lbBlock3 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbSN = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(23, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 17);
             this.label1.TabIndex = 0;
@@ -65,15 +67,15 @@
             this.lstDevices.FormattingEnabled = true;
             this.lstDevices.IntegralHeight = false;
             this.lstDevices.ItemHeight = 16;
-            this.lstDevices.Location = new System.Drawing.Point(12, 182);
+            this.lstDevices.Location = new System.Drawing.Point(12, 216);
             this.lstDevices.Name = "lstDevices";
-            this.lstDevices.Size = new System.Drawing.Size(789, 214);
+            this.lstDevices.Size = new System.Drawing.Size(789, 180);
             this.lstDevices.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 162);
+            this.label2.Location = new System.Drawing.Point(12, 196);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 17);
             this.label2.TabIndex = 3;
@@ -86,7 +88,7 @@
             // lbBlock0
             // 
             this.lbBlock0.AutoSize = true;
-            this.lbBlock0.Location = new System.Drawing.Point(101, 41);
+            this.lbBlock0.Location = new System.Drawing.Point(101, 71);
             this.lbBlock0.Name = "lbBlock0";
             this.lbBlock0.Size = new System.Drawing.Size(62, 17);
             this.lbBlock0.TabIndex = 5;
@@ -95,16 +97,16 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 41);
+            this.label4.Location = new System.Drawing.Point(12, 71);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 17);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Card Date : ";
+            this.label4.Text = "Card Data : ";
             // 
             // lbBlock1
             // 
             this.lbBlock1.AutoSize = true;
-            this.lbBlock1.Location = new System.Drawing.Point(101, 68);
+            this.lbBlock1.Location = new System.Drawing.Point(101, 98);
             this.lbBlock1.Name = "lbBlock1";
             this.lbBlock1.Size = new System.Drawing.Size(62, 17);
             this.lbBlock1.TabIndex = 6;
@@ -113,7 +115,7 @@
             // lbBlock2
             // 
             this.lbBlock2.AutoSize = true;
-            this.lbBlock2.Location = new System.Drawing.Point(101, 95);
+            this.lbBlock2.Location = new System.Drawing.Point(101, 125);
             this.lbBlock2.Name = "lbBlock2";
             this.lbBlock2.Size = new System.Drawing.Size(62, 17);
             this.lbBlock2.TabIndex = 7;
@@ -122,17 +124,37 @@
             // lbBlock3
             // 
             this.lbBlock3.AutoSize = true;
-            this.lbBlock3.Location = new System.Drawing.Point(101, 125);
+            this.lbBlock3.Location = new System.Drawing.Point(101, 155);
             this.lbBlock3.Name = "lbBlock3";
             this.lbBlock3.Size = new System.Drawing.Size(62, 17);
             this.lbBlock3.TabIndex = 8;
             this.lbBlock3.Text = "Block 0 :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(23, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 17);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Card SN : ";
+            // 
+            // lbSN
+            // 
+            this.lbSN.AutoSize = true;
+            this.lbSN.Location = new System.Drawing.Point(102, 40);
+            this.lbSN.Name = "lbSN";
+            this.lbSN.Size = new System.Drawing.Size(13, 17);
+            this.lbSN.TabIndex = 10;
+            this.lbSN.Text = "-";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(813, 408);
+            this.Controls.Add(this.lbSN);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.lbBlock3);
             this.Controls.Add(this.lbBlock2);
             this.Controls.Add(this.lbBlock1);
@@ -163,6 +185,8 @@
         private System.Windows.Forms.Label lbBlock1;
         private System.Windows.Forms.Label lbBlock2;
         private System.Windows.Forms.Label lbBlock3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbSN;
     }
 }
 

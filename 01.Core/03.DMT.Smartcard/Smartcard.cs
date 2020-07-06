@@ -2358,9 +2358,10 @@ namespace DMT.Smartcard
             return status;
         }
 
-        private int RFAntiCollAndSelect()
+        private int RFAntiCollAndSelect(out byte[] buffers)
         {
             int status = 0;
+            buffers = null;
             // for RFAntiColl/RFSelect
             var serialNoPtr = Marshal.AllocHGlobal(SL600SDK.MAX_RF_BUFFER);
             var serialNoLenPtr = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(byte)));
@@ -2383,6 +2384,11 @@ namespace DMT.Smartcard
                     if (status != 0)
                     {
                         //Console.WriteLine("RFSelect failed.");
+                    }
+                    if (status == 0)
+                    {
+                        buffers = new byte[snrSize];
+                        Marshal.Copy(serialNoPtr, buffers, 0, snrSize);
                     }
                     Thread.Sleep(50);
                 }
@@ -2483,6 +2489,9 @@ namespace DMT.Smartcard
         public class ReadCardResult
         {
             public int status { get; set; }
+
+            public byte[] RawSerialNo { get; set; }
+            public string SerialNo { get; set; }
             public byte[] RawBlock0 { get; set; }
             public string Block0 { get; set; }
             public byte[] RawBlock1 { get; set; }
@@ -2493,7 +2502,8 @@ namespace DMT.Smartcard
             public string Block3 { get; set; }
         }
 
-        public ReadCardResult ReadCard(byte[] key, bool STDMode = true, bool KeyA = true)
+        public ReadCardResult ReadCard(bool serialNoOnly, byte[] key = null, 
+            bool STDMode = true, bool KeyA = true)
         {
             ReadCardResult result = new ReadCardResult();
             try
@@ -2508,36 +2518,48 @@ namespace DMT.Smartcard
                     SDK.RFSetAntennaMode(ICDev, true);
                     Thread.Sleep(50);
                     status = RFRequest(STDMode);
-                    if (status == 0) status = RFAntiCollAndSelect();
-                    // mode = 0x61 (KeyA), mode = 0x62 (KeyB)
-                    byte mode = (KeyA) ? (byte)0x61 : (byte)0x62;
-                    if (status == 0) status = RFM1Authentication2(key, mode);
+
                     byte[] buffers = null;
-                    if (status == 0)
+                    if (status == 0) status = RFAntiCollAndSelect(out buffers);
+                    if (buffers != null)
                     {
-                        status = RFM1Read(out buffers, 0);
-                        result.RawBlock0 = buffers;
-                        result.Block0 = BufferToString(buffers);
-                    }
-                    if (status == 0)
-                    {
-                        status = RFM1Read(out buffers, 1);
-                        result.RawBlock1 = buffers;
-                        result.Block1 = BufferToString(buffers);
-                    }
-                    if (status == 0)
-                    {
-                        status = RFM1Read(out buffers, 2);
-                        result.RawBlock2 = buffers;
-                        result.Block2 = BufferToString(buffers);
-                    }
-                    if (status == 0)
-                    {
-                        status = RFM1Read(out buffers, 3);
-                        result.RawBlock3 = buffers;
-                        result.Block3 = BufferToString(buffers);
+                        result.RawSerialNo = buffers;
+                        result.SerialNo = BufferToString(buffers);
                     }
 
+                    // Note. If only required to read serial number.
+                    // Not need Key to access block. So the below code can be command out.
+                    if (!serialNoOnly)
+                    {
+                        // mode = 0x61 (KeyA), mode = 0x62 (KeyB)
+                        byte mode = (KeyA) ? (byte)0x61 : (byte)0x62;
+                        if (status == 0) status = RFM1Authentication2(key, mode);
+
+                        if (status == 0)
+                        {
+                            status = RFM1Read(out buffers, 0);
+                            result.RawBlock0 = buffers;
+                            result.Block0 = BufferToString(buffers);
+                        }
+                        if (status == 0)
+                        {
+                            status = RFM1Read(out buffers, 1);
+                            result.RawBlock1 = buffers;
+                            result.Block1 = BufferToString(buffers);
+                        }
+                        if (status == 0)
+                        {
+                            status = RFM1Read(out buffers, 2);
+                            result.RawBlock2 = buffers;
+                            result.Block2 = BufferToString(buffers);
+                        }
+                        if (status == 0)
+                        {
+                            status = RFM1Read(out buffers, 3);
+                            result.RawBlock3 = buffers;
+                            result.Block3 = BufferToString(buffers);
+                        }
+                    }
                     result.status = status;
                 }
                 finally
@@ -2861,6 +2883,8 @@ namespace DMT.Smartcard
         internal M1CardReadEventArgs(Sl600SmartCardReader.ReadCardResult value) : base()
         {
             status = value.status;
+            RawSerialNo = value.RawSerialNo;
+            SerialNo = value.SerialNo;
             RawBlock0 = value.RawBlock0;
             Block0 = value.Block0;
             RawBlock1 = value.RawBlock1;
@@ -2876,6 +2900,8 @@ namespace DMT.Smartcard
         #region Public Properties
 
         public int status { get; set; }
+        public byte[] RawSerialNo { get; set; }
+        public string SerialNo { get; set; }
         public byte[] RawBlock0 { get; set; }
         public string Block0 { get; set; }
         public byte[] RawBlock1 { get; set; }
@@ -2903,6 +2929,7 @@ namespace DMT.Smartcard
         private static Sl600SmartCardReader reader = null;
         private static DispatcherTimer timer = null;
 
+        public static bool ReadSerialNoOnly = false;
         private static Sl600SmartCardReader.ReadCardResult _last = null;
 
         #endregion
@@ -2934,11 +2961,12 @@ namespace DMT.Smartcard
                 if (reader.IsCardExist())
                 {
                     //SL600SDK.DefaultKey
-                    var result = reader.ReadCard(SecureKey);
+                    var result = reader.ReadCard(ReadSerialNoOnly, SecureKey);
                     if (null != result && result.status == 0)
                     {
                         if (null == _last ||
-                            (null != _last && 
+                            (null != _last &&
+                            _last.SerialNo != result.SerialNo &&
                             _last.Block0 != result.Block0 &&
                             _last.Block1 != result.Block1 &&
                             _last.Block2 != result.Block2 &&
@@ -2956,11 +2984,14 @@ namespace DMT.Smartcard
                 else
                 {
                     // reset last read card.
-                    if (null != OnIdle)
+                    if (_last != null)
                     {
-                        OnIdle.Invoke(null, EventArgs.Empty);
+                        if (null != OnIdle)
+                        {
+                            OnIdle.Invoke(null, EventArgs.Empty);
+                        }
+                        _last = null;
                     }
-                    _last = null;
                 }
             }
 

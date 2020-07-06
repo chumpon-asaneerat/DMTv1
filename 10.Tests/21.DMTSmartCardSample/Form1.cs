@@ -26,6 +26,7 @@ namespace DMTSmartCardSample
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            SmartcardService.ReadSerialNoOnly = true;
             SmartcardService.SecureKey = SL600SDK.DefaultKey;
             SmartcardService.OnIdle += SmartcardService_OnIdle;
             SmartcardService.OnCardRead += SmartcardService_OnCardRead;
@@ -43,6 +44,7 @@ namespace DMTSmartCardSample
         {
             lbCardExist.ForeColor = Color.Red;
             lbCardExist.Text = "Card not avaliable.";
+            lbSN.Text = "-";
             lbBlock0.Text = "Block 0: ";
             lbBlock1.Text = "Block 1: ";
             lbBlock2.Text = "Block 2: ";
@@ -53,6 +55,7 @@ namespace DMTSmartCardSample
         {
             lbCardExist.ForeColor = Color.Green;
             lbCardExist.Text = "Card avaliable.";
+            lbSN.Text = e.SerialNo;
             lbBlock0.Text = "Block 0: " + e.Block0;
             lbBlock1.Text = "Block 1: " + e.Block1;
             lbBlock2.Text = "Block 2: " + e.Block2;

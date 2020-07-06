@@ -2,8 +2,10 @@
 Update 2020-07-07 #5
 - 
 
+[commited]
 Update 2020-07-07 #4
-- 
+- Smartcard HID note. The control panel's device screen will show Device name from
+  'bus reported device description'.
 
 [commited]
 Update 2020-07-07 #3

@@ -11,8 +11,9 @@ Update 2020-07-06 #3
 Update 2020-07-06 #2
 - 
 
+[commited]
 Update 2020-07-06 #1
-- 
+- Note. Smartcard code in v2 is newer that on this solution.
 
 --------------------------------------------------------------------------------------------
 [commited]

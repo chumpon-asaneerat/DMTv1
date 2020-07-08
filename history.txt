@@ -16,6 +16,10 @@ Update 2020-07-09 #1
 
 --------------------------------------------------------------------------------------------
 [commited]
+Update 2020-07-08 #2
+- Prepare history.txt (Re sync to Git)
+
+[commited]
 Update 2020-07-08 #1
 - Prepare history.txt
 
